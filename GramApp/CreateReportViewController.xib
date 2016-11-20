@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateReportViewController" customModule="GramTimesheets" customModuleProvider="target">
+            <connections>
+                <outlet property="createButton" destination="utc-hC-GXx" id="f9y-73-CSp"/>
+                <outlet property="stepper" destination="Nvh-Ft-j2h" id="b8i-ol-zIh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weeknumberLabel" destination="Z48-du-p5e" id="pw6-DP-lfG"/>
+                <outlet property="yearLabel" destination="goB-xJ-pqi" id="pGR-yg-A4S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-hC-GXx">
+                    <state key="normal" title="Create new report"/>
+                    <connections>
+                        <action selector="createButtonAction:" destination="-1" eventType="touchUpInside" id="rAx-41-yez"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weeknumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z48-du-p5e">
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-Ft-j2h">
+                    <connections>
+                        <action selector="stepperAction:" destination="-1" eventType="valueChanged" id="HEM-xC-qQB"/>
+                    </connections>
+                </stepper>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-mT-zRv">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Rme-vQ-J70"/>
+                        <constraint firstAttribute="width" constant="240" id="VyM-Fn-Q7I"/>
+                    </constraints>
+                    <string key="text">Create a new report
+for week number:</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-v0-m2K">
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="fi4-De-6WY"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goB-xJ-pqi">
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nvh-Ft-j2h" firstAttribute="top" secondItem="goB-xJ-pqi" secondAttribute="bottom" constant="30" id="0bO-6m-KBG"/>
+                <constraint firstItem="Z48-du-p5e" firstAttribute="top" secondItem="Y6Z-mT-zRv" secondAttribute="bottom" constant="25" id="Hcr-Ps-Gxw"/>
+                <constraint firstItem="goB-xJ-pqi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hpe-3O-Yrd"/>
+                <constraint firstItem="goB-xJ-pqi" firstAttribute="top" secondItem="Z48-du-p5e" secondAttribute="bottom" constant="5" id="Utt-Oe-qr2"/>
+                <constraint firstItem="Y6Z-mT-zRv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZB7-3K-7pW"/>
+                <constraint firstItem="Nvh-Ft-j2h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a6x-Gn-eXn"/>
+                <constraint firstItem="Z48-du-p5e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fCa-Bf-cnz"/>
+                <constraint firstItem="utc-hC-GXx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fX2-Tn-BoQ"/>
+                <constraint firstItem="utc-hC-GXx" firstAttribute="top" secondItem="Nvh-Ft-j2h" secondAttribute="bottom" constant="93" id="hWK-I6-anp"/>
+                <constraint firstItem="Nvh-Ft-j2h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oTN-gF-L8X"/>
+                <constraint firstItem="7ad-v0-m2K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="osI-uZ-3EF"/>
+                <constraint firstItem="7ad-v0-m2K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="xrN-9L-26d"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
