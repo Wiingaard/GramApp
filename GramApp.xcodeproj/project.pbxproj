@@ -14,6 +14,7 @@
 		5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B04A4E31DE21E51000C12A9 /* LaunchScreen.storyboard */; };
 		5B04A4FB1DE23B3C000C12A9 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4F41DE23B18000C12A9 /* libXlsxReaderWriter.a */; };
 		5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4FD1DE23B45000C12A9 /* libz.tbd */; };
+		8F865C3F7473A965B01D0A3B /* Pods_GramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51F1A27B8337D05E9AFC1189 /* Pods-GramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GramApp/Pods-GramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5B04A4D71DE21E51000C12A9 /* GramApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GramApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B04A4DA1DE21E51000C12A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B04A4DC1DE21E51000C12A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XlsxReaderWriter.xcodeproj; path = "XlsxReaderWriter-master/XlsxReaderWriter.xcodeproj"; sourceTree = "<group>"; };
 		5B04A4FD1DE23B45000C12A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GramApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramApp/Pods-GramApp.release.xcconfig"; sourceTree = "<group>"; };
+		E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			files = (
 				5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */,
 				5B04A4FB1DE23B3C000C12A9 /* libXlsxReaderWriter.a in Frameworks */,
+				8F865C3F7473A965B01D0A3B /* Pods_GramApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,7 @@
 				5B04A4D91DE21E51000C12A9 /* GramApp */,
 				5B04A4D81DE21E51000C12A9 /* Products */,
 				5B04A4FC1DE23B45000C12A9 /* Frameworks */,
+				CDC07F1C1393257912493D59 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,8 +125,18 @@
 			isa = PBXGroup;
 			children = (
 				5B04A4FD1DE23B45000C12A9 /* libz.tbd */,
+				E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDC07F1C1393257912493D59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51F1A27B8337D05E9AFC1189 /* Pods-GramApp.debug.xcconfig */,
+				99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B04A4E91DE21E51000C12A9 /* Build configuration list for PBXNativeTarget "GramApp" */;
 			buildPhases = (
+				C40649128EE74D2BB4288446 /* [CP] Check Pods Manifest.lock */,
 				5B04A4D31DE21E51000C12A9 /* Sources */,
 				5B04A4D41DE21E51000C12A9 /* Frameworks */,
 				5B04A4D51DE21E51000C12A9 /* Resources */,
+				5ACDD991C8B449FAB0626832 /* [CP] Embed Pods Frameworks */,
+				4DA317F2F982DA3C96FA9FF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,6 +241,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DA317F2F982DA3C96FA9FF8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GramApp/Pods-GramApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ACDD991C8B449FAB0626832 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GramApp/Pods-GramApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C40649128EE74D2BB4288446 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B04A4D31DE21E51000C12A9 /* Sources */ = {
@@ -360,6 +427,7 @@
 		};
 		5B04A4EA1DE21E51000C12A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51F1A27B8337D05E9AFC1189 /* Pods-GramApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -376,6 +444,7 @@
 		};
 		5B04A4EB1DE21E51000C12A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -408,6 +477,7 @@
 				5B04A4EB1DE21E51000C12A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         simpleTest()
+        let realm = try! Realm()
     }
     
     func simpleTest() {
@@ -24,9 +26,9 @@ class ViewController: UIViewController {
         var worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
         
         // Add Image
-        let image: UIImage = UIImage(named: "awesome-face.png")!
-        var drawing: BRAWorksheetDrawing = worksheet.add(image, inCellReferenced: "B2", withOffset: CGPoint(x: 30, y: 30), size: image.size, preserveTransparency: true)
-        drawing.insets = UIEdgeInsetsMake(0.0, 0.0, 0.5, 0.5)
+//        let image: UIImage = UIImage(named: "awesome-face.png")!
+//        var drawing: BRAWorksheetDrawing = worksheet.add(image, inCellReferenced: "B2", withOffset: CGPoint(x: 30, y: 30), size: image.size, preserveTransparency: true)
+//        drawing.insets = UIEdgeInsetsMake(0.0, 0.0, 0.5, 0.5)
         
         // Save worksheet
         var savePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
