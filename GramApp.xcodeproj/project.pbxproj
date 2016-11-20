@@ -12,7 +12,40 @@
 		5B04A4E01DE21E51000C12A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B04A4DE1DE21E51000C12A9 /* Main.storyboard */; };
 		5B04A4E21DE21E51000C12A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B04A4E11DE21E51000C12A9 /* Assets.xcassets */; };
 		5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B04A4E31DE21E51000C12A9 /* LaunchScreen.storyboard */; };
+		5B04A4FB1DE23B3C000C12A9 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4F41DE23B18000C12A9 /* libXlsxReaderWriter.a */; };
+		5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4FD1DE23B45000C12A9 /* libz.tbd */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B04A4F31DE23B18000C12A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B6E23A1A148F7500288A78;
+			remoteInfo = XlsxReaderWriter;
+		};
+		5B04A4F51DE23B18000C12A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B6E2451A148F7500288A78;
+			remoteInfo = XlsxReaderWriterTests;
+		};
+		5B04A4F71DE23B18000C12A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22156D581C46B42500BB5779;
+			remoteInfo = "XlsxReaderWriter Mac";
+		};
+		5B04A4F91DE23B2E000C12A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B6E2391A148F7500288A78;
+			remoteInfo = XlsxReaderWriter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5B04A4D71DE21E51000C12A9 /* GramApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GramApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +55,9 @@
 		5B04A4E11DE21E51000C12A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B04A4E41DE21E51000C12A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B04A4E61DE21E51000C12A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XlsxReaderWriter.xcodeproj; path = "XlsxReaderWriter-master/XlsxReaderWriter.xcodeproj"; sourceTree = "<group>"; };
+		5B04A4FD1DE23B45000C12A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GramApp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */,
+				5B04A4FB1DE23B3C000C12A9 /* libXlsxReaderWriter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +76,10 @@
 		5B04A4CE1DE21E51000C12A9 = {
 			isa = PBXGroup;
 			children = (
+				5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */,
 				5B04A4D91DE21E51000C12A9 /* GramApp */,
 				5B04A4D81DE21E51000C12A9 /* Products */,
+				5B04A4FC1DE23B45000C12A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +100,27 @@
 				5B04A4E11DE21E51000C12A9 /* Assets.xcassets */,
 				5B04A4E31DE21E51000C12A9 /* LaunchScreen.storyboard */,
 				5B04A4E61DE21E51000C12A9 /* Info.plist */,
+				5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */,
 			);
 			path = GramApp;
+			sourceTree = "<group>";
+		};
+		5B04A4ED1DE23B18000C12A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B04A4F41DE23B18000C12A9 /* libXlsxReaderWriter.a */,
+				5B04A4F61DE23B18000C12A9 /* XlsxReaderWriterTests.xctest */,
+				5B04A4F81DE23B18000C12A9 /* XlsxReaderWriter.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B04A4FC1DE23B45000C12A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B04A4FD1DE23B45000C12A9 /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +137,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5B04A4FA1DE23B2E000C12A9 /* PBXTargetDependency */,
 			);
 			name = GramApp;
 			productName = GramApp;
@@ -97,6 +157,7 @@
 					5B04A4D61DE21E51000C12A9 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = WE6L8Y26GJ;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -112,12 +173,42 @@
 			mainGroup = 5B04A4CE1DE21E51000C12A9;
 			productRefGroup = 5B04A4D81DE21E51000C12A9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5B04A4ED1DE23B18000C12A9 /* Products */;
+					ProjectRef = 5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5B04A4D61DE21E51000C12A9 /* GramApp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5B04A4F41DE23B18000C12A9 /* libXlsxReaderWriter.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libXlsxReaderWriter.a;
+			remoteRef = 5B04A4F31DE23B18000C12A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B04A4F61DE23B18000C12A9 /* XlsxReaderWriterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XlsxReaderWriterTests.xctest;
+			remoteRef = 5B04A4F51DE23B18000C12A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B04A4F81DE23B18000C12A9 /* XlsxReaderWriter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XlsxReaderWriter.framework;
+			remoteRef = 5B04A4F71DE23B18000C12A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5B04A4D51DE21E51000C12A9 /* Resources */ = {
@@ -143,6 +234,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B04A4FA1DE23B2E000C12A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XlsxReaderWriter;
+			targetProxy = 5B04A4F91DE23B2E000C12A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5B04A4DE1DE21E51000C12A9 /* Main.storyboard */ = {
@@ -204,12 +303,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "/Users/Martin/Git/GramApp/XlsxReaderWriter-master/**";
 			};
 			name = Debug;
 		};
@@ -247,10 +348,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USER_HEADER_SEARCH_PATHS = "/Users/Martin/Git/GramApp/XlsxReaderWriter-master/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -259,11 +362,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WE6L8Y26GJ;
 				INFOPLIST_FILE = GramApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fiksApps.GramApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GramApp/GramApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,11 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WE6L8Y26GJ;
 				INFOPLIST_FILE = GramApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fiksApps.GramApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GramApp/GramApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
