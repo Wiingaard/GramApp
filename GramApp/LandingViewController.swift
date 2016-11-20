@@ -9,12 +9,12 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController {
+class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        simpleTest()
+//        simpleTest()
         let realm = try! Realm()
     }
     
