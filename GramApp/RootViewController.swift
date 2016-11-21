@@ -55,6 +55,10 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = UIColor.clear
         
+        let user = realm.objects(User.self)
+        if user.first == nil {
+            initiateOnboarding()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +71,13 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
+    }
+    
+    func initiateOnboarding() {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingNavID") as! UINavigationController
+        present(vc, animated: false, completion: nil)
     }
     
     

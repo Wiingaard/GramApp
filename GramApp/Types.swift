@@ -20,7 +20,7 @@ protocol InputControllerDelegate {
 
 enum InputType {
     // number
-    case numberInspector
+    case numberInspector        // Profile - User
     case numberReport
     case numberOrder
     case numberHoursTotal       // Work Hours
@@ -33,6 +33,7 @@ enum InputType {
     case stringCustomer
     case stringTypeOfWork       // Work Hours
     case stringCarNo            // Car
+    case stringFullName         // Profile - User
     // date
     case dateDeparture
 }

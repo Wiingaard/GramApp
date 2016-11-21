@@ -42,6 +42,8 @@
 		5BB553BC1DE246AA00D98AE8 /* Rød cirkel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */; };
 		5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */; };
 		5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */; };
+		5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */; };
+		5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */; };
 		8F865C3F7473A965B01D0A3B /* Pods_GramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rød cirkel.png"; sourceTree = "<group>"; };
 		5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
+		5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
+		5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
 		99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramApp/Pods-GramApp.release.xcconfig"; sourceTree = "<group>"; };
 		E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +164,8 @@
 				5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */,
 				5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */,
 				5B04A4DE1DE21E51000C12A9 /* Main.storyboard */,
+				5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */,
+				5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */,
 				5BB553B01DE2469900D98AE8 /* Cells */,
 				5BB553A71DE2467800D98AE8 /* Input View Controllers */,
 				5BB553961DE2464A00D98AE8 /* Weekly Report View Controllers */,
@@ -429,9 +435,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */,
 				5BB553861DE2459C00D98AE8 /* Types.swift in Sources */,
 				5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */,
 				5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */,
+				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
 				5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */,
 				5B04A4DB1DE21E51000C12A9 /* AppDelegate.swift in Sources */,
 				5BB553A31DE2467100D98AE8 /* DateInputViewController.swift in Sources */,

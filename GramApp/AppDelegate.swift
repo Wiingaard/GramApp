@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         print("Realm path: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        let user = realm.objects(User.self)
-        if user.first == nil {
-            initiateOnboarding()
-        }
+//        let user = realm.objects(User.self)
+//        if user.first == nil {
+//            initiateOnboarding()
+//        }
         
         return true
     }

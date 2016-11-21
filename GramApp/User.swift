@@ -11,15 +11,27 @@ import RealmSwift
 
 class User: Object {
     
+    dynamic var fullName = ""
     dynamic var inspectorNumber = 0
     
-    
-    var validInspector: Bool {
-        return inspectorNumber > 0 ? true : false
+    // MARK: - Validering
+    func validFullName(name: String? = nil) -> Bool {
+        let checkName: String!
+        if name != nil {
+            checkName = name
+        } else {
+            checkName = fullName
+        }
+        return !checkName.isEmpty ? true : false
     }
     
-    override static func ignoredProperties() -> [String] {
-        return ["validInspector"]
+    func validInspectorNumber(number: Int? = nil) -> Bool {
+        let checkNumber: Int!
+        if number != nil {
+            checkNumber = number
+        } else {
+            checkNumber = inspectorNumber
+        }
+        return checkNumber > 0 ? true : false
     }
-    
 }

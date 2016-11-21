@@ -27,50 +27,64 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
         
         user = realm.objects(User.self).first
-        
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
-        cell.nameLabel.text = "Inspector no."
-        if user.validInspector {
-            cell.statusImageView.image = UIImage(named: "Grøn Cirkel.png")
-            cell.valueLabel.text = String(user.inspectorNumber)
-        } else {
-            cell.statusImageView.image = UIImage(named: "Rød Cirkel.png")
-            cell.valueLabel.text = ""
-        }
+        switch indexPath.row {
+        case 0:
+            cell.nameLabel.text = "Inspector no."
+            cell.valueLabel.text = user.validInspectorNumber() ? "\(user.inspectorNumber)" : ""
+            cell.statusImage(shouldShowGreen: user.validInspectorNumber())
+            
+        case 1:
+            cell.nameLabel.text = "Full name"
+            cell.valueLabel.text = user.validFullName() ? "\(user.fullName)" : ""
+            cell.statusImage(shouldShowGreen: user.validFullName())
         
+        default:
+            break
+        }
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
+        
+        switch indexPath.row {
+        case 0:
             let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
             numberInputViewController.delegate = self
             numberInputViewController.placeholder = "Inspector Number"
             numberInputViewController.inputType = InputType.numberInspector
-            print("### inspector: \(user.inspectorNumber)")
             numberInputViewController.initialInputValue = user.inspectorNumber
             navigationController?.pushViewController(numberInputViewController, animated: true)
+        case 1:
+            let stringInputViewController = StringInputViewController(nibName: "StringInputViewController", bundle: nil)
+            stringInputViewController.delegate = self
+            stringInputViewController.placeholder = "Full name"
+            stringInputViewController.inputType = InputType.stringFullName
+            stringInputViewController.initialInputValue = user.fullName
+            navigationController?.pushViewController(stringInputViewController, animated: true)
+        default:
+            break
         }
     }
-    
     
     func inputControllerDidFinish(withValue value: AnyObject, andInputType type: InputType) {
         if type == .numberInspector {
             let inspector = value as! Int
             try! realm.write {
                 user.inspectorNumber = inspector
-                tableView.reloadData()
+            }
+        } else if type == .stringFullName {
+            let name = value as! String
+            try! realm.write {
+                user.fullName = name
             }
         }
+        tableView.reloadData()
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
@@ -81,10 +95,6 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
-    
-    
-    
-
 }
