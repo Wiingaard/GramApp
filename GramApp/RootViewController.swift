@@ -88,7 +88,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportWeekTableViewCell") as!ReportWeekTableViewCell
         cell.weeknumberLabel.text = "Report week \(report.weekNumber)"
-        cell.statusLabel.text = "Not sent yet"
+        cell.statusLabel.text = report.sentStatus ? "SIGNED & SENT" : "NOT SENT YET"
+        cell.statusLabel.textColor = report.sentStatus ? UIColor.green : UIColor.red
         return cell
     }
     

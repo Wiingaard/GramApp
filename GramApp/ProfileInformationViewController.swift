@@ -12,10 +12,20 @@ import RealmSwift
 class ProfileInformationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var buttonLabel: UILabel!
     
     // Model
     let realm = try! Realm()
     var user: User!
+    var reportList: Results<WeekReport> {
+        get {
+            return realm.objects(WeekReport.self)
+        }
+    }
+    
+    // View stuff
+    var deleteAllTapGesture: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +37,43 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
         
         user = realm.objects(User.self).first
+        setupButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // setup Delete all button
+        buttonView.layer.cornerRadius = 5
+        buttonView.clipsToBounds = true
+        deleteAllTapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileInformationViewController.deleteAllAction))
+        buttonView.addGestureRecognizer(deleteAllTapGesture)
+    }
+    
+    func setupButton() {
+        if reportList.isEmpty {
+            buttonLabel.text = "All reports are deleted"
+        } else {
+            buttonLabel.text = "Delete all reports"
+        }
+    }
+    
+    func deleteAllAction() {
+        func deleteAllReports() {
+            try! realm.write {
+                let allReports = reportList
+                realm.delete(allReports)
+            }
+            setupButton()
+        }
+        if !reportList.isEmpty {
+            let alertController = UIAlertController(title: "Sheiit", message: "You sure.?!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Yup", style: .destructive, handler: { _ in deleteAllReports() }))
+            alertController.addAction(UIAlertAction(title: "Nope", style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+        }
     }
 
+    // MARK: - Table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
         switch indexPath.row {

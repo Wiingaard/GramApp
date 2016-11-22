@@ -21,7 +21,7 @@ class WeekReport: Object {
     
     // General
     dynamic var weekNumber = 0
-    dynamic var signedAndSentStatus = false
+    dynamic var sentStatus = false
     dynamic var signature: NSData? = nil
     
     // Report Information
