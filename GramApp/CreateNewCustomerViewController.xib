@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewCustomerViewController" customModule="GramApp" customModuleProvider="target">
+            <connections>
+                <outlet property="customerTextField" destination="U0Z-ll-otO" id="LLA-Pr-FmW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3 of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBc-vq-wwo">
+                    <rect key="frame" x="132.5" y="80" width="110" height="26"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Customer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U0Z-ll-otO">
+                    <rect key="frame" x="146" y="322.5" width="83.5" height="22"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-Ev-fOD">
+                    <rect key="frame" x="100" y="384.5" width="174" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Same project no. as last report"/>
+                    <connections>
+                        <action selector="sameButtonPressed:" destination="-1" eventType="touchUpInside" id="OF4-dP-kUy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="U0Z-ll-otO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="926-2l-wah"/>
+                <constraint firstItem="PlP-Ev-fOD" firstAttribute="top" secondItem="U0Z-ll-otO" secondAttribute="bottom" constant="40" id="FzY-JT-XjC"/>
+                <constraint firstItem="U0Z-ll-otO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NSl-cw-4UB"/>
+                <constraint firstItem="U0Z-ll-otO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ShW-sB-ehV"/>
+                <constraint firstItem="XBc-vq-wwo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Sqj-p2-pDM"/>
+                <constraint firstItem="XBc-vq-wwo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bFO-5M-9qT"/>
+                <constraint firstItem="PlP-Ev-fOD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zDX-zY-gLU"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

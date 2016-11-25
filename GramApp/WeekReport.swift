@@ -27,8 +27,7 @@ class WeekReport: Object {
     // Report Information
     dynamic var customerName = ""
     dynamic var reportNo = 0
-    dynamic var orderNo = 0
-    // dynamic var TIMEMANAGEMENT = ??
+    dynamic var projectNo = 0           // fixed
     
     // Working Hours
     let workdays = List<WorkDay>()
@@ -56,6 +55,27 @@ class WeekReport: Object {
 
     
     // MARK: - Validation
+    func validProjectNo(number: Int? = nil) -> Bool {
+        let checkNumber: Int!
+        if number != nil {
+            checkNumber = number
+        } else {
+            checkNumber = projectNo
+        }
+        return checkNumber > 0 ? true : false
+    }
+    
+    func validCustomerName(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = customerName
+        }
+        return !checkString.isEmpty
+    }
+    
+    // old shit!
     /// true if != ""
     var validCustomerName: Bool {
         return customerName != "" ? true : false
@@ -63,10 +83,6 @@ class WeekReport: Object {
     /// true if != 0
     var validReportNo: Bool {
         return reportNo != 0 ? true : false
-    }
-    /// true if != 0
-    var validOrderNo: Bool {
-        return orderNo != 0 ? true : false
     }
     /// true if > -1
     var validMealBreakfast: Bool {

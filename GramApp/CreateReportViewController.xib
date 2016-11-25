@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateReportViewController" customModule="GramTimesheets" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateReportViewController" customModule="GramApp" customModuleProvider="target">
             <connections>
-                <outlet property="createButton" destination="utc-hC-GXx" id="f9y-73-CSp"/>
                 <outlet property="stepper" destination="Nvh-Ft-j2h" id="b8i-ol-zIh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weeknumberLabel" destination="Z48-du-p5e" id="pw6-DP-lfG"/>
@@ -22,58 +22,57 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-hC-GXx">
-                    <state key="normal" title="Create new report"/>
+                    <rect key="frame" x="172" y="441" width="32" height="30"/>
+                    <state key="normal" title="Next"/>
                     <connections>
-                        <action selector="createButtonAction:" destination="-1" eventType="touchUpInside" id="rAx-41-yez"/>
+                        <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="wDY-ga-eCB"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weeknumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z48-du-p5e">
+                    <rect key="frame" x="110" y="236" width="155.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-Ft-j2h">
+                    <rect key="frame" x="140.5" y="319" width="94" height="29"/>
                     <connections>
                         <action selector="stepperAction:" destination="-1" eventType="valueChanged" id="HEM-xC-qQB"/>
                     </connections>
                 </stepper>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-mT-zRv">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Rme-vQ-J70"/>
-                        <constraint firstAttribute="width" constant="240" id="VyM-Fn-Q7I"/>
-                    </constraints>
-                    <string key="text">Create a new report
-for week number:</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-v0-m2K">
-                    <state key="normal" title="Cancel"/>
-                    <connections>
-                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="fi4-De-6WY"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goB-xJ-pqi">
+                    <rect key="frame" x="172.5" y="271" width="30" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose week number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RR-tM-jVI">
+                    <rect key="frame" x="58" y="181" width="259.5" height="30"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1 of 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPk-cC-Fvr">
+                    <rect key="frame" x="134.5" y="80" width="106" height="25.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Nvh-Ft-j2h" firstAttribute="top" secondItem="goB-xJ-pqi" secondAttribute="bottom" constant="30" id="0bO-6m-KBG"/>
-                <constraint firstItem="Z48-du-p5e" firstAttribute="top" secondItem="Y6Z-mT-zRv" secondAttribute="bottom" constant="25" id="Hcr-Ps-Gxw"/>
+                <constraint firstItem="5RR-tM-jVI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DOH-VJ-J9o"/>
                 <constraint firstItem="goB-xJ-pqi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hpe-3O-Yrd"/>
+                <constraint firstItem="RPk-cC-Fvr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LV2-dv-fJr"/>
                 <constraint firstItem="goB-xJ-pqi" firstAttribute="top" secondItem="Z48-du-p5e" secondAttribute="bottom" constant="5" id="Utt-Oe-qr2"/>
-                <constraint firstItem="Y6Z-mT-zRv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZB7-3K-7pW"/>
                 <constraint firstItem="Nvh-Ft-j2h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a6x-Gn-eXn"/>
                 <constraint firstItem="Z48-du-p5e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fCa-Bf-cnz"/>
                 <constraint firstItem="utc-hC-GXx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fX2-Tn-BoQ"/>
                 <constraint firstItem="utc-hC-GXx" firstAttribute="top" secondItem="Nvh-Ft-j2h" secondAttribute="bottom" constant="93" id="hWK-I6-anp"/>
+                <constraint firstItem="RPk-cC-Fvr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="hai-rA-F3h"/>
+                <constraint firstItem="Z48-du-p5e" firstAttribute="top" secondItem="5RR-tM-jVI" secondAttribute="bottom" constant="25" id="hpa-dZ-VOp"/>
                 <constraint firstItem="Nvh-Ft-j2h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oTN-gF-L8X"/>
-                <constraint firstItem="7ad-v0-m2K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="osI-uZ-3EF"/>
-                <constraint firstItem="7ad-v0-m2K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="xrN-9L-26d"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>

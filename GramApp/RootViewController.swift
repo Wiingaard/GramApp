@@ -21,8 +21,16 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        let errorVC = ErrorViewController(modalStyle: .overCurrentContext, withMessage: error)
 //        present(errorVC, animated: true, completion: nil)
         
+        
+        
         let createNewVC = CreateReportViewController(nibName: "CreateReportViewController", bundle: nil)
-        present(createNewVC, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: createNewVC)
+        // Setup Navigation controller
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.view.backgroundColor = UIColor.clear
+        present(navigationController, animated: true, completion: nil)
         
     }
     

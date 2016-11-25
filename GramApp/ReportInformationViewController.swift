@@ -56,8 +56,8 @@ class ReportInformationViewController: UIViewController, UITableViewDelegate, UI
             
         case 2:
             cell.nameLabel.text = "Order No."
-            cell.valueLabel.text = report.validOrderNo ? "\(report.orderNo)" : ""
-            cell.statusImage(shouldShowGreen: report.validOrderNo)
+            cell.valueLabel.text = report.validProjectNo() ? "\(report.projectNo)" : ""
+            cell.statusImage(shouldShowGreen: report.validProjectNo())
             
         case 3:
             cell.nameLabel.text = "Time Management"
@@ -94,8 +94,8 @@ class ReportInformationViewController: UIViewController, UITableViewDelegate, UI
             let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
             numberInputViewController.delegate = self
             numberInputViewController.placeholder = "Order No."
-            numberInputViewController.inputType = InputType.numberOrder
-            numberInputViewController.initialInputValue = report.validOrderNo ? report.orderNo : nil
+            numberInputViewController.inputType = InputType.numberProject
+            numberInputViewController.initialInputValue = report.validProjectNo() ? report.projectNo : nil
             navigationController?.pushViewController(numberInputViewController, animated: true)
             
         case 3:
@@ -129,9 +129,9 @@ class ReportInformationViewController: UIViewController, UITableViewDelegate, UI
                 report.reportNo = value as! Int
             }
         
-        } else if type == .numberOrder {
+        } else if type == .numberProject {
             try! realm.write {
-                report.orderNo = value as! Int
+                report.projectNo = value as! Int
             }
         }
         tableView.reloadData()

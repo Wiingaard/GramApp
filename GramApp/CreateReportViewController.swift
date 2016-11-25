@@ -14,7 +14,6 @@ class CreateReportViewController: UIViewController {
     
     @IBOutlet weak var weeknumberLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var stepper: UIStepper!
     
     @IBAction func stepperAction(_ sender: AnyObject) {
@@ -22,18 +21,13 @@ class CreateReportViewController: UIViewController {
         weekNumber = time.weeknumber(forDate: dateInWeek)
     }
     
-    @IBAction func createButtonAction(_ sender: AnyObject) {
+    @IBAction func nextButtonAction(_ sender: AnyObject) {
         let user = realm.objects(User.self).first!
         let newReport = WeekReport(withMonday: mondayInWeek, inspectorNumber: user.inspectorNumber)
-        try! realm.write {
-            realm.add(newReport)
-        }
-        print("### New week created! weeknumber: \(newReport.weekNumber)")
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelAction(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+        let createNewNumberVC = CreateNewProjectNoViewController.instantiateViewController(with: newReport)
+        show(createNewNumberVC, sender: nil)
+//        print("### New week created! weeknumber: \(newReport.weekNumber)")
+//        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Model
@@ -66,6 +60,12 @@ class CreateReportViewController: UIViewController {
         stepper.stepValue = 1
         stepper.minimumValue = -1000
         
+        navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(CreateReportViewController.dismissViewController)), animated: false)
+        
+    }
+    
+    func dismissViewController() {
+        dismiss(animated: true)
     }
 
 

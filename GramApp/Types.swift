@@ -22,7 +22,7 @@ enum InputType {
     // number
     case numberInspector        // Profile - User
     case numberReport
-    case numberOrder
+    case numberProject
     case numberHoursTotal       // Work Hours
     case numberOvertime         // Work Hours
     case numberBreakfast        // Meals

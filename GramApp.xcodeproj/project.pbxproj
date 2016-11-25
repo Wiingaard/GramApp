@@ -13,6 +13,8 @@
 		5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B04A4E31DE21E51000C12A9 /* LaunchScreen.storyboard */; };
 		5B04A4FB1DE23B3C000C12A9 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4F41DE23B18000C12A9 /* libXlsxReaderWriter.a */; };
 		5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4FD1DE23B45000C12A9 /* libz.tbd */; };
+		5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */; };
+		5B190A871DE4F1190059F95E /* CreateNewProjectNoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */; };
 		5BB553861DE2459C00D98AE8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553831DE2459C00D98AE8 /* Types.swift */; };
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
@@ -44,6 +46,8 @@
 		5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */; };
 		5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */; };
 		5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */; };
+		5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */; };
+		5BF133A71DE4FD5600E53823 /* CreateNewCustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF133A51DE4FD5600E53823 /* CreateNewCustomerViewController.xib */; };
 		8F865C3F7473A965B01D0A3B /* Pods_GramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,8 @@
 		5B04A4EC1DE23B18000C12A9 /* XlsxReaderWriter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XlsxReaderWriter.xcodeproj; path = "XlsxReaderWriter-master/XlsxReaderWriter.xcodeproj"; sourceTree = "<group>"; };
 		5B04A4FD1DE23B45000C12A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GramApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectNoViewController.swift; sourceTree = "<group>"; };
+		5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewProjectNoViewController.xib; sourceTree = "<group>"; };
 		5BB553831DE2459C00D98AE8 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
 		5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
 		5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
+		5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewCustomerViewController.swift; sourceTree = "<group>"; };
+		5BF133A51DE4FD5600E53823 /* CreateNewCustomerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewCustomerViewController.xib; sourceTree = "<group>"; };
 		99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramApp/Pods-GramApp.release.xcconfig"; sourceTree = "<group>"; };
 		E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,12 +168,11 @@
 		5B04A4D91DE21E51000C12A9 /* GramApp */ = {
 			isa = PBXGroup;
 			children = (
-				5B04A4DA1DE21E51000C12A9 /* AppDelegate.swift */,
 				5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */,
 				5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */,
 				5B04A4DE1DE21E51000C12A9 /* Main.storyboard */,
-				5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */,
-				5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */,
+				5B190A801DE4EB850059F95E /* Onboarding */,
+				5B190A831DE4ED700059F95E /* Create New */,
 				5BB553B01DE2469900D98AE8 /* Cells */,
 				5BB553A71DE2467800D98AE8 /* Input View Controllers */,
 				5BB553961DE2464A00D98AE8 /* Weekly Report View Controllers */,
@@ -192,6 +199,28 @@
 				E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B190A801DE4EB850059F95E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */,
+				5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		5B190A831DE4ED700059F95E /* Create New */ = {
+			isa = PBXGroup;
+			children = (
+				5BB5539D1DE2467100D98AE8 /* CreateReportViewController.swift */,
+				5BB5539E1DE2467100D98AE8 /* CreateReportViewController.xib */,
+				5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */,
+				5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */,
+				5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */,
+				5BF133A51DE4FD5600E53823 /* CreateNewCustomerViewController.xib */,
+			);
+			name = "Create New";
 			sourceTree = "<group>";
 		};
 		5BB553891DE245A700D98AE8 /* Models */ = {
@@ -226,8 +255,6 @@
 				5BB5539A1DE2467100D98AE8 /* StringInputViewController.xib */,
 				5BB5539B1DE2467100D98AE8 /* DateInputViewController.swift */,
 				5BB5539C1DE2467100D98AE8 /* DateInputViewController.xib */,
-				5BB5539D1DE2467100D98AE8 /* CreateReportViewController.swift */,
-				5BB5539E1DE2467100D98AE8 /* CreateReportViewController.xib */,
 			);
 			name = "Input View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				5B04A4E11DE21E51000C12A9 /* Assets.xcassets */,
+				5B04A4DA1DE21E51000C12A9 /* AppDelegate.swift */,
 				5BB553B11DE246AA00D98AE8 /* ErrorViewController.swift */,
 				5BB553B21DE246AA00D98AE8 /* ErrorViewController.xib */,
 				5BB553B31DE246AA00D98AE8 /* Time.swift */,
@@ -365,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB553A21DE2467100D98AE8 /* StringInputViewController.xib in Resources */,
+				5BF133A71DE4FD5600E53823 /* CreateNewCustomerViewController.xib in Resources */,
 				5BB553A41DE2467100D98AE8 /* DateInputViewController.xib in Resources */,
 				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
 				5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */,
@@ -376,6 +405,7 @@
 				5B04A4E01DE21E51000C12A9 /* Main.storyboard in Resources */,
 				5BB553BC1DE246AA00D98AE8 /* Rød cirkel.png in Resources */,
 				5BB553AF1DE2469500D98AE8 /* InputFieldTableViewCell.xib in Resources */,
+				5B190A871DE4F1190059F95E /* CreateNewProjectNoViewController.xib in Resources */,
 				5BB553AD1DE2469500D98AE8 /* ReportWeekTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +470,7 @@
 				5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */,
 				5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
+				5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */,
 				5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */,
 				5B04A4DB1DE21E51000C12A9 /* AppDelegate.swift in Sources */,
 				5BB553A31DE2467100D98AE8 /* DateInputViewController.swift in Sources */,
@@ -449,6 +480,7 @@
 				5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */,
 				5BB553A51DE2467100D98AE8 /* CreateReportViewController.swift in Sources */,
 				5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */,
+				5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */,
 				5BB553881DE2459C00D98AE8 /* User.swift in Sources */,
 				5BB553AC1DE2469500D98AE8 /* ReportWeekTableViewCell.swift in Sources */,
 				5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */,
