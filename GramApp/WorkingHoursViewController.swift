@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
+class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate, UITabBarDelegate, UITableViewDataSource {
 
     // Outlets
     @IBOutlet var dateLabelCollection: [UILabel]!
@@ -36,7 +36,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     var reportID = ""       // should be overriden from segue
     let realm = try! Realm()
     var report: WeekReport!
-    var currentWorkday: WorkDay { return report.workdays[selectedDay.rawValue] }
+    var currentWorkday: Workday { return report.workdays[selectedDay.rawValue] }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +45,6 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
         
         dateLabel.text = time.month(for: report.mondayInWeek).uppercased() + ", WEEK \(report.weekNumber)"
-        
-        // Setup TableView
-        tableView.delegate = self
-        tableView.dataSource = self
-        let nib = UINib(nibName: "InputFieldTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
         
         let dates = time.datesInWeekBeginning(monday: report.mondayInWeek)
         for (index, label) in dateLabelCollection.enumerated() {
@@ -85,101 +79,6 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
     
-    //MARK: - Table View Methods
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
-        switch indexPath.row {
-        case 0:
-            cell.nameLabel.text = "Type of work"
-            cell.valueLabel.text = currentWorkday.validTypeOfWork ? currentWorkday.typeOfWork : ""
-            cell.statusImage(shouldShowGreen: currentWorkday.validTypeOfWork)
-            
-        case 1:
-            cell.nameLabel.text = "Total Hours"
-            cell.valueLabel.text = currentWorkday.validTotalHours ? String(currentWorkday.totalHours.value!) : ""
-            cell.statusImage(shouldShowGreen: currentWorkday.validTotalHours)
-            
-        case 2:
-            cell.nameLabel.text = "Overtime"
-            cell.valueLabel.text =  currentWorkday.validOvertimeHours ? String(currentWorkday.overtimeHours.value!) : ""
-            cell.statusImage(shouldShowGreen: currentWorkday.validOvertimeHours)
-            
-        case 3:
-            cell.nameLabel.text = "Overtime Sundays"
-            cell.valueLabel.text = ""
-            cell.statusImage(shouldShowGreen: false)
-            
-        case 4:
-            cell.nameLabel.text = "Travelling time"
-            cell.valueLabel.text = ""
-            cell.statusImage(shouldShowGreen: false)
-        default:
-            break
-        }
-        
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.row {
-        case 0:
-            let stringInputViewController = StringInputViewController(nibName: "StringInputViewController", bundle: nil)
-            stringInputViewController.delegate = self
-            stringInputViewController.placeholder = "Type of work"
-            stringInputViewController.inputType = InputType.stringTypeOfWork
-            stringInputViewController.initialInputValue = currentWorkday.validTypeOfWork ? currentWorkday.typeOfWork : nil
-            navigationController?.pushViewController(stringInputViewController, animated: true)
-            
-        case 1:
-            let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
-            numberInputViewController.delegate = self
-            numberInputViewController.placeholder = "Hours total"
-            numberInputViewController.inputType = InputType.numberHoursTotal
-            numberInputViewController.initialInputValue = currentWorkday.validTotalHours ? currentWorkday.totalHours.value! : nil
-            navigationController?.pushViewController(numberInputViewController, animated: true)
-            
-        case 2:
-            let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
-            numberInputViewController.delegate = self
-            numberInputViewController.placeholder = "Overtime"
-            numberInputViewController.inputType = InputType.numberOvertime
-            numberInputViewController.initialInputValue = currentWorkday.validOvertimeHours ? currentWorkday.overtimeHours.value! : nil
-            navigationController?.pushViewController(numberInputViewController, animated: true)
-            
-        default:
-            break
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    // MARK: - Input Controller Delegate
-    func inputControllerDidFinish(withValue value: AnyObject, andInputType type: InputType) {
-        if type == .stringTypeOfWork {
-            try! realm.write {
-                currentWorkday.typeOfWork = value as! String
-            }
-            
-        } else if type == .numberHoursTotal {
-            try! realm.write {
-                currentWorkday.totalHours.value = value as? Int
-            }
-            
-        } else if type == .numberOvertime {
-            try! realm.write {
-                currentWorkday.overtimeHours.value = value as? Int
-            }
-        }
-        tableView.reloadData()
-    }
     
     // MARK: - Day Update Methods
     /**
@@ -194,7 +93,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     /// See requestUpdate(to day: DayType)
     func updateDay() {
         selectedDay = currentShowingDay
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     
@@ -288,9 +187,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 }
             }
             moveArrow(to: DayType(rawValue: closestDayRaw)!, animated: true)
-
         }
-        
     }
     
     /**

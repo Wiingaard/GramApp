@@ -442,22 +442,8 @@ Worked</string>
                                     <constraint firstAttribute="centerX" secondItem="cg6-gQ-onP" secondAttribute="centerX" constant="80" id="xX0-Dg-tPL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3e-lK-MaJ" userLabel="Sign Button">
-                                <rect key="frame" x="100.5" y="592" width="174" height="55"/>
-                                <color key="backgroundColor" red="0.47997886078706886" green="0.86310279187817263" blue="0.48336124423215082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="wfl-ma-VQI"/>
-                                    <constraint firstAttribute="height" constant="55" id="xBf-67-baH"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign &amp; Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDj-rf-Un8">
-                                <rect key="frame" x="119.5" y="605" width="136.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-y0-8sw" userLabel="Project Information">
-                                <rect key="frame" x="20" y="498" width="335" height="52"/>
+                                <rect key="frame" x="20" y="497" width="335" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekt-mq-1h6">
                                         <rect key="frame" x="8" y="12" width="28" height="28"/>
@@ -484,7 +470,7 @@ Worked</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Gz-MO-zds" userLabel="Project Information">
-                                <rect key="frame" x="20" y="431" width="335" height="52"/>
+                                <rect key="frame" x="20" y="430" width="335" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="Image" translatesAutoresizingMaskIntoConstraints="NO" id="z5Y-No-gef">
                                         <rect key="frame" x="8" y="12" width="28" height="28"/>
@@ -510,6 +496,23 @@ Worked</string>
                                     <constraint firstAttribute="trailing" secondItem="DZw-oW-Gzx" secondAttribute="trailing" constant="20" id="stM-2e-9Hl"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3e-lK-MaJ" userLabel="Sign Button">
+                                <rect key="frame" x="100" y="591" width="174" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign &amp; Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDj-rf-Un8">
+                                        <rect key="frame" x="18" y="12" width="136.5" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.47997886078706886" green="0.86310279187817263" blue="0.48336124423215082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="wfl-ma-VQI"/>
+                                    <constraint firstAttribute="height" constant="56" id="xBf-67-baH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -527,7 +530,6 @@ Worked</string>
                             <constraint firstItem="z3e-lK-MaJ" firstAttribute="centerX" secondItem="Kb6-Fn-ckn" secondAttribute="centerX" id="gfl-L4-5Wh"/>
                             <constraint firstItem="1fB-rN-1v0" firstAttribute="top" secondItem="mSN-Xx-Y5Q" secondAttribute="bottom" constant="40" id="gqT-AL-cLJ"/>
                             <constraint firstItem="b1h-y0-8sw" firstAttribute="leading" secondItem="Kb6-Fn-ckn" secondAttribute="leading" constant="20" id="h7z-gw-Bh1"/>
-                            <constraint firstItem="zDj-rf-Un8" firstAttribute="centerY" secondItem="z3e-lK-MaJ" secondAttribute="centerY" id="hkF-ba-GXm"/>
                             <constraint firstAttribute="trailing" secondItem="1fB-rN-1v0" secondAttribute="trailing" id="hzT-n2-MhS"/>
                             <constraint firstItem="H7y-hm-ONJ" firstAttribute="leading" secondItem="Kb6-Fn-ckn" secondAttribute="leadingMargin" id="iHT-Vc-jYM"/>
                             <constraint firstItem="1fB-rN-1v0" firstAttribute="leading" secondItem="Kb6-Fn-ckn" secondAttribute="leading" id="nbb-OM-Ize"/>
@@ -535,13 +537,15 @@ Worked</string>
                             <constraint firstItem="b1h-y0-8sw" firstAttribute="top" secondItem="3Gz-MO-zds" secondAttribute="bottom" constant="15" id="ptC-eF-wep"/>
                             <constraint firstItem="4pl-d6-fk0" firstAttribute="leading" secondItem="Kb6-Fn-ckn" secondAttribute="leadingMargin" id="t0X-45-56P"/>
                             <constraint firstItem="3Gz-MO-zds" firstAttribute="leading" secondItem="b1h-y0-8sw" secondAttribute="leading" id="tS7-Hw-ENe"/>
-                            <constraint firstItem="zDj-rf-Un8" firstAttribute="centerX" secondItem="z3e-lK-MaJ" secondAttribute="centerX" id="wt2-yQ-Zgd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="hoursLabel" destination="cg6-gQ-onP" id="G0o-02-B9g"/>
                         <outlet property="overtimeLabel" destination="tXt-kY-M3D" id="ZTN-Uz-llI"/>
+                        <outlet property="projectInformationView" destination="3Gz-MO-zds" id="EjO-NC-ZYF"/>
+                        <outlet property="signButtonView" destination="z3e-lK-MaJ" id="kOk-DQ-gIo"/>
                         <outlet property="weeknumberLabel" destination="4pl-d6-fk0" id="19n-0Z-9b0"/>
+                        <outlet property="workingHoursView" destination="b1h-y0-8sw" id="1CN-sb-b1b"/>
                         <segue destination="TU1-6f-S5p" kind="show" identifier="Show Working Hours" id="xji-Tn-m1d"/>
                         <segue destination="e3e-lA-59Q" kind="show" identifier="Show Project Information" id="SWR-1m-1Be"/>
                     </connections>
@@ -986,28 +990,32 @@ Worked</string>
                                     <constraint firstAttribute="height" constant="1" id="Rbt-M8-9U2"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xgZ-8e-RYy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vFv-WP-aY3">
                                 <rect key="frame" x="0.0" y="266" width="375" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TU1-6f-S5p" id="KcM-mD-fEY"/>
+                                    <outlet property="delegate" destination="TU1-6f-S5p" id="TBp-fF-rJY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eYL-mc-gKZ" firstAttribute="top" secondItem="1YQ-He-otf" secondAttribute="bottom" constant="8" id="1a0-Rq-apS"/>
-                            <constraint firstItem="xgZ-8e-RYy" firstAttribute="leading" secondItem="dG7-03-69i" secondAttribute="leading" id="CRH-Fc-fBH"/>
-                            <constraint firstItem="Utw-TT-CaP" firstAttribute="top" secondItem="xgZ-8e-RYy" secondAttribute="bottom" id="Ctx-ec-oba"/>
+                            <constraint firstAttribute="trailing" secondItem="vFv-WP-aY3" secondAttribute="trailing" id="A67-th-Mjy"/>
+                            <constraint firstItem="vFv-WP-aY3" firstAttribute="top" secondItem="mri-Yf-neY" secondAttribute="bottom" id="Est-ne-IU3"/>
+                            <constraint firstItem="Utw-TT-CaP" firstAttribute="top" secondItem="vFv-WP-aY3" secondAttribute="bottom" id="GjX-sd-rlo"/>
+                            <constraint firstItem="vFv-WP-aY3" firstAttribute="leading" secondItem="dG7-03-69i" secondAttribute="leading" id="HfQ-Ah-4FH"/>
                             <constraint firstItem="dXM-fd-WeJ" firstAttribute="top" secondItem="E4C-CE-VuC" secondAttribute="bottom" constant="8" id="IkW-Qc-JZg"/>
                             <constraint firstItem="dXM-fd-WeJ" firstAttribute="leading" secondItem="dG7-03-69i" secondAttribute="leadingMargin" id="Inz-xg-Yrb"/>
                             <constraint firstItem="BrT-QW-KSB" firstAttribute="width" secondItem="dG7-03-69i" secondAttribute="width" id="QSa-L0-4da"/>
                             <constraint firstItem="1YQ-He-otf" firstAttribute="leading" secondItem="dG7-03-69i" secondAttribute="leadingMargin" id="Sm8-sX-s9X"/>
                             <constraint firstItem="BrT-QW-KSB" firstAttribute="centerX" secondItem="dG7-03-69i" secondAttribute="centerX" id="Uzg-dE-Imc"/>
                             <constraint firstItem="mri-Yf-neY" firstAttribute="leading" secondItem="eYL-mc-gKZ" secondAttribute="leading" id="WJT-jH-BI6"/>
-                            <constraint firstAttribute="trailing" secondItem="xgZ-8e-RYy" secondAttribute="trailing" id="XnZ-5g-vfz"/>
                             <constraint firstItem="BrT-QW-KSB" firstAttribute="top" secondItem="eYL-mc-gKZ" secondAttribute="bottom" id="aEA-sH-ijB"/>
                             <constraint firstItem="mri-Yf-neY" firstAttribute="top" secondItem="BrT-QW-KSB" secondAttribute="bottom" id="bqh-XE-vkO"/>
                             <constraint firstItem="eYL-mc-gKZ" firstAttribute="trailing" secondItem="dG7-03-69i" secondAttribute="trailingMargin" id="r6C-py-CGS"/>
                             <constraint firstItem="1YQ-He-otf" firstAttribute="top" secondItem="dXM-fd-WeJ" secondAttribute="bottom" constant="8" id="v68-RX-oSy"/>
-                            <constraint firstItem="xgZ-8e-RYy" firstAttribute="top" secondItem="mri-Yf-neY" secondAttribute="bottom" id="wUf-x6-aFx"/>
                             <constraint firstItem="eYL-mc-gKZ" firstAttribute="leading" secondItem="dG7-03-69i" secondAttribute="leadingMargin" id="x1R-9I-sOf"/>
                             <constraint firstItem="mri-Yf-neY" firstAttribute="trailing" secondItem="eYL-mc-gKZ" secondAttribute="trailing" id="y8L-A3-Nq6"/>
                         </constraints>
@@ -1017,7 +1025,7 @@ Worked</string>
                         <outlet property="arrowImageView" destination="amI-sq-84X" id="I5h-RS-9Mt"/>
                         <outlet property="dateLabel" destination="dXM-fd-WeJ" id="UtD-Zw-AI2"/>
                         <outlet property="daysContainerView" destination="BrT-QW-KSB" id="Wqb-dP-LKU"/>
-                        <outlet property="tableView" destination="xgZ-8e-RYy" id="6ez-bA-Sbd"/>
+                        <outlet property="tableView" destination="vFv-WP-aY3" id="yWD-gf-hnc"/>
                         <outletCollection property="dateLabelCollection" destination="2k2-1a-4JS" collectionClass="NSMutableArray" id="qHV-P4-fpf"/>
                         <outletCollection property="dateLabelCollection" destination="X2d-xV-2oG" collectionClass="NSMutableArray" id="W6c-o6-acs"/>
                         <outletCollection property="dateLabelCollection" destination="0BX-5R-yJv" collectionClass="NSMutableArray" id="t1N-jL-t2E"/>

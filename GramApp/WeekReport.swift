@@ -30,7 +30,7 @@ class WeekReport: Object {
     dynamic var projectNo = 0           // fixed
     
     // Working Hours
-    let workdays = List<WorkDay>()
+    let workdays = List<Workday>()
     
     // Meals
     dynamic var mealBreakfast = 0
@@ -48,8 +48,10 @@ class WeekReport: Object {
         mondayInWeek = monday
         weekNumber = time.weeknumber(forDate: monday)
         reportID = "\(inspector)_\(Int(createdDate.timeIntervalSince1970))"
-        for _ in 0...6 {
-            workdays.append(WorkDay())
+        for dayIndex in 0...6 {
+            let workday = Workday()
+            workday.weekday = dayIndex
+            workdays.append(workday)
         }
     }
 
@@ -104,43 +106,4 @@ class WeekReport: Object {
     var validCarKM: Bool {
         return carKM > 0 ? true : false
     }
-}
-
-
-/**
- *  Model for one day in the working hours section
- */
-class WorkDay: Object {
-    
-    dynamic var dayInWeek = 0
-    
-    dynamic var typeOfWork = ""
-    let totalHours = RealmOptional<Int>()
-    let overtimeHours = RealmOptional<Int>()
-    
-    // MARK: - Validation
-    var validTypeOfWork: Bool {
-        return typeOfWork != "" ? true : false
-    }
-    
-    var validTotalHours: Bool {
-        if let hours = totalHours.value, hours != 0 {
-            return true
-        } else {return false}
-    }
-    
-    var validOvertimeHours: Bool {
-        if let hours = overtimeHours.value, hours != 0 {
-            return true
-        } else {return false}
-    }
-    
-    func isEmpty() -> Bool {
-        if typeOfWork == "" &&
-            totalHours.value == nil &&
-            overtimeHours.value == nil {
-            return true
-        } else {return false}
-    }
-    
 }
