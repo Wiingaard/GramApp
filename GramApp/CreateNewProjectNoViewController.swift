@@ -19,7 +19,7 @@ class CreateNewProjectNoViewController: UIViewController {
             let newReport = weekReport!
             newReport.projectNo = lastProjectNo
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1 , execute: { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
                 let customerVC = CreateNewCustomerViewController.instantiateViewController(with: newReport)
                 self?.show(customerVC, sender: nil)
             })
@@ -55,6 +55,14 @@ class CreateNewProjectNoViewController: UIViewController {
         let button = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(CreateNewProjectNoViewController.nextButtonPressed))
         navigationItem.setRightBarButton(button, animated: false)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        projectNoTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        projectNoTextField.resignFirstResponder()
     }
     
     func nextButtonPressed() {

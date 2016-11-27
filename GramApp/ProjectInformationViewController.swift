@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class ReportInformationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
+class ProjectInformationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var dateLabel: UILabel!

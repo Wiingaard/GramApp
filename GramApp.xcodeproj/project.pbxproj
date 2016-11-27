@@ -19,7 +19,7 @@
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
 		5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */; };
-		5BB553911DE2462A00D98AE8 /* ReportInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538B1DE2462A00D98AE8 /* ReportInformationViewController.swift */; };
+		5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */; };
 		5BB553921DE2462A00D98AE8 /* WorkingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */; };
 		5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */; };
 		5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */; };
@@ -99,7 +99,7 @@
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyReportViewController.swift; sourceTree = "<group>"; };
-		5BB5538B1DE2462A00D98AE8 /* ReportInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportInformationViewController.swift; sourceTree = "<group>"; };
+		5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectInformationViewController.swift; sourceTree = "<group>"; };
 		5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHoursViewController.swift; sourceTree = "<group>"; };
 		5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
 		5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInformationViewController.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */,
-				5BB5538B1DE2462A00D98AE8 /* ReportInformationViewController.swift */,
+				5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */,
 				5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */,
 				5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */,
 				5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */,
@@ -501,7 +501,7 @@
 				5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */,
 				5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */,
 				5BB553951DE2462A00D98AE8 /* TimeManagementViewController.swift in Sources */,
-				5BB553911DE2462A00D98AE8 /* ReportInformationViewController.swift in Sources */,
+				5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */,
 				5BB553B71DE246AA00D98AE8 /* ErrorViewController.swift in Sources */,
 				5BB553AE1DE2469500D98AE8 /* InputFieldTableViewCell.swift in Sources */,
 			);

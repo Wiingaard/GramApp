@@ -149,7 +149,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "Weekly Report" {
             let rowIndex = sender as! Int
             let weeklyReportVC = segue.destination as! WeeklyReportViewController
-            weeklyReportVC.weeknumber = reportList[rowIndex].weekNumber
+            
             weeklyReportVC.reportID = reportList[rowIndex].reportID
             
         }
