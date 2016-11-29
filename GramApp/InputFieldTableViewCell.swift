@@ -26,7 +26,6 @@ class InputFieldTableViewCell: UITableViewCell {
         } else {
             statusImageView.image = UIImage(named: "Rød Cirkel.png")
         }
-        
     }
 
     

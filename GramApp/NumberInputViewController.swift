@@ -26,6 +26,16 @@ class NumberInputViewController: UIViewController {
     var initialInputValue: Int?
     var placeholder = ""
     
+    // Instantiate
+    static func instantiate(withDelegate delegate: InputControllerDelegate, placeholder: String, inputType: InputType, initialValue: Int) -> NumberInputViewController {
+        let vc = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
+        vc.delegate = delegate
+        vc.placeholder = placeholder
+        vc.inputType = inputType
+        vc.initialInputValue = initialValue
+        return vc
+    }
+    
     // Delegate
     var delegate: InputControllerDelegate?
     var inputType: InputType!

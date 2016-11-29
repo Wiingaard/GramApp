@@ -15,6 +15,12 @@
 		5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4FD1DE23B45000C12A9 /* libz.tbd */; };
 		5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */; };
 		5B190A871DE4F1190059F95E /* CreateNewProjectNoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */; };
+		5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BD12E1DEB944A0090D333 /* OvertimeViewController.swift */; };
+		5B75B1B91DECA9F600350B2B /* OvertimeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */; };
+		5B75B1BE1DECB30000350B2B /* CheckmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1BC1DECB30000350B2B /* CheckmarkTableViewCell.swift */; };
+		5B75B1BF1DECB30000350B2B /* CheckmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */; };
+		5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */; };
+		5B75B1C31DECE07C00350B2B /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */; };
 		5BB553861DE2459C00D98AE8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553831DE2459C00D98AE8 /* Types.swift */; };
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
@@ -47,6 +53,10 @@
 		5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */; };
 		5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */; };
 		5BE275911DEB0BD4006BF6BF /* Workday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275901DEB0BD4006BF6BF /* Workday.swift */; };
+		5BE275961DEB32C6006BF6BF /* BoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275941DEB32C6006BF6BF /* BoolTableViewCell.swift */; };
+		5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */; };
+		5BE2759A1DEB7373006BF6BF /* EnumStringInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275981DEB7373006BF6BF /* EnumStringInputViewController.swift */; };
+		5BE2759B1DEB7373006BF6BF /* EnumStringInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE275991DEB7373006BF6BF /* EnumStringInputViewController.xib */; };
 		5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */; };
 		5BF133A71DE4FD5600E53823 /* CreateNewCustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF133A51DE4FD5600E53823 /* CreateNewCustomerViewController.xib */; };
 		8F865C3F7473A965B01D0A3B /* Pods_GramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E622E3EDBBD102DC0F1DA5E7 /* Pods_GramApp.framework */; };
@@ -96,6 +106,12 @@
 		5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GramApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectNoViewController.swift; sourceTree = "<group>"; };
 		5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewProjectNoViewController.xib; sourceTree = "<group>"; };
+		5B6BD12E1DEB944A0090D333 /* OvertimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeViewController.swift; sourceTree = "<group>"; };
+		5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeTypeViewController.swift; sourceTree = "<group>"; };
+		5B75B1BC1DECB30000350B2B /* CheckmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkTableViewCell.swift; sourceTree = "<group>"; };
+		5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkTableViewCell.xib; sourceTree = "<group>"; };
+		5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInputTableViewCell.swift; sourceTree = "<group>"; };
+		5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
 		5BB553831DE2459C00D98AE8 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -128,6 +144,10 @@
 		5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
 		5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
 		5BE275901DEB0BD4006BF6BF /* Workday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workday.swift; sourceTree = "<group>"; };
+		5BE275941DEB32C6006BF6BF /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
+		5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoolTableViewCell.xib; sourceTree = "<group>"; };
+		5BE275981DEB7373006BF6BF /* EnumStringInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumStringInputViewController.swift; sourceTree = "<group>"; };
+		5BE275991DEB7373006BF6BF /* EnumStringInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumStringInputViewController.xib; sourceTree = "<group>"; };
 		5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewCustomerViewController.swift; sourceTree = "<group>"; };
 		5BF133A51DE4FD5600E53823 /* CreateNewCustomerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewCustomerViewController.xib; sourceTree = "<group>"; };
 		99B99EC73C5C920578E318B7 /* Pods-GramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramApp/Pods-GramApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,13 +245,23 @@
 			name = "Create New";
 			sourceTree = "<group>";
 		};
+		5B6BD1321DEB94570090D333 /* Old shit */ = {
+			isa = PBXGroup;
+			children = (
+				5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */,
+				5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */,
+				5BB5538F1DE2462A00D98AE8 /* TimeManagementViewController.swift */,
+			);
+			name = "Old shit";
+			sourceTree = "<group>";
+		};
 		5BB553891DE245A700D98AE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BB553831DE2459C00D98AE8 /* Types.swift */,
 				5BB553841DE2459C00D98AE8 /* WeekReport.swift */,
-				5BB553851DE2459C00D98AE8 /* User.swift */,
 				5BE275901DEB0BD4006BF6BF /* Workday.swift */,
+				5BB553851DE2459C00D98AE8 /* User.swift */,
+				5BB553831DE2459C00D98AE8 /* Types.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -242,9 +272,9 @@
 				5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */,
 				5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */,
 				5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */,
-				5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */,
-				5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */,
-				5BB5538F1DE2462A00D98AE8 /* TimeManagementViewController.swift */,
+				5B6BD12E1DEB944A0090D333 /* OvertimeViewController.swift */,
+				5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */,
+				5B6BD1321DEB94570090D333 /* Old shit */,
 			);
 			name = "Weekly Report View Controllers";
 			sourceTree = "<group>";
@@ -258,6 +288,8 @@
 				5BB5539A1DE2467100D98AE8 /* StringInputViewController.xib */,
 				5BB5539B1DE2467100D98AE8 /* DateInputViewController.swift */,
 				5BB5539C1DE2467100D98AE8 /* DateInputViewController.xib */,
+				5BE275981DEB7373006BF6BF /* EnumStringInputViewController.swift */,
+				5BE275991DEB7373006BF6BF /* EnumStringInputViewController.xib */,
 			);
 			name = "Input View Controllers";
 			sourceTree = "<group>";
@@ -269,6 +301,12 @@
 				5BB553A91DE2469500D98AE8 /* ReportWeekTableViewCell.xib */,
 				5BB553AA1DE2469500D98AE8 /* InputFieldTableViewCell.swift */,
 				5BB553AB1DE2469500D98AE8 /* InputFieldTableViewCell.xib */,
+				5BE275941DEB32C6006BF6BF /* BoolTableViewCell.swift */,
+				5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */,
+				5B75B1BC1DECB30000350B2B /* CheckmarkTableViewCell.swift */,
+				5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */,
+				5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */,
+				5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -401,8 +439,10 @@
 				5BB553A41DE2467100D98AE8 /* DateInputViewController.xib in Resources */,
 				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
 				5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */,
+				5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */,
 				5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */,
 				5BB553B81DE246AA00D98AE8 /* ErrorViewController.xib in Resources */,
+				5BE2759B1DEB7373006BF6BF /* EnumStringInputViewController.xib in Resources */,
 				5B04A4E21DE21E51000C12A9 /* Assets.xcassets in Resources */,
 				5BB553A61DE2467100D98AE8 /* CreateReportViewController.xib in Resources */,
 				5BB553A01DE2467100D98AE8 /* NumberInputViewController.xib in Resources */,
@@ -410,7 +450,9 @@
 				5BB553BC1DE246AA00D98AE8 /* Rød cirkel.png in Resources */,
 				5BB553AF1DE2469500D98AE8 /* InputFieldTableViewCell.xib in Resources */,
 				5B190A871DE4F1190059F95E /* CreateNewProjectNoViewController.xib in Resources */,
+				5B75B1C31DECE07C00350B2B /* ModalInputTableViewCell.xib in Resources */,
 				5BB553AD1DE2469500D98AE8 /* ReportWeekTableViewCell.xib in Resources */,
+				5B75B1BF1DECB30000350B2B /* CheckmarkTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,10 +529,13 @@
 				5BB553861DE2459C00D98AE8 /* Types.swift in Sources */,
 				5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */,
 				5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */,
+				5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
+				5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */,
 				5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */,
 				5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */,
 				5B04A4DB1DE21E51000C12A9 /* AppDelegate.swift in Sources */,
+				5BE2759A1DEB7373006BF6BF /* EnumStringInputViewController.swift in Sources */,
 				5BB553A31DE2467100D98AE8 /* DateInputViewController.swift in Sources */,
 				5BB553A11DE2467100D98AE8 /* StringInputViewController.swift in Sources */,
 				5BB553B91DE246AA00D98AE8 /* Time.swift in Sources */,
@@ -498,14 +543,17 @@
 				5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */,
 				5BB553A51DE2467100D98AE8 /* CreateReportViewController.swift in Sources */,
 				5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */,
+				5B75B1BE1DECB30000350B2B /* CheckmarkTableViewCell.swift in Sources */,
 				5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */,
 				5BB553881DE2459C00D98AE8 /* User.swift in Sources */,
 				5BE275911DEB0BD4006BF6BF /* Workday.swift in Sources */,
 				5BB553AC1DE2469500D98AE8 /* ReportWeekTableViewCell.swift in Sources */,
 				5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */,
 				5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */,
+				5B75B1B91DECA9F600350B2B /* OvertimeTypeViewController.swift in Sources */,
 				5BB553951DE2462A00D98AE8 /* TimeManagementViewController.swift in Sources */,
 				5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */,
+				5BE275961DEB32C6006BF6BF /* BoolTableViewCell.swift in Sources */,
 				5BB553B71DE246AA00D98AE8 /* ErrorViewController.swift in Sources */,
 				5BB553AE1DE2469500D98AE8 /* InputFieldTableViewCell.swift in Sources */,
 			);

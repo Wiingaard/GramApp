@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate, UITabBarDelegate, UITableViewDataSource {
+class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
 
     // Outlets
     @IBOutlet var dateLabelCollection: [UILabel]!
@@ -62,8 +62,18 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(WorkingHoursViewController.handlePan))
         daysContainerView.addGestureRecognizer(panRecognizer)
         
+        let nib = UINib(nibName: "InputFieldTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
+        let boolNib = UINib(nibName: "BoolTableViewCell", bundle: nil)
+        tableView.register(boolNib, forCellReuseIdentifier: "BoolInputCell")
+        let modalNib = UINib(nibName: "ModalInputTableViewCell", bundle: nil)
+        tableView.register(modalNib, forCellReuseIdentifier: "ModalInputTableViewCell")
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func viewDidLayoutSubviews() {
         view.layoutIfNeeded()
@@ -79,6 +89,167 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
     
+    // MARK: - Table View
+    var boolCell: BoolTableViewCell!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
+            switch indexPath.row {
+            case 0:
+                cell.nameLabel.text = "Type of work"
+                cell.valueLabel.text = currentWorkday.validTypeOfWork() ? currentWorkday.typeOfWork : ""
+                cell.statusImage(shouldShowGreen: currentWorkday.validTypeOfWork())
+                
+            case 1:
+                cell.nameLabel.text = "Hours - Max 10"
+                cell.valueLabel.text = currentWorkday.validHours() ? String(currentWorkday.hours) : ""
+                cell.statusImage(shouldShowGreen: currentWorkday.validHours())
+                
+            default:
+                cell.nameLabel.text = "Waiting Hours"
+                cell.valueLabel.text = currentWorkday.validWaitingHours() ? String(currentWorkday.waitingHours) : ""
+                cell.statusImage(shouldShowGreen: currentWorkday.validWaitingHours())
+            }
+            return cell
+            
+        default:
+            switch indexPath.row {
+            case 0:
+                boolCell = tableView.dequeueReusableCell(withIdentifier: "BoolInputCell") as! BoolTableViewCell
+                boolCell.nameLabel.text = "Daily fee"
+                boolCell.valueSwitch.isOn = currentWorkday.dailyFee
+                boolCell.valueSwitch.addTarget(self, action: #selector(WorkingHoursViewController.dailyFeeChanged), for: UIControlEvents.valueChanged)
+                boolCell.selectionStyle = .none
+                return boolCell
+            case 1:
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ModalInputTableViewCell") as! ModalInputTableViewCell
+                cell.nameLabel.text = "Overtime"
+                if currentWorkday.validOvertimeType() && currentWorkday.validOvertime() {
+                    if let type = OvertimeType(rawValue: currentWorkday.overtimeType) {
+                        let hours = doubleValueToMetricString(value: currentWorkday.overtime)
+                        switch type {
+                        case .normal:
+                            cell.valueLabel.text = "\(hours) hours - Normal"
+                        case .holiday:
+                            cell.valueLabel.text = "\(hours) hours - Sunday / holiday"
+                        }
+                    }
+                } else {
+                    cell.valueLabel.text = ""
+                }
+                
+                return cell
+            default:
+                let standartCell = UITableViewCell(style: .default, reuseIdentifier: nil)
+                standartCell.textLabel?.text = "Travel Time"
+                return standartCell
+            }
+        }
+    }
+    
+    func dailyFeeChanged() {
+        try! realm.write {
+            currentWorkday.dailyFee = boolCell.valueSwitch.isOn
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 3
+        default:
+            return 3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                let vc = EnumStringInputViewController
+                    .instantiate(withDelegate: self,
+                                 header: "Type of Work",
+                                 subheader: dateLabel.text ?? "",
+                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.someType ,
+                                 inputType: .enumWorkType)
+                navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                print("Hours - Max 10:  0.5 Hours Input Controller")
+            default:
+                print("Waiting Hours:   0.5 Hours Input Controller")
+            }
+        default:
+            switch indexPath.row {
+            case 1:
+                performSegue(withIdentifier: "Show Overtime", sender: nil)
+            case 2:
+                print("Show Travel Time")
+            default:
+                break
+            }
+            print("In not required")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let backgroundView = UIView(frame: CGRect.zero)
+        let label = UILabel(frame: CGRect.zero)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
+        label.text = section == 0 ? "Must be filled out" : "Fill out if necessary"
+        
+        backgroundView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let views = ["label": label]
+        
+        backgroundView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[label]->=8-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views))
+        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        
+        return backgroundView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    // MARK: - Helper
+    func doubleValueToMetricString(value: Double) -> String {
+        let displayString: String!
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            displayString = String(Int(value))
+        } else {
+            displayString = String(Double(Int(value / 0.5))*0.5)
+        }
+        return displayString
+    }
+
+    
+    // MARK: - Input Delegate
+    func inputControllerDidFinish(withValue value: AnyObject, andInputType type: InputType) {
+        
+        switch type {
+        case .enumWorkType:
+            let returnedInput = value as! String
+            
+            if currentWorkday.validTypeOfWork(type: returnedInput) {
+                try! realm.write {
+                    currentWorkday.typeOfWork = returnedInput
+                }
+            }
+            tableView.reloadData()
+            
+        default:
+            fatalError("Input not implemented")
+        }
+    }
     
     // MARK: - Day Update Methods
     /**
@@ -93,7 +264,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     /// See requestUpdate(to day: DayType)
     func updateDay() {
         selectedDay = currentShowingDay
-//        tableView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -195,6 +366,16 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
      */
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Overtime" {
+            let navController = segue.destination as! UINavigationController
+            let vc = navController.viewControllers[0] as! OvertimeViewController
+            vc.weekdayNo = currentWorkday.weekday
+            vc.reportID = self.reportID
+        }
     }
 }
 
