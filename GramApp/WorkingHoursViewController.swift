@@ -103,7 +103,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 
             case 1:
                 cell.nameLabel.text = "Hours - Max 10"
-                cell.valueLabel.text = currentWorkday.validHours() ? String(currentWorkday.hours) : ""
+                cell.valueLabel.text = currentWorkday.validHours() ? "\(doubleValueToMetricString(value: currentWorkday.hours)) hours" : ""
                 cell.statusImage(shouldShowGreen: currentWorkday.validHours())
                 
             default:
@@ -182,7 +182,15 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                                  inputType: .enumWorkType)
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
-                print("Hours - Max 10:  0.5 Hours Input Controller")
+                let subheader = "\(time.weekdayString(of: currentWorkday.date)), \(time.dateString(of: currentWorkday.date))"
+                let vc = HalfHourInputViewController
+                    .instantiate(withDelegate: self,
+                                 header: "Hours - max 10",
+                                 subheader: subheader,
+                                 inputType: .halfMax10,
+                                 maxHours: 10,
+                                 initialValue: currentWorkday.hours)
+                navigationController?.pushViewController(vc, animated: true)
             default:
                 print("Waiting Hours:   0.5 Hours Input Controller")
             }
@@ -245,7 +253,13 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 }
             }
             tableView.reloadData()
-            
+        case .halfMax10:
+            let returnedInput = value as! Double
+            if currentWorkday.validHours(double: returnedInput) {
+                try! realm.write {
+                    currentWorkday.hours = returnedInput
+                }
+            }
         default:
             fatalError("Input not implemented")
         }
@@ -378,8 +392,3 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
 }
-
-
-
-
-

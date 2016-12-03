@@ -14,6 +14,7 @@ import RealmSwift
  */
 class Workday: Object {
     
+    var date = Date()
     dynamic var weekday = 0             // Constant
     dynamic var dailyFee = false        // Required
     dynamic var hours = -1.0            // Required
@@ -25,6 +26,9 @@ class Workday: Object {
     dynamic var waitingType = ""        // Enum
     dynamic var typeOfWork = ""         // Enum
     
+    override static func ignoredProperties() -> [String] {
+        return ["date"]
+    }
     
     // MARK: - Validation
     func validWeekday(number: Int? = nil) -> Bool {

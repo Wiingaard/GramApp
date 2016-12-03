@@ -23,6 +23,11 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
             return realm.objects(WeekReport.self)
         }
     }
+    var allWorkdays: Results<Workday> {
+        get {
+            return realm.objects(Workday.self)
+        }
+    }
     
     // View stuff
     var deleteAllTapGesture: UITapGestureRecognizer!
@@ -51,8 +56,10 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     
     func setupButton() {
         if reportList.isEmpty {
+            buttonView.backgroundColor = UIColor.init(white: 70/255, alpha: 1)
             buttonLabel.text = "All reports are deleted"
         } else {
+            buttonView.backgroundColor = UIColor(red: 249/255, green: 98/255, blue: 98/255, alpha: 1)
             buttonLabel.text = "Delete all reports"
         }
     }
@@ -60,9 +67,12 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     func deleteAllAction() {
         func deleteAllReports() {
             try! realm.write {
-                let allReports = reportList
-                realm.delete(allReports)
+                realm.delete(reportList)
             }
+            try! realm.write {
+                realm.delete(allWorkdays)
+            }
+            
             setupButton()
         }
         if !reportList.isEmpty {

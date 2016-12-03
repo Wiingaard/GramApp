@@ -51,6 +51,7 @@ class WeekReport: Object {
         for dayIndex in 0...6 {
             let workday = Workday()
             workday.weekday = dayIndex
+            workday.date = mondayInWeek.addingTimeInterval(TimeInterval(dayIndex * 60 * 60 * 24))
             workdays.append(workday)
         }
     }

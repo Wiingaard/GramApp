@@ -41,6 +41,8 @@ enum InputType {
     case enumOvertimeType       // Working Hours
     case enumWaitingType        // Working Hours
     case enumWorkType           // Working Hours
+    // half hour
+    case halfMax10              // WOrking Hours
 }
 
 // MARK: - Workday
