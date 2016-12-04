@@ -1,42 +1,41 @@
 //
-//  OvertimeTypeViewController.swift
+//  WaitingTypeViewController.swift
 //  GramApp
 //
-//  Created by Martin Wiingaard on 28/11/2016.
+//  Created by Martin Wiingaard on 04/12/2016.
 //  Copyright © 2016 Fiks IVS. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var subheader: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func confirmAction(_ sender: UIButton) {
-        
-        func handleAction(type: OvertimeType) {
-            if workday.validOvertime(double: overtime) {
+    @IBAction func confirmAction(_ sender: Any) {
+        func handleAction(type: WaitingType) {
+            if workday.validWaitingType(type: type.rawValue) {
                 try! realm.write {
-                    workday.overtime = overtime
-                    workday.overtimeType = type.rawValue
+                    workday.waitingHours = waitingHours
+                    workday.waitingType = type.rawValue
                 }
             } else {
                 try! realm.write {
-                    workday.overtime = 0
-                    workday.overtimeType = ""
+                    workday.waitingHours = 0
+                    workday.waitingType = ""
                 }
             }
             dismiss(animated: true, completion: nil)
         }
         switch selected {
         case 0:
-            handleAction(type: .normal)
+            handleAction(type: .someType)
         case 1:
-            handleAction(type: .holiday)
+            handleAction(type: .otherType)
         default:
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nTError message")
+            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nError message")
             present(error, animated: true, completion: nil)
         }
     }
@@ -48,12 +47,16 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     let realm = try! Realm()
     
     var weekdayNo: Int!
-    var overtime: Double!
+    var waitingHours: Double!
+    let waitingTypes = {
+        return WorkType.otherType.all
+    }()
     
     var selected: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let nib = UINib(nibName: "CheckmarkTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CheckmarkTableViewCell")
         
@@ -62,16 +65,16 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
         workday = report.workdays[weekdayNo]
         subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
         
-        selected = weekdayNo == 6 ? 1 : 0
+        selected = 0
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        switch workday.overtimeType {
-        case OvertimeType.normal.rawValue:
+        switch workday.waitingType {
+        case WaitingType.someType.rawValue:
             setCheckmark(at: 0)
             selected = 0
-        case OvertimeType.holiday.rawValue:
+        case WaitingType.otherType.rawValue:
             setCheckmark(at: 1)
             selected = 1
         default:
@@ -81,19 +84,19 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     // MARK: - Table view
-    var normalCell: CheckmarkTableViewCell!
-    var sundayCell: CheckmarkTableViewCell!
+    var someTypeCell: CheckmarkTableViewCell!
+    var otherTypeCell: CheckmarkTableViewCell!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    
         switch indexPath.row {
         case 0:
-            normalCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            normalCell.titleLabel.text = "Normal Overtime"
-            return normalCell
+            someTypeCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
+            someTypeCell.titleLabel.text = WorkType.someType.rawValue
+            return someTypeCell
         default:
-            sundayCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            sundayCell.titleLabel.text = "Sunday or holiday"
-            return sundayCell
+            otherTypeCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
+            otherTypeCell.titleLabel.text = WorkType.otherType.rawValue
+            return otherTypeCell
         }
     }
     
@@ -102,7 +105,7 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return waitingTypes.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -114,12 +117,12 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     func setCheckmark(at indexpathRow: Int) {
         switch indexpathRow {
         case 0:
-            normalCell.checkmarkImageView.image = UIImage(named: "Image")
-            sundayCell.checkmarkImageView.image = nil
+            someTypeCell.checkmarkImageView.image = UIImage(named: "Image")
+            otherTypeCell.checkmarkImageView.image = nil
         default:
-            sundayCell.checkmarkImageView.image = UIImage(named: "Image")
-            normalCell.checkmarkImageView.image = nil
+            otherTypeCell.checkmarkImageView.image = UIImage(named: "Image")
+            someTypeCell.checkmarkImageView.image = nil
         }
     }
-    
+
 }

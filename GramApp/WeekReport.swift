@@ -24,10 +24,13 @@ class WeekReport: Object {
     dynamic var sentStatus = false
     dynamic var signature: NSData? = nil
     
-    // Report Information
+    // Project Info
     dynamic var customerName = ""
-    dynamic var reportNo = 0
     dynamic var projectNo = 0           // fixed
+    dynamic var departure: NSDate? = nil
+    dynamic var arrival: NSDate? = nil
+    dynamic var mileage = -1
+    dynamic var carType = ""       // Enum
     
     // Working Hours
     let workdays = List<Workday>()
@@ -78,14 +81,54 @@ class WeekReport: Object {
         return !checkString.isEmpty
     }
     
+    func validDeparture(date: NSDate? = nil) -> Bool {
+        let checkDate: NSDate!
+        if date != nil {
+            checkDate = date
+        } else {
+            checkDate = departure
+        }
+        return checkDate != nil
+    }
+    
+    func validArrival(date: NSDate? = nil) -> Bool {
+        let checkDate: NSDate!
+        if date != nil {
+            checkDate = date
+        } else {
+            checkDate = arrival
+        }
+        return checkDate != nil
+    }
+    
+    func validMileage(number: Int? = nil) -> Bool {
+        let checkNumber: Int!
+        if number != nil {
+            checkNumber = number
+        } else {
+            checkNumber = mileage
+        }
+        return checkNumber >= 0 ? true : false
+    }
+    
+    func validCarType(type: String? = nil) -> Bool {
+        let checkString: String!
+        if type != nil {
+            checkString = type
+        } else {
+            checkString = carType
+        }
+        if CarType(rawValue: checkString) != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // old shit!
     /// true if != ""
     var validCustomerName: Bool {
         return customerName != "" ? true : false
-    }
-    /// true if != 0
-    var validReportNo: Bool {
-        return reportNo != 0 ? true : false
     }
     /// true if > -1
     var validMealBreakfast: Bool {

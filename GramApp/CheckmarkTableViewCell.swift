@@ -18,4 +18,13 @@ class CheckmarkTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func isChecked(_ checked: Bool) {
+        guard checkmarkImageView != nil else { return }
+        if checked {
+            checkmarkImageView.image = UIImage(named: "Image")
+        } else {
+            checkmarkImageView.image = nil
+        }
+    }
+    
 }

@@ -15,21 +15,24 @@
 		5B04A4FE1DE23B45000C12A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B04A4FD1DE23B45000C12A9 /* libz.tbd */; };
 		5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */; };
 		5B190A871DE4F1190059F95E /* CreateNewProjectNoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */; };
+		5B4766831DF44A2F000B217D /* TravelTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4766821DF44A2F000B217D /* TravelTimeViewController.swift */; };
+		5B4766871DF44A44000B217D /* TravelTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4766861DF44A44000B217D /* TravelTypeViewController.swift */; };
+		5B47668B1DF4688A000B217D /* OptionalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4766891DF4688A000B217D /* OptionalInputTableViewCell.swift */; };
+		5B47668C1DF4688A000B217D /* OptionalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B47668A1DF4688A000B217D /* OptionalInputTableViewCell.xib */; };
+		5B47668E1DF48059000B217D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B47668D1DF48059000B217D /* Extensions.swift */; };
 		5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BD12E1DEB944A0090D333 /* OvertimeViewController.swift */; };
 		5B75B1B91DECA9F600350B2B /* OvertimeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */; };
 		5B75B1BE1DECB30000350B2B /* CheckmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1BC1DECB30000350B2B /* CheckmarkTableViewCell.swift */; };
 		5B75B1BF1DECB30000350B2B /* CheckmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */; };
 		5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */; };
 		5B75B1C31DECE07C00350B2B /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */; };
+		5B82CF301DF4AC6C00907896 /* AwesomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82CF2F1DF4AC6C00907896 /* AwesomeButton.swift */; };
 		5BB553861DE2459C00D98AE8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553831DE2459C00D98AE8 /* Types.swift */; };
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
 		5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */; };
 		5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */; };
 		5BB553921DE2462A00D98AE8 /* WorkingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */; };
-		5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */; };
-		5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */; };
-		5BB553951DE2462A00D98AE8 /* TimeManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5538F1DE2462A00D98AE8 /* TimeManagementViewController.swift */; };
 		5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553971DE2467100D98AE8 /* NumberInputViewController.swift */; };
 		5BB553A01DE2467100D98AE8 /* NumberInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553981DE2467100D98AE8 /* NumberInputViewController.xib */; };
 		5BB553A11DE2467100D98AE8 /* StringInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553991DE2467100D98AE8 /* StringInputViewController.swift */; };
@@ -52,6 +55,10 @@
 		5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */; };
 		5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */; };
 		5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */; };
+		5BD96B6D1DF35F9A00654611 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */; };
+		5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */; };
+		5BE1105D1DF4858600994274 /* MileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1105C1DF4858600994274 /* MileageViewController.swift */; };
+		5BE110631DF4923A00994274 /* CarTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE110621DF4923A00994274 /* CarTypeViewController.swift */; };
 		5BE275911DEB0BD4006BF6BF /* Workday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275901DEB0BD4006BF6BF /* Workday.swift */; };
 		5BE275961DEB32C6006BF6BF /* BoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275941DEB32C6006BF6BF /* BoolTableViewCell.swift */; };
 		5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */; };
@@ -108,21 +115,24 @@
 		5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GramApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B190A841DE4F1190059F95E /* CreateNewProjectNoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectNoViewController.swift; sourceTree = "<group>"; };
 		5B190A851DE4F1190059F95E /* CreateNewProjectNoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewProjectNoViewController.xib; sourceTree = "<group>"; };
+		5B4766821DF44A2F000B217D /* TravelTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTimeViewController.swift; sourceTree = "<group>"; };
+		5B4766861DF44A44000B217D /* TravelTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTypeViewController.swift; sourceTree = "<group>"; };
+		5B4766891DF4688A000B217D /* OptionalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalInputTableViewCell.swift; sourceTree = "<group>"; };
+		5B47668A1DF4688A000B217D /* OptionalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionalInputTableViewCell.xib; sourceTree = "<group>"; };
+		5B47668D1DF48059000B217D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B6BD12E1DEB944A0090D333 /* OvertimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeViewController.swift; sourceTree = "<group>"; };
 		5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeTypeViewController.swift; sourceTree = "<group>"; };
 		5B75B1BC1DECB30000350B2B /* CheckmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkTableViewCell.swift; sourceTree = "<group>"; };
 		5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkTableViewCell.xib; sourceTree = "<group>"; };
 		5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInputTableViewCell.swift; sourceTree = "<group>"; };
 		5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
+		5B82CF2F1DF4AC6C00907896 /* AwesomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeButton.swift; sourceTree = "<group>"; };
 		5BB553831DE2459C00D98AE8 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyReportViewController.swift; sourceTree = "<group>"; };
 		5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectInformationViewController.swift; sourceTree = "<group>"; };
 		5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHoursViewController.swift; sourceTree = "<group>"; };
-		5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
-		5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInformationViewController.swift; sourceTree = "<group>"; };
-		5BB5538F1DE2462A00D98AE8 /* TimeManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManagementViewController.swift; sourceTree = "<group>"; };
 		5BB553971DE2467100D98AE8 /* NumberInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberInputViewController.swift; sourceTree = "<group>"; };
 		5BB553981DE2467100D98AE8 /* NumberInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NumberInputViewController.xib; sourceTree = "<group>"; };
 		5BB553991DE2467100D98AE8 /* StringInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringInputViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,10 @@
 		5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
 		5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
 		5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
+		5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
+		5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
+		5BE1105C1DF4858600994274 /* MileageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileageViewController.swift; sourceTree = "<group>"; };
+		5BE110621DF4923A00994274 /* CarTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarTypeViewController.swift; sourceTree = "<group>"; };
 		5BE275901DEB0BD4006BF6BF /* Workday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workday.swift; sourceTree = "<group>"; };
 		5BE275941DEB32C6006BF6BF /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
 		5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoolTableViewCell.xib; sourceTree = "<group>"; };
@@ -249,14 +263,13 @@
 			name = "Create New";
 			sourceTree = "<group>";
 		};
-		5B6BD1321DEB94570090D333 /* Old shit */ = {
+		5B4766881DF44A4F000B217D /* Travel Time */ = {
 			isa = PBXGroup;
 			children = (
-				5BB5538D1DE2462A00D98AE8 /* MealsViewController.swift */,
-				5BB5538E1DE2462A00D98AE8 /* CarInformationViewController.swift */,
-				5BB5538F1DE2462A00D98AE8 /* TimeManagementViewController.swift */,
+				5B4766821DF44A2F000B217D /* TravelTimeViewController.swift */,
+				5B4766861DF44A44000B217D /* TravelTypeViewController.swift */,
 			);
-			name = "Old shit";
+			name = "Travel Time";
 			sourceTree = "<group>";
 		};
 		5BB553891DE245A700D98AE8 /* Models */ = {
@@ -275,9 +288,8 @@
 			children = (
 				5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */,
 				5BB5538B1DE2462A00D98AE8 /* ProjectInformationViewController.swift */,
-				5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */,
-				5BD96B691DF35F1E00654611 /* Overtime */,
-				5B6BD1321DEB94570090D333 /* Old shit */,
+				5BE110601DF4859200994274 /* Mileage */,
+				5BE110611DF48BA900994274 /* Working Hours */,
 			);
 			name = "Weekly Report View Controllers";
 			sourceTree = "<group>";
@@ -312,6 +324,8 @@
 				5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */,
 				5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */,
 				5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */,
+				5B4766891DF4688A000B217D /* OptionalInputTableViewCell.swift */,
+				5B47668A1DF4688A000B217D /* OptionalInputTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -321,9 +335,11 @@
 			children = (
 				5B04A4E11DE21E51000C12A9 /* Assets.xcassets */,
 				5B04A4DA1DE21E51000C12A9 /* AppDelegate.swift */,
+				5B47668D1DF48059000B217D /* Extensions.swift */,
+				5BB553B31DE246AA00D98AE8 /* Time.swift */,
+				5B82CF2F1DF4AC6C00907896 /* AwesomeButton.swift */,
 				5BB553B11DE246AA00D98AE8 /* ErrorViewController.swift */,
 				5BB553B21DE246AA00D98AE8 /* ErrorViewController.xib */,
-				5BB553B31DE246AA00D98AE8 /* Time.swift */,
 				5BB553B41DE246AA00D98AE8 /* arrow.png */,
 				5BB553B51DE246AA00D98AE8 /* Grøn cirkel.png */,
 				5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */,
@@ -341,6 +357,35 @@
 				5B75B1B81DECA9F600350B2B /* OvertimeTypeViewController.swift */,
 			);
 			name = Overtime;
+			sourceTree = "<group>";
+		};
+		5BD96B701DF38A9F00654611 /* Waiting Time */ = {
+			isa = PBXGroup;
+			children = (
+				5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */,
+				5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */,
+			);
+			name = "Waiting Time";
+			sourceTree = "<group>";
+		};
+		5BE110601DF4859200994274 /* Mileage */ = {
+			isa = PBXGroup;
+			children = (
+				5BE1105C1DF4858600994274 /* MileageViewController.swift */,
+				5BE110621DF4923A00994274 /* CarTypeViewController.swift */,
+			);
+			name = Mileage;
+			sourceTree = "<group>";
+		};
+		5BE110611DF48BA900994274 /* Working Hours */ = {
+			isa = PBXGroup;
+			children = (
+				5BB5538C1DE2462A00D98AE8 /* WorkingHoursViewController.swift */,
+				5BD96B701DF38A9F00654611 /* Waiting Time */,
+				5BD96B691DF35F1E00654611 /* Overtime */,
+				5B4766881DF44A4F000B217D /* Travel Time */,
+			);
+			name = "Working Hours";
 			sourceTree = "<group>";
 		};
 		CDC07F1C1393257912493D59 /* Pods */ = {
@@ -453,6 +498,7 @@
 				5BB553A41DE2467100D98AE8 /* DateInputViewController.xib in Resources */,
 				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
 				5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */,
+				5B47668C1DF4688A000B217D /* OptionalInputTableViewCell.xib in Resources */,
 				5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */,
 				5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */,
 				5BB553B81DE246AA00D98AE8 /* ErrorViewController.xib in Resources */,
@@ -547,10 +593,12 @@
 				5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
 				5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */,
+				5B47668E1DF48059000B217D /* Extensions.swift in Sources */,
 				5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */,
-				5BB553941DE2462A00D98AE8 /* CarInformationViewController.swift in Sources */,
+				5BD96B6D1DF35F9A00654611 /* WaitingHoursViewController.swift in Sources */,
 				5B04A4DB1DE21E51000C12A9 /* AppDelegate.swift in Sources */,
 				5BE2759A1DEB7373006BF6BF /* EnumStringInputViewController.swift in Sources */,
+				5BE110631DF4923A00994274 /* CarTypeViewController.swift in Sources */,
 				5BB553A31DE2467100D98AE8 /* DateInputViewController.swift in Sources */,
 				5BEDE9471DEF761B00828B3C /* HalfHourInputViewController.swift in Sources */,
 				5BB553A11DE2467100D98AE8 /* StringInputViewController.swift in Sources */,
@@ -559,15 +607,19 @@
 				5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */,
 				5BB553A51DE2467100D98AE8 /* CreateReportViewController.swift in Sources */,
 				5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */,
+				5B82CF301DF4AC6C00907896 /* AwesomeButton.swift in Sources */,
+				5B4766871DF44A44000B217D /* TravelTypeViewController.swift in Sources */,
+				5B47668B1DF4688A000B217D /* OptionalInputTableViewCell.swift in Sources */,
 				5B75B1BE1DECB30000350B2B /* CheckmarkTableViewCell.swift in Sources */,
+				5BE1105D1DF4858600994274 /* MileageViewController.swift in Sources */,
 				5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */,
 				5BB553881DE2459C00D98AE8 /* User.swift in Sources */,
+				5B4766831DF44A2F000B217D /* TravelTimeViewController.swift in Sources */,
 				5BE275911DEB0BD4006BF6BF /* Workday.swift in Sources */,
+				5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */,
 				5BB553AC1DE2469500D98AE8 /* ReportWeekTableViewCell.swift in Sources */,
-				5BB553931DE2462A00D98AE8 /* MealsViewController.swift in Sources */,
 				5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */,
 				5B75B1B91DECA9F600350B2B /* OvertimeTypeViewController.swift in Sources */,
-				5BB553951DE2462A00D98AE8 /* TimeManagementViewController.swift in Sources */,
 				5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */,
 				5BE275961DEB32C6006BF6BF /* BoolTableViewCell.swift in Sources */,
 				5BB553B71DE246AA00D98AE8 /* ErrorViewController.swift in Sources */,

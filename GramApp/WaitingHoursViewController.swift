@@ -1,26 +1,25 @@
 //
-//  OvertimeViewController.swift
+//  WaitingHoursViewController.swift
 //  GramApp
 //
-//  Created by Martin Wiingaard on 27/11/2016.
+//  Created by Martin Wiingaard on 03/12/2016.
 //  Copyright © 2016 Fiks IVS. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var subheader: UILabel!
     @IBOutlet weak var hourPicker: UIPickerView!
     
-    @IBAction func nextAction(_ sender: Any) {
-        
+    @IBAction func nextAction(_ sender: UIButton) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 , execute: { [weak self] in
             let hours = self?.getSelectedHoursValue()
             if hours != nil {
-                self?.overtime = hours!
-                self?.performSegue(withIdentifier: "Show Overtime Type", sender: nil)
+                self?.waitingHours = hours!
+                self?.performSegue(withIdentifier: "Show Waiting Type", sender: nil)
             }
         })
     }
@@ -32,7 +31,7 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // Model:
     var reportID: String!
     var weekdayNo: Int!
-    var overtime: Double = 0
+    var waitingHours: Double = 0
     var report: WeekReport!
     let realm = try! Realm()
     
@@ -50,11 +49,15 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let workday = report.workdays[weekdayNo]
         subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
         
+        waitingHours = workday.waitingHours
+        
         hourPicker.delegate = self
         hourPicker.dataSource = self
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        setSelectedHours(value: waitingHours)
+    }
     
     // MARK: - Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -88,14 +91,26 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         return hours+halvHours
     }
     
+    func setSelectedHours(value: Double) {
+        let hours = Int(value.rounded(.down))
+        let half: Int!
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            half = 0
+        } else {
+            half = 1
+        }
+        hourPicker.selectRow(hours, inComponent: 0, animated: true)
+        hourPicker.selectRow(half, inComponent: 1, animated: true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Overtime Type" {
-            let vc = segue.destination as! OvertimeTypeViewController
+        if segue.identifier == "Show Waiting Type" {
+            let vc = segue.destination as! WaitingTypeViewController
             vc.report = report
             vc.weekdayNo = weekdayNo
-            vc.overtime = overtime
+            vc.waitingHours = waitingHours
             vc.reportID = reportID
         }
     }
-    
+
 }

@@ -14,7 +14,7 @@ class WeeklyReportViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var weeknumberLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
-    @IBOutlet weak var overtimeLabel: UILabel!
+    @IBOutlet weak var metricBackground: UIView!
     
     @IBOutlet weak var projectInformationView: UIView!
     @IBOutlet weak var workingHoursView: UIView!
@@ -31,6 +31,9 @@ class WeeklyReportViewController: UIViewController {
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
         
+        metricBackground.layer.cornerRadius = 10
+        metricBackground.clipsToBounds = true
+        
         weeknumberLabel.text = "Week \(report.weekNumber)"
         setupMetrics()
         setupButtons()
@@ -38,15 +41,17 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Setup
     func setupMetrics() {
-        let totalHours = report.workdays.reduce(0) { (sum, workday) in
-            sum + workday.hours
+        let totalHours = report.workdays.reduce(0) { (sum: Double, workday) in
+            var partSum = sum
+            if workday.validHours() { partSum += workday.hours }
+            if workday.validOvertime() { partSum += workday.overtime }
+            if workday.validTravelOut() { partSum += workday.travelOut }
+            if workday.validTravelHome() { partSum += workday.travelHome }
+            if workday.validWaitingHours() { partSum += workday.waitingHours }
+            return partSum
         }
         hoursLabel.text = doubleValueToMetricString(value: totalHours)
         
-        let totalOvertime = report.workdays.reduce(0) { (sum, workday) in
-            sum + workday.overtime
-        }
-        overtimeLabel.text = doubleValueToMetricString(value: totalOvertime)
     }
     
     func doubleValueToMetricString(value: Double) -> String {
@@ -78,7 +83,7 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Button Actions
     func projectPressed() {
-        print("Herp")
+        performSegue(withIdentifier: "Show Project Information", sender: nil)
     }
     
     func workingHoursPressed() {
@@ -86,13 +91,16 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func signPressed() {
-        print("Berp")
+        print("Derp")
     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Working Hours" {
             let vc = segue.destination as! WorkingHoursViewController
+            vc.reportID = self.reportID
+        } else if segue.identifier == "Show Project Information" {
+            let vc = segue.destination as! ProjectInformationViewController
             vc.reportID = self.reportID
         }
     }

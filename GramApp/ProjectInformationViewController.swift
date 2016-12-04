@@ -33,77 +33,117 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
         tableView.dataSource = self
         let nib = UINib(nibName: "InputFieldTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
+        let otherNib = UINib(nibName: "OptionalInputTableViewCell", bundle: nil)
+        tableView.register(otherNib, forCellReuseIdentifier: "OptionalInputTableViewCell")
         
         dateLabel.text = time.month(for: report.mondayInWeek).uppercased() + ", WEEK \(report.weekNumber)"
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     // MARK: - Table View Methods
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            cell.nameLabel.text = "Customer"
-            cell.valueLabel.text = report.customerName
-            cell.statusImage(shouldShowGreen: report.validCustomerName)
-            
-        case 1:
-            cell.nameLabel.text = "Report No."
-            cell.valueLabel.text = report.validReportNo ? "\(report.reportNo)" : ""
-            cell.statusImage(shouldShowGreen: report.validReportNo)
-            
-        case 2:
-            cell.nameLabel.text = "Order No."
-            cell.valueLabel.text = report.validProjectNo() ? "\(report.projectNo)" : ""
-            cell.statusImage(shouldShowGreen: report.validProjectNo())
-            
-        case 3:
-            cell.nameLabel.text = "Time Management"
-            cell.valueLabel.text = ""
-            cell.statusImageView.image = UIImage(named: "Rød Cirkel.png")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
+            switch indexPath.row {
+            case 0:
+                cell.nameLabel.text = "Customer"
+                cell.valueLabel.text = report.customerName
+                cell.statusImage(shouldShowGreen: report.validCustomerName)
+            default:
+                cell.nameLabel.text = "Project No."
+                cell.valueLabel.text = report.validProjectNo() ? "\(report.projectNo)" : ""
+                cell.statusImage(shouldShowGreen: report.validProjectNo())
+            }
+            return cell
         default:
-            break
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
+            
+            switch indexPath.row {
+            case 0:
+                cell.nameLabel.text = "Departure"
+                if report.validDeparture() {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "dd MMM HH:mm"
+                    formatter.locale = time.locale
+                    cell.valueLabel.text = formatter.string(from: report.departure! as Date)
+                } else {
+                    cell.valueLabel.text = ""
+                }
+                
+            case 1:
+                cell.nameLabel.text = "Arrival"
+                if report.validArrival() {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "dd MMM HH:mm"
+                    formatter.locale = time.locale
+                    cell.valueLabel.text = formatter.string(from: report.arrival! as Date)
+                } else {
+                    cell.valueLabel.text = ""
+                }
+            default:
+                cell.nameLabel.text = "Milage"
+                if report.validCarType() && report.validMileage() {
+                    cell.valueLabel.text = "\(report.mileage) km in \(report.carType) car"
+                } else {
+                    cell.valueLabel.text = ""
+                }
+                
+            }
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            let stringInputViewController = StringInputViewController(nibName: "StringInputViewController", bundle: nil)
-            stringInputViewController.delegate = self
-            stringInputViewController.placeholder = "Customer"
-            stringInputViewController.inputType = InputType.stringCustomer
-            stringInputViewController.initialInputValue = report.customerName
-            navigationController?.pushViewController(stringInputViewController, animated: true)
-            
-        case 1:
-            let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
-            numberInputViewController.delegate = self
-            numberInputViewController.placeholder = "Report No."
-            numberInputViewController.inputType = InputType.numberReport
-            numberInputViewController.initialInputValue = report.validReportNo ? report.reportNo : nil
-            navigationController?.pushViewController(numberInputViewController, animated: true)
-            
-        case 2:
-            let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
-            numberInputViewController.delegate = self
-            numberInputViewController.placeholder = "Order No."
-            numberInputViewController.inputType = InputType.numberProject
-            numberInputViewController.initialInputValue = report.validProjectNo() ? report.projectNo : nil
-            navigationController?.pushViewController(numberInputViewController, animated: true)
-            
-        case 3:
-            performSegue(withIdentifier: "Show Time Management", sender: nil)
-            
+            switch indexPath.row {
+            case 0:
+                let stringInputViewController = StringInputViewController(nibName: "StringInputViewController", bundle: nil)
+                stringInputViewController.delegate = self
+                stringInputViewController.placeholder = "Customer"
+                stringInputViewController.inputType = InputType.stringCustomer
+                stringInputViewController.initialInputValue = report.customerName
+                navigationController?.pushViewController(stringInputViewController, animated: true)
+                
+            default:
+                let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
+                numberInputViewController.delegate = self
+                numberInputViewController.placeholder = "Order No."
+                numberInputViewController.inputType = InputType.numberProject
+                numberInputViewController.initialInputValue = report.validProjectNo() ? report.projectNo : nil
+                navigationController?.pushViewController(numberInputViewController, animated: true)
+                
+            }
         default:
-            break
+            let subheader = "Week \(report.weekNumber)"
+            switch indexPath.row {
+            case 0:
+                let vc = DateInputViewController.instantiate(withDelegate: self,
+                                                             header: "Departure",
+                                                             subheader: subheader,
+                                                             initialDate: report.departure ?? NSDate(),
+                                                             inputType: .dateDeparture)
+                navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                let vc = DateInputViewController.instantiate(withDelegate: self,
+                                                             header: "Arrival",
+                                                             subheader: subheader,
+                                                             initialDate: report.arrival ?? NSDate(),
+                                                             inputType: .dateArrival)
+                navigationController?.pushViewController(vc, animated: true)
+            default:
+                performSegue(withIdentifier: "Show Mileage", sender: nil)
+            }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,11 +151,37 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        switch section {
+        case 0:
+            return 2
+        default:
+            return 3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let backgroundView = UIView(frame: CGRect.zero)
+        let label = UILabel(frame: CGRect.zero)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
+        label.text = section == 0 ? "Project info" : "When traveling"
+        
+        backgroundView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let views = ["label": label]
+        
+        backgroundView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[label]->=8-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views))
+        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        
+        return backgroundView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     func inputControllerDidFinish(withValue value: AnyObject, andInputType type: InputType) {
@@ -123,26 +189,27 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
             try! realm.write {
                 report.customerName = value as! String
             }
-            
-        } else if type == .numberReport {
-            try! realm.write {
-                report.reportNo = value as! Int
-            }
-        
         } else if type == .numberProject {
             try! realm.write {
                 report.projectNo = value as! Int
+            }
+        } else if type == .dateDeparture {
+            try! realm.write {
+                report.departure = value as? NSDate
+            }
+        } else if type == .dateArrival {
+            try! realm.write {
+                report.arrival = value as? NSDate
             }
         }
         tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Time Management" {
-            let timeManagementVC = segue.destination as! TimeManagementViewController
-            timeManagementVC.reportID = reportID
+        if segue.identifier == "Show Mileage" {
+            let vc = segue.destination as! MileageViewController
+            vc.reportID = self.reportID
         }
     }
-    
 
 }

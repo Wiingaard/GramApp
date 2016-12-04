@@ -108,8 +108,23 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 
             default:
                 cell.nameLabel.text = "Waiting Hours"
-                cell.valueLabel.text = currentWorkday.validWaitingHours() ? String(currentWorkday.waitingHours) : ""
-                cell.statusImage(shouldShowGreen: currentWorkday.validWaitingHours())
+                if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
+                    let type = WaitingType(rawValue: currentWorkday.waitingType)!
+                    let hours = doubleValueToMetricString(value: currentWorkday.waitingHours)
+                    switch type {
+                    case .someType:
+                        cell.valueLabel.text = "\(hours) hours - Some"
+                    case .otherType:
+                        cell.valueLabel.text = "\(hours) hours - Other"
+                    }
+                    cell.statusImage(shouldShowGreen: true)
+                    
+                } else {
+                    cell.valueLabel.text = ""
+                    cell.statusImage(shouldShowGreen: false)
+                }
+                cell.accessoryType = .none
+                
             }
             return cell
             
@@ -142,9 +157,20 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 
                 return cell
             default:
-                let standartCell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                standartCell.textLabel?.text = "Travel Time"
-                return standartCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ModalInputTableViewCell") as! ModalInputTableViewCell
+                cell.nameLabel.text = "Travel Time"
+                var valueString = ""
+                if currentWorkday.validTravelOut() {
+                    valueString += "\(doubleValueToMetricString(value: currentWorkday.travelOut)) h out"
+                    if currentWorkday.validTravelHome() {
+                        valueString += " & "
+                    }
+                }
+                if currentWorkday.validTravelHome() {
+                    valueString += "\(doubleValueToMetricString(value: currentWorkday.travelHome)) h home"
+                }
+                cell.valueLabel.text = valueString
+                return cell
             }
         }
     }
@@ -192,14 +218,14 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                                  initialValue: currentWorkday.hours)
                 navigationController?.pushViewController(vc, animated: true)
             default:
-                print("Waiting Hours:   0.5 Hours Input Controller")
+                performSegue(withIdentifier: "Show Waiting", sender: nil)
             }
         default:
             switch indexPath.row {
             case 1:
                 performSegue(withIdentifier: "Show Overtime", sender: nil)
             case 2:
-                print("Show Travel Time")
+                performSegue(withIdentifier: "Show Travel", sender: nil)
             default:
                 break
             }
@@ -387,6 +413,16 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         if segue.identifier == "Show Overtime" {
             let navController = segue.destination as! UINavigationController
             let vc = navController.viewControllers[0] as! OvertimeViewController
+            vc.weekdayNo = currentWorkday.weekday
+            vc.reportID = self.reportID
+        } else if segue.identifier == "Show Waiting" {
+            let navController = segue.destination as! UINavigationController
+            let vc = navController.viewControllers[0] as! WaitingHoursViewController
+            vc.weekdayNo = currentWorkday.weekday
+            vc.reportID = self.reportID
+        } else if segue.identifier == "Show Travel" {
+            let navController = segue.destination as! UINavigationController
+            let vc = navController.viewControllers[0] as! TravelTypeViewController
             vc.weekdayNo = currentWorkday.weekday
             vc.reportID = self.reportID
         }

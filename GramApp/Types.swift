@@ -35,14 +35,15 @@ enum InputType {
     case stringTypeOfWork       // Work Hours
     case stringCarNo            // Car
     case stringFullName         // Profile - User
-    // date
-    case dateDeparture
     // enum
     case enumOvertimeType       // Working Hours
     case enumWaitingType        // Working Hours
     case enumWorkType           // Working Hours
     // half hour
-    case halfMax10              // WOrking Hours
+    case halfMax10              // Working Hours
+    // date
+    case dateDeparture          // Project Info
+    case dateArrival            // Project Info
 }
 
 // MARK: - Workday
@@ -80,6 +81,25 @@ enum WorkType: String, AllEnum {
     
     var all: [String] {
         return [WorkType.someType.rawValue, WorkType.otherType.rawValue]
+    }
+}
+
+enum TravelType: String, AllEnum {
+    case out = "Travel out"
+    case home = "Travel home"
+    
+    var all: [String] {
+        return [TravelType.out.rawValue, TravelType.home.rawValue]
+    }
+}
+
+enum CarType: String, AllEnum {
+    case privateCar = "Private"
+    case serviceCar = "Service"
+    case rentalCar = "Rental"
+    
+    var all: [String] {
+        return [CarType.privateCar.rawValue, CarType.serviceCar.rawValue, CarType.rentalCar.rawValue]
     }
 }
 
