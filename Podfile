@@ -7,6 +7,7 @@ target 'GramApp' do
 
   # Pods for GramApp
   pod 'RealmSwift'
+  pod 'pop', '~> 1.0'
 end
 
 post_install do |installer|
