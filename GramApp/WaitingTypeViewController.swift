@@ -15,6 +15,14 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func confirmAction(_ sender: Any) {
+        func popBack() {
+            let allVCs = navigationController!.viewControllers
+            for vc in allVCs {
+                if vc.isKind(of: WorkingHoursViewController.self) {
+                    _ = navigationController?.popToViewController(vc, animated: true)
+                }
+            }
+        }
         func handleAction(type: WaitingType) {
             if workday.validWaitingType(type: type.rawValue) {
                 try! realm.write {
@@ -27,7 +35,7 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
                     workday.waitingType = ""
                 }
             }
-            dismiss(animated: true, completion: nil)
+            popBack()
         }
         switch selected {
         case 0:

@@ -15,7 +15,14 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func confirmAction(_ sender: UIButton) {
-        
+        func popBack() {
+            let allVCs = navigationController!.viewControllers
+            for vc in allVCs {
+                if vc.isKind(of: WorkingHoursViewController.self) {
+                    _ = navigationController?.popToViewController(vc, animated: true)
+                }
+            }
+        }
         func handleAction(type: OvertimeType) {
             if workday.validOvertime(double: overtime) {
                 try! realm.write {
@@ -28,7 +35,7 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
                     workday.overtimeType = ""
                 }
             }
-            dismiss(animated: true, completion: nil)
+            popBack()
         }
         switch selected {
         case 0:

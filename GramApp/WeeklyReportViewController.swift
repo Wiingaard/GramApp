@@ -44,15 +44,16 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Setup
     func setupMetrics() {
-        let totalHours = report.workdays.reduce(0) { (sum: Double, workday) in
+        var totalHours: Double = 0
+        totalHours = report.workdays.reduce(0) { (sum: Double, workday) in
             var partSum = sum
             if workday.validHours() { partSum += workday.hours }
             if workday.validOvertime() { partSum += workday.overtime }
-            if workday.validWaitingHours() { partSum += workday.waitingHours }
             return partSum
         }
+        if report.validTravelTime(travelType: .out) { totalHours += report.travelOut }
+        if report.validTravelTime(travelType: .home) { totalHours += report.travelHome }
         hoursLabel.text = doubleValueToMetricString(value: totalHours)
-        
     }
     
     func doubleValueToMetricString(value: Double) -> String {

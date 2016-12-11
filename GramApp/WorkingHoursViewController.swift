@@ -68,11 +68,14 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         tableView.register(boolNib, forCellReuseIdentifier: "BoolInputCell")
         let modalNib = UINib(nibName: "ModalInputTableViewCell", bundle: nil)
         tableView.register(modalNib, forCellReuseIdentifier: "ModalInputTableViewCell")
+        let optionalNib = UINib(nibName: "OptionalInputTableViewCell", bundle: nil)
+        tableView.register(optionalNib, forCellReuseIdentifier: "OptionalInputTableViewCell")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        refreshStatusImages()
     }
     
     override func viewDidLayoutSubviews() {
@@ -89,11 +92,21 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
     
+    func refreshStatusImages() {
+        for (index, imageView) in statusImageViewCollection.enumerated() {
+            if report.workdays[index].validWorkday() {
+                imageView.image = UIImage(named: "Grøn Cirkel.png")
+            } else {
+                imageView.image = UIImage(named: "Rød Cirkel.png")
+            }
+        }
+    }
+    
     // MARK: - Table View
     var boolCell: BoolTableViewCell!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0:
+        case 0:     // REQUIRED
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
             switch indexPath.row {
             case 0:
@@ -107,28 +120,12 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 cell.statusImage(shouldShowGreen: currentWorkday.validHours())
                 
             default:
-                cell.nameLabel.text = "Waiting Hours"
-                if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
-                    let type = WaitingType(rawValue: currentWorkday.waitingType)!
-                    let hours = doubleValueToMetricString(value: currentWorkday.waitingHours)
-                    switch type {
-                    case .someType:
-                        cell.valueLabel.text = "\(hours) hours - Some"
-                    case .otherType:
-                        cell.valueLabel.text = "\(hours) hours - Other"
-                    }
-                    cell.statusImage(shouldShowGreen: true)
-                    
-                } else {
-                    cell.valueLabel.text = ""
-                    cell.statusImage(shouldShowGreen: false)
-                }
-                cell.accessoryType = .none
+                fatalError("Default case isn't allowed")
                 
             }
             return cell
             
-        default:
+        case 1:     // OPTIONAL
             switch indexPath.row {
             case 0:
                 boolCell = tableView.dequeueReusableCell(withIdentifier: "BoolInputCell") as! BoolTableViewCell
@@ -139,7 +136,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 return boolCell
             case 1:
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ModalInputTableViewCell") as! ModalInputTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
                 cell.nameLabel.text = "Overtime"
                 if currentWorkday.validOvertimeType() && currentWorkday.validOvertime() {
                     if let type = OvertimeType(rawValue: currentWorkday.overtimeType) {
@@ -154,12 +151,32 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 } else {
                     cell.valueLabel.text = ""
                 }
+                return cell
                 
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
+                cell.nameLabel.text = "Waiting Hours"
+                if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
+                    let type = WaitingType(rawValue: currentWorkday.waitingType)!
+                    let hours = doubleValueToMetricString(value: currentWorkday.waitingHours)
+                    switch type {
+                    case .someType:
+                        cell.valueLabel.text = "\(hours) hours - Some"
+                    case .otherType:
+                        cell.valueLabel.text = "\(hours) hours - Other"
+                    }
+                    
+                } else {
+                    cell.valueLabel.text = ""
+                }
                 return cell
                 
             default:
                 fatalError("Default case isn't allowed")
             }
+        
+        default:
+            fatalError("Default case isn't allowed")
         }
     }
     
@@ -176,9 +193,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
-        default:
             return 2
+        default:
+            return 3
         }
     }
     
@@ -206,14 +223,18 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                                  initialValue: currentWorkday.hours)
                 navigationController?.pushViewController(vc, animated: true)
             default:
-                performSegue(withIdentifier: "Show Waiting", sender: nil)
+                fatalError("Default case isn't allowed")
             }
         default:
             switch indexPath.row {
+            case 0:
+                break
             case 1:
                 performSegue(withIdentifier: "Show Overtime", sender: nil)
+            case 2:
+                performSegue(withIdentifier: "Show Waiting", sender: nil)
             default:
-                break
+                fatalError("Default case isn't allowed")
             }
         }
     }
@@ -394,13 +415,11 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Overtime" {
-            let navController = segue.destination as! UINavigationController
-            let vc = navController.viewControllers[0] as! OvertimeViewController
+            let vc = segue.destination as! OvertimeViewController
             vc.weekdayNo = currentWorkday.weekday
             vc.reportID = self.reportID
         } else if segue.identifier == "Show Waiting" {
-            let navController = segue.destination as! UINavigationController
-            let vc = navController.viewControllers[0] as! WaitingHoursViewController
+            let vc = segue.destination as! WaitingHoursViewController
             vc.weekdayNo = currentWorkday.weekday
             vc.reportID = self.reportID
         }

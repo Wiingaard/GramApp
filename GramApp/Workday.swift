@@ -106,5 +106,13 @@ class Workday: Object {
             return false
         }
     }
+    
+    func validWorkday() -> Bool {
+        if validHours() && validTypeOfWork() {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 

@@ -24,16 +24,13 @@ class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPi
         })
     }
     
-    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     // Model:
     var reportID: String!
     var weekdayNo: Int!
     var waitingHours: Double = 0
     var report: WeekReport!
     let realm = try! Realm()
+    var workday: Workday!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +43,7 @@ class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
-        let workday = report.workdays[weekdayNo]
+        workday = report.workdays[weekdayNo]
         subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
         
         waitingHours = workday.waitingHours
@@ -56,7 +53,9 @@ class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setSelectedHours(value: waitingHours)
+        if workday.validWaitingHours() {
+            setSelectedHours(value: workday.waitingHours)
+        }
     }
     
     // MARK: - Picker View
@@ -81,8 +80,6 @@ class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPi
         if getSelectedHoursValue() == 10.5 {
             pickerView.selectRow(0, inComponent: 1, animated: true)
         }
-        
-        print("hours: \(getSelectedHoursValue())")
     }
     
     func getSelectedHoursValue() -> Double {

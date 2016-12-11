@@ -1310,8 +1310,8 @@ Hours</string>
                         <outletCollection property="dayViewCollection" destination="kBi-l1-iZk" collectionClass="NSMutableArray" id="MD8-r6-Kmk"/>
                         <outletCollection property="dayViewCollection" destination="hBj-jW-3f7" collectionClass="NSMutableArray" id="sVe-aR-eyB"/>
                         <outletCollection property="dayViewCollection" destination="U0O-hl-TvU" collectionClass="NSMutableArray" id="LBP-IH-yH0"/>
-                        <segue destination="arQ-A3-I41" kind="presentation" identifier="Show Overtime" id="8Ml-ui-ABC"/>
-                        <segue destination="fMv-hT-PdW" kind="show" identifier="Show Waiting" id="e5A-Rp-FZP"/>
+                        <segue destination="SIl-oP-Bcf" kind="show" identifier="Show Waiting" id="F5v-G8-fL5"/>
+                        <segue destination="1Rt-Yj-8rQ" kind="show" identifier="Show Overtime" id="Ltk-yb-VSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIU-4p-xUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1357,13 +1357,13 @@ Hours</string>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL2-v4-tb2">
-                                <rect key="frame" x="152" y="322" width="51" height="24"/>
+                                <rect key="frame" x="152" y="321" width="51" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-um-Snw">
-                                <rect key="frame" x="302" y="322" width="33" height="24"/>
+                                <rect key="frame" x="301" y="321" width="33" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1407,13 +1407,7 @@ Hours</string>
                             <constraint firstItem="EJv-um-Snw" firstAttribute="centerX" secondItem="bIB-PV-odq" secondAttribute="centerX" constant="130" id="yoB-fA-eQ9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Bjw-TU-uuz">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fci-rY-CGD">
-                            <connections>
-                                <action selector="cancelAction:" destination="1Rt-Yj-8rQ" id="Ue3-Ku-Qav"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Bjw-TU-uuz"/>
                     <connections>
                         <outlet property="hourPicker" destination="bIB-PV-odq" id="KHk-xS-ga8"/>
                         <outlet property="subheader" destination="Ei5-Nt-5K4" id="U0l-Ul-3ic"/>
@@ -1422,7 +1416,7 @@ Hours</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdQ-BI-cZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4710" y="-1113"/>
+            <point key="canvasLocation" x="3804" y="-358"/>
         </scene>
         <!--Overtime Type View Controller-->
         <scene sceneID="Fal-mx-8Wi">
@@ -1449,14 +1443,14 @@ Hours</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEP-IQ-78m" userLabel="Top devider">
-                                <rect key="frame" x="31" y="134" width="344" height="1"/>
+                                <rect key="frame" x="31" y="134" width="344" height="0.0"/>
                                 <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="VDg-7C-KVv"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZmC-Y9-IFR">
-                                <rect key="frame" x="0.0" y="198" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="197" width="375" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
@@ -1473,7 +1467,7 @@ Hours</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhj-e1-QcI">
-                                <rect key="frame" x="31" y="163" width="304" height="27"/>
+                                <rect key="frame" x="31" y="162" width="304" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1507,7 +1501,7 @@ Hours</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdL-K9-6lu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5517.6000000000004" y="-1113.1934032983509"/>
+            <point key="canvasLocation" x="4612" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NlB-Vg-59z">
@@ -1526,24 +1520,6 @@ Hours</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIQ-qm-aFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1897" y="770"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wVH-UX-CBR">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="arQ-A3-I41" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XP2-hQ-Wv6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1Rt-Yj-8rQ" kind="relationship" relationship="rootViewController" id="3Xz-fR-VRu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IuL-tO-eDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3804" y="-1113"/>
         </scene>
         <!--Waiting Hours View Controller-->
         <scene sceneID="gVt-aa-Pme">
@@ -1635,13 +1611,7 @@ Hours</string>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="iQK-hy-h6U">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NZ5-8a-Qd0">
-                            <connections>
-                                <action selector="cancelAction:" destination="SIl-oP-Bcf" id="1zg-QE-wqp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="iQK-hy-h6U"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="hourPicker" destination="S1m-8x-mPh" id="fIb-xs-NyM"/>
@@ -1653,7 +1623,7 @@ Hours</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Oq-q5-Q4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4708" y="-350"/>
+            <point key="canvasLocation" x="3804" y="412"/>
         </scene>
         <!--Waiting Type View Controller-->
         <scene sceneID="D9G-ID-2Jx">
@@ -1680,7 +1650,7 @@ Hours</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Krt-EE-zh2">
-                                <rect key="frame" x="0.0" y="211" width="375" height="412"/>
+                                <rect key="frame" x="0.0" y="212" width="375" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
@@ -1697,7 +1667,7 @@ Hours</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d8m-or-17a">
-                                <rect key="frame" x="31" y="176" width="304" height="27"/>
+                                <rect key="frame" x="31" y="177" width="304" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1738,25 +1708,7 @@ Hours</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgR-UV-WgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5516" y="-350.37481259370315"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GrH-74-GWR">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fMv-hT-PdW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uqZ-pe-Fo5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SIl-oP-Bcf" kind="relationship" relationship="rootViewController" id="Z0d-2Q-USf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NfH-AK-lLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3804" y="-351"/>
+            <point key="canvasLocation" x="4612" y="412"/>
         </scene>
     </scenes>
     <resources>

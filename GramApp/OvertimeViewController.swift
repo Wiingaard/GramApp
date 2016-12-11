@@ -25,16 +25,13 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         })
     }
     
-    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     // Model:
     var reportID: String!
     var weekdayNo: Int!
     var overtime: Double = 0
     var report: WeekReport!
     let realm = try! Realm()
+    var workday: Workday!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +44,18 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
-        let workday = report.workdays[weekdayNo]
+        workday = report.workdays[weekdayNo]
         subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
         
         hourPicker.delegate = self
         hourPicker.dataSource = self
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if workday.validOvertime() {
+            setSelectedHours(value: workday.overtime)
+        }
+    }
     
     // MARK: - Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -74,18 +75,27 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         if getSelectedHoursValue() == 10.5 {
             pickerView.selectRow(0, inComponent: 1, animated: true)
         }
-        
-        print("hours: \(getSelectedHoursValue())")
     }
     
     func getSelectedHoursValue() -> Double {
         let hours = Double(hourPicker.selectedRow(inComponent: 0))
         let halvHours = Double(hourPicker.selectedRow(inComponent: 1)) * 0.5
         return hours+halvHours
+    }
+    
+    func setSelectedHours(value: Double) {
+        let hours = Int(value.rounded(.down))
+        let half: Int!
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            half = 0
+        } else {
+            half = 1
+        }
+        hourPicker.selectRow(hours, inComponent: 0, animated: true)
+        hourPicker.selectRow(half, inComponent: 1, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
