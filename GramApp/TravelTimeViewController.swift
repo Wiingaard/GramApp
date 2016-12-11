@@ -2,71 +2,87 @@
 //  TravelTimeViewController.swift
 //  GramApp
 //
-//  Created by Martin Wiingaard on 04/12/2016.
+//  Created by Martin Wiingaard on 10/12/2016.
 //  Copyright © 2016 Fiks IVS. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class TravelTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    @IBOutlet weak var hourPicker: UIPickerView!
+    
     @IBOutlet weak var subheader: UILabel!
-
-    @IBAction func comfirmAction(_ sender: UIButton) {
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var picker: UIPickerView!
+    
+    @IBAction func confirmAction(_ sender: Any) {
         func showError() {
             let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nError")
             present(error, animated: true, completion: nil)
         }
-        switch travelType! {
-        case .out:
-            if workday.validTravelOut(double: getSelectedHoursValue()) {
-                try! realm.write {
-                    workday.travelOut = getSelectedHoursValue()
+        func popBack() {
+            let allVCs = navigationController!.viewControllers
+            for vc in allVCs {
+                if vc.isKind(of: ProjectInformationViewController.self) {
+                    _ = navigationController?.popToViewController(vc, animated: true)
                 }
-                dismiss(animated: true, completion: nil)
-            } else {
-                showError()
             }
-        case .home:
-            if workday.validTravelHome(double: getSelectedHoursValue()) {
+        }
+        if report.validTravelTime(travelType: travelType, travelTime: getSelectedHoursValue()) {
+            switch travelType! {
+            case .out:
                 try! realm.write {
-                    workday.travelHome = getSelectedHoursValue()
+                    report.travelOut = self.getSelectedHoursValue()
+                    report.departure = self.travelDate
                 }
-                dismiss(animated: true, completion: nil)
-            } else {
-                showError()
+            case .home:
+                try! realm.write {
+                    report.travelHome = self.getSelectedHoursValue()
+                    report.arrival = self.travelDate
+                }
             }
+            popBack()
+        } else {
+            showError()
         }
     }
     
-    // Model:
-    var reportID: String!
-    var workday: Workday!
-    var report: WeekReport!
-    var weekdayNo: Int!
-    let realm = try! Realm()
-    
+    // Override in segue!
     var travelType: TravelType!
-    var maxHours = 10
+    var travelDate: NSDate!
+    
+    // Model:
+    var reportID = ""
+    let realm = try! Realm()
+    var report: WeekReport!
+    let maxHours = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
-        report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
-        workday = report.workdays[weekdayNo]
-        subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
-        
-        hourPicker.delegate = self
-        hourPicker.dataSource = self
-        
+        report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
+        subheader.text = "Week \(report.weekNumber)"
         switch travelType! {
         case .out:
-            setSelectedHours(value: workday.travelOut)
+            header.text = "Departure"
         case .home:
-            setSelectedHours(value: workday.travelHome)
+            header.text = "Arrival"
+        }
+        
+        picker.delegate = self
+        picker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if report.validTravelTime(travelType: travelType) {
+            switch travelType! {
+            case .out:
+                setSelectedHours(value: report.travelOut)
+            case .home:
+                setSelectedHours(value: report.travelHome)
+            }
         }
     }
     
@@ -92,13 +108,11 @@ class TravelTimeViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if getSelectedHoursValue() == Double(maxHours) + 0.5 {
             pickerView.selectRow(0, inComponent: 1, animated: true)
         }
-        
-        print("hours: \(getSelectedHoursValue())")
     }
     
     func getSelectedHoursValue() -> Double {
-        let hours = Double(hourPicker.selectedRow(inComponent: 0))
-        let halvHours = Double(hourPicker.selectedRow(inComponent: 1)) * 0.5
+        let hours = Double(picker.selectedRow(inComponent: 0))
+        let halvHours = Double(picker.selectedRow(inComponent: 1)) * 0.5
         return hours+halvHours
     }
     
@@ -110,7 +124,7 @@ class TravelTimeViewController: UIViewController, UIPickerViewDelegate, UIPicker
         } else {
             half = 1
         }
-        hourPicker.selectRow(hours, inComponent: 0, animated: true)
-        hourPicker.selectRow(half, inComponent: 1, animated: true)
+        picker.selectRow(hours, inComponent: 0, animated: true)
+        picker.selectRow(half, inComponent: 1, animated: true)
     }
 }

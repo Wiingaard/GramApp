@@ -35,8 +35,11 @@ class WeeklyReportViewController: UIViewController {
         metricBackground.clipsToBounds = true
         
         weeknumberLabel.text = "Week \(report.weekNumber)"
-        setupMetrics()
         setupButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupMetrics()
     }
     
     // MARK: - Setup
@@ -45,8 +48,6 @@ class WeeklyReportViewController: UIViewController {
             var partSum = sum
             if workday.validHours() { partSum += workday.hours }
             if workday.validOvertime() { partSum += workday.overtime }
-            if workday.validTravelOut() { partSum += workday.travelOut }
-            if workday.validTravelHome() { partSum += workday.travelHome }
             if workday.validWaitingHours() { partSum += workday.waitingHours }
             return partSum
         }
@@ -83,6 +84,9 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Button Actions
     func projectPressed() {
+//        projectInformationView.doButtonPop() { (animation, finish) in
+//            print("berp?")
+//        }
         performSegue(withIdentifier: "Show Project Information", sender: nil)
     }
     

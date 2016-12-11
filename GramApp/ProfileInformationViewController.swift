@@ -112,7 +112,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
             numberInputViewController.delegate = self
             numberInputViewController.placeholder = "Inspector Number"
             numberInputViewController.inputType = InputType.numberInspector
-            numberInputViewController.initialInputValue = user.inspectorNumber
+            numberInputViewController.initialInputValue = user.validInspectorNumber() ? user.inspectorNumber : nil
             navigationController?.pushViewController(numberInputViewController, animated: true)
         case 1:
             let stringInputViewController = StringInputViewController(nibName: "StringInputViewController", bundle: nil)

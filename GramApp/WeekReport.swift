@@ -26,23 +26,16 @@ class WeekReport: Object {
     
     // Project Info
     dynamic var customerName = ""
-    dynamic var projectNo = 0           // fixed
+    dynamic var projectNo = 0
     dynamic var departure: NSDate? = nil
     dynamic var arrival: NSDate? = nil
+    dynamic var travelHome = -1.0
+    dynamic var travelOut = -1.0
     dynamic var mileage = -1
-    dynamic var carType = ""       // Enum
+    dynamic var carType = ""
     
     // Working Hours
     let workdays = List<Workday>()
-    
-    // Meals
-    dynamic var mealBreakfast = 0
-    dynamic var mealLunch = 0
-    dynamic var mealSupper = 0
-    
-    // Car information
-    dynamic var carNo = ""
-    dynamic var carKM = 0
     
     
     // MARK: - Initializer
@@ -81,24 +74,34 @@ class WeekReport: Object {
         return !checkString.isEmpty
     }
     
-    func validDeparture(date: NSDate? = nil) -> Bool {
+    func validTravelDate(travelType: TravelType, travelDate: NSDate? = nil) -> Bool {
         let checkDate: NSDate!
-        if date != nil {
-            checkDate = date
+        if travelDate != nil {
+            checkDate = travelDate
         } else {
-            checkDate = departure
+            switch travelType {
+            case .out:
+                checkDate = departure
+            case .home:
+                checkDate = arrival
+            }
         }
-        return checkDate != nil
+        return checkDate != nil ? true : false
     }
     
-    func validArrival(date: NSDate? = nil) -> Bool {
-        let checkDate: NSDate!
-        if date != nil {
-            checkDate = date
+    func validTravelTime(travelType: TravelType, travelTime: Double? = nil) -> Bool {
+        let checkNumber: Double!
+        if travelTime != nil {
+            checkNumber = travelTime
         } else {
-            checkDate = arrival
+            switch travelType {
+            case .out:
+                checkNumber = travelOut
+            case .home:
+                checkNumber = travelHome
+            }
         }
-        return checkDate != nil
+        return checkNumber >= 0 ? true : false
     }
     
     func validMileage(number: Int? = nil) -> Bool {
@@ -125,29 +128,20 @@ class WeekReport: Object {
         }
     }
     
-    // old shit!
-    /// true if != ""
-    var validCustomerName: Bool {
-        return customerName != "" ? true : false
+    // MARK: Wrapper validation
+    func validDeparture() -> Bool {
+        if validTravelDate(travelType: .out) && validTravelTime(travelType: .out) {
+            return true
+        } else {
+            return false
+        }
     }
-    /// true if > -1
-    var validMealBreakfast: Bool {
-        return mealBreakfast > -1 ? true : false
-    }
-    /// true if > -1
-    var validMealLunch: Bool {
-        return mealLunch > -1 ? true : false
-    }
-    /// true if > -1
-    var validMealSupper: Bool {
-        return mealSupper > -1 ? true : false
-    }
-    /// true if != ""
-    var validCarNo: Bool {
-        return carNo != "" ? true : false
-    }
-    /// true if > -1
-    var validCarKM: Bool {
-        return carKM > 0 ? true : false
+    
+    func validArrival() -> Bool {
+        if validTravelDate(travelType: .home) && validTravelTime(travelType: .home) {
+            return true
+        } else {
+            return false
+        }
     }
 }

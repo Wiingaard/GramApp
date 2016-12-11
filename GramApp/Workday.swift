@@ -20,15 +20,9 @@ class Workday: Object {
     dynamic var hours = -1.0            // Required
     dynamic var overtime = 0.0
     dynamic var overtimeType = ""       // Enum
-    dynamic var travelHome = -1.0
-    dynamic var travelOut = -1.0
     dynamic var waitingHours = -1.0     // Required
     dynamic var waitingType = ""        // Enum
     dynamic var typeOfWork = ""         // Enum
-    
-//    override static func ignoredProperties() -> [String] {
-//        return ["date"]
-//    }
     
     // MARK: - Validation
     func validWeekday(number: Int? = nil) -> Bool {
@@ -73,26 +67,6 @@ class Workday: Object {
         } else {
             return false
         }
-    }
-    
-    func validTravelHome(double: Double? = nil) -> Bool {
-        let checkNumber: Double!
-        if double != nil {
-            checkNumber = double
-        } else {
-            checkNumber = travelHome
-        }
-        return checkNumber >= 0 ? true : false
-    }
-    
-    func validTravelOut(double: Double? = nil) -> Bool {
-        let checkNumber: Double!
-        if double != nil {
-            checkNumber = double
-        } else {
-            checkNumber = travelOut
-        }
-        return checkNumber >= 0 ? true : false
     }
     
     func validWaitingHours(double: Double? = nil) -> Bool {

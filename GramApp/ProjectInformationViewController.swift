@@ -54,7 +54,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
             case 0:
                 cell.nameLabel.text = "Customer"
                 cell.valueLabel.text = report.customerName
-                cell.statusImage(shouldShowGreen: report.validCustomerName)
+                cell.statusImage(shouldShowGreen: report.validCustomerName())
             default:
                 cell.nameLabel.text = "Project No."
                 cell.valueLabel.text = report.validProjectNo() ? "\(report.projectNo)" : ""
@@ -69,9 +69,11 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                 cell.nameLabel.text = "Departure"
                 if report.validDeparture() {
                     let formatter = DateFormatter()
-                    formatter.dateFormat = "dd MMM HH:mm"
+                    formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
-                    cell.valueLabel.text = formatter.string(from: report.departure! as Date)
+                    let dateString = formatter.string(from: report.departure! as Date)
+                    let timeString = "\(doubleValueToMetricString(value: report.travelOut)) hours"
+                    cell.valueLabel.text = timeString + " on " + dateString
                 } else {
                     cell.valueLabel.text = ""
                 }
@@ -80,9 +82,11 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                 cell.nameLabel.text = "Arrival"
                 if report.validArrival() {
                     let formatter = DateFormatter()
-                    formatter.dateFormat = "dd MMM HH:mm"
+                    formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
-                    cell.valueLabel.text = formatter.string(from: report.arrival! as Date)
+                    let dateString = formatter.string(from: report.arrival! as Date)
+                    let timeString = "\(doubleValueToMetricString(value: report.travelHome)) hours"
+                    cell.valueLabel.text = timeString + " on " + dateString
                 } else {
                     cell.valueLabel.text = ""
                 }
@@ -123,22 +127,11 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                 
             }
         default:
-            let subheader = "Week \(report.weekNumber)"
             switch indexPath.row {
             case 0:
-                let vc = DateInputViewController.instantiate(withDelegate: self,
-                                                             header: "Departure",
-                                                             subheader: subheader,
-                                                             initialDate: report.departure ?? NSDate(),
-                                                             inputType: .dateDeparture)
-                navigationController?.pushViewController(vc, animated: true)
+                performSegue(withIdentifier: "Show Travel Date", sender: indexPath.row)
             case 1:
-                let vc = DateInputViewController.instantiate(withDelegate: self,
-                                                             header: "Arrival",
-                                                             subheader: subheader,
-                                                             initialDate: report.arrival ?? NSDate(),
-                                                             inputType: .dateArrival)
-                navigationController?.pushViewController(vc, animated: true)
+                performSegue(withIdentifier: "Show Travel Date", sender: indexPath.row)
             default:
                 performSegue(withIdentifier: "Show Mileage", sender: nil)
             }
@@ -193,22 +186,40 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
             try! realm.write {
                 report.projectNo = value as! Int
             }
-        } else if type == .dateDeparture {
-            try! realm.write {
-                report.departure = value as? NSDate
-            }
-        } else if type == .dateArrival {
-            try! realm.write {
-                report.arrival = value as? NSDate
-            }
         }
         tableView.reloadData()
+    }
+    
+    func doubleValueToMetricString(value: Double) -> String {
+        let displayString: String!
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            displayString = String(Int(value))
+        } else {
+            displayString = String(Double(Int(value / 0.5))*0.5)
+        }
+        return displayString
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Mileage" {
             let vc = segue.destination as! MileageViewController
             vc.reportID = self.reportID
+        } else if segue.identifier == "Show Travel Date" {
+            guard let index = sender as? Int else { fatalError("Wrong segue.!!")}
+            switch index {
+            case 0:
+                let vc = segue.destination as! TravelDateViewController
+                vc.initialInputValue = report.departure
+                vc.travelType = .out
+                vc.reportID = self.reportID
+            case 1:
+                let vc = segue.destination as! TravelDateViewController
+                vc.initialInputValue = report.arrival
+                vc.travelType = .home
+                vc.reportID = self.reportID
+            default:
+                fatalError("Wrong index again!")
+            }
         }
     }
 

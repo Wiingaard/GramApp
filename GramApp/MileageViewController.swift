@@ -27,7 +27,7 @@ class MileageViewController: UIViewController {
             return val
         }
     }
-    var initialValue: Int!
+    var initialValue: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,8 @@ class MileageViewController: UIViewController {
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
         subheader.text = "Week \(report.weekNumber)"
-        initialValue = report.validMileage() ? report.mileage : 0
-        numberTextField.text = String(initialValue)
+        
+        numberTextField.text = report.validMileage() ? String(report.mileage) : nil
         
         let confirmButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(MileageViewController.confirmPressed))
         navigationItem.rightBarButtonItem = confirmButton

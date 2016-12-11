@@ -156,21 +156,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 }
                 
                 return cell
+                
             default:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ModalInputTableViewCell") as! ModalInputTableViewCell
-                cell.nameLabel.text = "Travel Time"
-                var valueString = ""
-                if currentWorkday.validTravelOut() {
-                    valueString += "\(doubleValueToMetricString(value: currentWorkday.travelOut)) h out"
-                    if currentWorkday.validTravelHome() {
-                        valueString += " & "
-                    }
-                }
-                if currentWorkday.validTravelHome() {
-                    valueString += "\(doubleValueToMetricString(value: currentWorkday.travelHome)) h home"
-                }
-                cell.valueLabel.text = valueString
-                return cell
+                fatalError("Default case isn't allowed")
             }
         }
     }
@@ -190,7 +178,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         case 0:
             return 3
         default:
-            return 3
+            return 2
         }
     }
     
@@ -224,12 +212,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
             switch indexPath.row {
             case 1:
                 performSegue(withIdentifier: "Show Overtime", sender: nil)
-            case 2:
-                performSegue(withIdentifier: "Show Travel", sender: nil)
             default:
                 break
             }
-            print("In not required")
         }
     }
     
@@ -342,10 +327,8 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                     self.arrowCenterToMondayConstraint.constant = offset
                     self.view.layoutIfNeeded()
                 })
-            
         } else {
             arrowCenterToMondayConstraint.constant = offset
-
         }
         requestUpdate(to: day)
     }
@@ -418,11 +401,6 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         } else if segue.identifier == "Show Waiting" {
             let navController = segue.destination as! UINavigationController
             let vc = navController.viewControllers[0] as! WaitingHoursViewController
-            vc.weekdayNo = currentWorkday.weekday
-            vc.reportID = self.reportID
-        } else if segue.identifier == "Show Travel" {
-            let navController = segue.destination as! UINavigationController
-            let vc = navController.viewControllers[0] as! TravelTypeViewController
             vc.weekdayNo = currentWorkday.weekday
             vc.reportID = self.reportID
         }
