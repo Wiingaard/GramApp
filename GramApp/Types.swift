@@ -103,6 +103,15 @@ enum CarType: String, AllEnum {
     }
 }
 
+enum SignType: String, AllEnum {
+    case customer = "Customer"
+    case supervisor = "Supervisor"
+    
+    var all: [String] {
+        return [SignType.customer.rawValue, SignType.supervisor.rawValue]
+    }
+}
+
 protocol AllEnum {
     var all: [String] { get }
 }

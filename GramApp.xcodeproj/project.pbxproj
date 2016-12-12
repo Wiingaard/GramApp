@@ -52,6 +52,11 @@
 		5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */; };
 		5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */; };
 		5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */; };
+		5BC091441DFDD1AD006687F3 /* ProjectStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC091431DFDD1AD006687F3 /* ProjectStatusViewController.swift */; };
+		5BC091461DFDDA46006687F3 /* SignAndSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC091451DFDDA46006687F3 /* SignAndSendViewController.swift */; };
+		5BC091491DFDE1DC006687F3 /* SignatureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */; };
+		5BC0914B1DFDF009006687F3 /* SignNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */; };
+		5BC0914D1DFDF364006687F3 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0914C1DFDF364006687F3 /* SignViewController.swift */; };
 		5BD96B6D1DF35F9A00654611 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */; };
 		5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */; };
 		5BE1105D1DF4858600994274 /* MileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1105C1DF4858600994274 /* MileageViewController.swift */; };
@@ -119,6 +124,11 @@
 		5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
 		5BB553C21DE24EE100D98AE8 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
 		5BB553C41DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
+		5BC091431DFDD1AD006687F3 /* ProjectStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewController.swift; sourceTree = "<group>"; };
+		5BC091451DFDDA46006687F3 /* SignAndSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignAndSendViewController.swift; sourceTree = "<group>"; };
+		5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureListViewController.swift; sourceTree = "<group>"; };
+		5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignNameViewController.swift; sourceTree = "<group>"; };
+		5BC0914C1DFDF364006687F3 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
 		5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
 		5BE1105C1DF4858600994274 /* MileageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileageViewController.swift; sourceTree = "<group>"; };
@@ -171,12 +181,13 @@
 			children = (
 				5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */,
 				5BB553BF1DE2478B00D98AE8 /* ProfileInformationViewController.swift */,
+				5BC091471DFDDA56006687F3 /* Sign & Send */,
 				5B04A4DE1DE21E51000C12A9 /* Main.storyboard */,
 				5B190A801DE4EB850059F95E /* Onboarding */,
 				5B190A831DE4ED700059F95E /* Create New */,
 				5BB553B01DE2469900D98AE8 /* Cells */,
 				5BB553A71DE2467800D98AE8 /* Input View Controllers */,
-				5BB553961DE2464A00D98AE8 /* Weekly Report View Controllers */,
+				5BB553961DE2464A00D98AE8 /* Weekly Report */,
 				5BB553891DE245A700D98AE8 /* Models */,
 				5BB553BD1DE246B200D98AE8 /* Supporting Files */,
 			);
@@ -234,14 +245,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		5BB553961DE2464A00D98AE8 /* Weekly Report View Controllers */ = {
+		5BB553961DE2464A00D98AE8 /* Weekly Report */ = {
 			isa = PBXGroup;
 			children = (
 				5BB5538A1DE2462A00D98AE8 /* WeeklyReportViewController.swift */,
 				5BFBF1761DF4B140004279BB /* Project Information */,
 				5BE110611DF48BA900994274 /* Working Hours */,
 			);
-			name = "Weekly Report View Controllers";
+			name = "Weekly Report";
 			sourceTree = "<group>";
 		};
 		5BB553A71DE2467800D98AE8 /* Input View Controllers */ = {
@@ -297,6 +308,18 @@
 				5B04A4FF1DE23C03000C12A9 /* GramApp-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5BC091471DFDDA56006687F3 /* Sign & Send */ = {
+			isa = PBXGroup;
+			children = (
+				5BC091431DFDD1AD006687F3 /* ProjectStatusViewController.swift */,
+				5BC091451DFDDA46006687F3 /* SignAndSendViewController.swift */,
+				5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */,
+				5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */,
+				5BC0914C1DFDF364006687F3 /* SignViewController.swift */,
+			);
+			name = "Sign & Send";
 			sourceTree = "<group>";
 		};
 		5BD96B691DF35F1E00654611 /* Overtime */ = {
@@ -520,6 +543,7 @@
 				5B4DD29E1DFC23DF00C002E1 /* TravelDateViewController.swift in Sources */,
 				5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
+				5BC0914D1DFDF364006687F3 /* SignViewController.swift in Sources */,
 				5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */,
 				5B47668E1DF48059000B217D /* Extensions.swift in Sources */,
 				5B190A861DE4F1190059F95E /* CreateNewProjectNoViewController.swift in Sources */,
@@ -531,9 +555,12 @@
 				5BEDE9471DEF761B00828B3C /* HalfHourInputViewController.swift in Sources */,
 				5BB553A11DE2467100D98AE8 /* StringInputViewController.swift in Sources */,
 				5BB553B91DE246AA00D98AE8 /* Time.swift in Sources */,
+				5BC091441DFDD1AD006687F3 /* ProjectStatusViewController.swift in Sources */,
+				5BC091491DFDE1DC006687F3 /* SignatureListViewController.swift in Sources */,
 				5BB553921DE2462A00D98AE8 /* WorkingHoursViewController.swift in Sources */,
 				5BB553901DE2462A00D98AE8 /* WeeklyReportViewController.swift in Sources */,
 				5BB553A51DE2467100D98AE8 /* CreateReportViewController.swift in Sources */,
+				5BC0914B1DFDF009006687F3 /* SignNameViewController.swift in Sources */,
 				5BB553C11DE2478B00D98AE8 /* ProfileInformationViewController.swift in Sources */,
 				5B47668B1DF4688A000B217D /* OptionalInputTableViewCell.swift in Sources */,
 				5B75B1BE1DECB30000350B2B /* CheckmarkTableViewCell.swift in Sources */,
@@ -541,6 +568,7 @@
 				5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */,
 				5BB553881DE2459C00D98AE8 /* User.swift in Sources */,
 				5BE275911DEB0BD4006BF6BF /* Workday.swift in Sources */,
+				5BC091461DFDDA46006687F3 /* SignAndSendViewController.swift in Sources */,
 				5B4DD2A01DFC26C400C002E1 /* TravelTimeViewController.swift in Sources */,
 				5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */,
 				5BB553AC1DE2469500D98AE8 /* ReportWeekTableViewCell.swift in Sources */,

@@ -18,11 +18,14 @@ class WeekReport: Object {
     dynamic var createdDate = Date()
     dynamic var reportID = ""
     dynamic var mondayInWeek = Date()
+    dynamic var completedStatus = false
     
     // General
     dynamic var weekNumber = 0
     dynamic var sentStatus = false
-    dynamic var signature: NSData? = nil
+    dynamic var customerSignature: NSData? = nil
+    dynamic var supervisorSignature: NSData? = nil
+    dynamic var customerSignName = ""
     
     // Project Info
     dynamic var customerName = ""
@@ -128,7 +131,33 @@ class WeekReport: Object {
         }
     }
     
-    // MARK: Wrapper validation
+    // MARK: - Sign & Send validation
+    func validCustomerSignName(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = customerName
+        }
+        return !checkString.isEmpty
+    }
+    
+    func validSignature(signer type: SignType, data: NSData? = nil) -> Bool {
+        let checkData: NSData!
+        if data != nil {
+            checkData = data
+        } else {
+            switch type {
+            case .customer:
+                checkData = customerSignature
+            case .supervisor:
+                checkData = supervisorSignature
+            }
+        }
+        return checkData != nil
+    }
+    
+    // MARK: - Wrapper validation
     func validDeparture() -> Bool {
         if validTravelDate(travelType: .out) && validTravelTime(travelType: .out) {
             return true

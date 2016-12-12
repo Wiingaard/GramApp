@@ -95,9 +95,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     func refreshStatusImages() {
         for (index, imageView) in statusImageViewCollection.enumerated() {
             if report.workdays[index].validWorkday() {
-                imageView.image = UIImage(named: "Grøn Cirkel.png")
+                imageView.image = UIImage(named: "GreenIcon")
             } else {
-                imageView.image = UIImage(named: "Rød Cirkel.png")
+                imageView.image = UIImage(named: "RedIcon")
             }
         }
     }

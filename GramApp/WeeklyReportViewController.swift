@@ -85,9 +85,6 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Button Actions
     func projectPressed() {
-//        projectInformationView.doButtonPop() { (animation, finish) in
-//            print("berp?")
-//        }
         performSegue(withIdentifier: "Show Project Information", sender: nil)
     }
     
@@ -96,7 +93,7 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func signPressed() {
-        print("Derp")
+        performSegue(withIdentifier: "Show Status", sender: nil)
     }
 
     // MARK: - Navigation
@@ -106,6 +103,9 @@ class WeeklyReportViewController: UIViewController {
             vc.reportID = self.reportID
         } else if segue.identifier == "Show Project Information" {
             let vc = segue.destination as! ProjectInformationViewController
+            vc.reportID = self.reportID
+        } else if segue.identifier == "Show Status" {
+            let vc = segue.destination as! ProjectStatusViewController
             vc.reportID = self.reportID
         }
     }

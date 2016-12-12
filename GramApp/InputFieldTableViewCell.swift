@@ -22,9 +22,9 @@ class InputFieldTableViewCell: UITableViewCell {
     
     func statusImage(shouldShowGreen bool: Bool) {
         if bool {
-            statusImageView.image = UIImage(named: "Grøn Cirkel.png")
+            statusImageView.image = UIImage(named: "GreenIcon")
         } else {
-            statusImageView.image = UIImage(named: "Rød Cirkel.png")
+            statusImageView.image = UIImage(named: "RedIcon")
         }
     }
 
