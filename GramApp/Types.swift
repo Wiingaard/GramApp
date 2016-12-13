@@ -67,20 +67,40 @@ enum OvertimeType: String, AllEnum {
 }
 
 enum WaitingType: String, AllEnum {
-    case someType = "Some type"
-    case otherType = "Other type"
+    case help = "Waiting for help / staff"
+    case tools = "Waiting for tools / lifting equipment"
+    case supply = "Waiting for electrical / air supply"
+    case production = "Waiting for production"
+    case internet = "Waiting for internet connection"
+    case service = "See service report"
     
     var all: [String] {
-        return [WaitingType.someType.rawValue, WaitingType.otherType.rawValue]
+        return [WaitingType.help.rawValue,
+                WaitingType.tools.rawValue,
+                WaitingType.supply.rawValue,
+                WaitingType.production.rawValue,
+                WaitingType.internet.rawValue,
+                WaitingType.service.rawValue]
     }
 }
 
 enum WorkType: String, AllEnum {
-    case someType = "Some working type"
-    case otherType = "Other working type"
+    case freezer = "Working on freezer"
+    case endLine = "Working on end of line"
+    case wrapper = "Working on wrapper"
+    case btLine = "Working on BT line"
+    case riaLine = "Working on RIA line"
+    case fillingMachine = "Working on filling machine"
+    case serviceReport = "See service report"
     
     var all: [String] {
-        return [WorkType.someType.rawValue, WorkType.otherType.rawValue]
+        return [WorkType.freezer.rawValue,
+                WorkType.endLine.rawValue,
+                WorkType.wrapper.rawValue,
+                WorkType.btLine.rawValue,
+                WorkType.riaLine.rawValue,
+                WorkType.fillingMachine.rawValue,
+                WorkType.serviceReport.rawValue,]
     }
 }
 

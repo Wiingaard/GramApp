@@ -19,17 +19,20 @@ class WeeklyReportViewController: UIViewController {
     @IBOutlet weak var projectInformationView: UIView!
     @IBOutlet weak var workingHoursView: UIView!
     @IBOutlet weak var signButtonView: UIView!
+    @IBOutlet weak var signAndSendLabel: UILabel!
     
     // MARK: Model
     var reportID: String!
     var realm = try! Realm()
     var report: WeekReport!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
+        user = realm.objects(User.self).first
         
         metricBackground.layer.cornerRadius = 10
         metricBackground.clipsToBounds = true
@@ -40,6 +43,7 @@ class WeeklyReportViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupMetrics()
+        updateSignButton()
     }
     
     // MARK: - Setup
@@ -83,6 +87,16 @@ class WeeklyReportViewController: UIViewController {
         signButtonView.clipsToBounds = true
     }
     
+    func updateSignButton() {
+        if checkReport().valid {
+            signButtonView.backgroundColor = UIColor(hexInt: 0x7ADC7B)
+            signAndSendLabel.textColor = UIColor.white
+        } else {
+            signButtonView.backgroundColor = UIColor(hexInt: 0xE0E0E0)
+            signAndSendLabel.textColor = UIColor.darkGray
+        }
+    }
+    
     // MARK: - Button Actions
     func projectPressed() {
         performSegue(withIdentifier: "Show Project Information", sender: nil)
@@ -93,7 +107,38 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func signPressed() {
+        // Warning: - Some warning
+        print(checkReport().errorMessages as Any)
         performSegue(withIdentifier: "Show Status", sender: nil)
+    }
+    
+    // MARK: - Validation
+    func checkReport() -> (valid: Bool, errorMessages: [String]?) {
+        var returnMessages = [String]()
+        if user.validInspectorNumber() == false {
+            returnMessages.append("No valid Inspector Number: Set \"Inspector No\" in Profile Information")
+        }
+        if user.validFullName() == false {
+            returnMessages.append("No valid Name: Set \"Full name\" in Profile Information")
+        }
+        for workday in report.workdays {
+            if workday.validWorkday() == false {
+                returnMessages.append("Working hours for all workdays must be valid")
+                break
+            }
+        }
+        let projectError = "Project Info in Project Information must be valid"
+        if report.validCustomerName() == false {
+            returnMessages.append(projectError)
+        } else if report.validProjectNo() == false {
+            returnMessages.append(projectError)
+        }
+        if returnMessages.isEmpty {
+            return (true, nil)
+        } else {
+            return (false, returnMessages)
+        }
+        
     }
 
     // MARK: - Navigation

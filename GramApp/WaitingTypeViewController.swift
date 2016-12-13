@@ -37,12 +37,10 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
             }
             popBack()
         }
-        switch selected {
-        case 0:
-            handleAction(type: .someType)
-        case 1:
-            handleAction(type: .otherType)
-        default:
+        let selectedTypeAsString = waitingTypes[selected]
+        if let type = WaitingType(rawValue: selectedTypeAsString) {
+            handleAction(type: type)
+        } else {
             let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nError message")
             present(error, animated: true, completion: nil)
         }
@@ -57,7 +55,7 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
     var weekdayNo: Int!
     var waitingHours: Double!
     let waitingTypes = {
-        return WorkType.otherType.all
+        return WaitingType.service.all
     }()
     
     var selected: Int!
@@ -78,34 +76,21 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        switch workday.waitingType {
-        case WaitingType.someType.rawValue:
-            setCheckmark(at: 0)
-            selected = 0
-        case WaitingType.otherType.rawValue:
-            setCheckmark(at: 1)
-            selected = 1
-        default:
-            setCheckmark(at: selected)
-            break
+        if let index = waitingTypes.index(of: workday.waitingType) {
+            selected = index
         }
+        setCheckmark(at: selected)
     }
     
     // MARK: - Table view
-    var someTypeCell: CheckmarkTableViewCell!
-    var otherTypeCell: CheckmarkTableViewCell!
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        switch indexPath.row {
-        case 0:
-            someTypeCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            someTypeCell.titleLabel.text = WorkType.someType.rawValue
-            return someTypeCell
-        default:
-            otherTypeCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            otherTypeCell.titleLabel.text = WorkType.otherType.rawValue
-            return otherTypeCell
-        }
+    var cells: [CheckmarkTableViewCell] = Array<Any>.init(repeating: CheckmarkTableViewCell(), count: 6) as! [CheckmarkTableViewCell]
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        cells[index] = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
+        cells[index].titleLabel.text = waitingTypes[index]
+        return cells[index]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -123,14 +108,10 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func setCheckmark(at indexpathRow: Int) {
-        switch indexpathRow {
-        case 0:
-            someTypeCell.checkmarkImageView.image = UIImage(named: "Image")
-            otherTypeCell.checkmarkImageView.image = nil
-        default:
-            otherTypeCell.checkmarkImageView.image = UIImage(named: "Image")
-            someTypeCell.checkmarkImageView.image = nil
+        for cell in cells {
+            cell.checkmarkImageView.image = nil
         }
+        cells[indexpathRow].checkmarkImageView.image = UIImage(named: "Image")
     }
 
 }

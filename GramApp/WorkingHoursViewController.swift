@@ -157,14 +157,8 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
                 cell.nameLabel.text = "Waiting Hours"
                 if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
-                    let type = WaitingType(rawValue: currentWorkday.waitingType)!
                     let hours = doubleValueToMetricString(value: currentWorkday.waitingHours)
-                    switch type {
-                    case .someType:
-                        cell.valueLabel.text = "\(hours) hours - Some"
-                    case .otherType:
-                        cell.valueLabel.text = "\(hours) hours - Other"
-                    }
+                    cell.valueLabel.text = "\(hours) hours"
                     
                 } else {
                     cell.valueLabel.text = ""
@@ -209,7 +203,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                     .instantiate(withDelegate: self,
                                  header: "Type of Work",
                                  subheader: dateLabel.text ?? "",
-                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.someType ,
+                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.freezer ,
                                  inputType: .enumWorkType)
                 navigationController?.pushViewController(vc, animated: true)
             case 1:

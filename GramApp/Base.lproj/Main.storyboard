@@ -830,7 +830,7 @@ Hours</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.87686013358498593" green="0.87686013358498593" blue="0.87686013358498593" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="EG8-Vw-Uct"/>
                                     <constraint firstItem="ekt-mq-1h6" firstAttribute="centerY" secondItem="b1h-y0-8sw" secondAttribute="centerY" id="Hdf-vA-rlg"/>
@@ -878,7 +878,7 @@ Hours</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.47997886078706886" green="0.86310279187817263" blue="0.48336124423215082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.47843137254901957" green="0.86274509803921573" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="wfl-ma-VQI"/>
                                     <constraint firstAttribute="height" constant="56" id="xBf-67-baH"/>
@@ -912,6 +912,7 @@ Hours</string>
                         <outlet property="hoursLabel" destination="cg6-gQ-onP" id="G0o-02-B9g"/>
                         <outlet property="metricBackground" destination="1fB-rN-1v0" id="lae-Zv-pTl"/>
                         <outlet property="projectInformationView" destination="3Gz-MO-zds" id="EjO-NC-ZYF"/>
+                        <outlet property="signAndSendLabel" destination="zDj-rf-Un8" id="6Xb-lA-Ceb"/>
                         <outlet property="signButtonView" destination="z3e-lK-MaJ" id="kOk-DQ-gIo"/>
                         <outlet property="weeknumberLabel" destination="4pl-d6-fk0" id="19n-0Z-9b0"/>
                         <outlet property="workingHoursView" destination="b1h-y0-8sw" id="1CN-sb-b1b"/>

@@ -69,6 +69,7 @@ class SignViewController: UIViewController {
     var reportID = ""       // should be overriden from segue
     let realm = try! Realm()
     var report: WeekReport!
+    var user: User!
     var signingFor: SignType!
     var signName: String!
     
@@ -84,6 +85,7 @@ class SignViewController: UIViewController {
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
+        user = realm.objects(User.self).first
         
         switch signingFor! {
         case .customer:
@@ -93,7 +95,7 @@ class SignViewController: UIViewController {
             mainImageView.image = signature
             
         case .supervisor:
-            signeeLabel.text = "Signature of \(report.customerSignName.capitalized)"
+            signeeLabel.text = "Signature of \(user.fullName.capitalized)"
             guard let data = report.supervisorSignature as Data? else { break }
             guard let signature = UIImage(data: data) else { break }
             mainImageView.image = signature
