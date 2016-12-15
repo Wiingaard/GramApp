@@ -9,10 +9,11 @@
 import UIKit
 import RealmSwift
 
-class SignAndSendViewController: UIViewController {
+class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func signAction(_ sender: Any) {
         performSegue(withIdentifier: "Show Signatures", sender: nil)
@@ -26,7 +27,7 @@ class SignAndSendViewController: UIViewController {
     var reportID = ""       // should be overriden from segue
     let realm = try! Realm()
     var report: WeekReport!
-    
+    var user: User!
     var sendAllowed = false
     
     override func viewDidLoad() {
@@ -34,9 +35,10 @@ class SignAndSendViewController: UIViewController {
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
+        user = realm.objects(User.self).first
         
-        imageView.backgroundColor = UIColor(red: 1, green: 0.389, blue: 0, alpha: 0.5)
         sendAllowed = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,22 @@ class SignAndSendViewController: UIViewController {
         } else {
             sendButton.isEnabled = false
         }
+        updateFiles()
+    }
+    
+    func updateFiles() {
+        let generator = FileGenerator(report: report, user: user)
+        let files = generator.generateFiles()
+        if let image = files["sheetImage"] as? UIImage {
+            print("Yay!")
+            imageView.image = image
+            
+            let minimumZoomscale = view.frame.width / image.size.width
+            scrollView.minimumZoomScale = minimumZoomscale
+            scrollView.zoomScale = minimumZoomscale
+        } else {
+            print("Ahh :/")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +70,10 @@ class SignAndSendViewController: UIViewController {
             let vc = segue.destination as! SignatureListViewController
             vc.reportID = self.reportID
         }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
 
 }

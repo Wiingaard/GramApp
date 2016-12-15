@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IB2-FU-3u2" id="CnU-bt-eyC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S1-BK-XmV">
@@ -295,9 +295,6 @@
                                     <constraint firstAttribute="height" constant="0.5" id="CnW-aR-Ozy"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52R-Fm-aE3">
-                                <rect key="frame" x="0.0" y="129" width="375" height="478"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYq-5k-8Tu">
                                 <rect key="frame" x="66" y="616" width="50" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -317,27 +314,45 @@
                                     <action selector="sendAction:" destination="h6y-oc-VaP" eventType="touchUpInside" id="Y2S-8A-bvm"/>
                                 </connections>
                             </button>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" minimumZoomScale="0.5" maximumZoomScale="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="O90-gD-TvV">
+                                <rect key="frame" x="0.0" y="129" width="375" height="478"/>
+                                <subviews>
+                                    <imageView verifyAmbiguity="ignoreSizes" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52R-Fm-aE3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="478"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="52R-Fm-aE3" firstAttribute="top" secondItem="O90-gD-TvV" secondAttribute="top" id="0RZ-Ka-Jqx"/>
+                                    <constraint firstAttribute="bottom" secondItem="52R-Fm-aE3" secondAttribute="bottom" id="FaA-Gb-d5u"/>
+                                    <constraint firstItem="52R-Fm-aE3" firstAttribute="leading" secondItem="O90-gD-TvV" secondAttribute="leading" id="dCs-vT-vLw"/>
+                                    <constraint firstAttribute="trailing" secondItem="52R-Fm-aE3" secondAttribute="trailing" id="x3r-G5-2E4"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="h6y-oc-VaP" id="pRS-5H-Ru5"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="52R-Fm-aE3" firstAttribute="top" secondItem="PfP-wO-8b8" secondAttribute="bottom" constant="15" id="5Xs-bN-0Jr"/>
                             <constraint firstItem="PfP-wO-8b8" firstAttribute="top" secondItem="HfV-Vw-XFM" secondAttribute="bottom" constant="8" id="6FO-Dv-96W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LeB-LR-GJp" secondAttribute="trailing" constant="50" id="8q1-le-MiW"/>
-                            <constraint firstAttribute="trailing" secondItem="52R-Fm-aE3" secondAttribute="trailing" id="Dg0-2S-QJ8"/>
                             <constraint firstItem="M6b-hc-kse" firstAttribute="top" secondItem="LeB-LR-GJp" secondAttribute="centerY" constant="30" id="HMZ-aJ-seZ"/>
-                            <constraint firstItem="M6b-hc-kse" firstAttribute="top" secondItem="52R-Fm-aE3" secondAttribute="bottom" constant="60" id="KUF-vd-lFU"/>
                             <constraint firstItem="PfP-wO-8b8" firstAttribute="leading" secondItem="ibk-cj-vEa" secondAttribute="leading" constant="16" id="NO5-DL-E6C"/>
                             <constraint firstAttribute="trailing" secondItem="PfP-wO-8b8" secondAttribute="trailing" constant="8" id="PRI-IM-Zw4"/>
-                            <constraint firstItem="52R-Fm-aE3" firstAttribute="leading" secondItem="ibk-cj-vEa" secondAttribute="leading" id="TL3-Zs-wEy"/>
+                            <constraint firstItem="O90-gD-TvV" firstAttribute="leading" secondItem="ibk-cj-vEa" secondAttribute="leading" id="VkF-0Y-wg9"/>
+                            <constraint firstItem="M6b-hc-kse" firstAttribute="top" secondItem="O90-gD-TvV" secondAttribute="bottom" constant="60" id="hGX-pK-fTv"/>
                             <constraint firstItem="M6b-hc-kse" firstAttribute="top" secondItem="EYq-5k-8Tu" secondAttribute="centerY" constant="30" id="hME-wY-mL8"/>
                             <constraint firstItem="EYq-5k-8Tu" firstAttribute="leading" secondItem="ibk-cj-vEa" secondAttribute="leadingMargin" constant="50" id="hrS-si-c4i"/>
                             <constraint firstAttribute="trailing" secondItem="QKQ-Bl-0Kw" secondAttribute="trailing" id="nbM-5w-YJy"/>
                             <constraint firstItem="QKQ-Bl-0Kw" firstAttribute="leading" secondItem="PfP-wO-8b8" secondAttribute="leading" id="p3x-tT-WtT"/>
                             <constraint firstItem="QKQ-Bl-0Kw" firstAttribute="top" secondItem="PfP-wO-8b8" secondAttribute="bottom" id="xzY-fi-TTQ"/>
+                            <constraint firstAttribute="trailing" secondItem="O90-gD-TvV" secondAttribute="trailing" id="zTh-Nn-Ueb"/>
+                            <constraint firstItem="O90-gD-TvV" firstAttribute="top" secondItem="QKQ-Bl-0Kw" secondAttribute="bottom" constant="14" id="zdL-DI-gCG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="52R-Fm-aE3" id="58d-Hb-bsp"/>
+                        <outlet property="scrollView" destination="O90-gD-TvV" id="Xa0-C7-yjy"/>
                         <outlet property="sendButton" destination="LeB-LR-GJp" id="pcM-bp-APT"/>
                         <segue destination="Wb8-H9-Atc" kind="show" identifier="Show Signatures" id="YcL-r4-8C7"/>
                     </connections>

@@ -57,6 +57,9 @@
 		5BC091491DFDE1DC006687F3 /* SignatureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */; };
 		5BC0914B1DFDF009006687F3 /* SignNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */; };
 		5BC0914D1DFDF364006687F3 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0914C1DFDF364006687F3 /* SignViewController.swift */; };
+		5BC0A1E91E01D23A00D4783B /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */; };
+		5BC0A1EC1E01D6F000D4783B /* Sheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0A1EB1E01D6F000D4783B /* Sheet.xib */; };
+		5BC0A1EE1E01D70E00D4783B /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0A1ED1E01D70E00D4783B /* SheetView.swift */; };
 		5BD96B6D1DF35F9A00654611 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */; };
 		5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */; };
 		5BE1105D1DF4858600994274 /* MileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1105C1DF4858600994274 /* MileageViewController.swift */; };
@@ -129,6 +132,9 @@
 		5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureListViewController.swift; sourceTree = "<group>"; };
 		5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignNameViewController.swift; sourceTree = "<group>"; };
 		5BC0914C1DFDF364006687F3 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
+		5BC0A1EB1E01D6F000D4783B /* Sheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sheet.xib; sourceTree = "<group>"; };
+		5BC0A1ED1E01D70E00D4783B /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
 		5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
 		5BE1105C1DF4858600994274 /* MileageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileageViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				5BB553B01DE2469900D98AE8 /* Cells */,
 				5BB553A71DE2467800D98AE8 /* Input View Controllers */,
 				5BB553961DE2464A00D98AE8 /* Weekly Report */,
+				5BC0A1EA1E01D6C400D4783B /* File Generator */,
 				5BB553891DE245A700D98AE8 /* Models */,
 				5BB553BD1DE246B200D98AE8 /* Supporting Files */,
 			);
@@ -322,6 +329,16 @@
 			name = "Sign & Send";
 			sourceTree = "<group>";
 		};
+		5BC0A1EA1E01D6C400D4783B /* File Generator */ = {
+			isa = PBXGroup;
+			children = (
+				5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */,
+				5BC0A1EB1E01D6F000D4783B /* Sheet.xib */,
+				5BC0A1ED1E01D70E00D4783B /* SheetView.swift */,
+			);
+			name = "File Generator";
+			sourceTree = "<group>";
+		};
 		5BD96B691DF35F1E00654611 /* Overtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB553A21DE2467100D98AE8 /* StringInputViewController.xib in Resources */,
+				5BC0A1EC1E01D6F000D4783B /* Sheet.xib in Resources */,
 				5BF133A71DE4FD5600E53823 /* CreateNewCustomerViewController.xib in Resources */,
 				5BB553A41DE2467100D98AE8 /* DateInputViewController.xib in Resources */,
 				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
@@ -536,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC0A1E91E01D23A00D4783B /* FileGenerator.swift in Sources */,
 				5BB553C51DE24F6500D98AE8 /* OnboardingInspectorNumberViewController.swift in Sources */,
 				5BB553861DE2459C00D98AE8 /* Types.swift in Sources */,
 				5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */,
@@ -573,6 +592,7 @@
 				5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */,
 				5BB553AC1DE2469500D98AE8 /* ReportWeekTableViewCell.swift in Sources */,
 				5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */,
+				5BC0A1EE1E01D70E00D4783B /* SheetView.swift in Sources */,
 				5B75B1B91DECA9F600350B2B /* OvertimeTypeViewController.swift in Sources */,
 				5BB553911DE2462A00D98AE8 /* ProjectInformationViewController.swift in Sources */,
 				5BE275961DEB32C6006BF6BF /* BoolTableViewCell.swift in Sources */,
