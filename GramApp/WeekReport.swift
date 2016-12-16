@@ -19,6 +19,7 @@ class WeekReport: Object {
     dynamic var reportID = ""
     dynamic var mondayInWeek = Date()
     dynamic var completedStatus = false
+    dynamic var inspectorNo = -1
     
     // General
     dynamic var weekNumber = 0
@@ -46,6 +47,7 @@ class WeekReport: Object {
         self.init()
         mondayInWeek = monday
         weekNumber = time.weeknumber(forDate: monday)
+        inspectorNo = inspector
         reportID = "\(inspector)_\(Int(createdDate.timeIntervalSince1970))"
         for dayIndex in 0...6 {
             let workday = Workday()

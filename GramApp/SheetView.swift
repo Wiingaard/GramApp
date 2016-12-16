@@ -53,6 +53,101 @@ class SheetView: UIView {
     func setupView(report: WeekReport, user: User) {
         setupCollection(report: report, user: user)
         setupSingleLabels(report: report, user: user)
+        setupTotalLabels(report: report, user: user)
+    }
+    
+    func setupTotalLabels(report: WeekReport, user: User) {
+        var feeNormalSum = 0
+        var feeWeekendSum = 0
+        for fee in fees {
+            if fee.tag < 5 {
+                if report.workdays[fee.tag].dailyFee {
+                    feeNormalSum += 1
+                }
+            } else if fee.tag < 7 {
+                if report.workdays[fee.tag].dailyFee {
+                    feeWeekendSum += 1
+                }
+            }
+            if fee.tag == 7 {
+                fee.text = String(feeNormalSum)
+            }
+            if fee.tag == 8 {
+                fee.text = String(feeWeekendSum)
+            }
+        }
+        for normal in normals {
+            if normal.tag == 7 {
+                let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
+                    if workday.validHours() {
+                        return workday.hours + result
+                    } else {
+                        return result
+                    }
+                })
+                normal.text = doubleValueToMetricString(value: result)
+            }
+        }
+        for overtime in overtimes {
+            if overtime.tag == 7 {
+                let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
+                    if workday.overtimeType == OvertimeType.normal.rawValue {
+                        if workday.validOvertime() {
+                            return workday.overtime + result
+                        }
+                    }
+                    return result
+                })
+                overtime.text = doubleValueToMetricString(value: result)
+            }
+        }
+        for sunday in sundays {
+            if sunday.tag == 7 {
+                let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
+                    if workday.overtimeType == OvertimeType.holiday.rawValue {
+                        if workday.validOvertime() {
+                            return workday.overtime + result
+                        }
+                    }
+                    return result
+                })
+                sunday.text = doubleValueToMetricString(value: result)
+            }
+        }
+        
+        var departureSum = 0.0
+        if let departureDate = report.departure as? Date {
+            for workday in report.workdays {
+                let currentDate = workday.date
+                let result = time.calendar.compare(departureDate, to: currentDate, toGranularity: .day)
+                if result == .orderedSame {
+                    departureSum += report.validTravelTime(travelType: .out) ? report.travelOut : 0
+                }
+            }
+        }
+        var arrivalSum = 0.0
+        if let arrivalDate = report.arrival as? Date {
+            for workday in report.workdays {
+                let currentDate = workday.date
+                let result = time.calendar.compare(arrivalDate, to: currentDate, toGranularity: .day)
+                if result == .orderedSame {
+                    arrivalSum += report.validTravelTime(travelType: .home) ? report.travelHome : 0
+                }
+            }
+        }
+        totalTravel.text = doubleValueToMetricString(value: arrivalSum + departureSum)
+        
+        var totalHours: Double = 0
+        totalHours = report.workdays.reduce(0) { (sum: Double, workday) in
+            var partSum = sum
+            if workday.validHours() { partSum += workday.hours }
+            if workday.validOvertime() { partSum += workday.overtime }
+            return partSum
+        }
+        if report.validTravelTime(travelType: .out) { totalHours += report.travelOut }
+        if report.validTravelTime(travelType: .home) { totalHours += report.travelHome }
+        self.totalHours.text = doubleValueToMetricString(value: totalHours)
+        
     }
     
     func setupSingleLabels(report: WeekReport, user: User) {
