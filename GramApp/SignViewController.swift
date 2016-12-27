@@ -81,8 +81,6 @@ class SignViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        #Error - Der er fejl i deleteState og afterDrawing bliver kaldt selv ved tap på confirm button
-        
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         user = realm.objects(User.self).first

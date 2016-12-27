@@ -24,6 +24,8 @@
 		5B75B1BF1DECB30000350B2B /* CheckmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */; };
 		5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */; };
 		5B75B1C31DECE07C00350B2B /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */; };
+		5B9E16BB1E045AB9003ECB42 /* PDF.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E16BA1E045AB9003ECB42 /* PDF.xib */; };
+		5B9E16BD1E045AD7003ECB42 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E16BC1E045AD7003ECB42 /* PDFView.swift */; };
 		5BB553861DE2459C00D98AE8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553831DE2459C00D98AE8 /* Types.swift */; };
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
@@ -69,6 +71,7 @@
 		5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */; };
 		5BE2759A1DEB7373006BF6BF /* EnumStringInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE275981DEB7373006BF6BF /* EnumStringInputViewController.swift */; };
 		5BE2759B1DEB7373006BF6BF /* EnumStringInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE275991DEB7373006BF6BF /* EnumStringInputViewController.xib */; };
+		5BEC7EDB1E119F3E000B1A50 /* SendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC7EDA1E119F3E000B1A50 /* SendListViewController.swift */; };
 		5BEDE9471DEF761B00828B3C /* HalfHourInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDE9451DEF761B00828B3C /* HalfHourInputViewController.swift */; };
 		5BEDE9481DEF761B00828B3C /* HalfHourInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDE9461DEF761B00828B3C /* HalfHourInputViewController.xib */; };
 		5BF133A61DE4FD5600E53823 /* CreateNewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */; };
@@ -99,6 +102,8 @@
 		5B75B1BD1DECB30000350B2B /* CheckmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkTableViewCell.xib; sourceTree = "<group>"; };
 		5B75B1C01DECE07C00350B2B /* ModalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInputTableViewCell.swift; sourceTree = "<group>"; };
 		5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
+		5B9E16BA1E045AB9003ECB42 /* PDF.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDF.xib; sourceTree = "<group>"; };
+		5B9E16BC1E045AD7003ECB42 /* PDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		5BB553831DE2459C00D98AE8 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 		5BE275951DEB32C6006BF6BF /* BoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoolTableViewCell.xib; sourceTree = "<group>"; };
 		5BE275981DEB7373006BF6BF /* EnumStringInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumStringInputViewController.swift; sourceTree = "<group>"; };
 		5BE275991DEB7373006BF6BF /* EnumStringInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumStringInputViewController.xib; sourceTree = "<group>"; };
+		5BEC7EDA1E119F3E000B1A50 /* SendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendListViewController.swift; sourceTree = "<group>"; };
 		5BEDE9451DEF761B00828B3C /* HalfHourInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfHourInputViewController.swift; sourceTree = "<group>"; };
 		5BEDE9461DEF761B00828B3C /* HalfHourInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HalfHourInputViewController.xib; sourceTree = "<group>"; };
 		5BF133A41DE4FD5600E53823 /* CreateNewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewCustomerViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 				5BC091481DFDE1DC006687F3 /* SignatureListViewController.swift */,
 				5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */,
 				5BC0914C1DFDF364006687F3 /* SignViewController.swift */,
+				5BEC7EDA1E119F3E000B1A50 /* SendListViewController.swift */,
 			);
 			name = "Sign & Send";
 			sourceTree = "<group>";
@@ -335,6 +342,8 @@
 				5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */,
 				5BC0A1EB1E01D6F000D4783B /* Sheet.xib */,
 				5BC0A1ED1E01D70E00D4783B /* SheetView.swift */,
+				5B9E16BA1E045AB9003ECB42 /* PDF.xib */,
+				5B9E16BC1E045AD7003ECB42 /* PDFView.swift */,
 			);
 			name = "File Generator";
 			sourceTree = "<group>";
@@ -475,6 +484,7 @@
 				5B04A4E21DE21E51000C12A9 /* Assets.xcassets in Resources */,
 				5BB553A61DE2467100D98AE8 /* CreateReportViewController.xib in Resources */,
 				5BB553A01DE2467100D98AE8 /* NumberInputViewController.xib in Resources */,
+				5B9E16BB1E045AB9003ECB42 /* PDF.xib in Resources */,
 				5B04A4E01DE21E51000C12A9 /* Main.storyboard in Resources */,
 				5BB553BC1DE246AA00D98AE8 /* Rød cirkel.png in Resources */,
 				5BB553AF1DE2469500D98AE8 /* InputFieldTableViewCell.xib in Resources */,
@@ -560,6 +570,7 @@
 				5BB5539F1DE2467100D98AE8 /* NumberInputViewController.swift in Sources */,
 				5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */,
 				5B4DD29E1DFC23DF00C002E1 /* TravelDateViewController.swift in Sources */,
+				5BEC7EDB1E119F3E000B1A50 /* SendListViewController.swift in Sources */,
 				5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
 				5BC0914D1DFDF364006687F3 /* SignViewController.swift in Sources */,
@@ -572,6 +583,7 @@
 				5BE110631DF4923A00994274 /* CarTypeViewController.swift in Sources */,
 				5BB553A31DE2467100D98AE8 /* DateInputViewController.swift in Sources */,
 				5BEDE9471DEF761B00828B3C /* HalfHourInputViewController.swift in Sources */,
+				5B9E16BD1E045AD7003ECB42 /* PDFView.swift in Sources */,
 				5BB553A11DE2467100D98AE8 /* StringInputViewController.swift in Sources */,
 				5BB553B91DE246AA00D98AE8 /* Time.swift in Sources */,
 				5BC091441DFDD1AD006687F3 /* ProjectStatusViewController.swift in Sources */,

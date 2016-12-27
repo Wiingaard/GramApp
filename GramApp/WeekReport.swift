@@ -41,6 +41,11 @@ class WeekReport: Object {
     // Working Hours
     let workdays = List<Workday>()
     
+    // Final Files
+    dynamic var pdfFilePath = ""
+    dynamic var navFilePath = ""
+    dynamic var pmFilePath = ""
+    
     
     // MARK: - Initializer
     convenience init(withMonday monday: Date, inspectorNumber inspector: Int) {
@@ -159,6 +164,26 @@ class WeekReport: Object {
         return checkData != nil
     }
     
+    func validPMFile(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = pmFilePath
+        }
+        return checkString.characters.isEmpty ? false : true
+    }
+    
+    func validNAVFile(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = navFilePath
+        }
+        return checkString.characters.isEmpty ? false : true
+    }
+    
     // MARK: - Wrapper validation
     func validDeparture() -> Bool {
         if validTravelDate(travelType: .out) && validTravelTime(travelType: .out) {
@@ -174,5 +199,66 @@ class WeekReport: Object {
         } else {
             return false
         }
+    }
+    
+    // MARK: - Calculations
+    func dailyFeesOnWorkdays() -> Int {
+        return workdays.reduce(0) { result, workday in
+            if workday.weekday < 5 {
+                return workday.dailyFee ? result+1 : result
+            } else {
+                return result
+            }
+        }
+    }
+    
+    func dailyFeesOnWeekend() -> Int {
+        return workdays.reduce(0) { result, workday in
+            if workday.weekday > 4 {
+                return workday.dailyFee ? result+1 : result
+            } else {
+                return result
+            }
+        }
+    }
+    
+    func unitsFor9InspectorToPm() -> Double {
+        let hours = workdays.reduce(0.0) { result, workday in
+            if workday.weekday < 5 {
+                return workday.hours > 0 ? result + 10 : result
+            } else {
+                return workday.hours > 0 ? result + min(workday.hours, 8) : result
+            }
+        }
+        var departureSum = 0.0
+        if let departureDate = departure as? Date {
+            for workday in workdays {
+                let currentDate = workday.date
+                let result = time.calendar.compare(departureDate, to: currentDate, toGranularity: .day)
+                if result == .orderedSame {
+                    if workday.weekday < 5 {
+                        departureSum += travelOut > 0 ? 10 : 0
+                    } else {
+                        departureSum += travelOut > 0 ? min(travelOut, 8) : 0
+                    }
+                    
+                }
+            }
+        }
+        var arrivalSum = 0.0
+        if let arrivalDate = arrival as? Date {
+            for workday in workdays {
+                let currentDate = workday.date
+                let result = time.calendar.compare(arrivalDate, to: currentDate, toGranularity: .day)
+                if result == .orderedSame {
+                    if workday.weekday < 5 {
+                        arrivalSum += travelHome > 0 ? 10 : 0
+                    } else {
+                        arrivalSum += travelHome > 0 ? min(travelHome, 8) : 0
+                    }
+                }
+            }
+        }
+        return hours + departureSum + arrivalSum
     }
 }

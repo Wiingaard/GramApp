@@ -28,7 +28,6 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     let realm = try! Realm()
     var report: WeekReport!
     var user: User!
-    var sendAllowed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,32 +36,96 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         user = realm.objects(User.self).first
         
-        sendAllowed = false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if sendAllowed {
+        updateFiles()
+        updateSendButton()
+    }
+    
+    func updateSendButton() {
+        if report.validSignature(signer: .customer) && report.validSignature(signer: .supervisor) {
             sendButton.isEnabled = true
         } else {
             sendButton.isEnabled = false
         }
-        updateFiles()
     }
     
     func updateFiles() {
+        
         let generator = FileGenerator(report: report, user: user)
-        let files = generator.generateFiles()
-        if let image = files["sheetImage"] as? UIImage {
-            print("Yay!")
-            imageView.image = image
+        let files = generator.generateFiles(viewForRendering: self.view)
+        
+        if let sheet = files["sheetImage"] as? UIImage {
+            imageView.image = sheet
             
-            let minimumZoomscale = view.frame.width / image.size.width
+            let minimumZoomscale = view.frame.width / sheet.size.width
             scrollView.minimumZoomScale = minimumZoomscale
             scrollView.zoomScale = minimumZoomscale
+            
         } else {
-            print("Ahh :/")
+            presentFileGenerationError()
         }
+        
+        if let pdf = files["PDF"] as? Data {
+            let pdfName = "\(user.fullName) - Week \(report.weekNumber).pdf"
+            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(pdfName)
+//            print(fileURL.absoluteString)
+            do {
+                try pdf.write(to: fileURL, options: .atomic)
+                
+                try! realm.write {
+                    report.pdfFilePath = fileURL.absoluteString
+                }
+                
+            } catch {
+                print(error)
+                presentFileGenerationError()
+            }
+        } else { presentFileGenerationError() }
+        
+        pm: if let pm = files["lessorPM"] as? String {
+            print(pm)
+            guard report.validPMFile(string: pm) else { break pm }
+            let data = pm.data(using: .utf16, allowLossyConversion: false)
+            let csvName = "\(user.fullName) - Week \(report.weekNumber) - PM.csv"
+            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(csvName)
+            
+            do {
+                try data!.write(to: fileURL, options: .atomic)
+            } catch {
+                print(error)
+                presentFileGenerationError()
+            }
+            print("file URL: \(fileURL.absoluteString)")
+
+            try! realm.write {
+                report.pmFilePath = fileURL.absoluteString
+            }
+        }
+        
+        nav: if let nav = files["lessorNAV"] as? String {
+            print(nav)
+            let data = nav.data(using: .utf16, allowLossyConversion: false)
+            let csvName = "\(user.fullName) - Week \(report.weekNumber) - NAV.csv"
+            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(csvName)
+            
+            do {
+                try data!.write(to: fileURL, options: .atomic)
+            } catch {
+                print(error)
+                presentFileGenerationError()
+            }
+            print("file URL: \(fileURL.absoluteString)")
+            
+            try! realm.write {
+                report.navFilePath = fileURL.absoluteString
+            }
+        }
+    }
+    
+    func presentFileGenerationError() {
+        print("ERROR IN FILE GENERATION")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

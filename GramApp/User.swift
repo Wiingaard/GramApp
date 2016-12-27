@@ -34,4 +34,16 @@ class User: Object {
         }
         return checkNumber > 0 ? true : false
     }
+    
+    func inspectorType() -> Int {
+        let numberAsString = String(inspectorNumber)
+        if numberAsString.characters.first == "1" {
+            return 1
+        } else if numberAsString.characters.first == "2" {
+            return 2
+        } else if numberAsString.characters.first == "9" {
+            return 9
+        }
+        return 0
+    }
 }

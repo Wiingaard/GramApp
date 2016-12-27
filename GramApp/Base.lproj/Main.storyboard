@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IB2-FU-3u2" id="CnU-bt-eyC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S1-BK-XmV">
@@ -355,11 +355,76 @@
                         <outlet property="scrollView" destination="O90-gD-TvV" id="Xa0-C7-yjy"/>
                         <outlet property="sendButton" destination="LeB-LR-GJp" id="pcM-bp-APT"/>
                         <segue destination="Wb8-H9-Atc" kind="show" identifier="Show Signatures" id="YcL-r4-8C7"/>
+                        <segue destination="08V-Zn-liD" kind="show" identifier="Show Send" id="6YH-ru-mEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of8-AD-qGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2853.5999999999999" y="2661.3193403298351"/>
+        </scene>
+        <!--Send List View Controller-->
+        <scene sceneID="yFM-FV-GSu">
+            <objects>
+                <viewController id="08V-Zn-liD" customClass="SendListViewController" customModule="GramApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AAh-b2-3o7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pry-JJ-HGw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EMh-bk-MK3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qT0-Tg-rfO">
+                                <rect key="frame" x="16" y="72" width="163" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW0-wS-uEI" userLabel="Top devider">
+                                <rect key="frame" x="16" y="114" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="gMC-tm-AMc"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XRt-KF-v5g">
+                                <rect key="frame" x="0.0" y="178" width="375" height="489"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wb8-H9-Atc" id="hcN-ZE-gIr"/>
+                                    <outlet property="delegate" destination="Wb8-H9-Atc" id="Ti9-O0-tJi"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send report to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yo0-oz-5St">
+                                <rect key="frame" x="16" y="143" width="163" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XRt-KF-v5g" secondAttribute="trailing" id="25e-MM-e34"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qT0-Tg-rfO" secondAttribute="leading" id="444-ah-DgB"/>
+                            <constraint firstItem="Yo0-oz-5St" firstAttribute="trailing" secondItem="qT0-Tg-rfO" secondAttribute="trailing" id="Cye-JD-Dd6"/>
+                            <constraint firstItem="XRt-KF-v5g" firstAttribute="top" secondItem="Yo0-oz-5St" secondAttribute="bottom" constant="8" id="NDE-5g-kxY"/>
+                            <constraint firstItem="XRt-KF-v5g" firstAttribute="leading" secondItem="EMh-bk-MK3" secondAttribute="leading" id="SDN-qC-pzm"/>
+                            <constraint firstItem="Pry-JJ-HGw" firstAttribute="top" secondItem="XRt-KF-v5g" secondAttribute="bottom" id="UG6-As-T0q"/>
+                            <constraint firstItem="OW0-wS-uEI" firstAttribute="top" secondItem="qT0-Tg-rfO" secondAttribute="bottom" id="a22-6d-exE"/>
+                            <constraint firstItem="Yo0-oz-5St" firstAttribute="leading" secondItem="qT0-Tg-rfO" secondAttribute="leading" id="bXD-Ti-qN7"/>
+                            <constraint firstItem="qT0-Tg-rfO" firstAttribute="top" secondItem="AAh-b2-3o7" secondAttribute="bottom" constant="8" id="dGx-UO-q9M"/>
+                            <constraint firstItem="OW0-wS-uEI" firstAttribute="leading" secondItem="qT0-Tg-rfO" secondAttribute="leading" id="eN3-4h-kWA"/>
+                            <constraint firstAttribute="trailing" secondItem="OW0-wS-uEI" secondAttribute="trailing" id="goQ-VT-ISN"/>
+                            <constraint firstItem="Yo0-oz-5St" firstAttribute="top" secondItem="OW0-wS-uEI" secondAttribute="bottom" constant="28" id="wxt-zf-ESw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XRt-KF-v5g" id="SIf-cm-tl2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tag-7S-4dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2854" y="3400"/>
         </scene>
         <!--Signature List View Controller-->
         <scene sceneID="LHD-YY-h5R">
