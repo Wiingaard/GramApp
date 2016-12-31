@@ -21,7 +21,7 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fejl // denne VC er pasted, men skal ændres.
+        
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         
@@ -40,14 +40,14 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
         switch indexPath.row {
         case 0:
-            cell.nameLabel.text = "Office"
-            cell.valueLabel.text = report.validSignature(signer: .customer) ? report.customerSignName : ""
-            cell.statusImage(shouldShowGreen: report.validSignature(signer: .customer))
+            cell.nameLabel.text = SendToType.customer.all[indexPath.row]
+            cell.valueLabel.text = ""
+            cell.statusImage(shouldShowGreen: false)
             
         case 1:
-            cell.nameLabel.text = "Customer"
-            cell.valueLabel.text = user.fullName
-            cell.statusImage(shouldShowGreen: report.validSignature(signer: .supervisor))
+            cell.nameLabel.text = SendToType.customer.all[indexPath.row]
+            cell.valueLabel.text = ""
+            cell.statusImage(shouldShowGreen: false)
             
         default:
             fatalError("default not allowed!")
@@ -57,14 +57,7 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.row {
-        case 0:
-            performSegue(withIdentifier: "Show Sign Name", sender: indexPath.row)
-        case 1:
-            performSegue(withIdentifier: "Show Supervisor Signature", sender: indexPath.row)
-            
-        default: fatalError("default not allowed!")
-        }
+        performSegue(withIdentifier: "Show Mail", sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,30 +69,15 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return signatureTypes.count
+        return SendToType.customer.all.count
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Sign Name" {
-            let vc = segue.destination as! SignNameViewController
+        if segue.identifier == "Show Mail" {
+            let vc = segue.destination as! MailViewController
+            let sendIndex = sender as! Int
+            vc.sendTo = SendToType(rawValue: SendToType.customer.all[sendIndex])!
             vc.reportID = self.reportID
-            let index = sender as! Int
-            switch index {
-            case 0:
-                vc.signingFor = .customer
-            case 1:
-                vc.signingFor = .supervisor
-            default:
-                fatalError("default not allowed!")
-            }
-        }
-        if segue.identifier == "Show Supervisor Signature" {
-            let vc = segue.destination as! SignViewController
-            vc.reportID = self.reportID
-            vc.signingFor = .supervisor
-            vc.signName = user.fullName
         }
     }
-
-
 }

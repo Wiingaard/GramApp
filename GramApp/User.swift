@@ -13,6 +13,7 @@ class User: Object {
     
     dynamic var fullName = ""
     dynamic var inspectorNumber = 0
+    dynamic var officeEmail = ""
     
     // MARK: - Validering
     func validFullName(name: String? = nil) -> Bool {
@@ -33,6 +34,16 @@ class User: Object {
             checkNumber = inspectorNumber
         }
         return checkNumber > 0 ? true : false
+    }
+    
+    func validOfficeEmail(name: String? = nil) -> Bool {
+        let checkName: String!
+        if name != nil {
+            checkName = name
+        } else {
+            checkName = officeEmail
+        }
+        return !checkName.isEmpty ? true : false
     }
     
     func inspectorType() -> Int {

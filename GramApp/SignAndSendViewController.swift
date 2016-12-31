@@ -20,7 +20,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func sendAction(_ sender: Any) {
-        
+        performSegue(withIdentifier: "Show Send", sender: nil)
     }
     
     // Model:
@@ -85,7 +85,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         } else { presentFileGenerationError() }
         
         pm: if let pm = files["lessorPM"] as? String {
-            print(pm)
+//            print(pm)
             guard report.validPMFile(string: pm) else { break pm }
             let data = pm.data(using: .utf16, allowLossyConversion: false)
             let csvName = "\(user.fullName) - Week \(report.weekNumber) - PM.csv"
@@ -105,7 +105,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         }
         
         nav: if let nav = files["lessorNAV"] as? String {
-            print(nav)
+//            print(nav)
             let data = nav.data(using: .utf16, allowLossyConversion: false)
             let csvName = "\(user.fullName) - Week \(report.weekNumber) - NAV.csv"
             let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(csvName)
@@ -131,6 +131,9 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Signatures" {
             let vc = segue.destination as! SignatureListViewController
+            vc.reportID = self.reportID
+        } else if segue.identifier == "Show Send" {
+            let vc = segue.destination as! SendListViewController
             vc.reportID = self.reportID
         }
     }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CLx-em-71O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CLx-em-71O">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -308,9 +308,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Send"/>
                                 <connections>
-                                    <action selector="confirmAction:" destination="Kha-1o-p7i" eventType="touchUpInside" id="IY7-Zv-Wvw"/>
-                                    <action selector="confirmAction:" destination="nbe-5R-zj3" eventType="touchUpInside" id="Mab-0Z-Q8I"/>
-                                    <action selector="nextAction:" destination="04R-6M-6Bh" eventType="touchUpInside" id="9Dw-Pa-DYC"/>
                                     <action selector="sendAction:" destination="h6y-oc-VaP" eventType="touchUpInside" id="Y2S-8A-bvm"/>
                                 </connections>
                             </button>
@@ -391,8 +388,8 @@
                                 <rect key="frame" x="0.0" y="178" width="375" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Wb8-H9-Atc" id="hcN-ZE-gIr"/>
-                                    <outlet property="delegate" destination="Wb8-H9-Atc" id="Ti9-O0-tJi"/>
+                                    <outlet property="dataSource" destination="08V-Zn-liD" id="rbk-EL-A8v"/>
+                                    <outlet property="delegate" destination="08V-Zn-liD" id="V9j-NP-47z"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send report to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yo0-oz-5St">
@@ -420,11 +417,79 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="XRt-KF-v5g" id="SIf-cm-tl2"/>
+                        <segue destination="Zbz-7r-n67" kind="show" identifier="Show Mail" id="92u-Dz-y4d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tag-7S-4dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2854" y="3400"/>
+        </scene>
+        <!--Mail View Controller-->
+        <scene sceneID="fwZ-Zv-9Ld">
+            <objects>
+                <viewController id="Zbz-7r-n67" customClass="MailViewController" customModule="GramApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cmz-cp-vqo"/>
+                        <viewControllerLayoutGuide type="bottom" id="C4F-ah-lcH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H9D-Dd-t24">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnI-qn-S14">
+                                <rect key="frame" x="16" y="72" width="343" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohy-5W-L7h" userLabel="Top devider">
+                                <rect key="frame" x="16" y="114" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="maH-o6-R9H"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="olW-91-Iwo">
+                                <rect key="frame" x="16" y="143" width="343" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter E-mail address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUJ-h6-BAj">
+                                <rect key="frame" x="16" y="322" width="343" height="22"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="Zbz-7r-n67" eventType="editingChanged" id="rBC-29-nr1"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="olW-91-Iwo" firstAttribute="trailing" secondItem="tnI-qn-S14" secondAttribute="trailing" id="9DI-Ng-wX0"/>
+                            <constraint firstItem="olW-91-Iwo" firstAttribute="leading" secondItem="tnI-qn-S14" secondAttribute="leading" id="GLM-wj-if9"/>
+                            <constraint firstItem="tnI-qn-S14" firstAttribute="top" secondItem="Cmz-cp-vqo" secondAttribute="bottom" constant="8" id="I9o-ZM-JRh"/>
+                            <constraint firstItem="ohy-5W-L7h" firstAttribute="top" secondItem="tnI-qn-S14" secondAttribute="bottom" id="IeQ-SU-Zyb"/>
+                            <constraint firstItem="ohy-5W-L7h" firstAttribute="leading" secondItem="tnI-qn-S14" secondAttribute="leading" id="NbW-hK-Wb1"/>
+                            <constraint firstItem="olW-91-Iwo" firstAttribute="top" secondItem="ohy-5W-L7h" secondAttribute="bottom" constant="28" id="NzV-rY-oNH"/>
+                            <constraint firstItem="DUJ-h6-BAj" firstAttribute="trailing" secondItem="H9D-Dd-t24" secondAttribute="trailingMargin" id="O41-JQ-yNm"/>
+                            <constraint firstItem="DUJ-h6-BAj" firstAttribute="leading" secondItem="H9D-Dd-t24" secondAttribute="leadingMargin" id="bz3-Sx-PyP"/>
+                            <constraint firstAttribute="trailing" secondItem="ohy-5W-L7h" secondAttribute="trailing" id="feQ-uq-JOk"/>
+                            <constraint firstItem="tnI-qn-S14" firstAttribute="trailing" secondItem="H9D-Dd-t24" secondAttribute="trailingMargin" id="jFX-AH-1ko"/>
+                            <constraint firstItem="DUJ-h6-BAj" firstAttribute="centerY" secondItem="H9D-Dd-t24" secondAttribute="centerY" id="jOe-BE-bZ3"/>
+                            <constraint firstItem="DUJ-h6-BAj" firstAttribute="centerX" secondItem="H9D-Dd-t24" secondAttribute="centerX" id="jWG-xo-IDj"/>
+                            <constraint firstItem="tnI-qn-S14" firstAttribute="leading" secondItem="H9D-Dd-t24" secondAttribute="leadingMargin" id="uHH-FY-t09"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="subheader" destination="olW-91-Iwo" id="j2T-Pf-biF"/>
+                        <outlet property="textField" destination="DUJ-h6-BAj" id="TF7-cM-XgX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSq-G9-w1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3804" y="3399.8500749625191"/>
         </scene>
         <!--Signature List View Controller-->
         <scene sceneID="LHD-YY-h5R">

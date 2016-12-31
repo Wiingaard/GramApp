@@ -46,6 +46,9 @@ class WeekReport: Object {
     dynamic var navFilePath = ""
     dynamic var pmFilePath = ""
     
+    // Customer E-mail
+    dynamic var customerEmail = ""
+    
     
     // MARK: - Initializer
     convenience init(withMonday monday: Date, inspectorNumber inspector: Int) {
@@ -182,6 +185,16 @@ class WeekReport: Object {
             checkString = navFilePath
         }
         return checkString.characters.isEmpty ? false : true
+    }
+    
+    func validCustomerEmail(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = customerEmail
+        }
+        return !checkString.isEmpty
     }
     
     // MARK: - Wrapper validation

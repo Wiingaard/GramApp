@@ -132,6 +132,15 @@ enum SignType: String, AllEnum {
     }
 }
 
+enum SendToType: String, AllEnum {
+    case office = "Office"
+    case customer = "Customer"
+    
+    var all: [String] {
+        return [SendToType.office.rawValue, SendToType.customer.rawValue]
+    }
+}
+
 protocol AllEnum {
     var all: [String] { get }
 }

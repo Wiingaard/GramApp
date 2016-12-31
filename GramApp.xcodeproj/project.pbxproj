@@ -62,6 +62,7 @@
 		5BC0A1E91E01D23A00D4783B /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */; };
 		5BC0A1EC1E01D6F000D4783B /* Sheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0A1EB1E01D6F000D4783B /* Sheet.xib */; };
 		5BC0A1EE1E01D70E00D4783B /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0A1ED1E01D70E00D4783B /* SheetView.swift */; };
+		5BC5A7091E15B80D00EFD9C4 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5A7081E15B80D00EFD9C4 /* MailViewController.swift */; };
 		5BD96B6D1DF35F9A00654611 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */; };
 		5BD96B6F1DF38A8600654611 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */; };
 		5BE1105D1DF4858600994274 /* MileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1105C1DF4858600994274 /* MileageViewController.swift */; };
@@ -140,6 +141,7 @@
 		5BC0A1E81E01D23A00D4783B /* FileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
 		5BC0A1EB1E01D6F000D4783B /* Sheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sheet.xib; sourceTree = "<group>"; };
 		5BC0A1ED1E01D70E00D4783B /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		5BC5A7081E15B80D00EFD9C4 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		5BD96B6C1DF35F9A00654611 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
 		5BD96B6E1DF38A8600654611 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
 		5BE1105C1DF4858600994274 /* MileageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileageViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				5BC0914A1DFDF009006687F3 /* SignNameViewController.swift */,
 				5BC0914C1DFDF364006687F3 /* SignViewController.swift */,
 				5BEC7EDA1E119F3E000B1A50 /* SendListViewController.swift */,
+				5BC5A7081E15B80D00EFD9C4 /* MailViewController.swift */,
 			);
 			name = "Sign & Send";
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				5BEC7EDB1E119F3E000B1A50 /* SendListViewController.swift in Sources */,
 				5B75B1C21DECE07C00350B2B /* ModalInputTableViewCell.swift in Sources */,
 				5BB553C31DE24EE100D98AE8 /* OnboardingNameViewController.swift in Sources */,
+				5BC5A7091E15B80D00EFD9C4 /* MailViewController.swift in Sources */,
 				5BC0914D1DFDF364006687F3 /* SignViewController.swift in Sources */,
 				5B6BD12F1DEB944A0090D333 /* OvertimeViewController.swift in Sources */,
 				5B47668E1DF48059000B217D /* Extensions.swift in Sources */,

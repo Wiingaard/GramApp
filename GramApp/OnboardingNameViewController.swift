@@ -36,7 +36,6 @@ class OnboardingNameViewController: UIViewController {
     }
     
     @IBAction func nameTextFieldAction(_ sender: UITextField) {
-        print("string: \(sender.text)")
         guard let tempValue = sender.text else { return }
         textFieldValue = tempValue
     }
