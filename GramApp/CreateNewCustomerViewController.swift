@@ -26,7 +26,7 @@ class CreateNewCustomerViewController: UIViewController {
             })
             
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nThere done seem to be any last report")
+            let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
             present(error, animated: true, completion: nil)
         }
     }
@@ -71,7 +71,7 @@ class CreateNewCustomerViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nPlease fill out the customer name and try again.")
+            let error = ErrorViewController.init(message: "Ups...\nPlease fill out the customer name and try again.")
             present(error, animated: true, completion: nil)
         }
     }

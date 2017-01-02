@@ -24,7 +24,7 @@ class CreateNewProjectNoViewController: UIViewController {
                 self?.show(customerVC, sender: nil)
             })
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nThere done seem to be any last report")
+            let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
             present(error, animated: true, completion: nil)
         }
     }
@@ -51,10 +51,8 @@ class CreateNewProjectNoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let button = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(CreateNewProjectNoViewController.nextButtonPressed))
         navigationItem.setRightBarButton(button, animated: false)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +70,7 @@ class CreateNewProjectNoViewController: UIViewController {
             let customerVC = CreateNewCustomerViewController.instantiateViewController(with: weekReport)
             show(customerVC, sender: nil)
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nPlease fill out the project number and try again.")
+            let error = ErrorViewController.init(message: "Please fill out the project number and try again.")
             present(error, animated: true, completion: nil)
         }
     }

@@ -18,7 +18,7 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func confirmAction(_ sender: Any) {
         func showError() {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nError")
+            let error = ErrorViewController.init(message: "Ups...\nError")
             present(error, animated: true, completion: nil)
         }
         func popBack() {

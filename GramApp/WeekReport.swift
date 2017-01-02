@@ -46,9 +46,10 @@ class WeekReport: Object {
     dynamic var navFilePath = ""
     dynamic var pmFilePath = ""
     
-    // Customer E-mail
+    // E-mail
     dynamic var customerEmail = ""
-    
+    dynamic var customerReportWasSent = false
+    dynamic var officeReportWasSent = false    
     
     // MARK: - Initializer
     convenience init(withMonday monday: Date, inspectorNumber inspector: Int) {
@@ -183,6 +184,16 @@ class WeekReport: Object {
             checkString = string
         } else {
             checkString = navFilePath
+        }
+        return checkString.characters.isEmpty ? false : true
+    }
+    
+    func validPDFFile(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = pdfFilePath
         }
         return checkString.characters.isEmpty ? false : true
     }

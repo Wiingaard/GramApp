@@ -19,7 +19,7 @@ class OnboardingInspectorNumberViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nInsert your inspector number in the text field")
+            let error = ErrorViewController.init(message: "Insert your inspector number in the text field", title: "Holy Fuck.!", buttonText: "Well okay then..")
             present(error, animated: true, completion: nil)
         }
     }

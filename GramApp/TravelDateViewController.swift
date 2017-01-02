@@ -36,7 +36,7 @@ class TravelDateViewController: UIViewController {
             let input = inputValue
             performSegue(withIdentifier: "Show Travel Time", sender: input)
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Not a valid value")
+            let error = ErrorViewController.init(message: "Not a valid value")
             present(error, animated: true, completion: nil)
         }
     }

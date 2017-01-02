@@ -41,7 +41,7 @@ class WaitingTypeViewController: UIViewController, UITableViewDelegate, UITableV
         if let type = WaitingType(rawValue: selectedTypeAsString) {
             handleAction(type: type)
         } else {
-            let error = ErrorViewController.init(modalStyle: .overCurrentContext, withMessage: "Ups...\nError message")
+            let error = ErrorViewController.init(message: "Ups...\nError message")
             present(error, animated: true, completion: nil)
         }
     }

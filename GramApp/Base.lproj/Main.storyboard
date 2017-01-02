@@ -459,7 +459,7 @@
                                 <rect key="frame" x="16" y="322" width="343" height="22"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="textFieldDidChange:" destination="Zbz-7r-n67" eventType="editingChanged" id="rBC-29-nr1"/>
                                 </connections>
@@ -2249,6 +2249,6 @@ Hours</string>
         <image name="arrow.png" width="150" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="duc-7g-TqF"/>
+        <segue reference="Qpe-gG-GqS"/>
     </inferredMetricsTieBreakers>
 </document>
