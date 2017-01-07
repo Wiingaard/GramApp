@@ -30,6 +30,12 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         return textField.text != nil ? textField.text! : ""
     }
     
+    enum MailError {
+        case cantSendMail
+        case fileGenerationError
+        case sendingError
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
@@ -84,19 +90,22 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     /// Sends a mail with the required docs, depending on customer/office and inspector number
     func sendMail() {
-        let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            present(mailComposeViewController, animated: true, completion: nil)
+            if let vc = configuredMailComposeViewController() {
+                present(vc, animated: true, completion: nil)
+            } else {
+                showMailErrorAlert(error: .fileGenerationError)
+            }
         } else {
-            showSendMailErrorAlert()
+            showMailErrorAlert(error: .cantSendMail)
         }
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
+    func configuredMailComposeViewController() -> MFMailComposeViewController? {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([inputValue])
-        mailComposerVC.setSubject("GE time report - Week \(report.weekNumber) - \(user.fullName)")
+        mailComposerVC.setSubject("Gram Time - Report for week \(report.weekNumber) - \(user.fullName)")
         mailComposerVC.setMessageBody("Here goes the mail body text", isHTML: false)
         
         if report.validPDFFile() {
@@ -104,9 +113,9 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let url = URL(string: report.pdfFilePath)!
                 let pdfData = try Data(contentsOf: url)
                 mailComposerVC.addAttachmentData(pdfData, mimeType: "pdf", fileName: "such.pdf")
-                print("SEEMS TO WORK")
-            } catch {
-                print("Handle Error here")
+            } catch let error {
+                print("Error in PDF Attachment: \(error)")
+                return nil
             }
         }
         
@@ -115,9 +124,9 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let url = URL(string: report.navFilePath)!
                 let navData = try Data(contentsOf: url)
                 mailComposerVC.addAttachmentData(navData, mimeType: "csv", fileName: "suchNAV.csv")
-                print("NAV SEEMS TO WORK")
-            } catch {
-                print("Handle Error here")
+            } catch let error {
+                print("Error in NAV Attachment: \(error)")
+                return nil
             }
         }
         
@@ -126,34 +135,42 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let url = URL(string: report.pmFilePath)!
                 let pmData = try Data(contentsOf: url)
                 mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "suchPM.csv")
-                print("PM SEEMS TO WORK")
-            } catch {
-                print("Handle Error here")
+            } catch let error {
+                print("Error in PM Attachment: \(error)")
+                return nil
             }
         }
         return mailComposerVC
     }
     
-    func showSendMailErrorAlert() {
-        print("### Error in send mail!")
+    func showMailErrorAlert(error: MailError) {
+        let errorMessage: String!
+        switch error {
+        case .cantSendMail:
+            errorMessage = "Your device isn't configured for sending E-Mail"
+        case .fileGenerationError:
+            errorMessage = "An export file couldn't be generated. Try generating a new week report."
+        case .sendingError:
+            errorMessage = "Error in sending "
+        }
+        let vc = ErrorViewController.init(message: errorMessage)
+        present(vc, animated: true)
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        print("\nMail Done: \n")
+        
         controller.dismiss(animated: true)
         switch result {
-        case .sent: print("mail sent!")
-        case .cancelled: print("mail cancelled!")
-        case .failed: print("mail failed!")
-        case .saved: print("mail saved!")
+        case .sent: print("mail sent!")             // 
+        case .cancelled: print("mail cancelled!")   // Do nothing
+        case .failed: print("mail failed!")         // Show pop-up -> report possible bug to office
+        case .saved: print("mail saved!")           // Show pop-up
         }
-        print("done with error? \(error)")
     }
 }
 
 extension MailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Should return?")
         if barButton.isEnabled {
             sendButtonPressed()
         }

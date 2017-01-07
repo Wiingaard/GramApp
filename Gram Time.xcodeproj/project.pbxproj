@@ -420,7 +420,6 @@
 				5B04A4D51DE21E51000C12A9 /* Resources */,
 				5ACDD991C8B449FAB0626832 /* [CP] Embed Pods Frameworks */,
 				4DA317F2F982DA3C96FA9FF8 /* [CP] Copy Pods Resources */,
-				5BCC18D71DE9E7E0009B275B /* Export Sketch Assets */,
 			);
 			buildRules = (
 			);
@@ -445,7 +444,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = T3N97W36DE;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -479,9 +478,9 @@
 				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
 				5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */,
 				5B47668C1DF4688A000B217D /* OptionalInputTableViewCell.xib in Resources */,
-				5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */,
 				5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */,
 				5BB553B81DE246AA00D98AE8 /* ErrorViewController.xib in Resources */,
+				5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */,
 				5BEDE9481DEF761B00828B3C /* HalfHourInputViewController.xib in Resources */,
 				5BE2759B1DEB7373006BF6BF /* EnumStringInputViewController.xib in Resources */,
 				5B04A4E21DE21E51000C12A9 /* Assets.xcassets in Resources */,
@@ -530,20 +529,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GramApp/Pods-GramApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		5BCC18D71DE9E7E0009B275B /* Export Sketch Assets */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Export Sketch Assets";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "sketchtool export slices \"$PROJECT_DIR\"/\"Graphics Resources/Assets.sketch\" --output=\"$PROJECT_DIR\"/\"$PROJECT_NAME\"/Assets.xcassets/AppIcon.appiconset --items=\"App Icon, Spotlight, Notifications, Settings\"\n\nsketchtool export slices \"$PROJECT_DIR\"/\"Graphics Resources/Assets.sketch\" --output=\"$PROJECT_DIR\"/\"$PROJECT_NAME\"/Assets.xcassets/Image.imageset --items=\"Some image\"";
 		};
 		C40649128EE74D2BB4288446 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -749,8 +734,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2a7bfffd-fe71-4c53-b7ad-d91976938dea";
+				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "GramApp/GramApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -765,12 +750,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = T3N97W36DE;
 				INFOPLIST_FILE = GramApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e999e5c0-e19b-4752-ad26-04abfcddbcb8";
+				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "GramApp/GramApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
