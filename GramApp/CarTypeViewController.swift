@@ -67,46 +67,36 @@ class CarTypeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         subheader.text = "Week \(report.weekNumber)"
-        
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
         switch report.carType {
         case CarType.privateCar.rawValue:
-            setCheckmark(at: 0)
             selected = 0
         case CarType.serviceCar.rawValue:
-            setCheckmark(at: 1)
             selected = 1
         case CarType.rentalCar.rawValue:
-            setCheckmark(at: 2)
             selected = 2
         default:
-            setCheckmark(at: selected)
-            break
+            selected = 0
         }
     }
     
     // MARK: - Table view
-    var privateCarCell: CheckmarkTableViewCell!
-    var serviceCarCell: CheckmarkTableViewCell!
-    var rentalCarCell: CheckmarkTableViewCell!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
+        if indexPath.row == selected {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         switch indexPath.row {
         case 0:
-            privateCarCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            privateCarCell.titleLabel.text = CarType.privateCar.rawValue
-            return privateCarCell
+            cell.titleLabel.text = CarType.privateCar.rawValue
         case 1:
-            serviceCarCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            serviceCarCell.titleLabel.text = CarType.serviceCar.rawValue
-            return serviceCarCell
-        default:
-            rentalCarCell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
-            rentalCarCell.titleLabel.text = CarType.rentalCar.rawValue
-            return rentalCarCell
+            cell.titleLabel.text = CarType.serviceCar.rawValue
+        case 2:
+            cell.titleLabel.text = CarType.rentalCar.rawValue
+        default: break
         }
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -124,20 +114,7 @@ class CarTypeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setCheckmark(at indexpathRow: Int) {
-        switch indexpathRow {
-        case 0:
-            privateCarCell.checkmarkImageView.image = UIImage(named: "Image")
-            serviceCarCell.checkmarkImageView.image = nil
-            rentalCarCell.checkmarkImageView.image = nil
-        case 1:
-            privateCarCell.checkmarkImageView.image = nil
-            serviceCarCell.checkmarkImageView.image = UIImage(named: "Image")
-            rentalCarCell.checkmarkImageView.image = nil
-        default:
-            privateCarCell.checkmarkImageView.image = nil
-            serviceCarCell.checkmarkImageView.image = nil
-            rentalCarCell.checkmarkImageView.image = UIImage(named: "Image")
-        }
+        tableView.reloadData()
     }
     
 }
