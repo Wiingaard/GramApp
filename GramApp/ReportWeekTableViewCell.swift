@@ -19,4 +19,16 @@ class ReportWeekTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func setStatusLabel(sent: Bool) {
+        guard statusLabel != nil else { return }
+        if sent {
+            statusLabel.text = "SIGNED AND SENT"
+            statusLabel.textColor = UIColor.gramGreen
+        } else {
+            statusLabel.text = "NOT SENT YET"
+            statusLabel.textColor = UIColor.gramRed
+        }
+        
+    }
+    
 }

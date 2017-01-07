@@ -57,6 +57,9 @@ extension UIColor {
     convenience init(hexInt: Int) {
         self.init(red:(hexInt >> 16) & 0xff, green:(hexInt >> 8) & 0xff, blue:hexInt & 0xff)
     }
+    
+    static var gramRed: UIColor { return UIColor(hexInt: 0xF96262) }
+    static var gramGreen: UIColor { return UIColor(hexInt: 0x6CD771) }
 }
 
 extension UIImage {

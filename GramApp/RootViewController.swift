@@ -13,15 +13,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
     
     @IBAction func createNewAction(_ sender: AnyObject) {
-        
-//        let error = "Ups, der skete en fejl!"
-//        let errorVC = ErrorViewController(modalStyle: .overCurrentContext, withMessage: error)
-//        present(errorVC, animated: true, completion: nil)
-        
-        
         
         let createNewVC = CreateReportViewController(nibName: "CreateReportViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: createNewVC)
@@ -31,9 +24,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController.navigationBar.isTranslucent = true
         navigationController.view.backgroundColor = UIColor.clear
         present(navigationController, animated: true, completion: nil)
-        
     }
-    
     
     // MARK: - Model
     let realm = try! Realm()
@@ -56,6 +47,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         let nib = UINib(nibName: "ReportWeekTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ReportWeekTableViewCell")
+        let reportHeaderView = tableView.dequeueReusableCell(withIdentifier: "WeeklyReportHeader")!.contentView
+        tableView.tableHeaderView = reportHeaderView
         
         // Setup Navigation controller
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -81,7 +74,6 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func initiateOnboarding() {
-        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingNavID") as! UINavigationController
         present(vc, animated: false, completion: nil)
@@ -95,14 +87,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportWeekTableViewCell") as!ReportWeekTableViewCell
         cell.weeknumberLabel.text = "Report week \(report.weekNumber)"
-        cell.statusLabel.text = report.sentStatus ? "SIGNED & SENT" : "NOT SENT YET"
-        cell.statusLabel.textColor = report.sentStatus ? UIColor.green : UIColor.red
+        cell.setStatusLabel(sent: report.sentStatus)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.dequeueReusableCell(withIdentifier: "WeeklyReportHeader")!.contentView
-        
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -121,17 +107,13 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60   // Magic number equls section header in story board
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "Weekly Report", sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64   // Magic number equls the height of ReportWeekTableViewCell.xib
+        return 45   // Magic number equls the height of ReportWeekTableViewCell.xib
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
