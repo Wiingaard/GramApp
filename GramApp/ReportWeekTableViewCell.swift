@@ -12,7 +12,7 @@ class ReportWeekTableViewCell: UITableViewCell {
 
     @IBOutlet weak var weeknumberLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
-    
+    @IBOutlet weak var projectNumberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +28,11 @@ class ReportWeekTableViewCell: UITableViewCell {
             statusLabel.text = "NOT SENT YET"
             statusLabel.textColor = UIColor.gramRed
         }
-        
+    }
+    
+    func setProjectNumber(number: Int) {
+        guard projectNumberLabel != nil else { return }
+        projectNumberLabel.text = "No. \(number)"
     }
     
 }

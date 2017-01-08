@@ -86,8 +86,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         let report = reportList[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportWeekTableViewCell") as!ReportWeekTableViewCell
-        cell.weeknumberLabel.text = "Report week \(report.weekNumber)"
+        cell.weeknumberLabel.text = "Week \(report.weekNumber)"
         cell.setStatusLabel(sent: report.sentStatus)
+        cell.setProjectNumber(number: report.projectNo)
         return cell
     }
     
