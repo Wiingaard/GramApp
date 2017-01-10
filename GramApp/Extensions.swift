@@ -59,7 +59,7 @@ extension UIColor {
     }
     
     static var gramRed: UIColor { return UIColor(hexInt: 0xF96262) }
-    static var gramGreen: UIColor { return UIColor(hexInt: 0x6CD771) }
+    static var gramGreen: UIColor { return UIColor(hexInt: 0x86C289) }
 }
 
 extension UIImage {

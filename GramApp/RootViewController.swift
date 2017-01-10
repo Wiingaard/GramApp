@@ -13,6 +13,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyStateView: UIView!
     
     @IBAction func createNewAction(_ sender: AnyObject) {
         
@@ -49,6 +50,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.register(nib, forCellReuseIdentifier: "ReportWeekTableViewCell")
         let reportHeaderView = tableView.dequeueReusableCell(withIdentifier: "WeeklyReportHeader")!.contentView
         tableView.tableHeaderView = reportHeaderView
+        tableView.separatorStyle = .none
         
         // Setup Navigation controller
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -77,6 +79,17 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingNavID") as! UINavigationController
         present(vc, animated: false, completion: nil)
+    }
+    
+    func emptyState(show: Bool) {
+        guard emptyStateView != nil else { return }
+        if show {
+            emptyStateView.isHidden = false
+            tableView.isScrollEnabled = false
+        } else {
+            emptyStateView.isHidden = true
+            tableView.isScrollEnabled = true
+        }
     }
     
     
@@ -122,7 +135,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reportList.count
+        let cellCount = reportList.count
+        emptyState(show: cellCount == 0)
+        return cellCount
     }
     
     //MARK: - Navigation

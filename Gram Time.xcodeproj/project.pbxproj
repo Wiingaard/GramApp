@@ -26,6 +26,8 @@
 		5B75B1C31DECE07C00350B2B /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */; };
 		5B9E16BB1E045AB9003ECB42 /* PDF.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E16BA1E045AB9003ECB42 /* PDF.xib */; };
 		5B9E16BD1E045AD7003ECB42 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E16BC1E045AD7003ECB42 /* PDFView.swift */; };
+		5BB35E8B1E22FB9D00819648 /* hoursArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB35E8A1E22FB9D00819648 /* hoursArrow.png */; };
+		5BB35E8F1E23071F00819648 /* empthyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB35E8E1E23071F00819648 /* empthyIcon.png */; };
 		5BB553861DE2459C00D98AE8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553831DE2459C00D98AE8 /* Types.swift */; };
 		5BB553871DE2459C00D98AE8 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553841DE2459C00D98AE8 /* WeekReport.swift */; };
 		5BB553881DE2459C00D98AE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553851DE2459C00D98AE8 /* User.swift */; };
@@ -47,7 +49,6 @@
 		5BB553B71DE246AA00D98AE8 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553B11DE246AA00D98AE8 /* ErrorViewController.swift */; };
 		5BB553B81DE246AA00D98AE8 /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553B21DE246AA00D98AE8 /* ErrorViewController.xib */; };
 		5BB553B91DE246AA00D98AE8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553B31DE246AA00D98AE8 /* Time.swift */; };
-		5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553B41DE246AA00D98AE8 /* arrow.png */; };
 		5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553B51DE246AA00D98AE8 /* Grøn cirkel.png */; };
 		5BB553BC1DE246AA00D98AE8 /* Rød cirkel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */; };
 		5BB553C01DE2478B00D98AE8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */; };
@@ -105,6 +106,8 @@
 		5B75B1C11DECE07C00350B2B /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
 		5B9E16BA1E045AB9003ECB42 /* PDF.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDF.xib; sourceTree = "<group>"; };
 		5B9E16BC1E045AD7003ECB42 /* PDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		5BB35E8A1E22FB9D00819648 /* hoursArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hoursArrow.png; sourceTree = "<group>"; };
+		5BB35E8E1E23071F00819648 /* empthyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empthyIcon.png; sourceTree = "<group>"; };
 		5BB553831DE2459C00D98AE8 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5BB553841DE2459C00D98AE8 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
 		5BB553851DE2459C00D98AE8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -126,7 +129,6 @@
 		5BB553B11DE246AA00D98AE8 /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		5BB553B21DE246AA00D98AE8 /* ErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		5BB553B31DE246AA00D98AE8 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		5BB553B41DE246AA00D98AE8 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		5BB553B51DE246AA00D98AE8 /* Grøn cirkel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grøn cirkel.png"; sourceTree = "<group>"; };
 		5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rød cirkel.png"; sourceTree = "<group>"; };
 		5BB553BE1DE2478B00D98AE8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -315,8 +317,9 @@
 				5BB553B31DE246AA00D98AE8 /* Time.swift */,
 				5BB553B11DE246AA00D98AE8 /* ErrorViewController.swift */,
 				5BB553B21DE246AA00D98AE8 /* ErrorViewController.xib */,
-				5BB553B41DE246AA00D98AE8 /* arrow.png */,
 				5BB553B51DE246AA00D98AE8 /* Grøn cirkel.png */,
+				5BB35E8A1E22FB9D00819648 /* hoursArrow.png */,
+				5BB35E8E1E23071F00819648 /* empthyIcon.png */,
 				5BB553B61DE246AA00D98AE8 /* Rød cirkel.png */,
 				5B04A4E31DE21E51000C12A9 /* LaunchScreen.storyboard */,
 				5B04A4E61DE21E51000C12A9 /* Info.plist */,
@@ -475,13 +478,14 @@
 				5BC0A1EC1E01D6F000D4783B /* Sheet.xib in Resources */,
 				5BF133A71DE4FD5600E53823 /* CreateNewCustomerViewController.xib in Resources */,
 				5BB553A41DE2467100D98AE8 /* DateInputViewController.xib in Resources */,
-				5BB553BA1DE246AA00D98AE8 /* arrow.png in Resources */,
 				5BB553BB1DE246AA00D98AE8 /* Grøn cirkel.png in Resources */,
 				5B47668C1DF4688A000B217D /* OptionalInputTableViewCell.xib in Resources */,
 				5B04A4E51DE21E51000C12A9 /* LaunchScreen.storyboard in Resources */,
 				5BB553B81DE246AA00D98AE8 /* ErrorViewController.xib in Resources */,
 				5BE275971DEB32C6006BF6BF /* BoolTableViewCell.xib in Resources */,
+				5BB35E8F1E23071F00819648 /* empthyIcon.png in Resources */,
 				5BEDE9481DEF761B00828B3C /* HalfHourInputViewController.xib in Resources */,
+				5BB35E8B1E22FB9D00819648 /* hoursArrow.png in Resources */,
 				5BE2759B1DEB7373006BF6BF /* EnumStringInputViewController.xib in Resources */,
 				5B04A4E21DE21E51000C12A9 /* Assets.xcassets in Resources */,
 				5BB553A61DE2467100D98AE8 /* CreateReportViewController.xib in Resources */,
