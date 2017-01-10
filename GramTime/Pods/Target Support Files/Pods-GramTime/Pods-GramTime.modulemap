@@ -1,0 +1,6 @@
+framework module Pods_GramTime {
+  umbrella header "Pods-GramTime-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,728 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2985698649BE1499F21FAA93 /* Pods_GramTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1EE5394D0164A72762516C /* Pods_GramTime.framework */; };
+		5B92175B1E256BDA00C4A220 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217591E256BDA00C4A220 /* RootViewController.swift */; };
+		5B92175C1E256BDA00C4A220 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */; };
+		5B9217641E256BFF00C4A220 /* ProjectStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */; };
+		5B9217651E256BFF00C4A220 /* SignAndSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175E1E256BFF00C4A220 /* SignAndSendViewController.swift */; };
+		5B9217661E256BFF00C4A220 /* SignatureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175F1E256BFF00C4A220 /* SignatureListViewController.swift */; };
+		5B9217671E256BFF00C4A220 /* SignNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217601E256BFF00C4A220 /* SignNameViewController.swift */; };
+		5B9217681E256BFF00C4A220 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217611E256BFF00C4A220 /* SignViewController.swift */; };
+		5B9217691E256BFF00C4A220 /* SendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217621E256BFF00C4A220 /* SendListViewController.swift */; };
+		5B92176A1E256BFF00C4A220 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217631E256BFF00C4A220 /* MailViewController.swift */; };
+		5B92176E1E256C2100C4A220 /* OnboardingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92176C1E256C2100C4A220 /* OnboardingNameViewController.swift */; };
+		5B92176F1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92176D1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift */; };
+		5B9217771E256C4E00C4A220 /* CreateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217711E256C4E00C4A220 /* CreateReportViewController.swift */; };
+		5B9217781E256C4E00C4A220 /* CreateReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217721E256C4E00C4A220 /* CreateReportViewController.xib */; };
+		5B9217791E256C4E00C4A220 /* CreateNewProjectNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217731E256C4E00C4A220 /* CreateNewProjectNoViewController.swift */; };
+		5B92177A1E256C4E00C4A220 /* CreateNewProjectNoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217741E256C4E00C4A220 /* CreateNewProjectNoViewController.xib */; };
+		5B92177B1E256C4E00C4A220 /* CreateNewCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217751E256C4E00C4A220 /* CreateNewCustomerViewController.swift */; };
+		5B92177C1E256C4E00C4A220 /* CreateNewCustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217761E256C4E00C4A220 /* CreateNewCustomerViewController.xib */; };
+		5B92178A1E256C7800C4A220 /* ReportWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92177E1E256C7800C4A220 /* ReportWeekTableViewCell.swift */; };
+		5B92178B1E256C7800C4A220 /* ReportWeekTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B92177F1E256C7800C4A220 /* ReportWeekTableViewCell.xib */; };
+		5B92178C1E256C7800C4A220 /* InputFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217801E256C7800C4A220 /* InputFieldTableViewCell.swift */; };
+		5B92178D1E256C7800C4A220 /* InputFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217811E256C7800C4A220 /* InputFieldTableViewCell.xib */; };
+		5B92178E1E256C7800C4A220 /* BoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217821E256C7800C4A220 /* BoolTableViewCell.swift */; };
+		5B92178F1E256C7800C4A220 /* BoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */; };
+		5B9217901E256C7800C4A220 /* CheckmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */; };
+		5B9217911E256C7800C4A220 /* CheckmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */; };
+		5B9217921E256C7800C4A220 /* ModalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */; };
+		5B9217931E256C7800C4A220 /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */; };
+		5B9217941E256C7800C4A220 /* OptionalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */; };
+		5B9217951E256C7800C4A220 /* OptionalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */; };
+		5B9217A11E256C9800C4A220 /* NumberInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217971E256C9800C4A220 /* NumberInputViewController.swift */; };
+		5B9217A21E256C9800C4A220 /* NumberInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217981E256C9800C4A220 /* NumberInputViewController.xib */; };
+		5B9217A31E256C9800C4A220 /* StringInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217991E256C9800C4A220 /* StringInputViewController.swift */; };
+		5B9217A41E256C9800C4A220 /* StringInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B92179A1E256C9800C4A220 /* StringInputViewController.xib */; };
+		5B9217A51E256C9800C4A220 /* DateInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92179B1E256C9800C4A220 /* DateInputViewController.swift */; };
+		5B9217A61E256C9800C4A220 /* DateInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B92179C1E256C9800C4A220 /* DateInputViewController.xib */; };
+		5B9217A71E256C9800C4A220 /* EnumStringInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92179D1E256C9800C4A220 /* EnumStringInputViewController.swift */; };
+		5B9217A81E256C9800C4A220 /* EnumStringInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B92179E1E256C9800C4A220 /* EnumStringInputViewController.xib */; };
+		5B9217A91E256C9800C4A220 /* HalfHourInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92179F1E256C9800C4A220 /* HalfHourInputViewController.swift */; };
+		5B9217AA1E256C9800C4A220 /* HalfHourInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217A01E256C9800C4A220 /* HalfHourInputViewController.xib */; };
+		5B9217AD1E256CBD00C4A220 /* WeeklyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217AC1E256CBD00C4A220 /* WeeklyReportViewController.swift */; };
+		5B9217B41E256CE300C4A220 /* ProjectInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217AF1E256CE300C4A220 /* ProjectInformationViewController.swift */; };
+		5B9217B51E256CE300C4A220 /* TravelDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217B01E256CE300C4A220 /* TravelDateViewController.swift */; };
+		5B9217B61E256CE300C4A220 /* TravelTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217B11E256CE300C4A220 /* TravelTimeViewController.swift */; };
+		5B9217B71E256CE300C4A220 /* MileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217B21E256CE300C4A220 /* MileageViewController.swift */; };
+		5B9217B81E256CE300C4A220 /* CarTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217B31E256CE300C4A220 /* CarTypeViewController.swift */; };
+		5B9217BF1E256D1200C4A220 /* WorkingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BA1E256D1200C4A220 /* WorkingHoursViewController.swift */; };
+		5B9217C01E256D1200C4A220 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */; };
+		5B9217C11E256D1200C4A220 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */; };
+		5B9217C21E256D1200C4A220 /* OvertimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */; };
+		5B9217C31E256D1200C4A220 /* OvertimeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */; };
+		5B9217CA1E256D4600C4A220 /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217C51E256D4600C4A220 /* FileGenerator.swift */; };
+		5B9217CB1E256D4600C4A220 /* Sheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217C61E256D4600C4A220 /* Sheet.xib */; };
+		5B9217CC1E256D4600C4A220 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217C71E256D4600C4A220 /* SheetView.swift */; };
+		5B9217CD1E256D4600C4A220 /* PDF.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217C81E256D4600C4A220 /* PDF.xib */; };
+		5B9217CE1E256D4600C4A220 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217C91E256D4600C4A220 /* PDFView.swift */; };
+		5B9217D41E256D6000C4A220 /* WeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217D01E256D6000C4A220 /* WeekReport.swift */; };
+		5B9217D51E256D6000C4A220 /* Workday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217D11E256D6000C4A220 /* Workday.swift */; };
+		5B9217D61E256D6000C4A220 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217D21E256D6000C4A220 /* User.swift */; };
+		5B9217D71E256D6000C4A220 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217D31E256D6000C4A220 /* Types.swift */; };
+		5B9217E21E256D8F00C4A220 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217DA1E256D8F00C4A220 /* Time.swift */; };
+		5B9217E31E256D8F00C4A220 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217DB1E256D8F00C4A220 /* ErrorViewController.swift */; };
+		5B9217E41E256D8F00C4A220 /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217DC1E256D8F00C4A220 /* ErrorViewController.xib */; };
+		5B9217EA1E25700D00C4A220 /* GramExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217E91E25700D00C4A220 /* GramExtensions.swift */; };
+		5BB352B41E25601800799F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB352B31E25601800799F23 /* AppDelegate.swift */; };
+		5BB352B91E25601800799F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB352B71E25601800799F23 /* Main.storyboard */; };
+		5BB352BB1E25601800799F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB352BA1E25601800799F23 /* Assets.xcassets */; };
+		5BB352BE1E25601800799F23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB352BC1E25601800799F23 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01858D4D6234F04A5CFCD755 /* Pods-GramTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramTime/Pods-GramTime.release.xcconfig"; sourceTree = "<group>"; };
+		5B9217591E256BDA00C4A220 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
+		5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewController.swift; sourceTree = "<group>"; };
+		5B92175E1E256BFF00C4A220 /* SignAndSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignAndSendViewController.swift; sourceTree = "<group>"; };
+		5B92175F1E256BFF00C4A220 /* SignatureListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureListViewController.swift; sourceTree = "<group>"; };
+		5B9217601E256BFF00C4A220 /* SignNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignNameViewController.swift; sourceTree = "<group>"; };
+		5B9217611E256BFF00C4A220 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		5B9217621E256BFF00C4A220 /* SendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendListViewController.swift; sourceTree = "<group>"; };
+		5B9217631E256BFF00C4A220 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		5B92176C1E256C2100C4A220 /* OnboardingNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewController.swift; sourceTree = "<group>"; };
+		5B92176D1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInspectorNumberViewController.swift; sourceTree = "<group>"; };
+		5B9217711E256C4E00C4A220 /* CreateReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReportViewController.swift; sourceTree = "<group>"; };
+		5B9217721E256C4E00C4A220 /* CreateReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateReportViewController.xib; sourceTree = "<group>"; };
+		5B9217731E256C4E00C4A220 /* CreateNewProjectNoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectNoViewController.swift; sourceTree = "<group>"; };
+		5B9217741E256C4E00C4A220 /* CreateNewProjectNoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewProjectNoViewController.xib; sourceTree = "<group>"; };
+		5B9217751E256C4E00C4A220 /* CreateNewCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewCustomerViewController.swift; sourceTree = "<group>"; };
+		5B9217761E256C4E00C4A220 /* CreateNewCustomerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewCustomerViewController.xib; sourceTree = "<group>"; };
+		5B92177E1E256C7800C4A220 /* ReportWeekTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportWeekTableViewCell.swift; sourceTree = "<group>"; };
+		5B92177F1E256C7800C4A220 /* ReportWeekTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportWeekTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217801E256C7800C4A220 /* InputFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldTableViewCell.swift; sourceTree = "<group>"; };
+		5B9217811E256C7800C4A220 /* InputFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputFieldTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217821E256C7800C4A220 /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
+		5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoolTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkTableViewCell.swift; sourceTree = "<group>"; };
+		5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInputTableViewCell.swift; sourceTree = "<group>"; };
+		5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalInputTableViewCell.swift; sourceTree = "<group>"; };
+		5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionalInputTableViewCell.xib; sourceTree = "<group>"; };
+		5B9217971E256C9800C4A220 /* NumberInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberInputViewController.swift; sourceTree = "<group>"; };
+		5B9217981E256C9800C4A220 /* NumberInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NumberInputViewController.xib; sourceTree = "<group>"; };
+		5B9217991E256C9800C4A220 /* StringInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringInputViewController.swift; sourceTree = "<group>"; };
+		5B92179A1E256C9800C4A220 /* StringInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringInputViewController.xib; sourceTree = "<group>"; };
+		5B92179B1E256C9800C4A220 /* DateInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateInputViewController.swift; sourceTree = "<group>"; };
+		5B92179C1E256C9800C4A220 /* DateInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateInputViewController.xib; sourceTree = "<group>"; };
+		5B92179D1E256C9800C4A220 /* EnumStringInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumStringInputViewController.swift; sourceTree = "<group>"; };
+		5B92179E1E256C9800C4A220 /* EnumStringInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumStringInputViewController.xib; sourceTree = "<group>"; };
+		5B92179F1E256C9800C4A220 /* HalfHourInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfHourInputViewController.swift; sourceTree = "<group>"; };
+		5B9217A01E256C9800C4A220 /* HalfHourInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HalfHourInputViewController.xib; sourceTree = "<group>"; };
+		5B9217AC1E256CBD00C4A220 /* WeeklyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyReportViewController.swift; sourceTree = "<group>"; };
+		5B9217AF1E256CE300C4A220 /* ProjectInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectInformationViewController.swift; sourceTree = "<group>"; };
+		5B9217B01E256CE300C4A220 /* TravelDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelDateViewController.swift; sourceTree = "<group>"; };
+		5B9217B11E256CE300C4A220 /* TravelTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTimeViewController.swift; sourceTree = "<group>"; };
+		5B9217B21E256CE300C4A220 /* MileageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileageViewController.swift; sourceTree = "<group>"; };
+		5B9217B31E256CE300C4A220 /* CarTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarTypeViewController.swift; sourceTree = "<group>"; };
+		5B9217BA1E256D1200C4A220 /* WorkingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHoursViewController.swift; sourceTree = "<group>"; };
+		5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
+		5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
+		5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeViewController.swift; sourceTree = "<group>"; };
+		5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeTypeViewController.swift; sourceTree = "<group>"; };
+		5B9217C51E256D4600C4A220 /* FileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
+		5B9217C61E256D4600C4A220 /* Sheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sheet.xib; sourceTree = "<group>"; };
+		5B9217C71E256D4600C4A220 /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		5B9217C81E256D4600C4A220 /* PDF.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDF.xib; sourceTree = "<group>"; };
+		5B9217C91E256D4600C4A220 /* PDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		5B9217D01E256D6000C4A220 /* WeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReport.swift; sourceTree = "<group>"; };
+		5B9217D11E256D6000C4A220 /* Workday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workday.swift; sourceTree = "<group>"; };
+		5B9217D21E256D6000C4A220 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5B9217D31E256D6000C4A220 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		5B9217DA1E256D8F00C4A220 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		5B9217DB1E256D8F00C4A220 /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		5B9217DC1E256D8F00C4A220 /* ErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
+		5B9217E91E25700D00C4A220 /* GramExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GramExtensions.swift; sourceTree = "<group>"; };
+		5BB352B01E25601800799F23 /* GramTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GramTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BB352B31E25601800799F23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BB352B81E25601800799F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BB352BA1E25601800799F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BB352BD1E25601800799F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BB352BF1E25601800799F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		695CCF17794446D50603C1FA /* Pods-GramTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GramTime/Pods-GramTime.debug.xcconfig"; sourceTree = "<group>"; };
+		6B1EE5394D0164A72762516C /* Pods_GramTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BB352AD1E25601800799F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2985698649BE1499F21FAA93 /* Pods_GramTime.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3217A1B3CF589939B1711AFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				695CCF17794446D50603C1FA /* Pods-GramTime.debug.xcconfig */,
+				01858D4D6234F04A5CFCD755 /* Pods-GramTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B9217581E256BB700C4A220 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5BB352B31E25601800799F23 /* AppDelegate.swift */,
+				5B9217E91E25700D00C4A220 /* GramExtensions.swift */,
+				5B9217DA1E256D8F00C4A220 /* Time.swift */,
+				5B9217DB1E256D8F00C4A220 /* ErrorViewController.swift */,
+				5B9217DC1E256D8F00C4A220 /* ErrorViewController.xib */,
+				5BB352BA1E25601800799F23 /* Assets.xcassets */,
+				5BB352BC1E25601800799F23 /* LaunchScreen.storyboard */,
+				5BB352BF1E25601800799F23 /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		5B92176B1E256C0C00C4A220 /* Sign & Send */ = {
+			isa = PBXGroup;
+			children = (
+				5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */,
+				5B92175E1E256BFF00C4A220 /* SignAndSendViewController.swift */,
+				5B92175F1E256BFF00C4A220 /* SignatureListViewController.swift */,
+				5B9217601E256BFF00C4A220 /* SignNameViewController.swift */,
+				5B9217611E256BFF00C4A220 /* SignViewController.swift */,
+				5B9217621E256BFF00C4A220 /* SendListViewController.swift */,
+				5B9217631E256BFF00C4A220 /* MailViewController.swift */,
+			);
+			name = "Sign & Send";
+			sourceTree = "<group>";
+		};
+		5B9217701E256C2A00C4A220 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5B92176C1E256C2100C4A220 /* OnboardingNameViewController.swift */,
+				5B92176D1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		5B92177D1E256C5800C4A220 /* Create New */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217711E256C4E00C4A220 /* CreateReportViewController.swift */,
+				5B9217721E256C4E00C4A220 /* CreateReportViewController.xib */,
+				5B9217731E256C4E00C4A220 /* CreateNewProjectNoViewController.swift */,
+				5B9217741E256C4E00C4A220 /* CreateNewProjectNoViewController.xib */,
+				5B9217751E256C4E00C4A220 /* CreateNewCustomerViewController.swift */,
+				5B9217761E256C4E00C4A220 /* CreateNewCustomerViewController.xib */,
+			);
+			name = "Create New";
+			sourceTree = "<group>";
+		};
+		5B9217961E256C8400C4A220 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5B92177E1E256C7800C4A220 /* ReportWeekTableViewCell.swift */,
+				5B92177F1E256C7800C4A220 /* ReportWeekTableViewCell.xib */,
+				5B9217801E256C7800C4A220 /* InputFieldTableViewCell.swift */,
+				5B9217811E256C7800C4A220 /* InputFieldTableViewCell.xib */,
+				5B9217821E256C7800C4A220 /* BoolTableViewCell.swift */,
+				5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */,
+				5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */,
+				5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */,
+				5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */,
+				5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */,
+				5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */,
+				5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		5B9217AB1E256CA200C4A220 /* Input View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217971E256C9800C4A220 /* NumberInputViewController.swift */,
+				5B9217981E256C9800C4A220 /* NumberInputViewController.xib */,
+				5B9217991E256C9800C4A220 /* StringInputViewController.swift */,
+				5B92179A1E256C9800C4A220 /* StringInputViewController.xib */,
+				5B92179B1E256C9800C4A220 /* DateInputViewController.swift */,
+				5B92179C1E256C9800C4A220 /* DateInputViewController.xib */,
+				5B92179D1E256C9800C4A220 /* EnumStringInputViewController.swift */,
+				5B92179E1E256C9800C4A220 /* EnumStringInputViewController.xib */,
+				5B92179F1E256C9800C4A220 /* HalfHourInputViewController.swift */,
+				5B9217A01E256C9800C4A220 /* HalfHourInputViewController.xib */,
+			);
+			name = "Input View Controllers";
+			sourceTree = "<group>";
+		};
+		5B9217AE1E256CC300C4A220 /* Weekly Report */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217AC1E256CBD00C4A220 /* WeeklyReportViewController.swift */,
+				5B9217B91E256CEE00C4A220 /* Project Information */,
+				5B9217C41E256D2100C4A220 /* Working Hours */,
+			);
+			name = "Weekly Report";
+			sourceTree = "<group>";
+		};
+		5B9217B91E256CEE00C4A220 /* Project Information */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217AF1E256CE300C4A220 /* ProjectInformationViewController.swift */,
+				5B9217B01E256CE300C4A220 /* TravelDateViewController.swift */,
+				5B9217B11E256CE300C4A220 /* TravelTimeViewController.swift */,
+				5B9217B21E256CE300C4A220 /* MileageViewController.swift */,
+				5B9217B31E256CE300C4A220 /* CarTypeViewController.swift */,
+			);
+			name = "Project Information";
+			sourceTree = "<group>";
+		};
+		5B9217C41E256D2100C4A220 /* Working Hours */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217BA1E256D1200C4A220 /* WorkingHoursViewController.swift */,
+				5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */,
+				5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */,
+				5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */,
+				5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */,
+			);
+			name = "Working Hours";
+			sourceTree = "<group>";
+		};
+		5B9217CF1E256D4D00C4A220 /* File Generation */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217C51E256D4600C4A220 /* FileGenerator.swift */,
+				5B9217C61E256D4600C4A220 /* Sheet.xib */,
+				5B9217C71E256D4600C4A220 /* SheetView.swift */,
+				5B9217C81E256D4600C4A220 /* PDF.xib */,
+				5B9217C91E256D4600C4A220 /* PDFView.swift */,
+			);
+			name = "File Generation";
+			sourceTree = "<group>";
+		};
+		5B9217D81E256D6600C4A220 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B9217D01E256D6000C4A220 /* WeekReport.swift */,
+				5B9217D11E256D6000C4A220 /* Workday.swift */,
+				5B9217D21E256D6000C4A220 /* User.swift */,
+				5B9217D31E256D6000C4A220 /* Types.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5BB352A71E25601800799F23 = {
+			isa = PBXGroup;
+			children = (
+				5BB352B21E25601800799F23 /* GramTime */,
+				5BB352B11E25601800799F23 /* Products */,
+				3217A1B3CF589939B1711AFB /* Pods */,
+				F9EA9F2837A0D96236C22460 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5BB352B11E25601800799F23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BB352B01E25601800799F23 /* GramTime.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BB352B21E25601800799F23 /* GramTime */ = {
+			isa = PBXGroup;
+			children = (
+				5BB352B71E25601800799F23 /* Main.storyboard */,
+				5B9217591E256BDA00C4A220 /* RootViewController.swift */,
+				5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */,
+				5B9217D81E256D6600C4A220 /* Models */,
+				5B9217CF1E256D4D00C4A220 /* File Generation */,
+				5B9217AE1E256CC300C4A220 /* Weekly Report */,
+				5B9217AB1E256CA200C4A220 /* Input View Controllers */,
+				5B9217961E256C8400C4A220 /* Cells */,
+				5B92177D1E256C5800C4A220 /* Create New */,
+				5B92176B1E256C0C00C4A220 /* Sign & Send */,
+				5B9217701E256C2A00C4A220 /* Onboarding */,
+				5B9217581E256BB700C4A220 /* Supporting files */,
+			);
+			path = GramTime;
+			sourceTree = "<group>";
+		};
+		F9EA9F2837A0D96236C22460 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B1EE5394D0164A72762516C /* Pods_GramTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BB352AF1E25601800799F23 /* GramTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BB352C21E25601800799F23 /* Build configuration list for PBXNativeTarget "GramTime" */;
+			buildPhases = (
+				FB2E6EEA927841FD67882DB8 /* [CP] Check Pods Manifest.lock */,
+				5BB352AC1E25601800799F23 /* Sources */,
+				5BB352AD1E25601800799F23 /* Frameworks */,
+				5BB352AE1E25601800799F23 /* Resources */,
+				D62590BC773A6C707031173C /* [CP] Embed Pods Frameworks */,
+				20FF256F024D1C0DCD0AF5FD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GramTime;
+			productName = GramTime;
+			productReference = 5BB352B01E25601800799F23 /* GramTime.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BB352A81E25601800799F23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Gram Equipsment AS";
+				TargetAttributes = {
+					5BB352AF1E25601800799F23 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T3N97W36DE;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 5BB352AB1E25601800799F23 /* Build configuration list for PBXProject "GramTime" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BB352A71E25601800799F23;
+			productRefGroup = 5BB352B11E25601800799F23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BB352AF1E25601800799F23 /* GramTime */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BB352AE1E25601800799F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B92177A1E256C4E00C4A220 /* CreateNewProjectNoViewController.xib in Resources */,
+				5B92177C1E256C4E00C4A220 /* CreateNewCustomerViewController.xib in Resources */,
+				5BB352BE1E25601800799F23 /* LaunchScreen.storyboard in Resources */,
+				5B9217CD1E256D4600C4A220 /* PDF.xib in Resources */,
+				5B9217911E256C7800C4A220 /* CheckmarkTableViewCell.xib in Resources */,
+				5B92178D1E256C7800C4A220 /* InputFieldTableViewCell.xib in Resources */,
+				5B92178F1E256C7800C4A220 /* BoolTableViewCell.xib in Resources */,
+				5BB352BB1E25601800799F23 /* Assets.xcassets in Resources */,
+				5B9217A81E256C9800C4A220 /* EnumStringInputViewController.xib in Resources */,
+				5B9217781E256C4E00C4A220 /* CreateReportViewController.xib in Resources */,
+				5B9217A41E256C9800C4A220 /* StringInputViewController.xib in Resources */,
+				5B9217AA1E256C9800C4A220 /* HalfHourInputViewController.xib in Resources */,
+				5B9217951E256C7800C4A220 /* OptionalInputTableViewCell.xib in Resources */,
+				5B9217E41E256D8F00C4A220 /* ErrorViewController.xib in Resources */,
+				5B9217A21E256C9800C4A220 /* NumberInputViewController.xib in Resources */,
+				5B9217931E256C7800C4A220 /* ModalInputTableViewCell.xib in Resources */,
+				5B92178B1E256C7800C4A220 /* ReportWeekTableViewCell.xib in Resources */,
+				5B9217A61E256C9800C4A220 /* DateInputViewController.xib in Resources */,
+				5BB352B91E25601800799F23 /* Main.storyboard in Resources */,
+				5B9217CB1E256D4600C4A220 /* Sheet.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20FF256F024D1C0DCD0AF5FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GramTime/Pods-GramTime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D62590BC773A6C707031173C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GramTime/Pods-GramTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB2E6EEA927841FD67882DB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BB352AC1E25601800799F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9217901E256C7800C4A220 /* CheckmarkTableViewCell.swift in Sources */,
+				5B9217771E256C4E00C4A220 /* CreateReportViewController.swift in Sources */,
+				5B92175C1E256BDA00C4A220 /* ProfileInformationViewController.swift in Sources */,
+				5B9217B61E256CE300C4A220 /* TravelTimeViewController.swift in Sources */,
+				5B9217791E256C4E00C4A220 /* CreateNewProjectNoViewController.swift in Sources */,
+				5B9217D41E256D6000C4A220 /* WeekReport.swift in Sources */,
+				5B9217C21E256D1200C4A220 /* OvertimeViewController.swift in Sources */,
+				5B9217C11E256D1200C4A220 /* WaitingTypeViewController.swift in Sources */,
+				5B9217A91E256C9800C4A220 /* HalfHourInputViewController.swift in Sources */,
+				5B9217E31E256D8F00C4A220 /* ErrorViewController.swift in Sources */,
+				5B92178A1E256C7800C4A220 /* ReportWeekTableViewCell.swift in Sources */,
+				5B92177B1E256C4E00C4A220 /* CreateNewCustomerViewController.swift in Sources */,
+				5B9217651E256BFF00C4A220 /* SignAndSendViewController.swift in Sources */,
+				5B9217691E256BFF00C4A220 /* SendListViewController.swift in Sources */,
+				5B9217B71E256CE300C4A220 /* MileageViewController.swift in Sources */,
+				5B9217CE1E256D4600C4A220 /* PDFView.swift in Sources */,
+				5B92175B1E256BDA00C4A220 /* RootViewController.swift in Sources */,
+				5B9217681E256BFF00C4A220 /* SignViewController.swift in Sources */,
+				5B9217B81E256CE300C4A220 /* CarTypeViewController.swift in Sources */,
+				5B9217A31E256C9800C4A220 /* StringInputViewController.swift in Sources */,
+				5B9217BF1E256D1200C4A220 /* WorkingHoursViewController.swift in Sources */,
+				5B9217C01E256D1200C4A220 /* WaitingHoursViewController.swift in Sources */,
+				5B92178E1E256C7800C4A220 /* BoolTableViewCell.swift in Sources */,
+				5B9217C31E256D1200C4A220 /* OvertimeTypeViewController.swift in Sources */,
+				5B9217671E256BFF00C4A220 /* SignNameViewController.swift in Sources */,
+				5B9217A51E256C9800C4A220 /* DateInputViewController.swift in Sources */,
+				5B9217A11E256C9800C4A220 /* NumberInputViewController.swift in Sources */,
+				5B92178C1E256C7800C4A220 /* InputFieldTableViewCell.swift in Sources */,
+				5B92176F1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift in Sources */,
+				5B9217AD1E256CBD00C4A220 /* WeeklyReportViewController.swift in Sources */,
+				5B9217A71E256C9800C4A220 /* EnumStringInputViewController.swift in Sources */,
+				5B9217641E256BFF00C4A220 /* ProjectStatusViewController.swift in Sources */,
+				5B9217D71E256D6000C4A220 /* Types.swift in Sources */,
+				5B9217B41E256CE300C4A220 /* ProjectInformationViewController.swift in Sources */,
+				5BB352B41E25601800799F23 /* AppDelegate.swift in Sources */,
+				5B9217CC1E256D4600C4A220 /* SheetView.swift in Sources */,
+				5B9217CA1E256D4600C4A220 /* FileGenerator.swift in Sources */,
+				5B9217B51E256CE300C4A220 /* TravelDateViewController.swift in Sources */,
+				5B9217921E256C7800C4A220 /* ModalInputTableViewCell.swift in Sources */,
+				5B9217661E256BFF00C4A220 /* SignatureListViewController.swift in Sources */,
+				5B9217941E256C7800C4A220 /* OptionalInputTableViewCell.swift in Sources */,
+				5B92176E1E256C2100C4A220 /* OnboardingNameViewController.swift in Sources */,
+				5B92176A1E256BFF00C4A220 /* MailViewController.swift in Sources */,
+				5B9217D51E256D6000C4A220 /* Workday.swift in Sources */,
+				5B9217E21E256D8F00C4A220 /* Time.swift in Sources */,
+				5B9217D61E256D6000C4A220 /* User.swift in Sources */,
+				5B9217EA1E25700D00C4A220 /* GramExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5BB352B71E25601800799F23 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BB352B81E25601800799F23 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BB352BC1E25601800799F23 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BB352BD1E25601800799F23 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BB352C01E25601800799F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5BB352C11E25601800799F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BB352C31E25601800799F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 695CCF17794446D50603C1FA /* Pods-GramTime.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T3N97W36DE;
+				INFOPLIST_FILE = GramTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2a7bfffd-fe71-4c53-b7ad-d91976938dea";
+				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Development";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5BB352C41E25601800799F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01858D4D6234F04A5CFCD755 /* Pods-GramTime.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = T3N97W36DE;
+				INFOPLIST_FILE = GramTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e999e5c0-e19b-4752-ad26-04abfcddbcb8";
+				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Distribution";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BB352AB1E25601800799F23 /* Build configuration list for PBXProject "GramTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BB352C01E25601800799F23 /* Debug */,
+				5BB352C11E25601800799F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BB352C21E25601800799F23 /* Build configuration list for PBXNativeTarget "GramTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BB352C31E25601800799F23 /* Debug */,
+				5BB352C41E25601800799F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BB352A81E25601800799F23 /* Project object */;
+}
