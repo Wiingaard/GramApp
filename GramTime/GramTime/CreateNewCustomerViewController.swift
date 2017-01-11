@@ -53,7 +53,7 @@ class CreateNewCustomerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let button = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(CreateNewCustomerViewController.nextButtonPressed))
+        let button = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(CreateNewCustomerViewController.nextButtonPressed))
         navigationItem.setRightBarButton(button, animated: false)
         
     }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewProjectNoViewController" customModule="GramApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewProjectNoViewController" customModule="GramTime" customModuleProvider="target">
             <connections>
                 <outlet property="projectNoTextField" destination="eTq-d4-Of4" id="Whm-dh-1gb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,36 +20,57 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2 of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOg-7e-JdP">
-                    <rect key="frame" x="133" y="80" width="109" height="26"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Project no." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTq-d4-Of4">
-                    <rect key="frame" x="142" y="322.5" width="91" height="22"/>
+                    <rect key="frame" x="8" y="319" width="359" height="30"/>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoK-48-SZw">
-                    <rect key="frame" x="101" y="384.5" width="174" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Same project no. as last report"/>
+                    <rect key="frame" x="128" y="392" width="119" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Same as last week"/>
                     <connections>
                         <action selector="sameButtonAction:" destination="-1" eventType="touchUpInside" id="crl-9d-e0e"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2 of 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bag-VU-vk7">
+                    <rect key="frame" x="16" y="73" width="184" height="42"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW WEEKLY REPORT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZ5-PD-9Ye">
+                    <rect key="frame" x="16" y="62" width="139" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPu-9T-bpj" userLabel="Devider">
+                    <rect key="frame" x="16" y="123" width="359" height="0.5"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="bGu-Wy-SdU"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="qoK-48-SZw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1RR-aL-RgK"/>
-                <constraint firstItem="qoK-48-SZw" firstAttribute="top" secondItem="eTq-d4-Of4" secondAttribute="bottom" constant="40" id="3rP-mj-K5E"/>
-                <constraint firstItem="vOg-7e-JdP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6hx-UT-b3T"/>
-                <constraint firstItem="vOg-7e-JdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="EfB-nV-hBO"/>
+                <constraint firstItem="jPu-9T-bpj" firstAttribute="top" secondItem="bag-VU-vk7" secondAttribute="bottom" constant="8" id="Ahn-UM-WUd"/>
+                <constraint firstItem="bag-VU-vk7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="BVi-r1-fqf"/>
+                <constraint firstAttribute="trailingMargin" secondItem="eTq-d4-Of4" secondAttribute="trailing" id="IMM-4m-qwN"/>
+                <constraint firstItem="pZ5-PD-9Ye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="OD7-c0-eqh"/>
                 <constraint firstItem="eTq-d4-Of4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PfX-8L-CKf"/>
                 <constraint firstItem="eTq-d4-Of4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Soh-I1-Z03"/>
+                <constraint firstItem="jPu-9T-bpj" firstAttribute="leading" secondItem="bag-VU-vk7" secondAttribute="leading" id="cMq-PU-p5l"/>
+                <constraint firstItem="pZ5-PD-9Ye" firstAttribute="leading" secondItem="bag-VU-vk7" secondAttribute="leading" id="gpQ-AZ-KRF"/>
+                <constraint firstAttribute="trailing" secondItem="jPu-9T-bpj" secondAttribute="trailing" id="i3I-KH-NeD"/>
+                <constraint firstAttribute="bottom" secondItem="qoK-48-SZw" secondAttribute="bottom" constant="246" id="n7k-k8-dC0"/>
+                <constraint firstItem="bag-VU-vk7" firstAttribute="bottom" secondItem="pZ5-PD-9Ye" secondAttribute="bottom" constant="37" id="nzy-Nl-QMA"/>
+                <constraint firstItem="eTq-d4-Of4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="uef-LH-xcD"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>

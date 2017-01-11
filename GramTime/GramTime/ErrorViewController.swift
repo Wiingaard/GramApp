@@ -20,7 +20,7 @@ class ErrorViewController: UIViewController {
     
     var errorMessage = ""
     var titleText = "Something went wrong"
-    var buttonText = "Accept"
+    var buttonText = "ACCEPT"
     var buttonAction: (()->())?
     var chromeTapGestureRecognizer: UITapGestureRecognizer!
     var buttonTapGestureRecognizer: UITapGestureRecognizer!
@@ -31,7 +31,7 @@ class ErrorViewController: UIViewController {
     ///   - message: Large text field. Default ""
     ///   - title: Title label. Default "Something went wrong"
     ///   - buttonText: Text on button. Default "Accept"
-    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "Accept", buttonAction: (() -> ())? = nil) {
+    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "ACCEPT", buttonAction: (() -> ())? = nil) {
         self.init(nibName: "ErrorViewController", bundle: nil)
         titleText = title!
         errorMessage = message
@@ -51,10 +51,6 @@ class ErrorViewController: UIViewController {
         buttonView.sizeToFit()
         messageView.isUserInteractionEnabled = true
         
-        buttonView.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
-        buttonView.layer.shadowOffset = CGSize(width: 0, height: 1)
-        buttonView.layer.shadowOpacity = 1
-        buttonView.layer.shadowRadius = 0
         buttonView.isUserInteractionEnabled = true
         
         chromeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ErrorViewController.chromeTapped))
