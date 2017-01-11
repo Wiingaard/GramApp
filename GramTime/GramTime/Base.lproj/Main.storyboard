@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -71,7 +70,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6L-dJ-tXr" id="ED5-Vk-Zgm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBb-1Y-JY0">
@@ -103,7 +102,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tif-aV-LkB" userLabel="Empty State">
                                 <rect key="frame" x="0.0" y="245" width="375" height="422"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empthyIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="kZB-4d-XWd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empthyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kZB-4d-XWd">
                                         <rect key="frame" x="138" y="86" width="98" height="135"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="98" id="WE3-km-f3t"/>
@@ -174,68 +173,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1h-c4-6R3" userLabel="Devider">
-                                <rect key="frame" x="16" y="122" width="343" height="1"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="124" width="359" height="0.5"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="52h-B5-ZmY"/>
+                                    <constraint firstAttribute="height" constant="0.5" id="bE9-um-o2k"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-Rk-6Pl">
-                                <rect key="frame" x="0.0" y="123" width="375" height="544"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-Rk-6Pl">
+                                <rect key="frame" x="0.0" y="156.5" width="375" height="510.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bC-Al-Fbs">
-                                <rect key="frame" x="16" y="72" width="322" height="42"/>
+                                <rect key="frame" x="16" y="74" width="322" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJ1-Rj-24U" userLabel="Button">
-                                <rect key="frame" x="16" y="571" width="343" height="71"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete all reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRn-ot-a1N">
-                                        <rect key="frame" x="106" y="25" width="131" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjw-Xb-XhD">
+                                <rect key="frame" x="60.5" y="587" width="254" height="48"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="qRn-ot-a1N" firstAttribute="centerY" secondItem="kJ1-Rj-24U" secondAttribute="centerY" id="XUf-et-18Q"/>
-                                    <constraint firstAttribute="height" constant="71" id="ZbF-y7-87V"/>
-                                    <constraint firstItem="qRn-ot-a1N" firstAttribute="centerX" secondItem="kJ1-Rj-24U" secondAttribute="centerX" id="reu-Gh-0cf"/>
+                                    <constraint firstAttribute="height" constant="48" id="5ZK-8G-CeG"/>
+                                    <constraint firstAttribute="width" constant="254" id="KYM-0D-Tv9"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" title="DELETE ALL REPORTS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonAction:" destination="Paw-ML-lRo" eventType="touchUpInside" id="JrZ-Sz-EXA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0l4-Rk-6Pl" firstAttribute="leading" secondItem="SHI-Q0-Eg6" secondAttribute="leading" id="4UV-LJ-LXb"/>
                             <constraint firstItem="bK7-dg-uTq" firstAttribute="top" secondItem="0l4-Rk-6Pl" secondAttribute="bottom" id="4W3-Hd-DaX"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="0bC-Al-Fbs" secondAttribute="leading" id="BDf-8L-EZh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O1h-c4-6R3" secondAttribute="trailing" id="DzP-vK-GPP"/>
-                            <constraint firstItem="kJ1-Rj-24U" firstAttribute="leading" secondItem="SHI-Q0-Eg6" secondAttribute="leadingMargin" id="Hud-RZ-Wvk"/>
+                            <constraint firstItem="Fjw-Xb-XhD" firstAttribute="centerX" secondItem="SHI-Q0-Eg6" secondAttribute="centerX" id="7T0-zc-6pa"/>
+                            <constraint firstItem="0bC-Al-Fbs" firstAttribute="leading" secondItem="SHI-Q0-Eg6" secondAttribute="leading" constant="16" id="BDf-8L-EZh"/>
+                            <constraint firstAttribute="trailing" secondItem="O1h-c4-6R3" secondAttribute="trailing" id="DzP-vK-GPP"/>
+                            <constraint firstItem="bK7-dg-uTq" firstAttribute="top" secondItem="Fjw-Xb-XhD" secondAttribute="bottom" constant="32" id="GDe-Av-zdz"/>
                             <constraint firstAttribute="trailing" secondItem="0l4-Rk-6Pl" secondAttribute="trailing" id="QE4-Sf-Nrj"/>
-                            <constraint firstItem="bK7-dg-uTq" firstAttribute="top" secondItem="kJ1-Rj-24U" secondAttribute="bottom" constant="25" id="TAN-2z-133"/>
-                            <constraint firstItem="kJ1-Rj-24U" firstAttribute="trailing" secondItem="SHI-Q0-Eg6" secondAttribute="trailingMargin" id="Xoa-vq-Yep"/>
                             <constraint firstItem="O1h-c4-6R3" firstAttribute="top" secondItem="0bC-Al-Fbs" secondAttribute="bottom" constant="8" id="ZGw-5l-0HE"/>
-                            <constraint firstItem="kJ1-Rj-24U" firstAttribute="centerX" secondItem="SHI-Q0-Eg6" secondAttribute="centerX" id="eCL-lF-DAM"/>
-                            <constraint firstItem="0l4-Rk-6Pl" firstAttribute="top" secondItem="O1h-c4-6R3" secondAttribute="bottom" id="hLj-9v-S4e"/>
-                            <constraint firstItem="0bC-Al-Fbs" firstAttribute="top" secondItem="HKK-w3-fBw" secondAttribute="bottom" constant="8" id="hrB-Bl-ge1"/>
-                            <constraint firstItem="kJ1-Rj-24U" firstAttribute="centerX" secondItem="SHI-Q0-Eg6" secondAttribute="centerX" id="qgA-Ag-BFA"/>
-                            <constraint firstItem="O1h-c4-6R3" firstAttribute="leading" secondItem="SHI-Q0-Eg6" secondAttribute="leadingMargin" id="sC1-9h-cgJ"/>
+                            <constraint firstItem="O1h-c4-6R3" firstAttribute="leading" secondItem="0bC-Al-Fbs" secondAttribute="leading" id="clx-58-l6h"/>
+                            <constraint firstItem="0l4-Rk-6Pl" firstAttribute="top" secondItem="O1h-c4-6R3" secondAttribute="bottom" constant="32" id="hLj-9v-S4e"/>
+                            <constraint firstItem="0bC-Al-Fbs" firstAttribute="top" secondItem="HKK-w3-fBw" secondAttribute="bottom" constant="10" id="hrB-Bl-ge1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonLabel" destination="qRn-ot-a1N" id="FYI-hQ-qUl"/>
-                        <outlet property="buttonView" destination="kJ1-Rj-24U" id="ZvG-Kg-fgG"/>
+                        <outlet property="buttonOutlet" destination="Fjw-Xb-XhD" id="DqR-fo-DJ5"/>
                         <outlet property="tableView" destination="0l4-Rk-6Pl" id="gWD-Yf-ahw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hf-4a-7XA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="1527"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="1526.9865067466269"/>
         </scene>
         <!--Project Status View Controller-->
         <scene sceneID="iMl-Ef-e4T">
@@ -1585,7 +1582,7 @@ Hours</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-Fp-MYC" userLabel="Days Container">
                                 <rect key="frame" x="0.0" y="168" width="375" height="130"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hoursArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-th-Kyd" userLabel="Arrow Image View">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hoursArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-th-Kyd" userLabel="Arrow Image View">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="130"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdM-FW-2Lm" userLabel="Monday">
@@ -2330,8 +2327,8 @@ Hours</string>
     </scenes>
     <resources>
         <image name="Image" width="16" height="16"/>
-        <image name="empthyIcon.png" width="98" height="135"/>
-        <image name="hoursArrow.png" width="57" height="132"/>
+        <image name="empthyIcon" width="98" height="135"/>
+        <image name="hoursArrow" width="57" height="132"/>
         <image name="profileIcon" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>

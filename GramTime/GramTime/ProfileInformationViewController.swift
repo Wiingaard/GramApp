@@ -12,8 +12,12 @@ import RealmSwift
 class ProfileInformationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, InputControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var buttonView: UIView!
-    @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var buttonOutlet: UIButton!
+    
+    @IBAction func buttonAction(_ sender: UIButton) {
+        deleteAllAction()
+    }
+    
     
     // Model
     let realm = try! Realm()
@@ -40,27 +44,21 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         tableView.dataSource = self
         let nib = UINib(nibName: "InputFieldTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
+        tableView.separatorStyle = .none
         
         user = realm.objects(User.self).first
         setupButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        // setup Delete all button
-        buttonView.layer.cornerRadius = 5
-        buttonView.clipsToBounds = true
-        deleteAllTapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileInformationViewController.deleteAllAction))
-        buttonView.addGestureRecognizer(deleteAllTapGesture)
-    }
-    
     func setupButton() {
         if reportList.isEmpty {
-            buttonView.backgroundColor = UIColor.init(white: 70/255, alpha: 1)
-            buttonLabel.text = "All reports are deleted"
+            buttonOutlet.backgroundColor = UIColor.init(white: 0, alpha: 0.12)
+            buttonOutlet.setTitleColor(UIColor.init(white: 0, alpha: 0.26), for: .normal)
+            buttonOutlet.setTitle("ALL REPORTS ARE DELETED", for: .normal)
         } else {
-            buttonView.backgroundColor = UIColor(red: 249/255, green: 98/255, blue: 98/255, alpha: 1)
-            buttonLabel.text = "Delete all reports"
+            buttonOutlet.backgroundColor = UIColor.gramRed
+            buttonOutlet.setTitleColor(UIColor.white, for: .normal)
+            buttonOutlet.setTitle("DELETE ALL REPORTS", for: .normal)
         }
     }
     
@@ -75,6 +73,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
             
             setupButton()
         }
+        // FIXME: set proper text
         if !reportList.isEmpty {
             let alertController = UIAlertController(title: "Sheiit", message: "You sure.?!", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Yup", style: .destructive, handler: { _ in deleteAllReports() }))
