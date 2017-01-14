@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ErrorViewControllerDelegate: class {
+    func errorViewControllerActionPressed(_ errorViewController: ErrorViewController, withOption option: Int?)
+}
+
 class ErrorViewController: UIViewController {
 
     @IBOutlet weak var messageView: UIView!
@@ -21,7 +25,8 @@ class ErrorViewController: UIViewController {
     var errorMessage = ""
     var titleText = "Something went wrong"
     var buttonText = "ACCEPT"
-    var buttonAction: (()->())?
+    var option: Int?
+    weak var delegate: ErrorViewControllerDelegate?
     var chromeTapGestureRecognizer: UITapGestureRecognizer!
     var buttonTapGestureRecognizer: UITapGestureRecognizer!
     
@@ -31,12 +36,13 @@ class ErrorViewController: UIViewController {
     ///   - message: Large text field. Default ""
     ///   - title: Title label. Default "Something went wrong"
     ///   - buttonText: Text on button. Default "Accept"
-    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "ACCEPT", buttonAction: (() -> ())? = nil) {
+    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "ACCEPT", delegate: ErrorViewControllerDelegate? = nil, withOption: Int? = nil) {
         self.init(nibName: "ErrorViewController", bundle: nil)
         titleText = title!
         errorMessage = message
         self.buttonText = buttonText!
-        self.buttonAction = buttonAction
+        self.delegate = delegate
+        self.option = withOption
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
     }
@@ -61,8 +67,10 @@ class ErrorViewController: UIViewController {
     }
     
     func buttonTapped() {
-        buttonAction?()
-        dismiss(animated: true, completion: nil)
+        delegate?.errorViewControllerActionPressed(self, withOption: option)
+        if delegate == nil {
+            dismiss(animated: true)
+        }
     }
     
     func chromeTapped() {
