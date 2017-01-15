@@ -27,8 +27,11 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
     @IBOutlet weak var signAndSendView: UIView!
     @IBOutlet weak var signAndSendBackgroundView: UIView!
     @IBOutlet weak var signAndSendLabel: UILabel!
+    @IBOutlet weak var signAndSendImageView: UIImageView!
+    @IBOutlet weak var signAndSendAlphaView: UIView!
     
     var signAndSendColor = UIColor.white
+    var signAndSendAlpha: CGFloat = 0.20
     
     // MARK: Model
     var reportID: String!
@@ -46,7 +49,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         metricBackground.layer.cornerRadius = 10
         metricBackground.clipsToBounds = true
         
-        weeknumberLabel.text = "Week \(report.weekNumber)"
+        weeknumberLabel.text = "WEEK \(report.weekNumber)"
         setupButtons()
     }
     
@@ -68,6 +71,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         if report.validTravelTime(travelType: .out) { totalHours += report.travelOut }
         if report.validTravelTime(travelType: .home) { totalHours += report.travelHome }
         metricLabel.text = doubleValueToMetricString(value: totalHours)
+        metricLabel.sizeToFit()
     }
     
     func doubleValueToMetricString(value: Double) -> String {
@@ -129,17 +133,27 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         projectLabel.textColor = UIColor.white
         hoursLabel.textColor = UIColor.white
         signAndSendLabel.textColor = signAndSendColor
+        signAndSendImageView.tintColor = signAndSendColor
     }
     
     func updateSignButton() {
         if checkReport().valid {
-            signAndSendView.backgroundColor = UIColor.gramGreen
-            signAndSendLabel.textColor = UIColor.white
             signAndSendColor = UIColor.white
+            signAndSendAlpha = 0.20
+            signAndSendView.backgroundColor = UIColor.gramGreen
+            signAndSendLabel.textColor = signAndSendColor
+            signAndSendImageView.tintColor = signAndSendColor
+            signAndSendAlphaView.backgroundColor = UIColor(white: 0, alpha: signAndSendAlpha)
+            signAndSendBackgroundView.layer.shadowOpacity = 0.2
+            
         } else {
+            signAndSendColor = UIColor(hexInt: 0xACACAC)
+            signAndSendAlpha = 0.12
             signAndSendView.backgroundColor = UIColor(hexInt: 0xE0E0E0)
-            signAndSendLabel.textColor = UIColor.darkGray
-            signAndSendColor = UIColor.darkGray
+            signAndSendLabel.textColor = signAndSendColor
+            signAndSendImageView.tintColor = signAndSendColor
+            signAndSendAlphaView.backgroundColor = UIColor(white: 0, alpha: signAndSendAlpha)
+            signAndSendBackgroundView.layer.shadowOpacity = 0
         }
     }
     
@@ -165,6 +179,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         if let errorMessages = checkReport().errorMessages {
             let vc = ErrorViewController(message: errorMessages.joined(separator: "\n"), title: "Information needed", buttonText: "ACCEPT")
             present(vc, animated: true)
+            resetButtonColor()
         } else {
             performSegue(withIdentifier: "Show Status", sender: nil)
         }
@@ -233,7 +248,6 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         } else {
             return (false, returnMessages)
         }
-        
     }
 
     // MARK: - Navigation

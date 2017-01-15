@@ -34,7 +34,7 @@ class ProjectStatusViewController: UIViewController, UITableViewDelegate, UITabl
         
         let nib = UINib(nibName: "CheckmarkTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CheckmarkTableViewCell")
-        
+        tableView.separatorStyle = .none
         selected = report.completedStatus ? 1 : 0
     }
     
