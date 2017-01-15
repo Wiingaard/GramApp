@@ -233,12 +233,12 @@
 				5B9217811E256C7800C4A220 /* InputFieldTableViewCell.xib */,
 				5B9217821E256C7800C4A220 /* BoolTableViewCell.swift */,
 				5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */,
+				5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */,
+				5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */,
 				5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */,
 				5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */,
 				5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */,
 				5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */,
-				5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */,
-				5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";

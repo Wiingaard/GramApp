@@ -14,6 +14,14 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
     @IBOutlet weak var subheaderLabel: UILabel!
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBAction func confirmAction(_ sender: Any) {
+        let selectedValue = stringForSelectedRow()
+        delegate?.inputControllerDidFinish(withValue: selectedValue as AnyObject, andInputType: inputType)
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     var modelEnum: AllEnum!
     var selectedCase = 0
     
@@ -50,8 +58,6 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
         }
         picker.selectRow(index, inComponent: 0, animated: false)
         
-        let confirmButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EnumStringInputViewController.confirmPressed))
-        navigationItem.rightBarButtonItem = confirmButton
     }
     
     func stringForSelectedRow() -> String {
@@ -69,12 +75,5 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return modelEnum.all[row]
-    }
-    
-    // MARK: - Bar button action
-    func confirmPressed() {
-        let selectedValue = stringForSelectedRow()
-        delegate?.inputControllerDidFinish(withValue: selectedValue as AnyObject, andInputType: inputType)
-        _ = navigationController?.popViewController(animated: true)
     }
 }

@@ -31,7 +31,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-iq-FiI">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-iq-FiI">
                         <rect key="frame" x="243.5" y="13.5" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
@@ -49,7 +49,7 @@
                     <constraint firstItem="Tyk-ei-5dX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5FS-8w-qwu"/>
                     <constraint firstItem="3OQ-uT-R4P" firstAttribute="leading" secondItem="sl5-zN-rlx" secondAttribute="leading" id="CkU-iH-ubG"/>
                     <constraint firstAttribute="trailing" secondItem="3OQ-uT-R4P" secondAttribute="trailing" constant="-34" id="Jdj-Uy-e7C"/>
-                    <constraint firstItem="qeA-iq-FiI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Tyk-ei-5dX" secondAttribute="trailing" constant="10" id="NTg-i4-Mwf"/>
+                    <constraint firstItem="qeA-iq-FiI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Tyk-ei-5dX" secondAttribute="trailing" constant="8" id="NTg-i4-Mwf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="qeA-iq-FiI" secondAttribute="trailing" id="QMK-mn-wqV"/>
                     <constraint firstItem="qeA-iq-FiI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Xbp-Np-olP"/>
                     <constraint firstAttribute="bottom" secondItem="3OQ-uT-R4P" secondAttribute="bottom" id="iBn-k6-Z3G"/>

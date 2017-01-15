@@ -44,7 +44,8 @@ class WaitingHoursViewController: UIViewController, UIPickerViewDataSource, UIPi
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         workday = report.workdays[weekdayNo]
-        subheader.text = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
+        let subheaderText = "\(time.weekdayString(of: workday.date)), \(time.dateString(of: workday.date))"
+        subheader.text = subheaderText.uppercased()
         
         waitingHours = workday.waitingHours
         

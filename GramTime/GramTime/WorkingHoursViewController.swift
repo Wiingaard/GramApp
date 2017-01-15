@@ -70,7 +70,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         tableView.register(modalNib, forCellReuseIdentifier: "ModalInputTableViewCell")
         let optionalNib = UINib(nibName: "OptionalInputTableViewCell", bundle: nil)
         tableView.register(optionalNib, forCellReuseIdentifier: "OptionalInputTableViewCell")
-        
+        tableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +105,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     // MARK: - Table View
     var boolCell: BoolTableViewCell!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.section {
         case 0:     // REQUIRED
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
@@ -115,8 +116,8 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 cell.statusImage(shouldShowGreen: currentWorkday.validTypeOfWork())
                 
             case 1:
-                cell.nameLabel.text = "Hours - Max 10"
-                cell.valueLabel.text = currentWorkday.validHours() ? "\(doubleValueToMetricString(value: currentWorkday.hours)) hours" : ""
+                cell.nameLabel.text = "Normal Hours"
+                cell.valueLabel.text = currentWorkday.validHours() ? "\(doubleValueToMetricString(value: currentWorkday.hours))" : ""
                 cell.statusImage(shouldShowGreen: currentWorkday.validHours())
                 
             default:
@@ -195,6 +196,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let subheaderText = time.weekdayString(of: currentWorkday.date) + ", " + time.dateString(of: currentWorkday.date)
         switch indexPath.section {
         case 0:
             switch indexPath.row {
@@ -202,16 +204,15 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 let vc = EnumStringInputViewController
                     .instantiate(withDelegate: self,
                                  header: "Type of Work",
-                                 subheader: dateLabel.text ?? "",
+                                 subheader: subheaderText.uppercased(),
                                  modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.freezer ,
                                  inputType: .enumWorkType)
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
-                let subheader = "\(time.weekdayString(of: currentWorkday.date)), \(time.dateString(of: currentWorkday.date))"
                 let vc = HalfHourInputViewController
                     .instantiate(withDelegate: self,
-                                 header: "Hours - max 10",
-                                 subheader: subheader,
+                                 header: "Normal Hours",
+                                 subheader: subheaderText.uppercased(),
                                  inputType: .halfMax10,
                                  maxHours: 10,
                                  initialValue: currentWorkday.hours)
@@ -251,7 +252,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 56
     }
     
     // MARK: - Helper

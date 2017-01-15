@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnumStringInputViewController" customModule="GramApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnumStringInputViewController" customModule="GramTime" customModuleProvider="target">
             <connections>
                 <outlet property="headerLabel" destination="jTC-Pc-trH" id="agG-J4-nBB"/>
                 <outlet property="picker" destination="sOo-4k-kWu" id="6Px-Mc-tAE"/>
@@ -28,27 +28,47 @@
                     </constraints>
                 </pickerView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-Pc-trH">
-                    <rect key="frame" x="16" y="92" width="343" height="42"/>
+                    <rect key="frame" x="16" y="73" width="343" height="42"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUBHEADER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McG-7O-1fF">
-                    <rect key="frame" x="16" y="72" width="343" height="16"/>
+                    <rect key="frame" x="16" y="62" width="343" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM1-y7-NH9" userLabel="Devider">
+                    <rect key="frame" x="16" y="125" width="359" height="0.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.12" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="a0m-28-DfE"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3k-Xj-PTe">
+                    <rect key="frame" x="143" y="571" width="89" height="42"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <state key="normal" title="Confirm"/>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="ucg-pN-qbE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="jTC-Pc-trH" firstAttribute="top" secondItem="McG-7O-1fF" secondAttribute="bottom" constant="4" id="DDc-0r-g46"/>
+                <constraint firstItem="FM1-y7-NH9" firstAttribute="top" secondItem="jTC-Pc-trH" secondAttribute="bottom" constant="10" id="03n-Xp-iCa"/>
+                <constraint firstItem="FM1-y7-NH9" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="2Wu-nF-vhd"/>
+                <constraint firstItem="jTC-Pc-trH" firstAttribute="bottom" secondItem="McG-7O-1fF" secondAttribute="bottom" constant="37" id="DDc-0r-g46"/>
+                <constraint firstItem="d3k-Xj-PTe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F6R-vx-TG1"/>
                 <constraint firstItem="McG-7O-1fF" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="IAf-Gf-13F"/>
-                <constraint firstItem="McG-7O-1fF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="RvL-90-7Wm"/>
+                <constraint firstItem="McG-7O-1fF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="RvL-90-7Wm"/>
                 <constraint firstItem="sOo-4k-kWu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="V5M-gT-5gw"/>
+                <constraint firstAttribute="trailing" secondItem="FM1-y7-NH9" secondAttribute="trailing" id="XBq-t3-vYk"/>
                 <constraint firstAttribute="trailing" secondItem="jTC-Pc-trH" secondAttribute="trailing" constant="16" id="bDc-Wg-Me9"/>
                 <constraint firstItem="sOo-4k-kWu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cjw-cp-Nhi"/>
                 <constraint firstAttribute="trailing" secondItem="sOo-4k-kWu" secondAttribute="trailing" id="g6x-7z-EDd"/>
+                <constraint firstAttribute="bottom" secondItem="d3k-Xj-PTe" secondAttribute="bottom" constant="54" id="grz-iG-bdV"/>
                 <constraint firstItem="McG-7O-1fF" firstAttribute="trailing" secondItem="jTC-Pc-trH" secondAttribute="trailing" id="ssY-TF-jqX"/>
                 <constraint firstItem="jTC-Pc-trH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vCe-KM-PmC"/>
                 <constraint firstItem="sOo-4k-kWu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vnw-UF-gsP"/>

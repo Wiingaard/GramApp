@@ -34,8 +34,17 @@ class Time: NSObject {
     
     func dateString(of date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM d"     // Skriver "October 12"
-        return formatter.string(from: date)
+        formatter.dateFormat = "MMMM"
+        let month = formatter.string(from: date)
+        let dayOfMonth = calendar.component(.day, from: date)
+        let daySuffix: String!
+        switch dayOfMonth {
+        case 1, 21, 31: daySuffix = "st"
+        case 2, 22: daySuffix =  "nd"
+        case 3, 23: daySuffix =  "rd"
+        default: daySuffix = "th"
+        }
+        return month + " \(dayOfMonth)" + daySuffix      // Skriver "October 12th"
     }
 
     func month(for date: Date) -> String {
