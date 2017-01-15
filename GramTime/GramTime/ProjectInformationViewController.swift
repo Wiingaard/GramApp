@@ -35,8 +35,10 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
         let otherNib = UINib(nibName: "OptionalInputTableViewCell", bundle: nil)
         tableView.register(otherNib, forCellReuseIdentifier: "OptionalInputTableViewCell")
+        tableView.separatorStyle = .none
         
-        dateLabel.text = time.month(for: report.mondayInWeek).uppercased() + ", WEEK \(report.weekNumber)"
+        let subheaderText = "WEEK \(report.weekNumber)"
+        dateLabel.text = subheaderText.uppercased()
         
     }
     
@@ -56,7 +58,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                 cell.valueLabel.text = report.customerName
                 cell.statusImage(shouldShowGreen: report.validCustomerName())
             default:
-                cell.nameLabel.text = "Project No."
+                cell.nameLabel.text = "Project no."
                 cell.valueLabel.text = report.validProjectNo() ? "\(report.projectNo)" : ""
                 cell.statusImage(shouldShowGreen: report.validProjectNo())
             }
@@ -72,8 +74,8 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
                     let dateString = formatter.string(from: report.departure! as Date)
-                    let timeString = "\(doubleValueToMetricString(value: report.travelOut)) hours"
-                    cell.valueLabel.text = timeString + " on " + dateString
+                    let timeString = "\(doubleValueToMetricString(value: report.travelOut))h"
+                    cell.valueLabel.text = timeString + " hours - " + dateString
                 } else {
                     cell.valueLabel.text = ""
                 }
@@ -85,8 +87,8 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
                     let dateString = formatter.string(from: report.arrival! as Date)
-                    let timeString = "\(doubleValueToMetricString(value: report.travelHome)) hours"
-                    cell.valueLabel.text = timeString + " on " + dateString
+                    let timeString = "\(doubleValueToMetricString(value: report.travelHome))h"
+                    cell.valueLabel.text = timeString + " hours - " + dateString
                 } else {
                     cell.valueLabel.text = ""
                 }
@@ -160,7 +162,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
         let backgroundView = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
-        label.text = section == 0 ? "Project info" : "When traveling"
+        label.text = section == 0 ? "Project info" : "Travel info"
         
         backgroundView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false

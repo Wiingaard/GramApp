@@ -63,10 +63,11 @@ class CarTypeViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let nib = UINib(nibName: "CheckmarkTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CheckmarkTableViewCell")
+        tableView.separatorStyle = .none
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
-        subheader.text = "Week \(report.weekNumber)"
+        subheader.text = "WEEK \(report.weekNumber)"
         switch report.carType {
         case CarType.privateCar.rawValue:
             selected = 0
@@ -108,9 +109,9 @@ class CarTypeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         setCheckmark(at: indexPath.row)
         selected = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func setCheckmark(at indexpathRow: Int) {

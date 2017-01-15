@@ -34,7 +34,7 @@ class MileageViewController: UIViewController {
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
-        subheader.text = "Week \(report.weekNumber)"
+        subheader.text = "WEEK \(report.weekNumber)"
         
         numberTextField.text = report.validMileage() ? String(report.mileage) : nil
         

@@ -14,6 +14,7 @@ class TravelDateViewController: UIViewController {
     @IBOutlet weak var subheader: UILabel!
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var travelTypeLabel: UILabel!
     
     @IBAction func clearAction(_ sender: Any) {
         switch travelType! {
@@ -65,12 +66,14 @@ class TravelDateViewController: UIViewController {
 
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
-        subheader.text = "Week \(report.weekNumber)"
+        subheader.text = "WEEK \(report.weekNumber)"
         switch travelType! {
         case .out:
             header.text = "Departure"
+            travelTypeLabel.text = "Travelling out"
         case .home:
             header.text = "Arrival"
+            travelTypeLabel.text = "Travelling home"
         }
         
         if initialInputValue != nil {

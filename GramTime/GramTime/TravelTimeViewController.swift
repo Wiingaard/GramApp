@@ -63,7 +63,7 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first
-        subheader.text = "Week \(report.weekNumber)"
+        subheader.text = "WEEK \(report.weekNumber)"
         switch travelType! {
         case .out:
             header.text = "Departure"
