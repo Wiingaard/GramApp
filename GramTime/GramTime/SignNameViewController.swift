@@ -19,6 +19,7 @@ class SignNameViewController: UIViewController {
     let realm = try! Realm()
     var report: WeekReport!
     var signingFor: SignType!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,8 @@ class SignNameViewController: UIViewController {
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         
-        nameTextField.placeholder = "\(signingFor.rawValue) name"
         nameTextField.text = report.validCustomerSignName() ? report.customerSignName : ""
+        headerLabel.text = signingFor.rawValue.capitalized
         
         let confirmButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(SignNameViewController.nextPressed))
         navigationItem.rightBarButtonItem = confirmButton
@@ -52,5 +53,4 @@ class SignNameViewController: UIViewController {
             vc.signName = nameTextField.text
         }
     }
-
 }

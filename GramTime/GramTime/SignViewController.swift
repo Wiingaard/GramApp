@@ -100,6 +100,10 @@ class SignViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - Touch Methods
     /**
      *  Called when a new touch event begins
@@ -181,6 +185,4 @@ class SignViewController: UIViewController {
         UIGraphicsEndImageContext()
         
     }
-
-    
 }

@@ -30,6 +30,8 @@ class SignatureListViewController: UIViewController, UITableViewDataSource, UITa
         
         let nib = UINib(nibName: "InputFieldTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
+        tableView.separatorStyle = .none
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
