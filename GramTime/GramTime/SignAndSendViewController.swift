@@ -12,16 +12,23 @@ import RealmSwift
 class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func signAction(_ sender: Any) {
         performSegue(withIdentifier: "Show Signatures", sender: nil)
     }
     
     @IBAction func sendAction(_ sender: Any) {
-        performSegue(withIdentifier: "Show Send", sender: nil)
+        if sendButtonEnabled {
+            performSegue(withIdentifier: "Show Send", sender: nil)
+        } else {
+            // FIXME: Rewrite
+            let vc = ErrorViewController(message: "You need to sign the report before it can be sent, press \"Sign\" in top right corner", title: "Signature missing", buttonText: "ACCEPT")
+            present(vc, animated: true)
+        }
     }
+    
     
     // Model:
     var reportID = ""       // should be overriden from segue
@@ -29,13 +36,15 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     var report: WeekReport!
     var user: User!
     
+    var sendButtonEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let reportIDPredicate = NSPredicate(format: "reportID = %@", reportID)
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         user = realm.objects(User.self).first
-        
+        scrollView.contentInset = UIEdgeInsetsMake(0, 0, 112, 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,9 +54,11 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     
     func updateSendButton() {
         if report.validSignature(signer: .customer) && report.validSignature(signer: .supervisor) {
-            sendButton.isEnabled = true
+            sendButtonEnabled = true
+            sendButton.setImage(UIImage(named: "sendBtnGreen"), for: .normal)
         } else {
-            sendButton.isEnabled = false
+            sendButtonEnabled = false
+            sendButton.setImage(UIImage(named: "sendBtnGray"), for: .normal)
         }
     }
     
