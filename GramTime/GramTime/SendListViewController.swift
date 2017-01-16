@@ -43,12 +43,12 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             cell.nameLabel.text = SendToType.customer.all[indexPath.row]
             cell.valueLabel.text = ""
-            cell.statusImage(shouldShowGreen: false)
+            cell.statusImage(shouldShowGreen: report.officeReportWasSent)
             
         case 1:
             cell.nameLabel.text = SendToType.customer.all[indexPath.row]
             cell.valueLabel.text = ""
-            cell.statusImage(shouldShowGreen: false)
+            cell.statusImage(shouldShowGreen: report.customerReportWasSent)
             
         default:
             fatalError("default not allowed!")

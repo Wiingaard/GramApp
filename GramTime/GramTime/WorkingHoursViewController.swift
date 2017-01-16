@@ -144,9 +144,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                         let hours = doubleValueToMetricString(value: currentWorkday.overtime)
                         switch type {
                         case .normal:
-                            cell.valueLabel.text = "\(hours) hours - Normal"
+                            cell.valueLabel.text = "\(hours)h - Normal"
                         case .holiday:
-                            cell.valueLabel.text = "\(hours) hours - Sunday / holiday"
+                            cell.valueLabel.text = "\(hours)h - Sunday / holiday"
                         }
                     }
                 } else {
@@ -159,7 +159,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 cell.nameLabel.text = "Waiting Hours"
                 if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
                     let hours = doubleValueToMetricString(value: currentWorkday.waitingHours)
-                    cell.valueLabel.text = "\(hours) hours"
+                    cell.valueLabel.text = "\(hours)h - \(currentWorkday.waitingType)"
                     
                 } else {
                     cell.valueLabel.text = ""

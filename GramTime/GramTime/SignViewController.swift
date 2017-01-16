@@ -21,6 +21,10 @@ class SignViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var signeeLabel: UILabel!
     
+    @IBOutlet weak var rotationContainerView: UIView!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
+    
     @IBAction func clearAction(_ sender: Any) {
         mainImageView.image = nil
     }
@@ -114,6 +118,14 @@ class SignViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        print(mainImageView.frame)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let imageHeight = Int(rotationContainerView.frame.height - 20)      // 20: ensures 10 points margin to rotation container
+        let imageWidth = Int(imageHeight/2)                                 // 2:  ensures aspect ratio close to 1:2
+        imageViewHeightConstraint.constant = CGFloat(imageHeight)
+        imageViewWidthConstraint.constant = CGFloat(imageWidth)
     }
     
     override var prefersStatusBarHidden: Bool {

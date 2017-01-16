@@ -72,6 +72,9 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         if report.validTravelTime(travelType: .home) { totalHours += report.travelHome }
         metricLabel.text = doubleValueToMetricString(value: totalHours)
         metricLabel.sizeToFit()
+        if view.frame.height < 657 {    // Remove metrics on smaller phones than iPhone 6
+            metricBackground.isHidden = true
+        }
     }
     
     func doubleValueToMetricString(value: Double) -> String {
@@ -159,15 +162,6 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
     
     // MARK: - Button Actions
     func projectPressed() {
-        
-//        let fileManager = FileManager.default
-//        do {
-//            let url = URL(string: report.pdfFilePath)!
-//            try fileManager.removeItem(at: url)
-//        } catch let error {
-//            print("Error: \(error)")
-//        }
-        
         if report.validSignature(signer: .customer) {
             showAlreadySentWarning(button: .project)
         } else {
@@ -233,12 +227,13 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
     
     // MARK: - Validation
     func checkReport() -> (valid: Bool, errorMessages: [String]?) {
+        // FIXME: rewrite
         var returnMessages = [String]()
         if user.validInspectorNumber() == false {
-            returnMessages.append("No valid Inspector Number: Set \"Inspector No\" in Profile Information")
+            returnMessages.append("No valid supervisor number: Set \"Supervisor no.\" in Settings")
         }
         if user.validFullName() == false {
-            returnMessages.append("No valid Name: Set \"Full name\" in Profile Information")
+            returnMessages.append("No valid Name: Set \"Full name\" in Settings")
         }
         for workday in report.workdays {
             if workday.validWorkday() == false {
@@ -246,7 +241,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
                 break
             }
         }
-        let projectError = "Project Info in Project Information must be valid"
+        let projectError = "Project Info in the \"Project\" view must be valid"
         if report.validCustomerName() == false {
             returnMessages.append(projectError)
         } else if report.validProjectNo() == false {

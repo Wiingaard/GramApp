@@ -47,6 +47,10 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentInset = UIEdgeInsetsMake(0, 0, 112, 0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         updateFiles()
         updateSendButton()

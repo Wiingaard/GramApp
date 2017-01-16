@@ -13,13 +13,13 @@ class OnboardingInspectorNumberViewController: UIViewController {
     
     @IBAction func confirmButtonAction(_ sender: Any) {
         if user.validInspectorNumber(number: inputValue) {
-            print("Did write inspector number")
             try! realm.write {
                 user.inspectorNumber = inputValue
             }
             dismiss(animated: true, completion: nil)
         } else {
-            let error = ErrorViewController.init(message: "Insert your inspector number in the text field", title: "Holy Fuck.!", buttonText: "Well okay then..")
+            // FIXME: rewrite
+            let error = ErrorViewController.init(message: "Insert your supervisor number in the text field", title: "Holy Fuck.!", buttonText: "Well okay then..")
             present(error, animated: true, completion: nil)
         }
     }

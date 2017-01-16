@@ -54,11 +54,18 @@
                         <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="ucg-pN-qbE"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worked on:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g4-vL-DoG">
+                    <rect key="frame" x="16" y="157.5" width="123" height="27"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FM1-y7-NH9" firstAttribute="top" secondItem="jTC-Pc-trH" secondAttribute="bottom" constant="10" id="03n-Xp-iCa"/>
                 <constraint firstItem="FM1-y7-NH9" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="2Wu-nF-vhd"/>
+                <constraint firstItem="8g4-vL-DoG" firstAttribute="top" secondItem="FM1-y7-NH9" secondAttribute="bottom" constant="32" id="BHb-GA-qCG"/>
                 <constraint firstItem="jTC-Pc-trH" firstAttribute="bottom" secondItem="McG-7O-1fF" secondAttribute="bottom" constant="37" id="DDc-0r-g46"/>
                 <constraint firstItem="d3k-Xj-PTe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F6R-vx-TG1"/>
                 <constraint firstItem="McG-7O-1fF" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="IAf-Gf-13F"/>
@@ -67,6 +74,7 @@
                 <constraint firstAttribute="trailing" secondItem="FM1-y7-NH9" secondAttribute="trailing" id="XBq-t3-vYk"/>
                 <constraint firstAttribute="trailing" secondItem="jTC-Pc-trH" secondAttribute="trailing" constant="16" id="bDc-Wg-Me9"/>
                 <constraint firstItem="sOo-4k-kWu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cjw-cp-Nhi"/>
+                <constraint firstItem="8g4-vL-DoG" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="cz1-FZ-SL4"/>
                 <constraint firstAttribute="trailing" secondItem="sOo-4k-kWu" secondAttribute="trailing" id="g6x-7z-EDd"/>
                 <constraint firstAttribute="bottom" secondItem="d3k-Xj-PTe" secondAttribute="bottom" constant="54" id="grz-iG-bdV"/>
                 <constraint firstItem="McG-7O-1fF" firstAttribute="trailing" secondItem="jTC-Pc-trH" secondAttribute="trailing" id="ssY-TF-jqX"/>

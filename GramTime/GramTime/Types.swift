@@ -67,11 +67,11 @@ enum OvertimeType: String, AllEnum {
 }
 
 enum WaitingType: String, AllEnum {
-    case help = "Waiting for help / staff"
-    case tools = "Waiting for tools / lifting equipment"
-    case supply = "Waiting for electrical / air supply"
-    case production = "Waiting for production"
-    case internet = "Waiting for internet connection"
+    case help = "Help / staff"
+    case tools = "Tools / lifting equipment"
+    case supply = "Electrical / air supply"
+    case production = "Production"
+    case internet = "Internet connection"
     case service = "See service report"
     
     var all: [String] {
@@ -85,12 +85,12 @@ enum WaitingType: String, AllEnum {
 }
 
 enum WorkType: String, AllEnum {
-    case freezer = "Working on freezer"
-    case endLine = "Working on end of line"
-    case wrapper = "Working on wrapper"
-    case btLine = "Working on BT line"
-    case riaLine = "Working on RIA line"
-    case fillingMachine = "Working on filling machine"
+    case freezer = "Freezer"
+    case endLine = "End of line"
+    case wrapper = "Wrapper"
+    case btLine = "BT line"
+    case riaLine = "RIA line"
+    case fillingMachine = "Filling machine"
     case serviceReport = "See service report"
     
     var all: [String] {

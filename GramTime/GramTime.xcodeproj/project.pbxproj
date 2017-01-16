@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2985698649BE1499F21FAA93 /* Pods_GramTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1EE5394D0164A72762516C /* Pods_GramTime.framework */; };
+		5B06CD421E2D8E27004E8510 /* OptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06CD401E2D8E27004E8510 /* OptionPopupViewController.swift */; };
+		5B06CD431E2D8E27004E8510 /* OptionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B06CD411E2D8E27004E8510 /* OptionPopupViewController.xib */; };
 		5B92175B1E256BDA00C4A220 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217591E256BDA00C4A220 /* RootViewController.swift */; };
 		5B92175C1E256BDA00C4A220 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */; };
 		5B9217641E256BFF00C4A220 /* ProjectStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */; };
@@ -79,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		01858D4D6234F04A5CFCD755 /* Pods-GramTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramTime/Pods-GramTime.release.xcconfig"; sourceTree = "<group>"; };
+		5B06CD401E2D8E27004E8510 /* OptionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionPopupViewController.swift; sourceTree = "<group>"; };
+		5B06CD411E2D8E27004E8510 /* OptionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionPopupViewController.xib; sourceTree = "<group>"; };
 		5B9217591E256BDA00C4A220 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
 		5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				5BB352B31E25601800799F23 /* AppDelegate.swift */,
 				5B9217E91E25700D00C4A220 /* GramExtensions.swift */,
 				5B9217DA1E256D8F00C4A220 /* Time.swift */,
+				5B06CD401E2D8E27004E8510 /* OptionPopupViewController.swift */,
+				5B06CD411E2D8E27004E8510 /* OptionPopupViewController.xib */,
 				5B9217DB1E256D8F00C4A220 /* ErrorViewController.swift */,
 				5B9217DC1E256D8F00C4A220 /* ErrorViewController.xib */,
 				5BB352BA1E25601800799F23 /* Assets.xcassets */,
@@ -440,6 +446,7 @@
 				5B9217951E256C7800C4A220 /* OptionalInputTableViewCell.xib in Resources */,
 				5B9217E41E256D8F00C4A220 /* ErrorViewController.xib in Resources */,
 				5B9217A21E256C9800C4A220 /* NumberInputViewController.xib in Resources */,
+				5B06CD431E2D8E27004E8510 /* OptionPopupViewController.xib in Resources */,
 				5B9217931E256C7800C4A220 /* ModalInputTableViewCell.xib in Resources */,
 				5B92178B1E256C7800C4A220 /* ReportWeekTableViewCell.xib in Resources */,
 				5B9217A61E256C9800C4A220 /* DateInputViewController.xib in Resources */,
@@ -509,6 +516,7 @@
 				5B9217B61E256CE300C4A220 /* TravelTimeViewController.swift in Sources */,
 				5B9217791E256C4E00C4A220 /* CreateNewProjectNoViewController.swift in Sources */,
 				5B9217D41E256D6000C4A220 /* WeekReport.swift in Sources */,
+				5B06CD421E2D8E27004E8510 /* OptionPopupViewController.swift in Sources */,
 				5B9217C21E256D1200C4A220 /* OvertimeViewController.swift in Sources */,
 				5B9217C11E256D1200C4A220 /* WaitingTypeViewController.swift in Sources */,
 				5B9217A91E256C9800C4A220 /* HalfHourInputViewController.swift in Sources */,

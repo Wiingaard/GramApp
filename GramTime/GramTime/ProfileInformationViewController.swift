@@ -96,7 +96,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
         switch indexPath.row {
         case 0:
-            cell.nameLabel.text = "Inspector no."
+            cell.nameLabel.text = "Supervisor no."
             cell.valueLabel.text = user.validInspectorNumber() ? "\(user.inspectorNumber)" : ""
             cell.statusImage(shouldShowGreen: user.validInspectorNumber())
             
@@ -118,7 +118,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         case 0:
             let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
             numberInputViewController.delegate = self
-            numberInputViewController.placeholder = "Inspector Number"
+            numberInputViewController.placeholder = "Supervisor number"
             numberInputViewController.inputType = InputType.numberInspector
             numberInputViewController.initialInputValue = user.validInspectorNumber() ? user.inspectorNumber : nil
             navigationController?.pushViewController(numberInputViewController, animated: true)

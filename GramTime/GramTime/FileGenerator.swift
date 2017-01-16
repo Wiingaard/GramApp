@@ -42,7 +42,6 @@ class FileGenerator: NSObject {
         var returnString = ""
         
         let titlesLine = "Medarbejder,Medarbejdernavn,Lønart,Lønart betegnelse,Enheder,Sats,Beløb,Tekst på lønseddel\n"
-        print("generating report for: \(user.inspectorType())")
         switch user.inspectorType() {
         case 1:
             returnString = titlesLine

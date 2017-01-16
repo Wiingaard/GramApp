@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Project no." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTq-d4-Of4">
-                    <rect key="frame" x="8" y="319" width="359" height="30"/>
+                    <rect key="frame" x="8" y="268.5" width="359" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoK-48-SZw">
-                    <rect key="frame" x="128" y="392" width="119" height="29"/>
+                    <rect key="frame" x="128" y="382" width="119" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Same as last week"/>
                     <connections>
@@ -62,11 +62,11 @@
                 <constraint firstAttribute="trailingMargin" secondItem="eTq-d4-Of4" secondAttribute="trailing" id="IMM-4m-qwN"/>
                 <constraint firstItem="pZ5-PD-9Ye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="OD7-c0-eqh"/>
                 <constraint firstItem="eTq-d4-Of4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PfX-8L-CKf"/>
-                <constraint firstItem="eTq-d4-Of4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Soh-I1-Z03"/>
+                <constraint firstItem="eTq-d4-Of4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="Soh-I1-Z03"/>
                 <constraint firstItem="jPu-9T-bpj" firstAttribute="leading" secondItem="bag-VU-vk7" secondAttribute="leading" id="cMq-PU-p5l"/>
                 <constraint firstItem="pZ5-PD-9Ye" firstAttribute="leading" secondItem="bag-VU-vk7" secondAttribute="leading" id="gpQ-AZ-KRF"/>
                 <constraint firstAttribute="trailing" secondItem="jPu-9T-bpj" secondAttribute="trailing" id="i3I-KH-NeD"/>
-                <constraint firstAttribute="bottom" secondItem="qoK-48-SZw" secondAttribute="bottom" constant="246" id="n7k-k8-dC0"/>
+                <constraint firstAttribute="bottom" secondItem="qoK-48-SZw" secondAttribute="bottom" constant="256" id="n7k-k8-dC0"/>
                 <constraint firstItem="bag-VU-vk7" firstAttribute="bottom" secondItem="pZ5-PD-9Ye" secondAttribute="bottom" constant="37" id="nzy-Nl-QMA"/>
                 <constraint firstItem="eTq-d4-Of4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="uef-LH-xcD"/>
             </constraints>

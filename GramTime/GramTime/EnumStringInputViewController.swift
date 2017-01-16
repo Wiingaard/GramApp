@@ -20,8 +20,6 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
         _ = navigationController?.popViewController(animated: true)
     }
     
-    
-    
     var modelEnum: AllEnum!
     var selectedCase = 0
     
