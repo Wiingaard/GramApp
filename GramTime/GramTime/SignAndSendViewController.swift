@@ -108,7 +108,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
                 print(error)
                 presentFileGenerationError()
             }
-            print("file URL: \(fileURL.absoluteString)")
+//            print("file URL: \(fileURL.absoluteString)")
 
             try! realm.write {
                 report.pmFilePath = fileURL.absoluteString
@@ -127,7 +127,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
                 print(error)
                 presentFileGenerationError()
             }
-            print("file URL: \(fileURL.absoluteString)")
+//            print("file URL: \(fileURL.absoluteString)")
             
             try! realm.write {
                 report.navFilePath = fileURL.absoluteString
@@ -136,7 +136,8 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func presentFileGenerationError() {
-        print("ERROR IN FILE GENERATION")
+        let vc = ErrorViewController(message: "An unexpected error happend when genepating report export files for E-mail. Try generating a new report for this week.")
+        present(vc, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

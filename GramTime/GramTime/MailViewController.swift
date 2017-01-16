@@ -12,7 +12,8 @@ import MessageUI
 
 class MailViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet weak var subheader: UILabel!
+    
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {
@@ -47,11 +48,12 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         barButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(MailViewController.sendButtonPressed))
         navigationItem.setRightBarButton(barButton, animated: false)
         
-        subheader.text = "Report to \(sendTo.rawValue)"
         switch sendTo! {
         case .customer:
+            headerLabel.text = "Customer"
             textField.text = report.validCustomerEmail() ? report.customerEmail : nil
         case .office:
+            headerLabel.text = "Home Office"
             textField.text = user.validOfficeEmail() ? user.officeEmail : nil
         }
         updateSendButton()
@@ -60,7 +62,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     func updateSendButton() {
         switch sendTo! {
         case .customer:
-            if report.validCustomerName(string: inputValue) {
+            if report.validCustomerEmail(string: inputValue) {
                 barButton.isEnabled = true
             } else {
                 barButton.isEnabled = false
@@ -105,39 +107,42 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([inputValue])
+        // FIXME: rewrite subject
         mailComposerVC.setSubject("Gram Time - Report for week \(report.weekNumber) - \(user.fullName)")
+        // FIXME: rewrite Body
         mailComposerVC.setMessageBody("Here goes the mail body text", isHTML: false)
         
         if report.validPDFFile() {
             do {
                 let url = URL(string: report.pdfFilePath)!
                 let pdfData = try Data(contentsOf: url)
-                mailComposerVC.addAttachmentData(pdfData, mimeType: "pdf", fileName: "such.pdf")
+                mailComposerVC.addAttachmentData(pdfData, mimeType: "pdf", fileName: "Week \(report.weekNumber) - \(user.fullName).pdf")
             } catch let error {
                 print("Error in PDF Attachment: \(error)")
                 return nil
             }
         }
-        
-        if report.validNAVFile() {
-            do {
-                let url = URL(string: report.navFilePath)!
-                let navData = try Data(contentsOf: url)
-                mailComposerVC.addAttachmentData(navData, mimeType: "csv", fileName: "suchNAV.csv")
-            } catch let error {
-                print("Error in NAV Attachment: \(error)")
-                return nil
+        if sendTo! == .office {
+            if report.validNAVFile() {
+                do {
+                    let url = URL(string: report.navFilePath)!
+                    let navData = try Data(contentsOf: url)
+                    mailComposerVC.addAttachmentData(navData, mimeType: "csv", fileName: "Week \(report.weekNumber) - \(user.fullName) - NAV.csv")
+                } catch let error {
+                    print("Error in NAV Attachment: \(error)")
+                    return nil
+                }
             }
-        }
-        
-        if report.validPMFile() {
-            do {
-                let url = URL(string: report.pmFilePath)!
-                let pmData = try Data(contentsOf: url)
-                mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "suchPM.csv")
-            } catch let error {
-                print("Error in PM Attachment: \(error)")
-                return nil
+            
+            if report.validPMFile() {
+                do {
+                    let url = URL(string: report.pmFilePath)!
+                    let pmData = try Data(contentsOf: url)
+                    mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "Week \(report.weekNumber) - \(user.fullName) - PM.csv")
+                } catch let error {
+                    print("Error in PM Attachment: \(error)")
+                    return nil
+                }
             }
         }
         return mailComposerVC
@@ -151,7 +156,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         case .fileGenerationError:
             errorMessage = "An export file couldn't be generated. Try generating a new week report."
         case .sendingError:
-            errorMessage = "Error in sending "
+            errorMessage = "Sending Error"
         }
         let vc = ErrorViewController.init(message: errorMessage)
         present(vc, animated: true)

@@ -49,7 +49,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         metricBackground.layer.cornerRadius = 10
         metricBackground.clipsToBounds = true
         
-        weeknumberLabel.text = "WEEK \(report.weekNumber)"
+        weeknumberLabel.text = "Week \(report.weekNumber)"
         setupButtons()
     }
     

@@ -13,8 +13,13 @@ class SignViewController: UIViewController {
 
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
-    @IBOutlet weak var signeeLabel: UILabel!
+    @IBOutlet weak var signBackground: UIView!
+    
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var signeeLabel: UILabel!
     
     @IBAction func clearAction(_ sender: Any) {
         mainImageView.image = nil
@@ -85,19 +90,30 @@ class SignViewController: UIViewController {
         report = realm.objects(WeekReport.self).filter(reportIDPredicate).first!
         user = realm.objects(User.self).first
         
+        signBackground.layer.borderColor = UIColor.black.cgColor
+        signBackground.layer.borderWidth = 2
+        signBackground.layer.cornerRadius = 5
+        
         switch signingFor! {
         case .customer:
-            signeeLabel.text = "Signature of \(report.customerSignName.capitalized)"
+            signeeLabel.text = "\(signName.capitalized)"
             guard let data = report.customerSignature as Data? else { break }
             guard let signature = UIImage(data: data) else { break }
             mainImageView.image = signature
             
         case .supervisor:
-            signeeLabel.text = "Signature of \(user.fullName.capitalized)"
+            signeeLabel.text = "\(user.fullName.capitalized)"
             guard let data = report.supervisorSignature as Data? else { break }
             guard let signature = UIImage(data: data) else { break }
             mainImageView.image = signature
         }
+        
+        headerLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        signeeLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override var prefersStatusBarHidden: Bool {

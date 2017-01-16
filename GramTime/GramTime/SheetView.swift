@@ -179,12 +179,14 @@ class SheetView: UIView {
         
         if let data = report.supervisorSignature as Data? {
             if let signature = UIImage(data: data) {
-                supervisorSignatureImageView.image = signature
+                let rotatedSignature = UIImage(cgImage: signature.cgImage!, scale: 1.0, orientation: .left)
+                supervisorSignatureImageView.image = rotatedSignature
             }
         }
         if let data = report.customerSignature as Data? {
             if let signature = UIImage(data: data) {
-                customerSignatureImageView.image = signature
+                let rotatedSignature = UIImage(cgImage: signature.cgImage!, scale: 1.0, orientation: .left)
+                customerSignatureImageView.image = rotatedSignature
             }
         }
     }

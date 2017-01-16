@@ -36,6 +36,7 @@ class SignNameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         nameTextField.becomeFirstResponder()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     func nextPressed() {
