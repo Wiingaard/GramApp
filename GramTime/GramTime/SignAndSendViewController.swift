@@ -81,7 +81,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         if let pdf = files["PDF"] as? Data {
             let pdfName = "\(user.fullName) - Week \(report.weekNumber).pdf"
             let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(pdfName)
-//            print(fileURL.absoluteString)
+            print(fileURL)
             do {
                 try pdf.write(to: fileURL, options: .atomic)
                 

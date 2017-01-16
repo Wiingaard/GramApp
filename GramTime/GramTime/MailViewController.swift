@@ -163,13 +163,36 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
-        controller.dismiss(animated: true)
-        switch result {
-        case .sent: print("mail sent!")             // 
-        case .cancelled: print("mail cancelled!")   // Do nothing
-        case .failed: print("mail failed!")         // Show pop-up -> report possible bug to office
-        case .saved: print("mail saved!")           // Show pop-up
+        if result == .sent {
+            if sendTo! == .customer {
+                try! realm.write {
+                    report.customerReportWasSent = true
+                }
+            } else if sendTo! == .office {
+                try! realm.write {
+                    report.officeReportWasSent = true
+                }
+            }
+            if report.customerReportWasSent && report.officeReportWasSent {
+                try! realm.write {
+                    report.sentStatus = true
+                }
+            }
+        }
+        // FIXME: rewrite
+        controller.dismiss(animated: true) { [weak self] in
+            switch result {
+            case .sent:
+                let vc = ErrorViewController(message: "The report was successfully sent. If you don't have internet connection right now, it has been placed in your outbox, and will be sent when sent automatically when get internet connection", title: "Success", buttonText: "Okay", buttonColor: UIColor.gramGreen)
+                self?.present(vc, animated: true)
+            case .failed:
+                let vc = ErrorViewController(message: "An error happend while sending the report. Please try again.", title: "Failed to sent report")
+                self?.present(vc, animated: true)
+            case .saved:
+                let vc = ErrorViewController(message: "The E-mail was sent in the drafts folder in your mail application. If you choose to sent the mail from that application, then the report will not be marked as sent in this application", title: "E-mail saved")
+                self?.present(vc, animated: true)
+            default: break
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ class ErrorViewController: UIViewController {
     var titleText = "Something went wrong"
     var buttonText = "ACCEPT"
     var option: Int?
+    var buttonColor = UIColor.gramRed
     weak var delegate: ErrorViewControllerDelegate?
     var chromeTapGestureRecognizer: UITapGestureRecognizer!
     var buttonTapGestureRecognizer: UITapGestureRecognizer!
@@ -36,13 +37,14 @@ class ErrorViewController: UIViewController {
     ///   - message: Large text field. Default ""
     ///   - title: Title label. Default "Something went wrong"
     ///   - buttonText: Text on button. Default "Accept"
-    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "ACCEPT", delegate: ErrorViewControllerDelegate? = nil, withOption: Int? = nil) {
+    convenience init(message: String, title: String? = "Something went wrong", buttonText: String? = "ACCEPT", delegate: ErrorViewControllerDelegate? = nil, withOption: Int? = nil, buttonColor: UIColor? = UIColor.gramRed) {
         self.init(nibName: "ErrorViewController", bundle: nil)
         titleText = title!
         errorMessage = message
         self.buttonText = buttonText!
         self.delegate = delegate
         self.option = withOption
+        self.buttonColor = buttonColor!
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
     }
@@ -58,6 +60,7 @@ class ErrorViewController: UIViewController {
         messageView.isUserInteractionEnabled = true
         
         buttonView.isUserInteractionEnabled = true
+        buttonView.backgroundColor = self.buttonColor
         
         chromeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ErrorViewController.chromeTapped))
         backgroundView.addGestureRecognizer(chromeTapGestureRecognizer)

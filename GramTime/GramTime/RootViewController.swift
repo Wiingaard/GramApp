@@ -111,10 +111,15 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == .delete {
+            let reportToDelete = reportList[indexPath.row]
+            do {
+                try reportToDelete.deleteReportFiles()
+            } catch {
+                let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
+                present(vc, animated: true)
+            }
             try! realm.write {
-                let reportToDelete = reportList[indexPath.row]
                 realm.delete(reportToDelete)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }

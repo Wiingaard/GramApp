@@ -58,19 +58,28 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         } else {
             buttonOutlet.backgroundColor = UIColor.gramRed
             buttonOutlet.setTitleColor(UIColor.white, for: .normal)
-            buttonOutlet.setTitle("DELETE ALL REPORTS", for: .normal)
+            buttonOutlet.setTitle("RESET APP", for: .normal)
         }
     }
     
     func deleteAllAction() {
         func deleteAllReports() {
+            for report in reportList {
+                do {
+                    try report.deleteReportFiles()
+                } catch {
+                    let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
+                    present(vc, animated: true)
+                }
+            }
             try! realm.write {
                 realm.delete(reportList)
-            }
-            try! realm.write {
                 realm.delete(allWorkdays)
+                user.fullName = ""
+                user.inspectorNumber = 0
+                user.officeEmail = ""
             }
-            
+            tableView.reloadData()
             setupButton()
         }
         // FIXME: set proper text

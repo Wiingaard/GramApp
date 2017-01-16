@@ -56,7 +56,7 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
     var reportID = ""
     let realm = try! Realm()
     var report: WeekReport!
-    let maxHours = 10
+    let maxHours = 48
     
     override func viewDidLoad() {
         super.viewDidLoad()

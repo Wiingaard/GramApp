@@ -57,7 +57,7 @@ class WeekReport: Object {
         mondayInWeek = monday
         weekNumber = time.weeknumber(forDate: monday)
         inspectorNo = inspector
-        reportID = "\(inspector)_\(Int(createdDate.timeIntervalSince1970))"
+        reportID = "\(Int(createdDate.timeIntervalSince1970))"
         for dayIndex in 0...6 {
             let workday = Workday()
             workday.weekday = dayIndex
@@ -66,6 +66,29 @@ class WeekReport: Object {
         }
     }
 
+    func deleteReportFiles() throws {
+        do {
+            let fileManager = FileManager.default
+            if validPDFFile() {
+                if let url = URL(string: pdfFilePath) {
+                    try fileManager.removeItem(at: url)
+                } else { throw NSError(domain: "WeekReport", code: 1, userInfo: nil) }
+                
+            }
+            if validNAVFile() {
+                if let url = URL(string: navFilePath) {
+                    try fileManager.removeItem(at: url)
+                } else { throw NSError(domain: "WeekReport", code: 2, userInfo: nil) }
+            }
+            if validPMFile() {
+                if let url = URL(string: pmFilePath) {
+                    try fileManager.removeItem(at: url)
+                } else { throw NSError(domain: "WeekReport", code: 3, userInfo: nil) }
+            }
+        } catch let error {
+            throw error
+        }
+    }
     
     // MARK: - Validation
     func validProjectNo(number: Int? = nil) -> Bool {

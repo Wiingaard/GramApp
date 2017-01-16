@@ -159,6 +159,15 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
     
     // MARK: - Button Actions
     func projectPressed() {
+        
+//        let fileManager = FileManager.default
+//        do {
+//            let url = URL(string: report.pdfFilePath)!
+//            try fileManager.removeItem(at: url)
+//        } catch let error {
+//            print("Error: \(error)")
+//        }
+        
         if report.validSignature(signer: .customer) {
             showAlreadySentWarning(button: .project)
         } else {
@@ -201,7 +210,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         try! realm.write {
             report.customerSignName = ""
             report.customerSignature = nil
-            // FIXME: skal report.sentStatus = false ?
+            // FIXME: skal report.sentStatus = false ? hvis ja, skal de andre to sent status også være false måske?
         }
         updateSignButton()
     }

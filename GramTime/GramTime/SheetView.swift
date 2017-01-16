@@ -147,12 +147,11 @@ class SheetView: UIView {
         if report.validTravelTime(travelType: .out) { totalHours += report.travelOut }
         if report.validTravelTime(travelType: .home) { totalHours += report.travelHome }
         self.totalHours.text = doubleValueToMetricString(value: totalHours)
-        
     }
     
     func setupSingleLabels(report: WeekReport, user: User) {
         project.text = String(report.projectNo)
-        supervisor.text = user.fullName
+        supervisor.text = "\(user.inspectorNumber)"
         customer.text = report.validCustomerName() ? report.customerName : ""
         self.report.text = report.reportID
         week.text = String(report.weekNumber)
