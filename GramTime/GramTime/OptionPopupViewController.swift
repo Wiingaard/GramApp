@@ -9,8 +9,13 @@
 import UIKit
 
 protocol OptionPopupViewControllerDelegate: class {
-    func optionPopupControllerDidPressCancel(_ errorViewController: OptionPopupViewController, withOption option: Int?)
-    func optionPopupControllerDidPressAccept(_ errorViewController: OptionPopupViewController, withOption option: Int?)
+    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?)
+    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?)
+}
+
+extension OptionPopupViewControllerDelegate {
+    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) { return }
+    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) { return }
 }
 
 class OptionPopupViewController: UIViewController {
@@ -30,6 +35,7 @@ class OptionPopupViewController: UIViewController {
     var errorMessage: String = ""
     var titleText: String = ""
     var option: Int?
+    var returnOnAction = true
     
     /// Option Popup VC over current context with cross dissolve.
     ///
@@ -39,12 +45,14 @@ class OptionPopupViewController: UIViewController {
     convenience init(message: String,
                      title: String,
                      delegate: OptionPopupViewControllerDelegate? = nil,
-                     withOption: Int? = nil) {
+                     withOption: Int? = nil,
+                     returnWhenActionPressed returnOnAction: Bool? = true) {
         self.init(nibName: "OptionPopupViewController", bundle: nil)
         titleText = title
         errorMessage = message
         self.delegate = delegate
         self.option = withOption
+        self.returnOnAction = returnOnAction!
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
     }
@@ -64,20 +72,19 @@ class OptionPopupViewController: UIViewController {
         
         cancelButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OptionPopupViewController.cancelTapped))
         cancelButtonView.addGestureRecognizer(cancelButtonTapGestureRecognizer)
+        
+        acceptButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OptionPopupViewController.acceptTapped))
+        acceptButtonView.addGestureRecognizer(acceptButtonTapGestureRecognizer)
     }
     
     func cancelTapped() {
         delegate?.optionPopupControllerDidPressCancel(self, withOption: option)
-        if delegate == nil {
-            dismiss(animated: true)
-        }
+        if returnOnAction { dismiss(animated: true) }
     }
     
     func acceptTapped() {
         delegate?.optionPopupControllerDidPressAccept(self, withOption: option)
-        if delegate == nil {
-            dismiss(animated: true)
-        }
+        if returnOnAction { dismiss(animated: true) }
     }
     
     func chromeTapped() {

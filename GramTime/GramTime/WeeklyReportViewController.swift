@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate {
+class WeeklyReportViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var weeknumberLabel: UILabel!
@@ -195,7 +195,7 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
     
     func showAlreadySentWarning(button: ButtonPressed) {
         // FIXME: rewrite text
-        let vc = ErrorViewController(message: "This report was already sent. If you choose to continue, signatures on current report will be erased, and the repost will be marked as not sent yet. You can view this report in \"Sign & send\" without editing it", title: "Report already signed", buttonText: "Continue", delegate: self, withOption: button.rawValue)
+        let vc = OptionPopupViewController(message: "This report was already sent. If you choose to continue, signatures on current report will be erased, and the repost will be marked as not sent yet. You can view this report in \"Sign & send\" without editing it", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)
         present(vc, animated: true)
         resetButtonColor()
     }
@@ -208,22 +208,6 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
         }
         updateSignButton()
     }
-    
-    // MARK: - Error View Controller delegate
-    func errorViewControllerActionPressed(_ errorViewController: ErrorViewController, withOption option: Int?) {
-        errorViewController.dismiss(animated: true) { [weak self] in
-            guard let optionInt = option else { return }
-            guard let buttonPressed = ButtonPressed.init(rawValue: optionInt) else { return }
-            switch buttonPressed {
-            case .project:
-                self?.performSegue(withIdentifier: "Show Project Information", sender: nil)
-            case .hours:
-                self?.performSegue(withIdentifier: "Show Working Hours", sender: nil)
-            }
-        }
-        removeSignature()
-    }
-    
     
     // MARK: - Validation
     func checkReport() -> (valid: Bool, errorMessages: [String]?) {
@@ -267,5 +251,28 @@ class WeeklyReportViewController: UIViewController, ErrorViewControllerDelegate 
             vc.reportID = self.reportID
         }
     }
-    
 }
+
+extension WeeklyReportViewController: OptionPopupViewControllerDelegate {
+    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true)
+    }
+    
+    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true) { [weak self] in
+            guard let buttonInt = option else { return }
+            guard let buttonPressed = ButtonPressed.init(rawValue: buttonInt) else { return }
+            switch buttonPressed {
+            case .project:
+                self?.performSegue(withIdentifier: "Show Project Information", sender: nil)
+            case .hours:
+                self?.performSegue(withIdentifier: "Show Working Hours", sender: nil)
+            }
+        }
+        removeSignature()
+    }
+}
+
+
+
+

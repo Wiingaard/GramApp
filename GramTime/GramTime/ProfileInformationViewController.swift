@@ -63,32 +63,32 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     }
     
     func deleteAllAction() {
-        func deleteAllReports() {
-            for report in reportList {
-                do {
-                    try report.deleteReportFiles()
-                } catch {
-                    let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
-                    present(vc, animated: true)
-                }
-            }
-            try! realm.write {
-                realm.delete(reportList)
-                realm.delete(allWorkdays)
-                user.fullName = ""
-                user.inspectorNumber = 0
-                user.officeEmail = ""
-            }
-            tableView.reloadData()
-            setupButton()
-        }
-        // FIXME: set proper text
+        // FIXME: rewrite
         if !reportList.isEmpty {
-            let alertController = UIAlertController(title: "Sheiit", message: "You sure.?!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Yup", style: .destructive, handler: { _ in deleteAllReports() }))
-            alertController.addAction(UIAlertAction(title: "Nope", style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
+            let vc = OptionPopupViewController(message: "Are you sure you want to delete report and other stuff", title: "Confirm", delegate: self, returnWhenActionPressed: false)
+            present(vc, animated: true)
         }
+    }
+    
+    func deleteAllReports() {
+        for report in reportList {
+            do {
+                try report.deleteReportFiles()
+            } catch {
+                // FIXME: delete
+                let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
+                present(vc, animated: true)
+            }
+        }
+        try! realm.write {
+            realm.delete(reportList)
+            realm.delete(allWorkdays)
+            user.fullName = ""
+            user.inspectorNumber = 0
+            user.officeEmail = ""
+        }
+        tableView.reloadData()
+        setupButton()
     }
 
     // MARK: - Table view
@@ -159,5 +159,16 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
+    }
+}
+
+extension ProfileInformationViewController: OptionPopupViewControllerDelegate {
+    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true)
+        deleteAllReports()
+    }
+    
+    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true)
     }
 }
