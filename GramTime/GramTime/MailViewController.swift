@@ -188,7 +188,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         controller.dismiss(animated: true) { [weak self] in
             switch result {
             case .sent:
-                let vc = ErrorViewController(message: "The report was successfully sent If you’re offline the report is placed in your outbox and will be sent automatically next time you get internet connection.", title: "Report sent", buttonText: "Okay", buttonColor: UIColor.gramGreen) // popup fixed
+                let vc = ErrorViewController(message: "The report was successfully sent\n\nIf you’re offline the report is placed in your outbox and will be sent automatically next time you get internet connection.", title: "Report sent", buttonText: "Okay", buttonColor: UIColor.gramGreen) // popup fixed
                 self?.present(vc, animated: true)
             case .failed:
                 let vc = ErrorViewController(message: "An error happend while sending the report. Please try again.", title: "Failed to sent report")

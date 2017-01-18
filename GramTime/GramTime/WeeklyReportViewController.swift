@@ -180,7 +180,7 @@ class WeeklyReportViewController: UIViewController {
     func signPressed() {
         if let errorMessages = checkReport().errorMessages {
             let joinedMessages = errorMessages.joined(separator: "\n")
-            let vc = ErrorViewController(message: "You need to fill out the following information:\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")   // popup fixed
+            let vc = ErrorViewController(message: "You need to fill out the following information:\n\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")   // popup fixed
             present(vc, animated: true)
             resetButtonColor()
         } else {

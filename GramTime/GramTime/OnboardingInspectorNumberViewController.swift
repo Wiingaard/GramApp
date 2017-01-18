@@ -18,7 +18,7 @@ class OnboardingInspectorNumberViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
         } else {
-            let error = ErrorViewController(message: "Write supervisor number to continue", title: "Supervisor no. missing", buttonText: "Well okay then..") // popup fixed
+            let error = ErrorViewController(message: "Write supervisor number to continue", title: "Supervisor no. missing") // popup fixed
             present(error, animated: true, completion: nil)
         }
     }

@@ -14,6 +14,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyStateView: UIView!
+    @IBOutlet weak var splashExtenderView: UIView!
+    
     
     @IBAction func createNewAction(_ sender: AnyObject) {
         if let user = realm.objects(User.self).first {
@@ -84,6 +86,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.splashExtenderView.isHidden = true
+        }
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
         tableView.reloadData()

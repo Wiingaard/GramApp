@@ -123,9 +123,26 @@
                                     <constraint firstItem="kZB-4d-XWd" firstAttribute="centerX" secondItem="tif-aV-LkB" secondAttribute="centerX" id="vci-eW-14x"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-cO-yxk" userLabel="Splash Extender">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nFw-Sh-Jbm">
+                                        <rect key="frame" x="111" y="118.5" width="152" height="151"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="151" id="EB0-Rp-SXT"/>
+                                            <constraint firstAttribute="width" constant="152" id="b4H-zs-ImR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nFw-Sh-Jbm" firstAttribute="centerX" secondItem="bwy-cO-yxk" secondAttribute="centerX" id="iLr-zZ-XCf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KZh-is-Zwp" firstAttribute="top" secondItem="bwy-cO-yxk" secondAttribute="bottom" id="066-Vk-SSb"/>
                             <constraint firstItem="tif-aV-LkB" firstAttribute="bottom" secondItem="prV-he-eje" secondAttribute="bottom" id="4Xc-mh-1gL"/>
                             <constraint firstItem="tif-aV-LkB" firstAttribute="leading" secondItem="prV-he-eje" secondAttribute="leading" id="5fo-hw-k4H"/>
                             <constraint firstItem="z4d-ej-r6Y" firstAttribute="leading" secondItem="gt8-7I-VDz" secondAttribute="leadingMargin" id="D4c-e7-9Sm"/>
@@ -137,18 +154,23 @@
                             <constraint firstItem="b7x-f4-NMy" firstAttribute="trailing" secondItem="gt8-7I-VDz" secondAttribute="trailing" constant="-16" id="UU5-48-qC9"/>
                             <constraint firstAttribute="trailing" secondItem="prV-he-eje" secondAttribute="trailing" id="WfA-1b-sy9"/>
                             <constraint firstItem="44n-Ch-nMW" firstAttribute="top" secondItem="z4d-ej-r6Y" secondAttribute="bottom" constant="4" id="ZCA-e8-TdW"/>
+                            <constraint firstItem="nFw-Sh-Jbm" firstAttribute="bottom" secondItem="gt8-7I-VDz" secondAttribute="centerY" id="aoi-k4-NQT"/>
                             <constraint firstItem="44n-Ch-nMW" firstAttribute="leading" secondItem="gt8-7I-VDz" secondAttribute="leadingMargin" id="fcz-MC-eiL"/>
                             <constraint firstItem="lhM-u8-dTE" firstAttribute="top" secondItem="44n-Ch-nMW" secondAttribute="bottom" constant="20" id="iHZ-QQ-05u"/>
+                            <constraint firstItem="bwy-cO-yxk" firstAttribute="top" secondItem="eno-by-hcd" secondAttribute="bottom" id="nsk-nX-t59"/>
                             <constraint firstItem="prV-he-eje" firstAttribute="leading" secondItem="gt8-7I-VDz" secondAttribute="leading" id="q7G-2J-fa6"/>
                             <constraint firstItem="KZh-is-Zwp" firstAttribute="top" secondItem="prV-he-eje" secondAttribute="bottom" id="qjD-TY-z3V"/>
                             <constraint firstItem="tif-aV-LkB" firstAttribute="top" secondItem="prV-he-eje" secondAttribute="top" constant="74" id="srb-Hm-8H9"/>
                             <constraint firstItem="lhM-u8-dTE" firstAttribute="leading" secondItem="gt8-7I-VDz" secondAttribute="leadingMargin" id="t6v-da-Vcm"/>
+                            <constraint firstAttribute="trailing" secondItem="bwy-cO-yxk" secondAttribute="trailing" id="wk3-Jm-sbC"/>
+                            <constraint firstItem="bwy-cO-yxk" firstAttribute="leading" secondItem="gt8-7I-VDz" secondAttribute="leading" id="y21-Zr-RaV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="92V-Vy-bLp"/>
                     <connections>
                         <outlet property="dateLabel" destination="z4d-ej-r6Y" id="Yph-uk-ORQ"/>
                         <outlet property="emptyStateView" destination="tif-aV-LkB" id="Fzd-Gg-HNb"/>
+                        <outlet property="splashExtenderView" destination="bwy-cO-yxk" id="KlG-nA-NzA"/>
                         <outlet property="tableView" destination="prV-he-eje" id="WTr-eb-rlD"/>
                         <segue destination="kvr-6L-70E" kind="show" identifier="Weekly Report" id="Wj5-K0-PKt">
                             <nil key="action"/>
@@ -2475,6 +2497,7 @@ Worked</string>
         <image name="projectIcon" width="31" height="33"/>
         <image name="sendBtnGray" width="60" height="60"/>
         <image name="signIcon" width="36" height="24"/>
+        <image name="splashLogo" width="152" height="151"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Mze-Vz-SrD"/>
