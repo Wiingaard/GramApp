@@ -21,9 +21,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-Ev-fOD">
-                    <rect key="frame" x="128.5" y="382" width="119" height="29"/>
+                    <rect key="frame" x="124.5" y="382" width="126" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="Same as last week"/>
+                    <state key="normal" title="Same as last report"/>
                     <connections>
                         <action selector="sameButtonPressed:" destination="-1" eventType="touchUpInside" id="OF4-dP-kUy"/>
                     </connections>

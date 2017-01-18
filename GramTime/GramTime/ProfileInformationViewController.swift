@@ -64,7 +64,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     func deleteAllAction() {
         // FIXME: rewrite
         if !reportList.isEmpty {
-            let vc = OptionPopupViewController(message: "Are you sure you want to delete report and other stuff", title: "Confirm", delegate: self, returnWhenActionPressed: false)
+            let vc = OptionPopupViewController(message: "Are you sure you want to delete report and other stuff", title: "Confirm", delegate: self, withOption: 1, returnWhenActionPressed: false)
             present(vc, animated: true)
         }
     }
@@ -133,11 +133,14 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
+    var newInspectorNumber = -1
     func inputControllerDidFinish(withValue value: AnyObject, andInputType type: InputType) {
         if type == .numberInspector {
             let inspector = value as! Int
-            try! realm.write {
-                user.inspectorNumber = inspector
+            newInspectorNumber = inspector
+            if newInspectorNumber != user.inspectorNumber {
+                let vc = OptionPopupViewController(message: "Are you sure you want to change the supervisor number. You only have access to report from your own supervisor number", title: "Changing Supervison no", delegate: self, withOption: 2, returnWhenActionPressed: false)
+                present(vc, animated: true)
             }
         } else if type == .stringFullName {
             let name = value as! String
@@ -163,11 +166,29 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
 
 extension ProfileInformationViewController: OptionPopupViewControllerDelegate {
     func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) {
-        controller.dismiss(animated: true)
-        deleteAllReports()
+        
+        if option == 1 {    // delete all option
+            controller.dismiss(animated: true)
+            deleteAllReports()
+            
+        } else if option == 2 { // when changing inspector number
+            try! realm.write {
+                user.inspectorNumber = newInspectorNumber
+            }
+            tableView.reloadData()
+            controller.dismiss(animated: true, completion: { [weak self] in
+                _ = self?.navigationController?.popViewController(animated: true)
+            })
+        }
     }
     
     func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) {
-        controller.dismiss(animated: true)
+        if option == 1 {
+            controller.dismiss(animated: true)
+        } else if option == 2 {
+            controller.dismiss(animated: true, completion: { [weak self] in
+                _ = self?.navigationController?.popViewController(animated: true)
+            })
+        }
     }
 }

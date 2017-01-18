@@ -49,5 +49,4 @@ class StringInputViewController: UIViewController {
         delegate?.inputControllerDidFinish(withValue: inputValue as AnyObject, andInputType: inputType)
         _ = navigationController?.popViewController(animated: true)
     }
-    
 }

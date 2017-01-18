@@ -204,7 +204,9 @@ class WeeklyReportViewController: UIViewController {
         try! realm.write {
             report.customerSignName = ""
             report.customerSignature = nil
-            // FIXME: skal report.sentStatus = false ? hvis ja, skal de andre to sent status også være false måske?
+            report.sentStatus = false
+            report.officeReportWasSent = false
+            report.customerReportWasSent = false
         }
         updateSignButton()
     }

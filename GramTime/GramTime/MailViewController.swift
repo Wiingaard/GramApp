@@ -59,6 +59,10 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         updateSendButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        textField.becomeFirstResponder()
+    }
+    
     func updateSendButton() {
         switch sendTo! {
         case .customer:
@@ -189,7 +193,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let vc = ErrorViewController(message: "An error happend while sending the report. Please try again.", title: "Failed to sent report")
                 self?.present(vc, animated: true)
             case .saved:
-                let vc = ErrorViewController(message: "The E-mail was sent in the drafts folder in your mail application. If you choose to sent the mail from that application, then the report will not be marked as sent in this application", title: "E-mail saved")
+                let vc = ErrorViewController(message: "The E-mail was saved in the drafts folder in your mail application. If you choose to sent the mail from that application, then the report will not be marked as sent in this application", title: "E-mail saved")
                 self?.present(vc, animated: true)
             default: break
             }

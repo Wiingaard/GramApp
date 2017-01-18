@@ -497,7 +497,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail address" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Z06-4g-o5L">
-                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <rect key="frame" x="16" y="268.5" width="343" height="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -513,7 +513,7 @@
                             <constraint firstItem="Z06-4g-o5L" firstAttribute="trailing" secondItem="ldW-K0-oG0" secondAttribute="trailingMargin" id="Lac-n9-oOZ"/>
                             <constraint firstItem="Z06-4g-o5L" firstAttribute="leading" secondItem="ldW-K0-oG0" secondAttribute="leadingMargin" id="SNa-eM-eTn"/>
                             <constraint firstItem="Y7O-5I-pmq" firstAttribute="leading" secondItem="CZV-W1-zs6" secondAttribute="leading" id="UZJ-RH-tji"/>
-                            <constraint firstItem="Z06-4g-o5L" firstAttribute="centerY" secondItem="ldW-K0-oG0" secondAttribute="centerY" id="iMA-JQ-5Zq"/>
+                            <constraint firstItem="Z06-4g-o5L" firstAttribute="centerY" secondItem="ldW-K0-oG0" secondAttribute="centerY" constant="-50" id="iMA-JQ-5Zq"/>
                             <constraint firstItem="CZV-W1-zs6" firstAttribute="top" secondItem="XQE-EA-rvN" secondAttribute="bottom" constant="10" id="kMz-8h-qrY"/>
                             <constraint firstItem="Z06-4g-o5L" firstAttribute="centerX" secondItem="ldW-K0-oG0" secondAttribute="centerX" id="oWX-Ps-OHG"/>
                             <constraint firstItem="CZV-W1-zs6" firstAttribute="leading" secondItem="ldW-K0-oG0" secondAttribute="leading" constant="16" id="pQt-u9-uPW"/>
@@ -636,7 +636,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aG2-S2-SSk">
-                                <rect key="frame" x="16" y="319" width="343" height="30"/>
+                                <rect key="frame" x="16" y="268.5" width="343" height="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -649,7 +649,7 @@
                             <constraint firstItem="aG2-S2-SSk" firstAttribute="trailing" secondItem="pE3-kz-i0F" secondAttribute="trailingMargin" id="6CL-QM-APX"/>
                             <constraint firstItem="tkY-8f-EVH" firstAttribute="leading" secondItem="4Uo-60-tXd" secondAttribute="leading" id="I7p-X1-pxb"/>
                             <constraint firstAttribute="trailing" secondItem="4Uo-60-tXd" secondAttribute="trailing" constant="8" id="QS4-M3-anq"/>
-                            <constraint firstItem="aG2-S2-SSk" firstAttribute="centerY" secondItem="pE3-kz-i0F" secondAttribute="centerY" id="RT7-ph-iZO"/>
+                            <constraint firstItem="aG2-S2-SSk" firstAttribute="centerY" secondItem="pE3-kz-i0F" secondAttribute="centerY" constant="-50" id="RT7-ph-iZO"/>
                             <constraint firstItem="4Uo-60-tXd" firstAttribute="leading" secondItem="pE3-kz-i0F" secondAttribute="leading" constant="16" id="T13-CW-5iv"/>
                             <constraint firstAttribute="trailing" secondItem="tkY-8f-EVH" secondAttribute="trailing" id="q3D-ay-e07"/>
                             <constraint firstItem="tkY-8f-EVH" firstAttribute="top" secondItem="4Uo-60-tXd" secondAttribute="bottom" constant="8" id="rts-IP-XkG"/>
@@ -1536,7 +1536,7 @@ Worked</string>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Km. this week" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wd-cP-kVO">
-                                <rect key="frame" x="16" y="319" width="343" height="30"/>
+                                <rect key="frame" x="16" y="268.5" width="343" height="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -1549,7 +1549,7 @@ Worked</string>
                             <constraint firstItem="5oD-dY-afE" firstAttribute="top" secondItem="csh-jI-IXa" secondAttribute="bottom" constant="8" id="8KN-1G-oYy"/>
                             <constraint firstItem="5Wd-cP-kVO" firstAttribute="leading" secondItem="bcv-aR-QxN" secondAttribute="leadingMargin" id="D4i-kb-wgN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9XW-m3-8Qu" secondAttribute="trailing" constant="15" id="L1e-iS-ECM"/>
-                            <constraint firstItem="5Wd-cP-kVO" firstAttribute="centerY" secondItem="bcv-aR-QxN" secondAttribute="centerY" id="Nyr-ZD-dEP"/>
+                            <constraint firstItem="5Wd-cP-kVO" firstAttribute="centerY" secondItem="bcv-aR-QxN" secondAttribute="centerY" constant="-50" id="Nyr-ZD-dEP"/>
                             <constraint firstItem="5Wd-cP-kVO" firstAttribute="trailing" secondItem="bcv-aR-QxN" secondAttribute="trailingMargin" id="TfX-bb-7A0"/>
                             <constraint firstItem="9XW-m3-8Qu" firstAttribute="top" secondItem="MLS-XS-fWK" secondAttribute="bottom" constant="-2" id="Tvt-Rn-EfX"/>
                             <constraint firstItem="5Wd-cP-kVO" firstAttribute="centerX" secondItem="bcv-aR-QxN" secondAttribute="centerX" id="emZ-dG-iS0"/>

@@ -244,7 +244,7 @@ class WeekReport: Object {
     }
     
     func wasCreatedBy(_ user: User) -> Bool {
-        return inspectorName == user.fullName && inspectorNo == user.inspectorNumber
+        return inspectorNo == user.inspectorNumber
     }
     
     // MARK: - Wrapper validation

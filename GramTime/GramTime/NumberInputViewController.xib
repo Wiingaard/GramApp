@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-Le-RGd">
-                    <rect key="frame" x="16" y="318.5" width="343" height="30"/>
+                    <rect key="frame" x="16" y="268.5" width="343" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -28,7 +28,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dxE-Le-RGd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="FFf-Kg-RuU"/>
+                <constraint firstItem="dxE-Le-RGd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="FFf-Kg-RuU"/>
                 <constraint firstItem="dxE-Le-RGd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Va9-qG-7LC"/>
                 <constraint firstAttribute="trailing" secondItem="dxE-Le-RGd" secondAttribute="trailing" constant="16" id="f7T-Eu-8QN"/>
                 <constraint firstItem="dxE-Le-RGd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="gE7-G3-hSg"/>

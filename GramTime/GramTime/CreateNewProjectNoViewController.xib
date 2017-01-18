@@ -27,9 +27,9 @@
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoK-48-SZw">
-                    <rect key="frame" x="128" y="382" width="119" height="29"/>
+                    <rect key="frame" x="125" y="382" width="126" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="Same as last week"/>
+                    <state key="normal" title="Same as last report"/>
                     <connections>
                         <action selector="sameButtonAction:" destination="-1" eventType="touchUpInside" id="crl-9d-e0e"/>
                     </connections>
