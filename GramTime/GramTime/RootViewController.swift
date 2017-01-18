@@ -42,7 +42,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - Model
-    let realm = try! Realm()
+    var realm: Realm!
     var reportList: Results<WeekReport> {
         get {
 //            return realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false)
@@ -59,7 +59,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        realm = try! Realm()
         dateLabel.text = "\(time.weekdayString(of: Date()).uppercased()), \(time.dateString(of: Date()).uppercased()), WEEK \(String(time.weeknumber(forDate: Date())).uppercased())"
         
         // Setup TableView
