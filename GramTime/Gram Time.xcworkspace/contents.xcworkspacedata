@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Martin/Git/GramApp/GramTime/Gram Time.xcodeproj">
+      location = "group:Gram Time.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
