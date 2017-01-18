@@ -8,20 +8,21 @@
 
 import UIKit
 
-class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class EnumStringInputViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var subheaderLabel: UILabel!
     @IBOutlet weak var headerLabel: UILabel!
     
     @IBAction func confirmAction(_ sender: Any) {
-        let selectedValue = stringForSelectedRow()
+        let selectedValue = modelEnum.all[selected]
         delegate?.inputControllerDidFinish(withValue: selectedValue as AnyObject, andInputType: inputType)
         _ = navigationController?.popViewController(animated: true)
     }
     
     var modelEnum: AllEnum!
-    var selectedCase = 0
+    var selected = 0
+    
+    @IBOutlet weak var tableView: UITableView!
     
     // Instantiation
     static func instantiate(withDelegate delegate: InputControllerDelegate, header: String, subheader: String, modelEnum: AllEnum, inputType: InputType) -> EnumStringInputViewController {
@@ -36,7 +37,6 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
     var header: String!
     var subheader: String!
     
-    
     // Delegate
     weak var delegate: InputControllerDelegate?
     var inputType: InputType!
@@ -47,31 +47,41 @@ class EnumStringInputViewController: UIViewController, UIPickerViewDataSource, U
         headerLabel.text = header
         subheaderLabel.text = subheader
         
-        picker.delegate = self
-        picker.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         
-        var index = 0
+        let nib = UINib(nibName: "CheckmarkTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CheckmarkTableViewCell")
+        
         if let workType = modelEnum as? WorkType {
-            index = modelEnum.all.index(of: workType.rawValue) ?? 0
+            selected = modelEnum.all.index(of: workType.rawValue) ?? 0
         }
-        picker.selectRow(index, inComponent: 0, animated: false)
-        
     }
     
-    func stringForSelectedRow() -> String {
-        let index = picker.selectedRow(inComponent: 0)
-        return modelEnum.all[index]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return modelEnum.all.count
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return modelEnum.all[row]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return modelEnum.all.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckmarkTableViewCell") as! CheckmarkTableViewCell
+        if indexPath.row == selected {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        cell.titleLabel.text = modelEnum.all[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selected = indexPath.row
+        tableView.reloadData()
     }
 }

@@ -15,14 +15,17 @@ class CreateNewProjectNoViewController: UIViewController {
 
     @IBAction func sameButtonAction(_ sender: UIButton) {
         if let lastProjectNo = realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false).first?.projectNo {
-            projectNoTextField.text = String(lastProjectNo)
-            let newReport = weekReport!
-            newReport.projectNo = lastProjectNo
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
-                let customerVC = CreateNewCustomerViewController.instantiateViewController(with: newReport)
-                self?.show(customerVC, sender: nil)
-            })
+            if !mutexLocked {
+                mutexLocked = true
+                projectNoTextField.text = String(lastProjectNo)
+                let newReport = weekReport!
+                newReport.projectNo = lastProjectNo
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
+                    let customerVC = CreateNewCustomerViewController.instantiateViewController(with: newReport)
+                    self?.show(customerVC, sender: nil)
+                })
+            }
         } else {
             let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
             present(error, animated: true, completion: nil)
@@ -32,6 +35,7 @@ class CreateNewProjectNoViewController: UIViewController {
     // Model
     let realm = try! Realm()
     var weekReport: WeekReport!
+    var mutexLocked = false
     
     var inputValue: Int {
         get {
@@ -57,6 +61,10 @@ class CreateNewProjectNoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         projectNoTextField.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mutexLocked = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

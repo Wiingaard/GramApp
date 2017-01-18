@@ -16,7 +16,21 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var emptyStateView: UIView!
     
     @IBAction func createNewAction(_ sender: AnyObject) {
-        
+        if let user = realm.objects(User.self).first {
+            if user.validFullName() && user.validInspectorNumber() {
+                let vc = OptionPopupViewController(message: "You are about to create a new report for \"\(user.fullName)\" with supervisor number \"\(user.inspectorNumber)\"", title: "Create new report", delegate: self, returnWhenActionPressed: false)
+                present(vc, animated: true)
+            } else {
+                let vc = ErrorViewController(message: "You need to set a valid name and supervisor number in setting before creating a new report", title: "Info missing")
+                present(vc, animated: true)
+            }
+        } else {
+            let vc = ErrorViewController(message: "You can't create a new report without a user")
+            present(vc, animated: true)
+        }
+    }
+    
+    func createNewReport() {
         let createNewVC = CreateReportViewController(nibName: "CreateReportViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: createNewVC)
         // Setup Navigation controller
@@ -32,7 +46,12 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     var reportList: Results<WeekReport> {
         get {
 //            return realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false)
-            return realm.objects(WeekReport.self).sorted(byProperty: "weekNumber", ascending: false)
+            let list = realm.objects(WeekReport.self).sorted(byProperty: "weekNumber", ascending: false)
+            if let user = realm.objects(User.self).first {
+               return list.filter("inspectorNo == %@", user.inspectorNumber)
+            } else {
+                return list
+            }
         }
     }
     
@@ -128,7 +147,14 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "Weekly Report", sender: indexPath.row)
+        let report = reportList[indexPath.row]
+        let user = realm.objects(User.self).first!
+        if report.wasCreatedBy(user) {
+            performSegue(withIdentifier: "Weekly Report", sender: indexPath.row)
+        } else {
+            let vc = ErrorViewController(message: "This report was created by \(user.fullName). You can't access it with your current name and supervisor number", title: "No access to report")
+            present(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -156,5 +182,16 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
     }
+}
 
+extension RootViewController: OptionPopupViewControllerDelegate {
+    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true)
+    }
+    
+    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) {
+        controller.dismiss(animated: true) { [weak self] in
+            self?.createNewReport()
+        }
+    }
 }

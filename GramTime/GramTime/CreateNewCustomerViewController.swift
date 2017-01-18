@@ -15,16 +15,22 @@ class CreateNewCustomerViewController: UIViewController {
     
     @IBAction func sameButtonPressed(_ sender: UIButton) {
         if let lastCustomerName = realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false).first?.customerName {
-            customerTextField.text = lastCustomerName
-            weekReport.customerName = lastCustomerName
-            let newReport = weekReport!
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
-                try! self?.realm.write {
-                    self?.realm.add(newReport)
-                }
-                self?.dismiss(animated: true, completion: nil)
-            })
-            
+            if !mutexLocked {
+                customerTextField.text = lastCustomerName
+                weekReport.customerName = lastCustomerName
+                let newReport = weekReport!
+                // FIXME: Delete
+                for workday in newReport.workdays {
+                    workday.typeOfWork = WorkType.freezer.rawValue
+                    workday.hours = 2
+                }                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
+                    try! self?.realm.write {
+                        self?.realm.add(newReport)
+                    }
+                    self?.dismiss(animated: true, completion: nil)
+                })
+            }
         } else {
             let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
             present(error, animated: true, completion: nil)
@@ -34,6 +40,7 @@ class CreateNewCustomerViewController: UIViewController {
     // Model
     let realm = try! Realm()
     var weekReport: WeekReport!
+    var mutexLocked = false
     
     var inputValue: String {
         get {
@@ -60,6 +67,10 @@ class CreateNewCustomerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         customerTextField.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mutexLocked = false
     }
     
     func nextButtonPressed() {

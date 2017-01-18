@@ -20,6 +20,7 @@ class WeekReport: Object {
     dynamic var mondayInWeek = Date()
     dynamic var completedStatus = false
     dynamic var inspectorNo = -1
+    dynamic var inspectorName = ""
     
     // General
     dynamic var weekNumber = 0
@@ -52,11 +53,12 @@ class WeekReport: Object {
     dynamic var officeReportWasSent = false    
     
     // MARK: - Initializer
-    convenience init(withMonday monday: Date, inspectorNumber inspector: Int) {
+    convenience init(withMonday monday: Date, inspectorNumber inspector: Int, fullname name: String) {
         self.init()
         mondayInWeek = monday
         weekNumber = time.weeknumber(forDate: monday)
         inspectorNo = inspector
+        inspectorName = name
         reportID = "\(Int(createdDate.timeIntervalSince1970))"
         for dayIndex in 0...6 {
             let workday = Workday()
@@ -99,6 +101,16 @@ class WeekReport: Object {
             checkNumber = projectNo
         }
         return checkNumber > 0 ? true : false
+    }
+    
+    func validInspectorName(string: String? = nil) -> Bool {
+        let checkString: String!
+        if string != nil {
+            checkString = string
+        } else {
+            checkString = inspectorName
+        }
+        return !checkString.isEmpty
     }
     
     func validCustomerName(string: String? = nil) -> Bool {
@@ -229,6 +241,10 @@ class WeekReport: Object {
             checkString = customerEmail
         }
         return !checkString.isEmpty
+    }
+    
+    func wasCreatedBy(_ user: User) -> Bool {
+        return inspectorName == user.fullName && inspectorNo == user.inspectorNumber
     }
     
     // MARK: - Wrapper validation

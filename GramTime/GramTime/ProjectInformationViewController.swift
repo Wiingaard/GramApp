@@ -74,7 +74,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
                     let dateString = formatter.string(from: report.departure! as Date)
-                    let timeString = "\(doubleValueToMetricString(value: report.travelOut))h"
+                    let timeString = "\(doubleValueToMetricString(value: report.travelOut))"
                     cell.valueLabel.text = timeString + " hours - " + dateString
                 } else {
                     cell.valueLabel.text = ""
@@ -87,7 +87,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
                     let dateString = formatter.string(from: report.arrival! as Date)
-                    let timeString = "\(doubleValueToMetricString(value: report.travelHome))h"
+                    let timeString = "\(doubleValueToMetricString(value: report.travelHome))"
                     cell.valueLabel.text = timeString + " hours - " + dateString
                 } else {
                     cell.valueLabel.text = ""
@@ -169,7 +169,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
         let views = ["label": label]
         
         backgroundView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[label]->=8-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views))
-        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 10))
         backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.95)
         
         return backgroundView

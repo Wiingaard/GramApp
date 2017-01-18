@@ -18,7 +18,6 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
         deleteAllAction()
     }
     
-    
     // Model
     let realm = try! Realm()
     var user: User!

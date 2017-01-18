@@ -19,6 +19,7 @@
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S4j-HT-15A">
                         <rect key="frame" x="255" y="6" width="51" height="31"/>
+                        <color key="onTintColor" red="0.52549019610000003" green="0.76078431369999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXW-h3-HPJ">
                         <rect key="frame" x="16" y="11" width="45" height="21"/>

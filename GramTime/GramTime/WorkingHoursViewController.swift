@@ -245,7 +245,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         let views = ["label": label]
         
         backgroundView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[label]->=8-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views))
-        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        backgroundView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: backgroundView, attribute: .centerY, multiplier: 1, constant: 10))
         backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.95)
         
         return backgroundView
