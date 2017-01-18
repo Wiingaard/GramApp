@@ -30,7 +30,7 @@ class OnboardingNameViewController: UIViewController {
             navigationController?.pushViewController(onboardingNumberVC, animated: true)
             
         } else {
-            let error = ErrorViewController.init(message: "Ups...\nInsert your name in the text field")
+            let error = ErrorViewController(message: "Write your full name to continue", title: "Name missing", buttonText: "Well okay then..") // popup fixed
             present(error, animated: true, completion: nil)
         }
     }

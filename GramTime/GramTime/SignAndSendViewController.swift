@@ -23,8 +23,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         if sendButtonEnabled {
             performSegue(withIdentifier: "Show Send", sender: nil)
         } else {
-            // FIXME: Rewrite
-            let vc = ErrorViewController(message: "You need to sign the report before it can be sent, press \"Sign\" in top right corner", title: "Signature missing", buttonText: "ACCEPT")
+            let vc = ErrorViewController(message: "Sign the report before sending it\n\nPress Sign in top right corner to sign the report", title: "Can't send report", buttonText: "ACCEPT")   // popup fixed
             present(vc, animated: true)
         }
     }
@@ -140,7 +139,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func presentFileGenerationError() {
-        let vc = ErrorViewController(message: "An unexpected error happend when genepating report export files for E-mail. Try generating a new report for this week.")
+        let vc = ErrorViewController(message: "An unexpected error happend to this report. Try generating a new report for this week.\n\nMake sure Gram Office knows about this error! (error 1)")    // popup fixed
         present(vc, animated: true)
     }
     

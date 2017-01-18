@@ -178,9 +178,9 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func signPressed() {
-        // Warning: - Some warning
         if let errorMessages = checkReport().errorMessages {
-            let vc = ErrorViewController(message: errorMessages.joined(separator: "\n"), title: "Information needed", buttonText: "ACCEPT")
+            let joinedMessages = errorMessages.joined(separator: "\n")
+            let vc = ErrorViewController(message: "You need to fill out the following information:\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")   // popup fixed
             present(vc, animated: true)
             resetButtonColor()
         } else {
@@ -194,8 +194,7 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func showAlreadySentWarning(button: ButtonPressed) {
-        // FIXME: rewrite text
-        let vc = OptionPopupViewController(message: "This report was already sent. If you choose to continue, signatures on current report will be erased, and the repost will be marked as not sent yet. You can view this report in \"Sign & send\" without editing it", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)
+        let vc = OptionPopupViewController(message: "The customer’s signature will be deleted if you continue\n\nPress cancel and click on \"Sign & send\" if you want to view the report", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)   // popup fixed
         present(vc, animated: true)
         resetButtonColor()
     }
@@ -213,21 +212,20 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Validation
     func checkReport() -> (valid: Bool, errorMessages: [String]?) {
-        // FIXME: rewrite
         var returnMessages = [String]()
         if user.validInspectorNumber() == false {
-            returnMessages.append("No valid supervisor number: Set \"Supervisor no.\" in Settings")
+            returnMessages.append("\"Supervisor no.\" in Settings")
         }
         if user.validFullName() == false {
-            returnMessages.append("No valid Name: Set \"Full name\" in Settings")
+            returnMessages.append("\"Full name\" in Settings")
         }
         for workday in report.workdays {
             if workday.validWorkday() == false {
-                returnMessages.append("Working hours for all workdays must be valid")
+                returnMessages.append("Working hours")
                 break
             }
         }
-        let projectError = "Project Info in the \"Project\" view must be valid"
+        let projectError = "Project Info"
         if report.validCustomerName() == false {
             returnMessages.append(projectError)
         } else if report.validProjectNo() == false {

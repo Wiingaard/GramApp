@@ -67,7 +67,7 @@ class OptionPopupViewController: UIViewController {
         cancelButtonView.isUserInteractionEnabled = true
         acceptButtonView.isUserInteractionEnabled = true
         
-        chromeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ErrorViewController.chromeTapped))
+        chromeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OptionPopupViewController.chromeTapped))
         backgroundView.addGestureRecognizer(chromeTapGestureRecognizer)
         
         cancelButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OptionPopupViewController.cancelTapped))

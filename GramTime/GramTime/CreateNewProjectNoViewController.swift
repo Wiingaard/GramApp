@@ -27,8 +27,8 @@ class CreateNewProjectNoViewController: UIViewController {
                 })
             }
         } else {
-            let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
-            present(error, animated: true, completion: nil)
+            let vc = ErrorViewController(message: "You haven’t created any reports yet.\n\nFill out project number to continue.", title: "No reports found") // popup fixed
+            present(vc, animated: true, completion: nil)
         }
     }
     
@@ -78,8 +78,8 @@ class CreateNewProjectNoViewController: UIViewController {
             let customerVC = CreateNewCustomerViewController.instantiateViewController(with: weekReport)
             show(customerVC, sender: nil)
         } else {
-            let error = ErrorViewController.init(message: "Please fill out the project number and try again.")
-            present(error, animated: true, completion: nil)
+            let vc = ErrorViewController(message: "Write project number to continue", title: "Project number is missing") // popup fixed
+            present(vc, animated: true, completion: nil)
         }
     }
 

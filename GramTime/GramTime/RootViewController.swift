@@ -18,14 +18,14 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func createNewAction(_ sender: AnyObject) {
         if let user = realm.objects(User.self).first {
             if user.validFullName() && user.validInspectorNumber() {
-                let vc = OptionPopupViewController(message: "You are about to create a new report for \"\(user.fullName)\" with supervisor number \"\(user.inspectorNumber)\"", title: "Create new report", delegate: self, returnWhenActionPressed: false)
-                present(vc, animated: true)
+                let vc = OptionPopupViewController(message: "Create a new report for \"\(user.fullName)\" - \"\(user.inspectorNumber)\"", title: "Create new report", delegate: self, returnWhenActionPressed: false)
+                present(vc, animated: true) // popup fixed
             } else {
-                let vc = ErrorViewController(message: "You need to set a valid name and supervisor number in setting before creating a new report", title: "Info missing")
+                let vc = ErrorViewController(message: "Fill out your name and supervisor number in \"Settings\" to create a new report", title: "Infomation missing")   // popup fixed
                 present(vc, animated: true)
             }
         } else {
-            let vc = ErrorViewController(message: "You can't create a new report without a user")
+            let vc = ErrorViewController(message: "Restart the app. Double click home button > close \"Gram Time\" > Try again")   // popup fixed
             present(vc, animated: true)
         }
     }
@@ -135,8 +135,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
             do {
                 try reportToDelete.deleteReportFiles()
             } catch {
-                let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
-                present(vc, animated: true)
+                print("Unhandled error")
             }
             try! realm.write {
                 realm.delete(reportToDelete)
@@ -152,7 +151,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         if report.wasCreatedBy(user) {
             performSegue(withIdentifier: "Weekly Report", sender: indexPath.row)
         } else {
-            let vc = ErrorViewController(message: "This report was created by \(user.fullName). You can't access it with your current name and supervisor number", title: "No access to report")
+            let vc = ErrorViewController(message: "This report was created by \(user.fullName). You can't access it with your supervisor number", title: "No access") // popup fixed
             present(vc, animated: true)
         }
     }

@@ -19,11 +19,6 @@ class CreateNewCustomerViewController: UIViewController {
                 customerTextField.text = lastCustomerName
                 weekReport.customerName = lastCustomerName
                 let newReport = weekReport!
-                // FIXME: Delete
-                for workday in newReport.workdays {
-                    workday.typeOfWork = WorkType.freezer.rawValue
-                    workday.hours = 2
-                }                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
                     try! self?.realm.write {
                         self?.realm.add(newReport)
@@ -32,8 +27,8 @@ class CreateNewCustomerViewController: UIViewController {
                 })
             }
         } else {
-            let error = ErrorViewController.init(message: "Ups...\nThere done seem to be any last report")
-            present(error, animated: true, completion: nil)
+            let vc = ErrorViewController(message: "You haven’t created any reports yet.\n\nFill out customer name to continue.", title: "No reports found") // popup fixed
+            present(vc, animated: true, completion: nil)
         }
     }
     
@@ -82,8 +77,8 @@ class CreateNewCustomerViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
         } else {
-            let error = ErrorViewController.init(message: "Ups...\nPlease fill out the customer name and try again.")
-            present(error, animated: true, completion: nil)
+            let vc = ErrorViewController(message: "Write customer name to continue", title: "Customer name is missing") // popup fixed
+            present(vc, animated: true, completion: nil)
         }
     }
 

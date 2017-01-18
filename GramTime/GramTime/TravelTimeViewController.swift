@@ -17,10 +17,6 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var picker: UIPickerView!
     
     @IBAction func confirmAction(_ sender: Any) {
-        func showError() {
-            let error = ErrorViewController.init(message: "Ups...\nError")
-            present(error, animated: true, completion: nil)
-        }
         func popBack() {
             let allVCs = navigationController!.viewControllers
             for vc in allVCs {
@@ -43,8 +39,6 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
                 }
             }
             popBack()
-        } else {
-            showError()
         }
     }
     

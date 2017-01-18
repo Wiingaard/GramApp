@@ -18,8 +18,7 @@ class OnboardingInspectorNumberViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
         } else {
-            // FIXME: rewrite
-            let error = ErrorViewController.init(message: "Insert your supervisor number in the text field", title: "Holy Fuck.!", buttonText: "Well okay then..")
+            let error = ErrorViewController(message: "Write supervisor number to continue", title: "Supervisor no. missing", buttonText: "Well okay then..") // popup fixed
             present(error, animated: true, completion: nil)
         }
     }

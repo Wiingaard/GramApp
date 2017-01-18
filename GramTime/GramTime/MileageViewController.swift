@@ -51,8 +51,8 @@ class MileageViewController: UIViewController {
             let input = inputValue
             performSegue(withIdentifier: "Show Mileage Type", sender: input)
         } else {
-            let error = ErrorViewController.init(message: "Not a valid value")
-            present(error, animated: true, completion: nil)
+            let vc = ErrorViewController(message: "Fill out km. this week to continue", title: "Mileage is missing") // popup fixed
+            present(vc, animated: true, completion: nil)
         }
     }
     

@@ -43,8 +43,7 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
         case 1:
             handleAction(type: .holiday)
         default:
-            let error = ErrorViewController.init(message: "Ups...\nTError message")
-            present(error, animated: true, completion: nil)
+            break
         }
     }
     

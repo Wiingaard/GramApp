@@ -62,9 +62,8 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
     }
     
     func deleteAllAction() {
-        // FIXME: rewrite
         if !reportList.isEmpty {
-            let vc = OptionPopupViewController(message: "Are you sure you want to delete report and other stuff", title: "Confirm", delegate: self, withOption: 1, returnWhenActionPressed: false)
+            let vc = OptionPopupViewController(message: "Are you sure you want to remove all registred reports on the iPhone?", title: "Remove all reports", delegate: self, withOption: 1, returnWhenActionPressed: false) // popup fixed
             present(vc, animated: true)
         }
     }
@@ -74,9 +73,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
             do {
                 try report.deleteReportFiles()
             } catch {
-                // FIXME: delete
-                let vc = ErrorViewController(message: "An error happend while deleting the report. If you want to make sure that all files for this report is properly deleted, you need to reinstall the app.", title: "Delete export files", buttonText: "ACCEPT")
-                present(vc, animated: true)
+                print("Unhandled error")
             }
         }
         try! realm.write {
@@ -139,7 +136,7 @@ class ProfileInformationViewController: UIViewController, UITableViewDelegate, U
             let inspector = value as! Int
             newInspectorNumber = inspector
             if newInspectorNumber != user.inspectorNumber {
-                let vc = OptionPopupViewController(message: "Are you sure you want to change the supervisor number. You only have access to report from your own supervisor number", title: "Changing Supervison no", delegate: self, withOption: 2, returnWhenActionPressed: false)
+                let vc = OptionPopupViewController(message: "If you change the supervisor no. all reports for supervisor \"\(user.inspectorNumber)\" will be hidden", title: "New supervisor no", delegate: self, withOption: 2, returnWhenActionPressed: false)    // popup fixed
                 present(vc, animated: true)
             }
         } else if type == .stringFullName {
