@@ -41,57 +41,57 @@ class FileGenerator: NSObject {
     func generatePMFile() -> String {
         var returnString = ""
         
-        let titlesLine = "Medarbejder,Medarbejdernavn,Lønart,Lønart betegnelse,Enheder,Sats,Beløb,Tekst på lønseddel\n"
+        let titlesLine = "Medarbejder;Medarbejdernavn;Lønart;Lønart betegnelse;Enheder;Sats;Beløb;Tekst på lønseddel\n"
         switch user.inspectorType() {
         case 1:
             returnString = titlesLine
-            let firstLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "1200," +
-                "Maskinmestertillæg hverdag," +
-                "\(report.dailyFeesOnWorkdays())" +
-                "0,0,Maskinmestertillæg hverdag\n"
+            let firstLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "1200;" +
+                "Maskinmestertillæg hverdag;" +
+                "\(report.dailyFeesOnWorkdays());" +
+                "0;0;Maskinmestertillæg hverdag\n"
             returnString += firstLine
             
-            let secondLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "1205," +
-                "Maskinmestertillæg weekend," +
-                "\(report.dailyFeesOnWeekend())," +
-                "0,0,Maskinmestertillæg weekend\n"
+            let secondLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "1205;" +
+                "Maskinmestertillæg weekend;" +
+                "\(report.dailyFeesOnWeekend());" +
+                "0;0;Maskinmestertillæg weekend\n"
             returnString += secondLine
             
-            let thirdLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "1300," +
-                "Optjent afspadsering," +
-                "\(report.dailyFeesOnWeekend())," + "0,0,Optjent afspadsering\n"
+            let thirdLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "1300;" +
+                "Optjent afspadsering;" +
+                "\(report.dailyFeesOnWeekend());" + "0;0;Optjent afspadsering\n"
             returnString += thirdLine
             
         case 2:
             returnString = titlesLine
-            let firstLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "3010," +
-                "Timeløn Udlandsmontage," +
-                "\(doubleValueToMetricString(value: report.unitsFor9InspectorToPm()))," +
-                "0,0,Timeløn Udlandsmontage\n"
+            let firstLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "3010;" +
+                "Timeløn Udlandsmontage;" +
+                "\(doubleValueToMetricString(value: report.unitsFor9InspectorToPm()));" +
+                "0;0;Timeløn Udlandsmontage\n"
             returnString += firstLine
             
-            let secondLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "3015," +
-                "Maskinmestertillæg hverdage," +
-                "\(report.dailyFeesOnWorkdays())," +
-                "0,0,Maskinmestertillæg hverdage\n"
+            let secondLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "3015;" +
+                "Maskinmestertillæg hverdage;" +
+                "\(report.dailyFeesOnWorkdays());" +
+                "0;0;Maskinmestertillæg hverdage\n"
             returnString += secondLine
             
-            let thirdLine = "\(user.inspectorNumber)," +
-                user.fullName + "," +
-                "3016," +
-                "Maskinmestertillæg weekend," +
-                "\(report.dailyFeesOnWeekend())," +
-                "0,0,Maskinmestertillæg weekend\n"
+            let thirdLine = "\(user.inspectorNumber);" +
+                user.fullName + ";" +
+                "3016;" +
+                "Maskinmestertillæg weekend;" +
+                "\(report.dailyFeesOnWeekend());" +
+                "0;0;Maskinmestertillæg weekend\n"
             returnString += thirdLine
 
         default:
@@ -101,7 +101,7 @@ class FileGenerator: NSObject {
     }
     
     func generateNAVFile() -> String {
-        var returnString = "Dato,Lønnummer,Projektnummer,Hours max 10,Overtime over 10,Overtime sun/holiday,Traveltime,Total\n"
+        var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total\n"
         for workday in report.workdays {
             
             let hours: Double = workday.validHours() ? workday.hours : 0
@@ -124,13 +124,13 @@ class FileGenerator: NSObject {
             
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy"
-            var dayString = "\(formatter.string(from: workday.date)),"
-            dayString += "\(report.inspectorNo),"
-            dayString += "\(report.projectNo),"
-            dayString += "\(doubleValueToMetricString(value: hours)),"
-            dayString += "\(doubleValueToMetricString(value: overtime)),"
-            dayString += "\(doubleValueToMetricString(value: overtimeSunday)),"
-            dayString += "\(doubleValueToMetricString(value: travel)),"
+            var dayString = "\(formatter.string(from: workday.date));"
+            dayString += "\(report.inspectorNo);"
+            dayString += "\(report.projectNo);"
+            dayString += "\(doubleValueToMetricString(value: hours));"
+            dayString += "\(doubleValueToMetricString(value: overtime));"
+            dayString += "\(doubleValueToMetricString(value: overtimeSunday));"
+            dayString += "\(doubleValueToMetricString(value: travel));"
             dayString += "\(doubleValueToMetricString(value: total))\n"
             returnString += dayString
         }

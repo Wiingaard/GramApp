@@ -101,7 +101,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         pm: if let pm = files["lessorPM"] as? String {
 //            print(pm)
             guard report.validPMFile(string: pm) else { break pm }
-            let data = pm.data(using: .utf16, allowLossyConversion: false)
+            let data = pm.data(using: .windowsCP1252, allowLossyConversion: false)   // <- Here
             let csvName = "\(user.fullName) - Week \(report.weekNumber) - PM.csv"
             let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(csvName)
             
@@ -120,7 +120,7 @@ class SignAndSendViewController: UIViewController, UIScrollViewDelegate {
         
         nav: if let nav = files["lessorNAV"] as? String {
 //            print(nav)
-            let data = nav.data(using: .utf16, allowLossyConversion: false)
+            let data = nav.data(using: .windowsCP1252, allowLossyConversion: false)
             let csvName = "\(user.fullName) - Week \(report.weekNumber) - NAV.csv"
             let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(csvName)
             
