@@ -29,7 +29,9 @@ class FileGenerator: NSObject {
         let pdfView = PDFView(frame: CGRect.zero).instantiate()
         pdfView.setupView(sheet: sheetImage)
         let pdf = renderPDF(viewForrendering: view, fromView: pdfView)
-                
+        
+        print(generatePMFile())
+        
         returnData["lessorNAV"] = generateNAVFile()
         returnData["lessorPM"] = generatePMFile()
         returnData["PDF"] = pdf
@@ -74,7 +76,7 @@ class FileGenerator: NSObject {
                 user.fullName + ";" +
                 "3010;" +
                 "Timeløn Udlandsmontage;" +
-                "\(doubleValueToMetricString(value: report.unitsFor9InspectorToPm()));" +
+                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()));" +
                 "0;0;Timeløn Udlandsmontage\n"
             returnString += firstLine
             
@@ -108,16 +110,20 @@ class FileGenerator: NSObject {
             let overtime: Double = workday.overtimeType == OvertimeType.normal.rawValue ? workday.overtime : 0
             let overtimeSunday: Double = workday.overtimeType == OvertimeType.holiday.rawValue ? workday.overtime : 0
             var travel: Double = 0
-            if let departureDate = report.departure as? Date {
-                let result = time.calendar.compare(departureDate, to: workday.date, toGranularity: .day)
+            
+            let departureDates = report.travelTimesfor(type: .out)
+            for departure in departureDates {
+                let result = time.calendar.compare(departure.date as Date, to: workday.date, toGranularity: .day)
                 if result == .orderedSame {
-                    travel = report.validTravelTime(travelType: .out) ? report.travelOut : 0
+                    travel += departure.duration
                 }
             }
-            if let arrivalDate = report.arrival as? Date {
-                let result = time.calendar.compare(arrivalDate, to: workday.date, toGranularity: .day)
+            
+            let arrivalDates = report.travelTimesfor(type: .home)
+            for arrival in arrivalDates {
+                let result = time.calendar.compare(arrival.date as Date, to: workday.date, toGranularity: .day)
                 if result == .orderedSame {
-                    travel += report.validTravelTime(travelType: .home) ? report.travelHome : 0
+                    travel += arrival.duration
                 }
             }
             let total = hours + overtime + overtimeSunday + travel

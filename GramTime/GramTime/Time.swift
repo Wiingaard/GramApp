@@ -12,13 +12,27 @@ import Foundation
 class Time: NSObject {
     
     let locale: Locale = Locale(identifier: "da_DK")
+    let danishTimezone = TimeZone(identifier: "Europe/Copenhagen")!
     
     let calendar: Calendar = {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale(identifier: "da_DK")
-//        calendar.minimumDaysInFirstWeek = 4
+        calendar.timeZone = TimeZone(identifier: "Europe/Copenhagen")!
         return calendar
     }()
+    
+    func currentTimezoneDifferenceToDanish(at date: Date = Date()) -> Int {
+        let danishDifference = danishTimezone.secondsFromGMT(for: date)
+        let currentTimezoneDiffernece = TimeZone.current.secondsFromGMT(for: date)
+        return currentTimezoneDiffernece - danishDifference
+    }
+    
+    func adjustedToDanishTime(_ date: NSDate) -> NSDate {
+        let danishDifference = danishTimezone.secondsFromGMT(for: date as Date)
+        let currentTimezoneDiffernece = TimeZone.current.secondsFromGMT(for: date as Date)
+        let difference = currentTimezoneDiffernece - danishDifference
+        return date.addingTimeInterval(TimeInterval(difference))
+    }
     
     func weeknumber(forDate date: Date) -> Int {
         return calendar.component(.weekOfYear, from: date)
@@ -35,6 +49,7 @@ class Time: NSObject {
     func dateString(of date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
+        formatter.timeZone = danishTimezone
         let month = formatter.string(from: date)
         let dayOfMonth = calendar.component(.day, from: date)
         let daySuffix: String!
@@ -49,18 +64,21 @@ class Time: NSObject {
 
     func month(for date: Date) -> String {
         let formatter = DateFormatter()
+        formatter.timeZone = danishTimezone
         formatter.dateFormat = "MMMM"       // Skriver "October"
         return formatter.string(from: date)
     }
     
     func weekdayString(of date: Date) -> String {
         let formatter = DateFormatter()
+        formatter.timeZone = danishTimezone
         formatter.dateFormat = "EEEE"       // skriver "Monday"
         return formatter.string(from: date)
     }
     
     func weekdayType(of date: Date) -> DayType {
         let formatter = DateFormatter()
+        formatter.timeZone = danishTimezone
         formatter.dateFormat = "e"      // day number in week
         formatter.locale = self.locale
         let localeDayInt = Int(formatter.string(from: date))!
@@ -97,7 +115,8 @@ class Time: NSObject {
         var comp = DateComponents()
         comp.yearForWeekOfYear = year
         comp.weekOfYear = week
-        comp.hour = 12          // Set fixed hour to minimize risk of timezone errors
+        comp.minute = 0
+        comp.hour = 0          // Set fixed hour to minimize risk of timezone errors
         comp.weekday = 2        // First weekday is sunday, so monday is 2
         return calendar.date(from: comp)
     }
@@ -108,7 +127,8 @@ class Time: NSObject {
     
     func latestMonday(since date: Date) -> Date {
         var comp = calendar.dateComponents([.weekday, .weekOfYear, .yearForWeekOfYear, .hour, .year, .month,], from: date)
-        comp.hour = 12          // Set fixed hour to minimize risk of timezone errors
+        comp.minute = 0
+        comp.hour = 0          // Set fixed hour to minimize risk of timezone errors
         comp.weekday = 2        // First weekday is sunday, so monday is 2
         return calendar.date(from: comp)!
     }
@@ -116,3 +136,11 @@ class Time: NSObject {
 }
 
 let time = Time()
+
+enum TimeError: String {
+    case noError = ""
+    case noTimeEarly
+    case noTimeLate
+    case cuttingTimeEarly
+    case cuttingTimeLate
+}

@@ -91,8 +91,6 @@ class HalfHourInputViewController: UIViewController, UIPickerViewDelegate, UIPic
         if getSelectedHoursValue() == Double(maxHours) + 0.5  {
             pickerView.selectRow(0, inComponent: 1, animated: true)
         }
-        
-        print("hours: \(getSelectedHoursValue())")
     }
     
     func getSelectedHoursValue() -> Double {

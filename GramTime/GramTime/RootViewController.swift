@@ -18,6 +18,23 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func createNewAction(_ sender: AnyObject) {
+        
+        
+//        let midnight = Date(timeIntervalSince1970: TimeInterval(1490630220 + 3*60 + 6*60*60))
+//        
+//        let adjusted = midnight.addingTimeInterval(2 * 24 * 60 * 60)
+//        print(adjusted)
+//        
+//        let monday = time.latestMonday(since: adjusted)
+//        print(monday)
+//        
+//        let currentLatestMonday = time.latestMonday(since: Date())
+//        print(currentLatestMonday)
+//        
+//        print(Calendar.current)
+//        print(Locale.current)
+        
+        
         if let user = realm.objects(User.self).first {
             if user.validFullName() && user.validInspectorNumber() {
                 let vc = OptionPopupViewController(message: "Create a new report for \"\(user.fullName)\" - \"\(user.inspectorNumber)\"", title: "Create new report", delegate: self, returnWhenActionPressed: false)

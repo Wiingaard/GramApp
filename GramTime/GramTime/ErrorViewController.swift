@@ -77,6 +77,9 @@ class ErrorViewController: UIViewController {
     }
     
     func chromeTapped() {
-        dismiss(animated: true, completion: nil)
+        delegate?.errorViewControllerActionPressed(self, withOption: option)
+        if delegate == nil {
+            dismiss(animated: true)
+        }
     }
 }

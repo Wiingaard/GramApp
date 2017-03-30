@@ -122,7 +122,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
             default:
                 let numberInputViewController = NumberInputViewController(nibName: "NumberInputViewController", bundle: nil)
                 numberInputViewController.delegate = self
-                numberInputViewController.placeholder = "Order No."
+                numberInputViewController.placeholder = "Project No."
                 numberInputViewController.inputType = InputType.numberProject
                 numberInputViewController.initialInputValue = report.validProjectNo() ? report.projectNo : nil
                 navigationController?.pushViewController(numberInputViewController, animated: true)

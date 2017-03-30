@@ -16,15 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {
+                if oldSchemaVersion < 1 {
                     migration.enumerateObjects(ofType: WeekReport.className()) { oldObject, newObject in
                         newObject!["inspectorName"] = ""
                     }
                 }
+                if oldSchemaVersion < 2 {
+                    migration.enumerateObjects(ofType: WeekReport.className(), { oldObject, newObject in
+                        newObject!["homeTimeDifference"] = 0
+                        newObject!["outTimeDifference"] = 0
+                    })
+                }
         })
-        
         return true
     }
 

@@ -105,8 +105,8 @@ enum WorkType: String, AllEnum {
 }
 
 enum TravelType: String, AllEnum {
-    case out = "Travel out"
-    case home = "Travel home"
+    case out = "Travel out"     // departure
+    case home = "Travel home"   // Arrival
     
     var all: [String] {
         return [TravelType.out.rawValue, TravelType.home.rawValue]

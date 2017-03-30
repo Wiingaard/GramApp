@@ -36,6 +36,8 @@ class WeekReport: Object {
     dynamic var arrival: NSDate? = nil
     dynamic var travelHome = -1.0
     dynamic var travelOut = -1.0
+    dynamic var homeTimeDifference = 0
+    dynamic var outTimeDifference = 0
     dynamic var mileage = -1
     dynamic var carType = ""
     
@@ -177,6 +179,33 @@ class WeekReport: Object {
         }
     }
     
+    func timeWithinWeek(date: NSDate, duration: Double) -> (date: NSDate, duration: Double, error: TimeError) {
+        let beginDate = (date as Date)
+        let endDate = (date as Date).addingTimeInterval(TimeInterval(60*60*duration))
+        var validDuration = duration
+        
+        if endDate.compare(mondayInWeek) == .orderedAscending {
+            return (NSDate(), Double(), TimeError.noTimeEarly)
+        }
+        
+        let weekEnd = mondayInWeek.addingTimeInterval(60*60*24*7)
+        if beginDate.compare(weekEnd) == .orderedDescending {
+            return (NSDate(), Double(), TimeError.noTimeLate)
+        }
+        
+        if beginDate.compare(mondayInWeek) == .orderedAscending {
+            validDuration = endDate.timeIntervalSince(mondayInWeek).timeIntervalRoundedToHalfHours()
+            return (mondayInWeek as NSDate, validDuration, TimeError.cuttingTimeEarly)
+        }
+        
+        if endDate.compare(weekEnd) == .orderedDescending {
+            validDuration = weekEnd.timeIntervalSince(beginDate).timeIntervalRoundedToHalfHours()
+            return (beginDate as NSDate, validDuration, TimeError.cuttingTimeLate)
+        }
+        
+        return (date, duration, TimeError.noError)
+    }
+    
     // MARK: - Sign & Send validation
     func validCustomerSignName(string: String? = nil) -> Bool {
         let checkString: String!
@@ -275,6 +304,43 @@ class WeekReport: Object {
         }
     }
     
+    func travelTimesfor(type: TravelType) -> [(date: NSDate, duration: Double)] {
+        let beginDate: Date!
+        let duration: Double!
+        switch type {
+        case .home:
+            guard let arrival = arrival as? Date else { return [] }
+            beginDate = arrival
+            duration = travelHome
+        case .out:
+            guard let departure = departure as? Date else { return [] }
+            beginDate = departure
+            duration = travelOut
+        }
+        
+        let endDate = beginDate.addingTimeInterval(TimeInterval(duration * 60 * 60))
+        var nextDate: Date = beginDate
+        
+        var returnValue = [(NSDate,Double)]()
+        
+        while nextDate.timeIntervalSince1970 < endDate.upcommingMidnight().timeIntervalSince1970 {
+//            print("\n\(nextDate))")
+            defer { nextDate = nextDate.upcommingMidnight() }
+            
+            let timeToEnd: Double!
+            if nextDate.upcommingMidnight().timeIntervalSince1970 > endDate.timeIntervalSince1970 {
+                timeToEnd = endDate.timeIntervalSince(nextDate) as Double
+            } else {
+                timeToEnd = nextDate.upcommingMidnight().timeIntervalSince(nextDate) as Double
+            }
+            
+            let dateTimeTruple = (nextDate as NSDate, timeToEnd.timeIntervalRoundedToHalfHours())
+            returnValue.append(dateTimeTruple)
+        }
+        
+        return returnValue
+    }
+    
     func dailyFeesOnWeekend() -> Int {
         return workdays.reduce(0) { result, workday in
             if workday.weekday > 4 {
@@ -285,43 +351,48 @@ class WeekReport: Object {
         }
     }
     
-    func unitsFor9InspectorToPm() -> Double {
+    func unitsFor2InspectorToPm() -> Double {
         let hours = workdays.reduce(0.0) { result, workday in
             if workday.weekday < 5 {
+                print("did add")
                 return workday.hours > 0 ? result + 10 : result
             } else {
                 return workday.hours > 0 ? result + min(workday.hours, 8) : result
             }
         }
-        var departureSum = 0.0
-        if let departureDate = departure as? Date {
-            for workday in workdays {
-                let currentDate = workday.date
-                let result = time.calendar.compare(departureDate, to: currentDate, toGranularity: .day)
+        var travelSum = 0.0
+        let departureDates = travelTimesfor(type: .out)
+        let arrivalDates = travelTimesfor(type: .home)
+        for workday in workdays {
+            var didCountDay = false
+            for departure in departureDates {
+                let result = time.calendar.compare(departure.date as Date, to: workday.date, toGranularity: .day)
                 if result == .orderedSame {
                     if workday.weekday < 5 {
-                        departureSum += travelOut > 0 ? 10 : 0
+                        print("did add departure: \(workday.date)")
+                        travelSum += departure.duration > 0 ? 10 : 0
                     } else {
-                        departureSum += travelOut > 0 ? min(travelOut, 8) : 0
+                        print("did add departure weekday: \(workday.date)")
+                        travelSum += departure.duration > 0 ? min(departure.duration, 8) : 0
                     }
-                    
+                    didCountDay = true
+                }
+            }
+            guard didCountDay == false else { continue }
+            for arrival in arrivalDates {
+                let result = time.calendar.compare(arrival.date as Date, to: workday.date, toGranularity: .day)
+                if result == .orderedSame {
+                    if workday.weekday < 5 {
+                        print("did add arrival: \(workday.date)")
+                        travelSum += arrival.duration > 0 ? 10 : 0
+                    } else {
+                        print("did add arrival weekend: \(workday.date)")
+                        travelSum += arrival.duration > 0 ? min(arrival.duration, 8) : 0
+                    }
+                    didCountDay = true
                 }
             }
         }
-        var arrivalSum = 0.0
-        if let arrivalDate = arrival as? Date {
-            for workday in workdays {
-                let currentDate = workday.date
-                let result = time.calendar.compare(arrivalDate, to: currentDate, toGranularity: .day)
-                if result == .orderedSame {
-                    if workday.weekday < 5 {
-                        arrivalSum += travelHome > 0 ? 10 : 0
-                    } else {
-                        arrivalSum += travelHome > 0 ? min(travelHome, 8) : 0
-                    }
-                }
-            }
-        }
-        return hours + departureSum + arrivalSum
+        return hours + travelSum
     }
 }

@@ -160,17 +160,17 @@ class SheetView: UIView {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM-yyyy"
-        if report.validDeparture() {
-            if let departureDate = report.departure as? Date {
-                departure.text = formatter.string(from: departureDate)
-            } else { departure.text = "" }
-        } else { departure.text = "" }
+        if let departureDate = report.departure as? Date {
+            departure.text = formatter.string(from: departureDate)
+        } else {
+            departure.text = ""
+        }
         
-        if report.validArrival() {
-            if let arrivalDate = report.arrival as? Date {
-                arrival.text = formatter.string(from: arrivalDate)
-            } else { arrival.text = "" }
-        } else { arrival.text = "" }
+        if let arrivalDate = report.arrival as? Date {
+            arrival.text = formatter.string(from: arrivalDate)
+        } else {
+            arrival.text = ""
+        }
         
         completed.text = report.completedStatus ? "Yes" : "No"
         supervisorName.text = user.fullName
@@ -229,24 +229,30 @@ class SheetView: UIView {
             }
             for out in outs {
                 if out.tag == index {
-                    if let departureDate = report.departure as? Date {
-                        let currentDate = workday.date
-                        let result = time.calendar.compare(departureDate, to: currentDate, toGranularity: .day)
+                    let travelDates = report.travelTimesfor(type: .out)
+                    for travelDay in travelDates {
+                        let result = time.calendar.compare(travelDay.date as Date, to: workday.date, toGranularity: .day)
                         if result == .orderedSame {
-                            out.text = report.validTravelTime(travelType: .out) ? doubleValueToMetricString(value: report.travelOut) : ""
-                        } else { out.text = "" }
-                    } else { out.text = "" }
+                            out.text = "\(travelDay.duration)"
+                            break
+                        } else {
+                            out.text = ""
+                        }
+                    }
                 }
             }
             for home in homes {
                 if home.tag == index {
-                    if let arrivalDate = report.arrival as? Date {
-                        let currentDate = workday.date
-                        let retult = time.calendar.compare(arrivalDate, to: currentDate, toGranularity: .day)
-                        if retult == .orderedSame {
-                            home.text = report.validTravelTime(travelType: .home) ? doubleValueToMetricString(value: report.travelHome) : ""
-                        } else { home.text = "" }
-                    } else { home.text = "" }
+                    let travelDates = report.travelTimesfor(type: .home)
+                    for travelDay in travelDates {
+                        let result = time.calendar.compare(travelDay.date as Date, to: workday.date, toGranularity: .day)
+                        if result == .orderedSame {
+                            home.text = "\(travelDay.duration)"
+                            break
+                        } else {
+                            home.text = ""
+                        }
+                    }
                 }
             }
             for type in types {

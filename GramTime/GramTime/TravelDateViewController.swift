@@ -13,7 +13,11 @@ class TravelDateViewController: UIViewController {
 
     @IBOutlet weak var subheader: UILabel!
     @IBOutlet weak var header: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker! {
+        didSet {
+            datePicker.timeZone = time.danishTimezone
+        }
+    }
     @IBOutlet weak var travelTypeLabel: UILabel!
     
     @IBAction func clearAction(_ sender: Any) {
@@ -34,9 +38,8 @@ class TravelDateViewController: UIViewController {
     
     @IBAction func nextAction(_ sender: Any) {
         if report.validTravelDate(travelType: travelType, travelDate: inputValue) {
-            let input = inputValue
-            performSegue(withIdentifier: "Show Travel Time", sender: input)
-        } 
+            performSegue(withIdentifier: "Show Travel Time", sender: inputValue)
+        }
     }
     
     // Model

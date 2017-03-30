@@ -17,28 +17,68 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var picker: UIPickerView!
     
     @IBAction func confirmAction(_ sender: Any) {
-        func popBack() {
-            let allVCs = navigationController!.viewControllers
-            for vc in allVCs {
-                if vc.isKind(of: ProjectInformationViewController.self) {
-                    _ = navigationController?.popToViewController(vc, animated: true)
-                }
+        
+        let result = report.timeWithinWeek(date: travelDate, duration: getSelectedHoursValue())
+        
+//        print("Timezone hours: \(Double(TimeZone.current.secondsFromGMT()) / 3600)")
+//        print(result)
+        
+        if result.error == .noError {
+            writeTravel(type: travelType, date: result.date, duration: result.duration)
+            popBack()
+        } else {
+            let message: String
+            switch result.error {
+            case .cuttingTimeEarly,.cuttingTimeLate:
+                message = "Cutting duration and setting date"
+                writeTravel(type: travelType, date: result.date, duration: result.duration)
+            case .noTimeEarly, .noTimeLate:
+                message = "Travel out of week, no time will be registered"
+                resetTravel(type: travelType)
+            default:
+                message = ""; break
+            }
+            let vc = ErrorViewController(message: message , title: "Warning", buttonText: "OK", delegate: self)
+            present(vc, animated: true)
+        }
+    }
+    
+    func writeTravel(type: TravelType, date: NSDate, duration: Double) {
+        switch type {
+        case .out:
+            try! realm.write {
+                report.travelOut = duration
+                report.departure = date
+            }
+        case .home:
+            try! realm.write {
+                report.travelHome = duration
+                report.arrival = date
             }
         }
-        if report.validTravelTime(travelType: travelType, travelTime: getSelectedHoursValue()) {
-            switch travelType! {
-            case .out:
-                try! realm.write {
-                    report.travelOut = self.getSelectedHoursValue()
-                    report.departure = self.travelDate
-                }
-            case .home:
-                try! realm.write {
-                    report.travelHome = self.getSelectedHoursValue()
-                    report.arrival = self.travelDate
-                }
+    }
+    
+    func resetTravel(type: TravelType) {
+        switch type {
+        case .out:
+            try! realm.write {
+                report.travelOut = -1
+                report.departure = nil
             }
-            popBack()
+        case .home:
+            try! realm.write {
+                report.travelHome = -1
+                report.arrival = nil
+            }
+        }
+    }
+    
+    func popBack() {
+        let allVCs = navigationController!.viewControllers
+        for vc in allVCs {
+            if vc.isKind(of: ProjectInformationViewController.self) {
+                _ = navigationController?.popToViewController(vc, animated: true)
+            }
         }
     }
     
@@ -120,5 +160,13 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         picker.selectRow(hours, inComponent: 0, animated: true)
         picker.selectRow(half, inComponent: 1, animated: true)
+    }
+}
+
+extension TravelTimeViewController: ErrorViewControllerDelegate {
+    func errorViewControllerActionPressed(_ errorViewController: ErrorViewController, withOption option: Int?) {
+        errorViewController.dismiss(animated: true) { [weak self] in
+            self?.popBack()
+        }
     }
 }

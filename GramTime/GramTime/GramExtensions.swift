@@ -48,3 +48,28 @@ extension UIImage {
     }
 }
 
+extension Double {
+    func timeIntervalRoundedToHalfHours() -> Double {
+        let seconds = Int(self)
+        let secondsInHalfHour = 30*60
+        let secondsInQuater = 15*60
+        let halfHours = seconds/secondsInHalfHour
+        if seconds % secondsInHalfHour < secondsInQuater {
+            return Double(halfHours) / 2
+        } else {
+            return Double(halfHours+1) / 2
+        }
+    }
+}
+
+extension Date {
+    func upcommingMidnight() -> Date {
+        let calendar = time.calendar
+        let components = calendar.dateComponents([.day, .month, .year], from: self)
+        let roundedDate = calendar.date(from: components)
+        let nextMidnight = calendar.date(byAdding: .day, value: 1, to: roundedDate!)!
+//        print("self: \(self), rounded: \(roundedDate!), next: \(nextMidnight)")
+        return nextMidnight
+    }
+}
+
