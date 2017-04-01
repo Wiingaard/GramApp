@@ -97,7 +97,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
             if report.workdays[index].validWorkday() {
                 imageView.image = UIImage(named: "GreenIcon")
             } else {
-                imageView.image = UIImage(named: "RedIcon")
+                imageView.image = UIImage()
             }
         }
     }
@@ -113,12 +113,12 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
             case 0:
                 cell.nameLabel.text = "Type of work"
                 cell.valueLabel.text = currentWorkday.validTypeOfWork() ? currentWorkday.typeOfWork : ""
-                cell.statusImage(shouldShowGreen: currentWorkday.validTypeOfWork())
+                cell.statusImage(greenOrNothing: currentWorkday.validTypeOfWork())
                 
             case 1:
                 cell.nameLabel.text = "Normal Hours"
                 cell.valueLabel.text = currentWorkday.validHours() ? "\(doubleValueToMetricString(value: currentWorkday.hours))" : ""
-                cell.statusImage(shouldShowGreen: currentWorkday.validHours())
+                cell.statusImage(greenOrNothing: currentWorkday.validHours())
                 
             default:
                 fatalError("Default case isn't allowed")

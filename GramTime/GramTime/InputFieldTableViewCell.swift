@@ -27,4 +27,12 @@ class InputFieldTableViewCell: UITableViewCell {
             statusImageView.image = UIImage(named: "RedIcon")
         }
     }
+    
+    func statusImage(greenOrNothing green: Bool) {
+        if green {
+            statusImageView.image = UIImage(named: "GreenIcon")
+        } else {
+            statusImageView.image = UIImage()
+        }
+    }
 }

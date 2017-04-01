@@ -219,12 +219,6 @@ class WeeklyReportViewController: UIViewController {
         if user.validFullName() == false {
             returnMessages.append("\"Full name\" in Settings")
         }
-        for workday in report.workdays {
-            if workday.validWorkday() == false {
-                returnMessages.append("Working hours")
-                break
-            }
-        }
         let projectError = "Project Info"
         if report.validCustomerName() == false {
             returnMessages.append(projectError)
