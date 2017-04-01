@@ -30,8 +30,6 @@ class FileGenerator: NSObject {
         pdfView.setupView(sheet: sheetImage)
         let pdf = renderPDF(viewForrendering: view, fromView: pdfView)
         
-        print(generatePMFile())
-        
         returnData["lessorNAV"] = generateNAVFile()
         returnData["lessorPM"] = generatePMFile()
         returnData["PDF"] = pdf

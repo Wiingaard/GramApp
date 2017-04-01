@@ -354,7 +354,6 @@ class WeekReport: Object {
     func unitsFor2InspectorToPm() -> Double {
         let hours = workdays.reduce(0.0) { result, workday in
             if workday.weekday < 5 {
-                print("did add")
                 return workday.hours > 0 ? result + 10 : result
             } else {
                 return workday.hours > 0 ? result + min(workday.hours, 8) : result
@@ -369,10 +368,8 @@ class WeekReport: Object {
                 let result = time.calendar.compare(departure.date as Date, to: workday.date, toGranularity: .day)
                 if result == .orderedSame {
                     if workday.weekday < 5 {
-                        print("did add departure: \(workday.date)")
                         travelSum += departure.duration > 0 ? 10 : 0
                     } else {
-                        print("did add departure weekday: \(workday.date)")
                         travelSum += departure.duration > 0 ? min(departure.duration, 8) : 0
                     }
                     didCountDay = true
@@ -383,10 +380,8 @@ class WeekReport: Object {
                 let result = time.calendar.compare(arrival.date as Date, to: workday.date, toGranularity: .day)
                 if result == .orderedSame {
                     if workday.weekday < 5 {
-                        print("did add arrival: \(workday.date)")
                         travelSum += arrival.duration > 0 ? 10 : 0
                     } else {
-                        print("did add arrival weekend: \(workday.date)")
                         travelSum += arrival.duration > 0 ? min(arrival.duration, 8) : 0
                     }
                     didCountDay = true
