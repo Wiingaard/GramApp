@@ -129,7 +129,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 do {
                     let url = URL(string: report.navFilePath)!
                     let navData = try Data(contentsOf: url)
-                    mailComposerVC.addAttachmentData(navData, mimeType: "csv", fileName: "Week \(report.weekNumber) - \(user.fullName) - NAV.csv")
+                    mailComposerVC.addAttachmentData(navData, mimeType: "csv", fileName: "NAV \(Int(Date().timeIntervalSince1970)).csv")
                 } catch let error {
                     print("Error in NAV Attachment: \(error)")
                     return nil
@@ -140,7 +140,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 do {
                     let url = URL(string: report.pmFilePath)!
                     let pmData = try Data(contentsOf: url)
-                    mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "Week \(report.weekNumber) - \(user.fullName) - PM.csv")
+                    mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "PM \(user.inspectorNumber).csv")
                 } catch let error {
                     print("Error in PM Attachment: \(error)")
                     return nil

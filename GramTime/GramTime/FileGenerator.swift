@@ -41,57 +41,37 @@ class FileGenerator: NSObject {
     func generatePMFile() -> String {
         var returnString = ""
         
-        let titlesLine = "Medarbejder;Medarbejdernavn;Lønart;Lønart betegnelse;Enheder;Sats;Beløb;Tekst på lønseddel\n"
         switch user.inspectorType() {
         case 1:
-            returnString = titlesLine
             let firstLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "1200;" +
-                "Maskinmestertillæg hverdag;" +
-                "\(report.dailyFeesOnWorkdays());" +
-                "0;0;Maskinmestertillæg hverdag\n"
+                "\(report.dailyFeesOnWorkdays());\n"
             returnString += firstLine
             
             let secondLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "1205;" +
-                "Maskinmestertillæg weekend;" +
-                "\(report.dailyFeesOnWeekend());" +
-                "0;0;Maskinmestertillæg weekend\n"
+                "\(report.dailyFeesOnWeekend());\n"
             returnString += secondLine
             
             let thirdLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "1300;" +
-                "Optjent afspadsering;" +
-                "\(report.dailyFeesOnWeekend());" + "0;0;Optjent afspadsering\n"
+                "\(report.dailyFeesOnWeekend());\n"
             returnString += thirdLine
             
         case 2:
-            returnString = titlesLine
             let firstLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "3010;" +
-                "Timeløn Udlandsmontage;" +
-                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()));" +
-                "0;0;Timeløn Udlandsmontage\n"
+                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()));\n"
             returnString += firstLine
             
             let secondLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "3015;" +
-                "Maskinmestertillæg hverdage;" +
-                "\(report.dailyFeesOnWorkdays());" +
-                "0;0;Maskinmestertillæg hverdage\n"
+                "\(report.dailyFeesOnWorkdays());\n"
             returnString += secondLine
             
             let thirdLine = "\(user.inspectorNumber);" +
-                user.fullName + ";" +
                 "3016;" +
-                "Maskinmestertillæg weekend;" +
-                "\(report.dailyFeesOnWeekend());" +
-                "0;0;Maskinmestertillæg weekend\n"
+                "\(report.dailyFeesOnWeekend());\n"
             returnString += thirdLine
 
         default:
@@ -131,11 +111,11 @@ class FileGenerator: NSObject {
             var dayString = "\(formatter.string(from: workday.date));"
             dayString += "\(report.inspectorNo);"
             dayString += "\(report.projectNo);"
-            dayString += "\(doubleValueToMetricString(value: hours));"
-            dayString += "\(doubleValueToMetricString(value: overtime));"
-            dayString += "\(doubleValueToMetricString(value: overtimeSunday));"
-            dayString += "\(doubleValueToMetricString(value: travel));"
-            dayString += "\(doubleValueToMetricString(value: total))\n"
+            dayString += "\(commaSeperatedMetricString(value: hours));"
+            dayString += "\(commaSeperatedMetricString(value: overtime));"
+            dayString += "\(commaSeperatedMetricString(value: overtimeSunday));"
+            dayString += "\(commaSeperatedMetricString(value: travel));"
+            dayString += "\(commaSeperatedMetricString(value: total))\n"
             returnString += dayString
         }
         return returnString
@@ -173,5 +153,9 @@ class FileGenerator: NSObject {
         }
         return displayString
     }
-
+    
+    func commaSeperatedMetricString(value: Double) -> String {
+        let stringNumber = doubleValueToMetricString(value: value)
+        return stringNumber.replacingOccurrences(of: ".", with: ",")
+    }
 }

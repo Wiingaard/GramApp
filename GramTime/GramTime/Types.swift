@@ -91,6 +91,8 @@ enum WorkType: String, AllEnum {
     case btLine = "BT line"
     case riaLine = "RIA line"
     case fillingMachine = "Filling machine"
+    case commissioning = "Commissioning"
+    case officeWork = "Office work"
     case serviceReport = "See service report"
     
     var all: [String] {
@@ -100,7 +102,9 @@ enum WorkType: String, AllEnum {
                 WorkType.btLine.rawValue,
                 WorkType.riaLine.rawValue,
                 WorkType.fillingMachine.rawValue,
-                WorkType.serviceReport.rawValue,]
+                WorkType.commissioning.rawValue,
+                WorkType.officeWork.rawValue,
+                WorkType.serviceReport.rawValue]
     }
 }
 
