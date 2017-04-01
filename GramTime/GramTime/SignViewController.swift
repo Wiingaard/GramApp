@@ -27,6 +27,16 @@ class SignViewController: UIViewController {
     
     @IBAction func clearAction(_ sender: Any) {
         mainImageView.image = nil
+        switch signingFor! {
+        case .customer:
+            try! realm.write {
+                report.customerSignDate = ""
+            }
+        case .supervisor:
+            try! realm.write {
+                report.supervisorSignDate = ""
+            }
+        }
     }
     
     @IBAction func confirmAction(_ sender: Any) {

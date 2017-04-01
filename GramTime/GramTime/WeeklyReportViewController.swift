@@ -162,19 +162,11 @@ class WeeklyReportViewController: UIViewController {
     
     // MARK: - Button Actions
     func projectPressed() {
-        if report.validSignature(signer: .customer) {
-            showAlreadySentWarning(button: .project)
-        } else {
-            performSegue(withIdentifier: "Show Project Information", sender: nil)
-        }
+        performSegue(withIdentifier: "Show Project Information", sender: nil)
     }
     
     func workingHoursPressed() {
-        if report.validSignature(signer: .customer) {
-            showAlreadySentWarning(button: .hours)
-        } else {
-            performSegue(withIdentifier: "Show Working Hours", sender: nil)
-        }
+        performSegue(withIdentifier: "Show Working Hours", sender: nil)
     }
     
     func signPressed() {
@@ -191,24 +183,6 @@ class WeeklyReportViewController: UIViewController {
     enum ButtonPressed: Int {
         case project = 0
         case hours
-    }
-    
-    func showAlreadySentWarning(button: ButtonPressed) {
-        let vc = OptionPopupViewController(message: "The customer’s signature will be deleted if you continue\n\nPress cancel and click on \"Sign & send\" if you want to view the report", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)
-        present(vc, animated: true)
-        resetButtonColor()
-    }
-    
-    func removeSignature() {
-        try! realm.write {
-            report.customerSignName = ""
-            report.customerSignature = nil
-            report.customerSignDate = ""
-            report.sentStatus = false
-            report.officeReportWasSent = false
-            report.customerReportWasSent = false
-        }
-        updateSignButton()
     }
     
     // MARK: - Validation
@@ -247,27 +221,3 @@ class WeeklyReportViewController: UIViewController {
         }
     }
 }
-
-extension WeeklyReportViewController: OptionPopupViewControllerDelegate {
-    func optionPopupControllerDidPressCancel(_ controller: OptionPopupViewController, withOption option: Int?) {
-        controller.dismiss(animated: true)
-    }
-    
-    func optionPopupControllerDidPressAccept(_ controller: OptionPopupViewController, withOption option: Int?) {
-        controller.dismiss(animated: true) { [weak self] in
-            guard let buttonInt = option else { return }
-            guard let buttonPressed = ButtonPressed.init(rawValue: buttonInt) else { return }
-            switch buttonPressed {
-            case .project:
-                self?.performSegue(withIdentifier: "Show Project Information", sender: nil)
-            case .hours:
-                self?.performSegue(withIdentifier: "Show Working Hours", sender: nil)
-            }
-        }
-        removeSignature()
-    }
-}
-
-
-
-
