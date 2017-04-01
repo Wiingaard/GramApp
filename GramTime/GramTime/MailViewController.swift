@@ -188,7 +188,8 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         controller.dismiss(animated: true) { [weak self] in
             switch result {
             case .sent:
-                let vc = ErrorViewController(message: "The report was successfully sent\n\nIf you’re offline the report is placed in your outbox and will be sent automatically next time you get internet connection.", title: "Report sent", buttonText: "Okay", buttonColor: UIColor.gramGreen) // popup fixed
+                let vc = ErrorViewController(message: "The report was successfully sent\n\nIf you’re offline the report is placed in your outbox and will be sent automatically next time you get internet connection.", title: "Report sent", buttonText: "Okay", delegate: self, buttonColor: UIColor.gramGreen)
+                
                 self?.present(vc, animated: true)
             case .failed:
                 let vc = ErrorViewController(message: "An error happend while sending the report. Please try again.", title: "Failed to sent report")
@@ -197,6 +198,37 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let vc = ErrorViewController(message: "The e-mail was saved in the drafts folder in your e-mail application", title: "E-mail saved", buttonText: "Okay", buttonColor: UIColor.gramGreen)
                 self?.present(vc, animated: true) // popup fixed
             default: break
+            }
+        }
+    }
+}
+
+extension MailViewController: ErrorViewControllerDelegate {
+    func errorViewControllerActionPressed(_ errorViewController: ErrorViewController, withOption option: Int?) {
+        
+        errorViewController.dismiss(animated: true) { [weak self] _ in
+            if self?.report.sentStatus == true {
+                self?.popBackToRoot()
+            } else {
+                self?.popBackToSend()
+            }
+        }
+    }
+    
+    func popBackToRoot() {
+        let allVCs = navigationController!.viewControllers
+        for vc in allVCs {
+            if vc.isKind(of: RootViewController.self) {
+                _ = navigationController?.popToViewController(vc, animated: true)
+            }
+        }
+    }
+    
+    func popBackToSend() {
+        let allVCs = navigationController!.viewControllers
+        for vc in allVCs {
+            if vc.isKind(of: SendListViewController.self) {
+                _ = navigationController?.popToViewController(vc, animated: true)
             }
         }
     }
