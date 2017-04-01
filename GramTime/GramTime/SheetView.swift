@@ -43,6 +43,8 @@ class SheetView: UIView {
     @IBOutlet weak var customerSignatureImageView: UIImageView!
     @IBOutlet weak var supervisorName: UILabel!
     @IBOutlet weak var customerName: UILabel!
+    @IBOutlet weak var supervisorSignDate: UILabel!
+    @IBOutlet weak var customerSignDate: UILabel!
     
     func instantiate() -> SheetView {
         let nib = UINib(nibName: "Sheet", bundle: nil)
@@ -174,7 +176,9 @@ class SheetView: UIView {
         
         completed.text = report.completedStatus ? "Yes" : "No"
         supervisorName.text = user.fullName
+        supervisorSignDate.text = report.supervisorSignDate
         customerName.text = report.validCustomerSignName() ? report.customerSignName : ""
+        customerSignDate.text = report.customerSignDate
         
         if let data = report.supervisorSignature as Data? {
             if let signature = UIImage(data: data) {
@@ -230,6 +234,7 @@ class SheetView: UIView {
             for out in outs {
                 if out.tag == index {
                     let travelDates = report.travelTimesfor(type: .out)
+                    out.text = ""
                     for travelDay in travelDates {
                         let result = time.calendar.compare(travelDay.date as Date, to: workday.date, toGranularity: .day)
                         if result == .orderedSame {
@@ -244,6 +249,7 @@ class SheetView: UIView {
             for home in homes {
                 if home.tag == index {
                     let travelDates = report.travelTimesfor(type: .home)
+                    home.text = ""
                     for travelDay in travelDates {
                         let result = time.calendar.compare(travelDay.date as Date, to: workday.date, toGranularity: .day)
                         if result == .orderedSame {

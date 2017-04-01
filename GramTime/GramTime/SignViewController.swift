@@ -33,13 +33,18 @@ class SignViewController: UIViewController {
         if let image = mainImageView.image {
             guard let signatureData = UIImagePNGRepresentation(image) else { return }
             guard let data = signatureData as NSData? else { return }
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US")
+            formatter.dateFormat = "d MMM. yyyy - HH:mm"
             try! realm.write {
                 switch signingFor! {
                 case .customer:
                     report.customerSignName = signName
                     report.customerSignature = data
+                    report.customerSignDate = formatter.string(from: Date())
                 case .supervisor:
                     report.supervisorSignature = data
+                    report.supervisorSignDate = formatter.string(from: Date())
                 }
                 popBack()
             }

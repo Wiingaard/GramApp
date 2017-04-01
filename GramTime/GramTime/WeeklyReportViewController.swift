@@ -180,7 +180,7 @@ class WeeklyReportViewController: UIViewController {
     func signPressed() {
         if let errorMessages = checkReport().errorMessages {
             let joinedMessages = errorMessages.joined(separator: "\n")
-            let vc = ErrorViewController(message: "You need to fill out the following information:\n\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")   // popup fixed
+            let vc = ErrorViewController(message: "You need to fill out the following information:\n\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")
             present(vc, animated: true)
             resetButtonColor()
         } else {
@@ -194,7 +194,7 @@ class WeeklyReportViewController: UIViewController {
     }
     
     func showAlreadySentWarning(button: ButtonPressed) {
-        let vc = OptionPopupViewController(message: "The customer’s signature will be deleted if you continue\n\nPress cancel and click on \"Sign & send\" if you want to view the report", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)   // popup fixed
+        let vc = OptionPopupViewController(message: "The customer’s signature will be deleted if you continue\n\nPress cancel and click on \"Sign & send\" if you want to view the report", title: "Report already signed", delegate: self, withOption: button.rawValue, returnWhenActionPressed: false)
         present(vc, animated: true)
         resetButtonColor()
     }
@@ -203,6 +203,7 @@ class WeeklyReportViewController: UIViewController {
         try! realm.write {
             report.customerSignName = ""
             report.customerSignature = nil
+            report.customerSignDate = ""
             report.sentStatus = false
             report.officeReportWasSent = false
             report.customerReportWasSent = false

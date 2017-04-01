@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
                 if oldSchemaVersion < 2 {
-                    migration.enumerateObjects(ofType: WeekReport.className(), { oldObject, newObject in
-                        newObject!["homeTimeDifference"] = 0
-                        newObject!["outTimeDifference"] = 0
-                    })
+                    migration.enumerateObjects(ofType: WeekReport.className()) { oldObject, newObject in
+                        newObject!["supervisorSignDate"] = ""
+                        newObject!["customerSignDate"] = ""
+                    }
                 }
         })
         return true

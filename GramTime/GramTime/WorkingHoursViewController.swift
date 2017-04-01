@@ -238,7 +238,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         let backgroundView = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
-        label.text = section == 0 ? "Must be filled out" : "Fill out if necessary"
+        label.text = section == 0 ? "Required" : "Only if necessary"
         
         backgroundView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false

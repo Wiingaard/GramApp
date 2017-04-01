@@ -28,6 +28,8 @@ class WeekReport: Object {
     dynamic var customerSignature: NSData? = nil
     dynamic var supervisorSignature: NSData? = nil
     dynamic var customerSignName = ""
+    dynamic var supervisorSignDate = ""
+    dynamic var customerSignDate = ""
     
     // Project Info
     dynamic var customerName = ""
@@ -36,8 +38,6 @@ class WeekReport: Object {
     dynamic var arrival: NSDate? = nil
     dynamic var travelHome = -1.0
     dynamic var travelOut = -1.0
-    dynamic var homeTimeDifference = 0
-    dynamic var outTimeDifference = 0
     dynamic var mileage = -1
     dynamic var carType = ""
     
