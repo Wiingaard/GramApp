@@ -28,7 +28,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     var currentArrowOffset: CGFloat { return constraintOffsetToDay(day: .monday) }
     var panBeginLocation: CGFloat = 0
     var currentShowingDay = DayType.monday
-    var initialDay: DayType! { didSet {selectedDay = initialDay}}
+    var initialDay: DayType! { didSet {selectedDay = initialDay} }
     var selectedDay: DayType!
     var initialLayout = true
     
@@ -95,9 +95,9 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     func refreshStatusImages() {
         for (index, imageView) in statusImageViewCollection.enumerated() {
             if report.workdays[index].validWorkday() {
-                imageView.image = UIImage(named: "GreenIcon")
+                imageView.image = UIImage(named: "newGreenIcon")
             } else {
-                imageView.image = UIImage()
+                imageView.image = UIImage(named: "newGrayIcon")
             }
         }
     }
@@ -113,12 +113,12 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
             case 0:
                 cell.nameLabel.text = "Type of work"
                 cell.valueLabel.text = currentWorkday.validTypeOfWork() ? currentWorkday.typeOfWork : ""
-                cell.statusImage(greenOrNothing: currentWorkday.validTypeOfWork())
+                cell.statusImageOptional(shouldShowGreen: currentWorkday.validTypeOfWork())
                 
             case 1:
                 cell.nameLabel.text = "Normal Hours"
                 cell.valueLabel.text = currentWorkday.validHours() ? "\(doubleValueToMetricString(value: currentWorkday.hours))" : ""
-                cell.statusImage(greenOrNothing: currentWorkday.validHours())
+                cell.statusImageOptional(shouldShowGreen: currentWorkday.validHours())
                 
             default:
                 fatalError("Default case isn't allowed")

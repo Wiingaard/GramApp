@@ -69,7 +69,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6L-dJ-tXr" id="ED5-Vk-Zgm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBb-1Y-JY0">
@@ -1741,11 +1741,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-90-nSA" userLabel="status Image view">
-                                                <rect key="frame" x="15" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-90-nSA" userLabel="status Image view">
+                                                <rect key="frame" x="13.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="UAx-FT-3pl"/>
-                                                    <constraint firstAttribute="width" constant="25" id="eOb-GG-lBW"/>
+                                                    <constraint firstAttribute="height" constant="28" id="UAx-FT-3pl"/>
+                                                    <constraint firstAttribute="width" constant="28" id="eOb-GG-lBW"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1774,11 +1774,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-pS-h77" userLabel="status Image view">
-                                                <rect key="frame" x="14" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-pS-h77" userLabel="status Image view">
+                                                <rect key="frame" x="12.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="Mty-PC-zMm"/>
-                                                    <constraint firstAttribute="height" constant="25" id="wZb-r3-S9d"/>
+                                                    <constraint firstAttribute="width" constant="28" id="Mty-PC-zMm"/>
+                                                    <constraint firstAttribute="height" constant="28" id="wZb-r3-S9d"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1804,11 +1804,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6C5-vR-rev" userLabel="status Image view">
-                                                <rect key="frame" x="15" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6C5-vR-rev" userLabel="status Image view">
+                                                <rect key="frame" x="13.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="ndH-Ai-u7I"/>
-                                                    <constraint firstAttribute="height" constant="25" id="xin-Sz-aM6"/>
+                                                    <constraint firstAttribute="width" constant="28" id="ndH-Ai-u7I"/>
+                                                    <constraint firstAttribute="height" constant="28" id="xin-Sz-aM6"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1834,11 +1834,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ce6-Hy-TfD" userLabel="status Image view">
-                                                <rect key="frame" x="14" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ce6-Hy-TfD" userLabel="status Image view">
+                                                <rect key="frame" x="12.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="06W-vq-oic"/>
-                                                    <constraint firstAttribute="height" constant="25" id="c73-7q-Gdr"/>
+                                                    <constraint firstAttribute="width" constant="28" id="06W-vq-oic"/>
+                                                    <constraint firstAttribute="height" constant="28" id="c73-7q-Gdr"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1864,11 +1864,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Rz-hoe" userLabel="status Image view">
-                                                <rect key="frame" x="14" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="4" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Rz-hoe" userLabel="status Image view">
+                                                <rect key="frame" x="12.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="Vgm-pe-09M"/>
-                                                    <constraint firstAttribute="height" constant="25" id="sbN-a9-8OI"/>
+                                                    <constraint firstAttribute="width" constant="28" id="Vgm-pe-09M"/>
+                                                    <constraint firstAttribute="height" constant="28" id="sbN-a9-8OI"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1894,11 +1894,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dLi-jN-QKq" userLabel="status Image view">
-                                                <rect key="frame" x="14" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="5" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dLi-jN-QKq" userLabel="status Image view">
+                                                <rect key="frame" x="12.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="5MN-mK-Sd9"/>
-                                                    <constraint firstAttribute="width" constant="25" id="hO4-U5-eRJ"/>
+                                                    <constraint firstAttribute="height" constant="28" id="5MN-mK-Sd9"/>
+                                                    <constraint firstAttribute="width" constant="28" id="hO4-U5-eRJ"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -1924,11 +1924,11 @@ Worked</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOq-eH-1DU" userLabel="status Image view">
-                                                <rect key="frame" x="14" y="64" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" tag="6" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOq-eH-1DU" userLabel="status Image view">
+                                                <rect key="frame" x="12.5" y="64" width="28" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="tkx-Lw-Gr7"/>
-                                                    <constraint firstAttribute="height" constant="25" id="ugc-I9-Lf9"/>
+                                                    <constraint firstAttribute="width" constant="28" id="tkx-Lw-Gr7"/>
+                                                    <constraint firstAttribute="height" constant="28" id="ugc-I9-Lf9"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>

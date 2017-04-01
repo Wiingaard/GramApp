@@ -28,11 +28,11 @@ class InputFieldTableViewCell: UITableViewCell {
         }
     }
     
-    func statusImage(greenOrNothing green: Bool) {
-        if green {
-            statusImageView.image = UIImage(named: "GreenIcon")
+    func statusImageOptional(shouldShowGreen bool: Bool) {
+        if bool {
+            statusImageView.image = UIImage(named: "newGreenIcon")
         } else {
-            statusImageView.image = UIImage()
+            statusImageView.image = UIImage(named: "newGrayIcon")
         }
     }
 }
