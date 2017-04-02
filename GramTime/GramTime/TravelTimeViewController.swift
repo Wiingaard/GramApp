@@ -24,16 +24,19 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
         } else {
             let message: String
             switch result.error {
-            case .cuttingTimeEarly,.cuttingTimeLate:
-                message = "Cutting duration and setting date"
+            case .cuttingTimeLate:
+                message = "Travel time extends beyond this week.\n\nRegistrer the same travel time in a new report for next week"
+                writeTravel(type: travelType, date: result.date, duration: result.duration)
+            case .cuttingTimeEarly:
+                message = "Travel time starts before this week.\n\nMake sure you’ve created a report for last week with the same travel time"
                 writeTravel(type: travelType, date: result.date, duration: result.duration)
             case .noTimeEarly, .noTimeLate:
-                message = "Travel out of week, no time will be registered"
+                message = "Travel time takes place in a different week than the week number for this report.\n\nCreate a new report that matches the week you traveled in"
                 resetTravel(type: travelType)
             default:
                 message = ""; break
             }
-            let vc = ErrorViewController(message: message , title: "Warning", buttonText: "OK", delegate: self)
+            let vc = ErrorViewController(message: message , title: "OBS", buttonText: "OK", delegate: self)
             present(vc, animated: true)
         }
     }

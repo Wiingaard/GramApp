@@ -62,7 +62,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        dateLabel.text = "\(time.weekdayString(of: Date()).uppercased()), \(time.dateString(of: Date()).uppercased()), WEEK \(String(time.weeknumber(forDate: Date())).uppercased())"
+        dateLabel.text = "\(weekdayString(of: Date()).uppercased()), \(dateString(of: Date()).uppercased()), WEEK \(String(weeknumber(forDate: Date())).uppercased())"
         
         // Setup TableView
         tableView.delegate = self
@@ -83,6 +83,34 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         if user.first == nil {
             initiateOnboarding()
         }
+    }
+    
+    // Quick fix date label
+    func weekdayString(of date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"       // skriver "Monday"
+        return formatter.string(from: date)
+    }
+    
+    func dateString(of date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        let month = formatter.string(from: date)
+        let calendar = Calendar.current
+        let dayOfMonth = calendar.component(.day, from: date)
+        let daySuffix: String!
+        switch dayOfMonth {
+        case 1, 21, 31: daySuffix = "st"
+        case 2, 22: daySuffix =  "nd"
+        case 3, 23: daySuffix =  "rd"
+        default: daySuffix = "th"
+        }
+        return month + " \(dayOfMonth)" + daySuffix      // Skriver "October 12th"
+    }
+    
+    func weeknumber(forDate date: Date) -> Int {
+        let calendar = Calendar.current
+        return calendar.component(.weekOfYear, from: date)
     }
     
     override func viewWillAppear(_ animated: Bool) {
