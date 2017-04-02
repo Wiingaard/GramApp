@@ -133,6 +133,19 @@ class Time: NSObject {
         return calendar.date(from: comp)!
     }
     
+    func roundToHalfHours(date: NSDate) -> NSDate {
+        let value = Int(date.timeIntervalSince1970)
+        let roundTo = 60*30
+        let fullRounds = value / roundTo
+        let remaining = value % roundTo
+        let base = fullRounds * roundTo
+        
+        if remaining >= roundTo / 2 {
+            return NSDate(timeIntervalSince1970: TimeInterval(base + roundTo))
+        } else {
+            return NSDate(timeIntervalSince1970: TimeInterval(base))
+        }
+    }
 }
 
 let time = Time()

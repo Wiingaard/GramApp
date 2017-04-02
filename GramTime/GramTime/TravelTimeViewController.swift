@@ -17,12 +17,7 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var picker: UIPickerView!
     
     @IBAction func confirmAction(_ sender: Any) {
-        
         let result = report.timeWithinWeek(date: travelDate, duration: getSelectedHoursValue())
-        
-//        print("Timezone hours: \(Double(TimeZone.current.secondsFromGMT()) / 3600)")
-//        print(result)
-        
         if result.error == .noError {
             writeTravel(type: travelType, date: result.date, duration: result.duration)
             popBack()

@@ -38,7 +38,7 @@ class TravelDateViewController: UIViewController {
     
     @IBAction func nextAction(_ sender: Any) {
         if report.validTravelDate(travelType: travelType, travelDate: inputValue) {
-            performSegue(withIdentifier: "Show Travel Time", sender: inputValue)
+            performSegue(withIdentifier: "Show Travel Time", sender: nil)
         }
     }
     
@@ -78,6 +78,8 @@ class TravelDateViewController: UIViewController {
         
         if initialInputValue != nil {
             datePicker.date = initialInputValue as! Date
+        } else {
+            datePicker.date = report.mondayInWeek
         }
     }
     
@@ -86,7 +88,7 @@ class TravelDateViewController: UIViewController {
             let vc = segue.destination as! TravelTimeViewController
             vc.reportID = reportID
             vc.travelType = travelType
-            vc.travelDate = inputValue
+            vc.travelDate = time.roundToHalfHours(date: inputValue)
         }
     }
 
