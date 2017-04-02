@@ -46,7 +46,7 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.statusImage(shouldShowGreen: report.customerReportWasSent)
             
         case 1:
-            cell.nameLabel.text = SendToType.customer.rawValue
+            cell.nameLabel.text = SendToType.office.rawValue
             cell.valueLabel.text = ""
             cell.statusImage(shouldShowGreen: report.officeReportWasSent)
             
