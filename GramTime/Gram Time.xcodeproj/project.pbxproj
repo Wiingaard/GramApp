@@ -10,6 +10,7 @@
 		2985698649BE1499F21FAA93 /* Pods_GramTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1EE5394D0164A72762516C /* Pods_GramTime.framework */; };
 		5B06CD421E2D8E27004E8510 /* OptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06CD401E2D8E27004E8510 /* OptionPopupViewController.swift */; };
 		5B06CD431E2D8E27004E8510 /* OptionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B06CD411E2D8E27004E8510 /* OptionPopupViewController.xib */; };
+		5B32ACFA1E90611C008BF1B2 /* SignMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32ACF91E90611C008BF1B2 /* SignMailViewController.swift */; };
 		5B92175B1E256BDA00C4A220 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217591E256BDA00C4A220 /* RootViewController.swift */; };
 		5B92175C1E256BDA00C4A220 /* ProfileInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */; };
 		5B9217641E256BFF00C4A220 /* ProjectStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */; };
@@ -83,6 +84,7 @@
 		01858D4D6234F04A5CFCD755 /* Pods-GramTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-GramTime/Pods-GramTime.release.xcconfig"; sourceTree = "<group>"; };
 		5B06CD401E2D8E27004E8510 /* OptionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionPopupViewController.swift; sourceTree = "<group>"; };
 		5B06CD411E2D8E27004E8510 /* OptionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionPopupViewController.xib; sourceTree = "<group>"; };
+		5B32ACF91E90611C008BF1B2 /* SignMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignMailViewController.swift; sourceTree = "<group>"; };
 		5B9217591E256BDA00C4A220 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5B92175A1E256BDA00C4A220 /* ProfileInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInformationViewController.swift; sourceTree = "<group>"; };
 		5B92175D1E256BFF00C4A220 /* ProjectStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatusViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				5B9217611E256BFF00C4A220 /* SignViewController.swift */,
 				5B9217621E256BFF00C4A220 /* SendListViewController.swift */,
 				5B9217631E256BFF00C4A220 /* MailViewController.swift */,
+				5B32ACF91E90611C008BF1B2 /* SignMailViewController.swift */,
 			);
 			name = "Sign & Send";
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				5B9217C31E256D1200C4A220 /* OvertimeTypeViewController.swift in Sources */,
 				5B9217671E256BFF00C4A220 /* SignNameViewController.swift in Sources */,
 				5B9217A51E256C9800C4A220 /* DateInputViewController.swift in Sources */,
+				5B32ACFA1E90611C008BF1B2 /* SignMailViewController.swift in Sources */,
 				5B9217A11E256C9800C4A220 /* NumberInputViewController.swift in Sources */,
 				5B92178C1E256C7800C4A220 /* InputFieldTableViewCell.swift in Sources */,
 				5B92176F1E256C2100C4A220 /* OnboardingInspectorNumberViewController.swift in Sources */,

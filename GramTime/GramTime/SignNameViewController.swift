@@ -41,17 +41,17 @@ class SignNameViewController: UIViewController {
     
     func nextPressed() {
         if report.validCustomerSignName(string: nameTextField.text ?? "") {
-            performSegue(withIdentifier: "Show Sign", sender: nil)
+            performSegue(withIdentifier: "Sign Mail", sender: nil)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Sign" {
-            let vc = segue.destination as! SignViewController
+        if segue.identifier == "Sign Mail" {
+            let vc = segue.destination as! SignMailViewController
             vc.reportID = self.reportID
             vc.signingFor = self.signingFor
             guard nameTextField.text != nil else { fatalError("text field text shouldn't be nil now") }
-            vc.signName = nameTextField.text
+            vc.signName = nameTextField.text!
         }
     }
 }

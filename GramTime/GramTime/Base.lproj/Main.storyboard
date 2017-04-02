@@ -484,7 +484,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="86t-CE-WdW" id="LiT-7e-cFU"/>
-                        <segue destination="h38-YN-TrA" kind="show" identifier="Show Mail" id="GrM-BB-2Wn">
+                        <segue destination="h38-YN-TrA" kind="show" identifier="Show Sign" id="GrM-BB-2Wn">
                             <nil key="action"/>
                         </segue>
                     </connections>
@@ -681,14 +681,12 @@
                     <connections>
                         <outlet property="headerLabel" destination="4Uo-60-tXd" id="C3d-7P-ANG"/>
                         <outlet property="nameTextField" destination="aG2-S2-SSk" id="xXA-eg-Sr3"/>
-                        <segue destination="G3c-g9-xtP" kind="show" identifier="Show Sign" id="Mze-Vz-SrD">
-                            <nil key="action"/>
-                        </segue>
+                        <segue destination="Ei7-89-774" kind="show" identifier="Sign Mail" id="dFZ-Wf-8jz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJP-0Y-x47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4657" y="2661"/>
+            <point key="canvasLocation" x="4668" y="3107"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="kJx-4z-xXD">
@@ -816,7 +814,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gZ-5G-DxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5528.8000000000002" y="2659.5202398800602"/>
+            <point key="canvasLocation" x="6218" y="2688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5w-4g-RKm">
@@ -2485,6 +2483,62 @@ Worked</string>
             </objects>
             <point key="canvasLocation" x="4708" y="411.544227886057"/>
         </scene>
+        <!--Sign Mail View Controller-->
+        <scene sceneID="MzX-7W-3AU">
+            <objects>
+                <viewController id="Ei7-89-774" customClass="SignMailViewController" customModule="GramTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dDw-id-fSt"/>
+                        <viewControllerLayoutGuide type="bottom" id="NGZ-dY-JWs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SSa-Bx-uwH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJE-FH-5vy">
+                                <rect key="frame" x="16" y="74" width="343" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HB-9j-5tK" userLabel="Top devider">
+                                <rect key="frame" x="16" y="124" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="lNB-Lk-lyc"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail address" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="StP-Ir-BzT">
+                                <rect key="frame" x="16" y="269" width="343" height="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nJE-FH-5vy" firstAttribute="trailing" secondItem="SSa-Bx-uwH" secondAttribute="trailingMargin" id="5wd-pI-4yY"/>
+                            <constraint firstItem="StP-Ir-BzT" firstAttribute="leading" secondItem="SSa-Bx-uwH" secondAttribute="leadingMargin" id="6ln-gh-m89"/>
+                            <constraint firstItem="4HB-9j-5tK" firstAttribute="top" secondItem="nJE-FH-5vy" secondAttribute="bottom" constant="8" id="Hxk-98-hLL"/>
+                            <constraint firstItem="StP-Ir-BzT" firstAttribute="trailing" secondItem="SSa-Bx-uwH" secondAttribute="trailingMargin" id="YMW-IG-uEm"/>
+                            <constraint firstItem="nJE-FH-5vy" firstAttribute="leading" secondItem="SSa-Bx-uwH" secondAttribute="leading" constant="16" id="g9v-fk-oAe"/>
+                            <constraint firstItem="StP-Ir-BzT" firstAttribute="centerX" secondItem="SSa-Bx-uwH" secondAttribute="centerX" id="j57-hS-iTx"/>
+                            <constraint firstItem="StP-Ir-BzT" firstAttribute="centerY" secondItem="SSa-Bx-uwH" secondAttribute="centerY" constant="-50" id="jJ3-1j-bME"/>
+                            <constraint firstItem="4HB-9j-5tK" firstAttribute="leading" secondItem="nJE-FH-5vy" secondAttribute="leading" id="l7e-ix-cWE"/>
+                            <constraint firstItem="nJE-FH-5vy" firstAttribute="top" secondItem="dDw-id-fSt" secondAttribute="bottom" constant="10" id="lT7-lF-dC6"/>
+                            <constraint firstAttribute="trailing" secondItem="4HB-9j-5tK" secondAttribute="trailing" id="wC5-OL-tYv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerLabel" destination="nJE-FH-5vy" id="IYs-ZA-LXI"/>
+                        <outlet property="mailTextField" destination="StP-Ir-BzT" id="hM7-rV-S1Q"/>
+                        <segue destination="G3c-g9-xtP" kind="show" identifier="Show Sign" id="Mvc-cO-9Ye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J03-wF-zQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5381.6000000000004" y="3106.5967016491754"/>
+        </scene>
     </scenes>
     <resources>
         <image name="clearBtn" width="14" height="40"/>
@@ -2499,6 +2553,6 @@ Worked</string>
         <image name="splashLogo" width="152" height="151"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mze-Vz-SrD"/>
+        <segue reference="Mvc-cO-9Ye"/>
     </inferredMetricsTieBreakers>
 </document>

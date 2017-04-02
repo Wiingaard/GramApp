@@ -41,14 +41,14 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldCell") as! InputFieldTableViewCell
         switch indexPath.row {
         case 0:
-            cell.nameLabel.text = SendToType.customer.all[indexPath.row]
-            cell.valueLabel.text = ""
-            cell.statusImage(shouldShowGreen: report.officeReportWasSent)
-            
-        case 1:
-            cell.nameLabel.text = SendToType.customer.all[indexPath.row]
+            cell.nameLabel.text = SendToType.customer.rawValue
             cell.valueLabel.text = ""
             cell.statusImage(shouldShowGreen: report.customerReportWasSent)
+            
+        case 1:
+            cell.nameLabel.text = SendToType.customer.rawValue
+            cell.valueLabel.text = ""
+            cell.statusImage(shouldShowGreen: report.officeReportWasSent)
             
         default:
             fatalError("default not allowed!")
@@ -58,7 +58,13 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "Show Mail", sender: indexPath.row)
+        let sender: String!
+        switch indexPath.row {
+        case 0: sender = SendToType.customer.rawValue
+        case 1: sender = SendToType.office.rawValue
+        default: sender = ""
+        }
+        performSegue(withIdentifier: "Show Sign", sender: sender)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,10 +80,10 @@ class SendListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Mail" {
+        if segue.identifier == "Show Sign" {
             let vc = segue.destination as! MailViewController
-            let sendIndex = sender as! Int
-            vc.sendTo = SendToType(rawValue: SendToType.customer.all[sendIndex])!
+            let sendString = sender as! String
+            vc.sendTo = SendToType(rawValue: sendString)!
             vc.reportID = self.reportID
         }
     }
