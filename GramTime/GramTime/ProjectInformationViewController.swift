@@ -73,6 +73,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
+                    formatter.timeZone = time.danishTimezone
                     let dateString = formatter.string(from: report.departure! as Date)
                     let timeString = "\(doubleValueToMetricString(value: report.travelOut))"
                     cell.valueLabel.text = timeString + " hours - " + dateString
@@ -86,6 +87,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MMM dd"
                     formatter.locale = time.locale
+                    formatter.timeZone = time.danishTimezone
                     let dateString = formatter.string(from: report.arrival! as Date)
                     let timeString = "\(doubleValueToMetricString(value: report.travelHome))"
                     cell.valueLabel.text = timeString + " hours - " + dateString

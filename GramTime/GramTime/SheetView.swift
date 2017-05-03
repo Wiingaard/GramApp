@@ -162,6 +162,7 @@ class SheetView: UIView {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM-yyyy"
+        formatter.timeZone = time.danishTimezone
         if let departureDate = report.departure as? Date {
             departure.text = formatter.string(from: departureDate)
         } else {
@@ -200,6 +201,7 @@ class SheetView: UIView {
                 if date.tag == index {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "dd/MM-yyyy"
+                    formatter.timeZone = time.danishTimezone
                     date.text = formatter.string(from: workday.date)
                 }
             }

@@ -45,33 +45,33 @@ class FileGenerator: NSObject {
         case 1:
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
-                "\(report.dailyFeesOnWorkdays());\n"
+                "\(report.dailyFeesOnWorkdays())\r\n"
             returnString += firstLine
             
             let secondLine = "\(user.inspectorNumber);" +
                 "1205;" +
-                "\(report.dailyFeesOnWeekend());\n"
+                "\(report.dailyFeesOnWeekend())\r\n"
             returnString += secondLine
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "1300;" +
-                "\(report.dailyFeesOnWeekend());\n"
+                "\(report.dailyFeesOnWeekend())\r\n"
             returnString += thirdLine
             
         case 2:
             let firstLine = "\(user.inspectorNumber);" +
                 "3010;" +
-                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()));\n"
+                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()))\r\n"
             returnString += firstLine
             
             let secondLine = "\(user.inspectorNumber);" +
                 "3015;" +
-                "\(report.dailyFeesOnWorkdays());\n"
+                "\(report.dailyFeesOnWorkdays())\r\n"
             returnString += secondLine
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "3016;" +
-                "\(report.dailyFeesOnWeekend());\n"
+                "\(report.dailyFeesOnWeekend())\r\n"
             returnString += thirdLine
 
         default:
@@ -81,7 +81,8 @@ class FileGenerator: NSObject {
     }
     
     func generateNAVFile() -> String {
-        var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total\n"
+        var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total;\r\n"
+//        var returnString = ""
         for workday in report.workdays {
             
             let hours: Double = workday.validHours() ? workday.hours : 0
@@ -108,6 +109,7 @@ class FileGenerator: NSObject {
             
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy"
+            formatter.timeZone = time.danishTimezone
             var dayString = "\(formatter.string(from: workday.date));"
             dayString += "\(report.inspectorNo);"
             dayString += "\(report.projectNo);"
@@ -115,7 +117,7 @@ class FileGenerator: NSObject {
             dayString += "\(commaSeperatedMetricString(value: overtime));"
             dayString += "\(commaSeperatedMetricString(value: overtimeSunday));"
             dayString += "\(commaSeperatedMetricString(value: travel));"
-            dayString += "\(commaSeperatedMetricString(value: total))\n"
+            dayString += "\(commaSeperatedMetricString(value: total))\r\n"
             returnString += dayString
         }
         return returnString
