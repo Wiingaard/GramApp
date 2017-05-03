@@ -81,7 +81,7 @@ class FileGenerator: NSObject {
     }
     
     func generateNAVFile() -> String {
-        var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total;\r\n"
+        var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total\r\n"
 //        var returnString = ""
         for workday in report.workdays {
             
