@@ -68,7 +68,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
             
             switch indexPath.row {
             case 0:
-                cell.nameLabel.text = "Departure"
+                cell.nameLabel.text = "Travel out"
                 if report.validDeparture() {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MMM dd"
@@ -82,7 +82,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
                 }
                 
             case 1:
-                cell.nameLabel.text = "Arrival"
+                cell.nameLabel.text = "Travel home"
                 if report.validArrival() {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MMM dd"

@@ -98,9 +98,9 @@ class TravelTimeViewController: UIViewController, UIPickerViewDataSource, UIPick
         subheader.text = "WEEK \(report.weekNumber)"
         switch travelType! {
         case .out:
-            header.text = "Departure"
+            header.text = "Travel out"
         case .home:
-            header.text = "Arrival"
+            header.text = "Travel home"
         }
         
         picker.delegate = self

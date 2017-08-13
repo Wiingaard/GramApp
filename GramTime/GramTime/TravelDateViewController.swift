@@ -69,11 +69,11 @@ class TravelDateViewController: UIViewController {
         subheader.text = "WEEK \(report.weekNumber)"
         switch travelType! {
         case .out:
-            header.text = "Departure"
-            travelTypeLabel.text = "Travelling out"
+            header.text = "Travel out"
+            travelTypeLabel.text = "Departure time for your trip"
         case .home:
-            header.text = "Arrival"
-            travelTypeLabel.text = "Travelling home"
+            header.text = "Travel home"
+            travelTypeLabel.text = "Departure time for your trip home"
         }
         
         if initialInputValue != nil {
