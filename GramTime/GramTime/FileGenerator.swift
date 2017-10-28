@@ -46,33 +46,45 @@ class FileGenerator: NSObject {
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
                 "\(report.dailyFeesOnWorkdays())\r\n"
-            returnString += firstLine
+            if report.dailyFeesOnWorkdays() > 0 {
+                returnString += firstLine
+            }
             
             let secondLine = "\(user.inspectorNumber);" +
                 "1205;" +
                 "\(report.dailyFeesOnWeekend())\r\n"
-            returnString += secondLine
+            if report.dailyFeesOnWeekend() > 0 {
+                returnString += secondLine
+            }
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "1300;" +
                 "\(report.dailyFeesOnWeekend())\r\n"
-            returnString += thirdLine
+            if report.dailyFeesOnWeekend() > 0 {
+                returnString += thirdLine
+            }
             
         case 2:
             let firstLine = "\(user.inspectorNumber);" +
                 "3010;" +
                 "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()))\r\n"
-            returnString += firstLine
+            if report.unitsFor2InspectorToPm() > 0 {
+                returnString += firstLine
+            }
             
             let secondLine = "\(user.inspectorNumber);" +
                 "3015;" +
                 "\(report.dailyFeesOnWorkdays())\r\n"
-            returnString += secondLine
+            if report.dailyFeesOnWorkdays() > 0 {
+                returnString += secondLine
+            }
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "3016;" +
                 "\(report.dailyFeesOnWeekend())\r\n"
-            returnString += thirdLine
+            if report.dailyFeesOnWeekend() > 0 {
+                returnString += thirdLine
+            }
 
         default:
             returnString = ""
