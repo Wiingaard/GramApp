@@ -711,8 +711,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2a7bfffd-fe71-4c53-b7ad-d91976938dea";
-				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Development";
+				PROVISIONING_PROFILE = "80ebea03-8375-47d3-bd9d-e3efeee12a56";
+				PROVISIONING_PROFILE_SPECIFIER = "Gram - Development";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
@@ -731,8 +731,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gramEquipment.GramTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e999e5c0-e19b-4752-ad26-04abfcddbcb8";
-				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Distribution";
+				PROVISIONING_PROFILE = "400abcb6-a627-4ab6-9291-ad81bc9e70a9";
+				PROVISIONING_PROFILE_SPECIFIER = "Gram - Distribution";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
