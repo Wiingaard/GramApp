@@ -133,10 +133,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nFw-Sh-Jbm">
-                                        <rect key="frame" x="111" y="118.5" width="152" height="151"/>
+                                        <rect key="frame" x="95" y="191.5" width="184" height="78"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="151" id="EB0-Rp-SXT"/>
-                                            <constraint firstAttribute="width" constant="152" id="b4H-zs-ImR"/>
+                                            <constraint firstAttribute="height" constant="78" id="EB0-Rp-SXT"/>
+                                            <constraint firstAttribute="width" constant="184" id="b4H-zs-ImR"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -2575,9 +2575,9 @@ Worked</string>
         <image name="projectIcon" width="31" height="33"/>
         <image name="sendBtnGray" width="60" height="60"/>
         <image name="signIcon" width="36" height="24"/>
-        <image name="splashLogo" width="152" height="151"/>
+        <image name="splashLogo" width="184" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mvc-cO-9Ye"/>
+        <segue reference="D3O-gr-NTV"/>
     </inferredMetricsTieBreakers>
 </document>
