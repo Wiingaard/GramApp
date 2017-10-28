@@ -11,9 +11,9 @@ import RealmSwift
 
 class User: Object {
     
-    dynamic var fullName = ""
-    dynamic var inspectorNumber = 0
-    dynamic var officeEmail = ""
+    @objc dynamic var fullName = ""
+    @objc dynamic var inspectorNumber = 0
+    @objc dynamic var officeEmail = ""
     
     // MARK: - Validering
     func validFullName(name: String? = nil) -> Bool {

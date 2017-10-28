@@ -163,7 +163,7 @@ class ProjectInformationViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let backgroundView = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
-        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.heavy)
         label.text = section == 0 ? "Project info" : "Travel info"
         
         backgroundView.addSubview(label)

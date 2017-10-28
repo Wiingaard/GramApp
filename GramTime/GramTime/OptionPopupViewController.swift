@@ -77,17 +77,17 @@ class OptionPopupViewController: UIViewController {
         acceptButtonView.addGestureRecognizer(acceptButtonTapGestureRecognizer)
     }
     
-    func cancelTapped() {
+    @objc func cancelTapped() {
         delegate?.optionPopupControllerDidPressCancel(self, withOption: option)
         if returnOnAction { dismiss(animated: true) }
     }
     
-    func acceptTapped() {
+    @objc func acceptTapped() {
         delegate?.optionPopupControllerDidPressAccept(self, withOption: option)
         if returnOnAction { dismiss(animated: true) }
     }
     
-    func chromeTapped() {
+    @objc func chromeTapped() {
         dismiss(animated: true, completion: nil)
     }
 }

@@ -68,7 +68,7 @@ class CreateNewCustomerViewController: UIViewController {
         mutexLocked = false
     }
     
-    func nextButtonPressed() {
+    @objc func nextButtonPressed() {
         
         if weekReport.validCustomerName(string: inputValue) {
             weekReport.customerName = inputValue

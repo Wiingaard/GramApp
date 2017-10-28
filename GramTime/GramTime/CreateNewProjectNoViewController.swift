@@ -71,7 +71,7 @@ class CreateNewProjectNoViewController: UIViewController {
         projectNoTextField.resignFirstResponder()
     }
     
-    func nextButtonPressed() {
+    @objc func nextButtonPressed() {
         
         if weekReport.validProjectNo(number: inputValue) {
             weekReport.projectNo = inputValue

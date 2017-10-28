@@ -407,6 +407,7 @@
 					5BB352AF1E25601800799F23 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T3N97W36DE;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -712,7 +713,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2a7bfffd-fe71-4c53-b7ad-d91976938dea";
 				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Development";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -731,7 +733,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e999e5c0-e19b-4752-ad26-04abfcddbcb8";
 				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Distribution";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

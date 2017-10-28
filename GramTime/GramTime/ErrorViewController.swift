@@ -69,14 +69,14 @@ class ErrorViewController: UIViewController {
         buttonView.addGestureRecognizer(buttonTapGestureRecognizer)
     }
     
-    func buttonTapped() {
+    @objc func buttonTapped() {
         delegate?.errorViewControllerActionPressed(self, withOption: option)
         if delegate == nil {
             dismiss(animated: true)
         }
     }
     
-    func chromeTapped() {
+    @objc func chromeTapped() {
         delegate?.errorViewControllerActionPressed(self, withOption: option)
         if delegate == nil {
             dismiss(animated: true)

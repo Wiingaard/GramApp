@@ -39,7 +39,7 @@ class SignNameViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    func nextPressed() {
+    @objc func nextPressed() {
         if report.validCustomerSignName(string: nameTextField.text ?? "") {
             performSegue(withIdentifier: "Sign Mail", sender: nil)
         }
