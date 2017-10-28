@@ -40,26 +40,30 @@ class FileGenerator: NSObject {
     
     func generatePMFile() -> String {
         var returnString = ""
+        let week = report.weekNumber
         
         switch user.inspectorType() {
         case 1:
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
-                "\(report.dailyFeesOnWorkdays())\r\n"
+                "\(report.dailyFeesOnWorkdays());;;" +
+                "w\(week) Montørtillæg hverdag\r\n"
             if report.dailyFeesOnWorkdays() > 0 {
                 returnString += firstLine
             }
             
             let secondLine = "\(user.inspectorNumber);" +
                 "1205;" +
-                "\(report.dailyFeesOnWeekend())\r\n"
+                "\(report.dailyFeesOnWeekend());;;" +
+                "w\(week) Montørtillæg weekend\r\n"
             if report.dailyFeesOnWeekend() > 0 {
                 returnString += secondLine
             }
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "1300;" +
-                "\(report.dailyFeesOnWeekend())\r\n"
+                "\(report.dailyFeesOnWeekend());;;" +
+                "w\(week) Optjent afspadsering\r\n"
             if report.dailyFeesOnWeekend() > 0 {
                 returnString += thirdLine
             }
@@ -67,21 +71,24 @@ class FileGenerator: NSObject {
         case 2:
             let firstLine = "\(user.inspectorNumber);" +
                 "3010;" +
-                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()))\r\n"
+                "\(doubleValueToMetricString(value: report.unitsFor2InspectorToPm()));;;" +
+                "w\(week) Timeløn Udlandsmontage\r\n"
             if report.unitsFor2InspectorToPm() > 0 {
                 returnString += firstLine
             }
             
             let secondLine = "\(user.inspectorNumber);" +
                 "3015;" +
-                "\(report.dailyFeesOnWorkdays())\r\n"
+                "\(report.dailyFeesOnWorkdays());;;" +
+                "w\(week) Montørtillæg hverdag\r\n"
             if report.dailyFeesOnWorkdays() > 0 {
                 returnString += secondLine
             }
             
             let thirdLine = "\(user.inspectorNumber);" +
                 "3016;" +
-                "\(report.dailyFeesOnWeekend())\r\n"
+                "\(report.dailyFeesOnWeekend());;;" +
+                "w\(week) Montørtillæg weekend\r\n"
             if report.dailyFeesOnWeekend() > 0 {
                 returnString += thirdLine
             }
@@ -94,7 +101,6 @@ class FileGenerator: NSObject {
     
     func generateNAVFile() -> String {
         var returnString = "Dato;Lønnummer;Projektnummer;Timer maks 10;Overtid over 10;Overtid søn/helligdag;Rejsetid;Total\r\n"
-//        var returnString = ""
         for workday in report.workdays {
             
             let hours: Double = workday.validHours() ? workday.hours : 0
