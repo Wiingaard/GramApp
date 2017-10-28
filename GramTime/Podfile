@@ -6,7 +6,7 @@ target 'GramTime' do
   use_frameworks!
 
   # Pods for GramTime
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 2.0'
 end
 
 post_install do |installer|
