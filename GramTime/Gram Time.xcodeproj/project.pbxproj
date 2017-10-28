@@ -713,7 +713,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2a7bfffd-fe71-4c53-b7ad-d91976938dea";
 				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Development";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -733,7 +733,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e999e5c0-e19b-4752-ad26-04abfcddbcb8";
 				PROVISIONING_PROFILE_SPECIFIER = "Martin - iOS Distribution";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
