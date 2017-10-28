@@ -46,8 +46,10 @@ class WeekReport: Object {
     
     // Final Files
     @objc dynamic var pdfFilePath = ""
+    @objc dynamic var pdfFileName = ""
     @objc dynamic var navFilePath = ""
     @objc dynamic var pmFilePath = ""
+    @objc dynamic var pmFileName = ""
     
     // E-mail
     @objc dynamic var customerEmail = ""

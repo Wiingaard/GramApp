@@ -107,6 +107,24 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         }
     }
     
+    func pdfFileName() -> String {
+        guard report.pdfFileName.isEmpty else { return report.pdfFileName }
+        let name = "Week \(report.weekNumber) - \(user.fullName)"
+        let predicate = NSPredicate(format: "(mondayInWeek == %@) AND (inspectorNo == %d)", report.mondayInWeek as NSDate, user.inspectorNumber)
+        let reportCount = realm.objects(WeekReport.self).filter(predicate).count
+        let pdf = ".pdf"
+        return name + "_\(reportCount)" + pdf
+    }
+    
+    func pmFileName() -> String {
+        guard report.pmFileName.isEmpty else { return report.pmFileName }
+        let name = "PM \(user.inspectorNumber)"
+        let predicate = NSPredicate(format: "(mondayInWeek == %@) AND (inspectorNo == %d)", report.mondayInWeek as NSDate, user.inspectorNumber)
+        let reportCount = realm.objects(WeekReport.self).filter(predicate).count
+        let csv = ".csv"
+        return name + "_\(reportCount)" + csv
+    }
+    
     func configuredMailComposeViewController() -> MFMailComposeViewController? {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
@@ -118,7 +136,8 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
             do {
                 let url = URL(string: report.pdfFilePath)!
                 let pdfData = try Data(contentsOf: url)
-                mailComposerVC.addAttachmentData(pdfData, mimeType: "pdf", fileName: "Week \(report.weekNumber) - \(user.fullName).pdf")
+                let fileName = pdfFileName()
+                mailComposerVC.addAttachmentData(pdfData, mimeType: "pdf", fileName: fileName)
             } catch let error {
                 print("Error in PDF Attachment: \(error)")
                 return nil
@@ -140,7 +159,8 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 do {
                     let url = URL(string: report.pmFilePath)!
                     let pmData = try Data(contentsOf: url)
-                    mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: "PM \(user.inspectorNumber).csv")
+                    let fileName = pmFileName()
+                    mailComposerVC.addAttachmentData(pmData, mimeType: "csv", fileName: fileName)
                 } catch let error {
                     print("Error in PM Attachment: \(error)")
                     return nil
@@ -170,6 +190,12 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         if result == .sent {
+            try! realm.write { [weak self] in
+                guard let `self` = self else { return }
+                report.pdfFileName = self.pdfFileName()
+                report.pmFileName = self.pmFileName()
+            }
+            
             if sendTo! == .customer {
                 try! realm.write {
                     report.customerReportWasSent = true

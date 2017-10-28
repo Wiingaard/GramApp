@@ -108,7 +108,7 @@ class Workday: Object {
     }
     
     func validWorkday() -> Bool {
-        if validHours() && validTypeOfWork() {
+        if (validHours() && validTypeOfWork()) || dailyFee {
             return true
         } else {
             return false
