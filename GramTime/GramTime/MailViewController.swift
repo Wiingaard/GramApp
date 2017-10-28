@@ -80,7 +80,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         }
     }
     
-    func sendButtonPressed() {
+    @objc func sendButtonPressed() {
         switch sendTo! {
         case .customer:
             try! realm.write {
@@ -205,8 +205,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
 extension MailViewController: ErrorViewControllerDelegate {
     func errorViewControllerActionPressed(_ errorViewController: ErrorViewController, withOption option: Int?) {
-        
-        errorViewController.dismiss(animated: true) { [weak self] _ in
+        errorViewController.dismiss(animated: true) { [weak self] in
             if self?.report.sentStatus == true {
                 self?.popBackToRoot()
             } else {

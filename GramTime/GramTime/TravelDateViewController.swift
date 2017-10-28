@@ -76,8 +76,8 @@ class TravelDateViewController: UIViewController {
             travelTypeLabel.text = "Departure time for your trip home"
         }
         
-        if initialInputValue != nil {
-            datePicker.date = initialInputValue as! Date
+        if let initialDate = initialInputValue as Date? {
+            datePicker.date = initialDate
         } else {
             datePicker.date = report.mondayInWeek
         }

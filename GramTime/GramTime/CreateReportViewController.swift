@@ -64,7 +64,7 @@ class CreateReportViewController: UIViewController {
         
     }
     
-    func dismissViewController() {
+    @objc func dismissViewController() {
         dismiss(animated: true)
     }
 

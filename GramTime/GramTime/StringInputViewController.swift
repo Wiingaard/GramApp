@@ -44,7 +44,7 @@ class StringInputViewController: UIViewController {
     
     
     // MARK: - Bar button action
-    func confirmPressed() {
+    @objc func confirmPressed() {
         
         delegate?.inputControllerDidFinish(withValue: inputValue as AnyObject, andInputType: inputType)
         _ = navigationController?.popViewController(animated: true)

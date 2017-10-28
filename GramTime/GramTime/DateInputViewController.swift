@@ -49,7 +49,8 @@ class DateInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datePicker.date = initialInputValue as! Date
+        guard let date = initialInputValue as Date? else { fatalError("Expecting initial date") }
+        datePicker.date = date
         
         subheader.text = subheaderText
         header.text = headerText
@@ -60,7 +61,7 @@ class DateInputViewController: UIViewController {
     }
     
     // MARK: - Bar button action
-    func confirmPressed() {
+    @objc func confirmPressed() {
         
         delegate?.inputControllerDidFinish(withValue: inputValue as AnyObject, andInputType: inputType)
         _ = navigationController?.popViewController(animated: true)

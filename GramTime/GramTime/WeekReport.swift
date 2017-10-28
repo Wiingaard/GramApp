@@ -15,44 +15,44 @@ import RealmSwift
 class WeekReport: Object {
 
     // Meta data
-    dynamic var createdDate = Date()
-    dynamic var reportID = ""
-    dynamic var mondayInWeek = Date()
-    dynamic var completedStatus = false
-    dynamic var inspectorNo = -1
-    dynamic var inspectorName = ""
+    @objc dynamic var createdDate = Date()
+    @objc dynamic var reportID = ""
+    @objc dynamic var mondayInWeek = Date()
+    @objc dynamic var completedStatus = false
+    @objc dynamic var inspectorNo = -1
+    @objc dynamic var inspectorName = ""
     
     // General
-    dynamic var weekNumber = 0
-    dynamic var sentStatus = false
-    dynamic var customerSignature: NSData? = nil
-    dynamic var supervisorSignature: NSData? = nil
-    dynamic var customerSignName = ""
-    dynamic var supervisorSignDate = ""
-    dynamic var customerSignDate = ""
+    @objc dynamic var weekNumber = 0
+    @objc dynamic var sentStatus = false
+    @objc dynamic var customerSignature: NSData? = nil
+    @objc dynamic var supervisorSignature: NSData? = nil
+    @objc dynamic var customerSignName = ""
+    @objc dynamic var supervisorSignDate = ""
+    @objc dynamic var customerSignDate = ""
     
     // Project Info
-    dynamic var customerName = ""
-    dynamic var projectNo = 0
-    dynamic var departure: NSDate? = nil
-    dynamic var arrival: NSDate? = nil
-    dynamic var travelHome = -1.0
-    dynamic var travelOut = -1.0
-    dynamic var mileage = -1
-    dynamic var carType = ""
+    @objc dynamic var customerName = ""
+    @objc dynamic var projectNo = 0
+    @objc dynamic var departure: NSDate? = nil
+    @objc dynamic var arrival: NSDate? = nil
+    @objc dynamic var travelHome = -1.0
+    @objc dynamic var travelOut = -1.0
+    @objc dynamic var mileage = -1
+    @objc dynamic var carType = ""
     
     // Working Hours
     let workdays = List<Workday>()
     
     // Final Files
-    dynamic var pdfFilePath = ""
-    dynamic var navFilePath = ""
-    dynamic var pmFilePath = ""
+    @objc dynamic var pdfFilePath = ""
+    @objc dynamic var navFilePath = ""
+    @objc dynamic var pmFilePath = ""
     
     // E-mail
-    dynamic var customerEmail = ""
-    dynamic var customerReportWasSent = false
-    dynamic var officeReportWasSent = false    
+    @objc dynamic var customerEmail = ""
+    @objc dynamic var customerReportWasSent = false
+    @objc dynamic var officeReportWasSent = false    
     
     // MARK: - Initializer
     convenience init(withMonday monday: Date, inspectorNumber inspector: Int, fullname name: String) {
@@ -239,7 +239,7 @@ class WeekReport: Object {
         } else {
             checkString = pmFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validNAVFile(string: String? = nil) -> Bool {
@@ -249,7 +249,7 @@ class WeekReport: Object {
         } else {
             checkString = navFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validPDFFile(string: String? = nil) -> Bool {
@@ -259,7 +259,7 @@ class WeekReport: Object {
         } else {
             checkString = pdfFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validCustomerEmail(string: String? = nil) -> Bool {
@@ -309,11 +309,11 @@ class WeekReport: Object {
         let duration: Double!
         switch type {
         case .home:
-            guard let arrival = arrival as? Date else { return [] }
+            guard let arrival = arrival as Date? else { return [] }
             beginDate = arrival
             duration = travelHome
         case .out:
-            guard let departure = departure as? Date else { return [] }
+            guard let departure = departure as Date? else { return [] }
             beginDate = departure
             duration = travelOut
         }

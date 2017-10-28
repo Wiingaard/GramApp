@@ -39,7 +39,7 @@ class SignMailViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    func nextPressed() {
+    @objc func nextPressed() {
         guard let mail = mailTextField.text else { return }
         if report.validCustomerSignName(string: mail) {
             try! realm.write {

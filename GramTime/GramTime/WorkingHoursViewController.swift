@@ -175,7 +175,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
     
-    func dailyFeeChanged() {
+    @objc func dailyFeeChanged() {
         try! realm.write {
             currentWorkday.dailyFee = boolCell.valueSwitch.isOn
         }
@@ -237,7 +237,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let backgroundView = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
-        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.heavy)
         label.text = section == 0 ? "Required" : "Only if necessary"
         
         backgroundView.addSubview(label)
@@ -364,7 +364,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
      *  Action method for the day views, when tapped
      *  - parameter sender: Has information about what view (what day) is pressed.
      */
-    func dayViewTapped(sender: UITapGestureRecognizer) {
+    @objc func dayViewTapped(sender: UITapGestureRecognizer) {
         moveArrow(to: DayType(rawValue: sender.view!.tag)!, animated: true)
     }
     
@@ -372,7 +372,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
      *  Action method for the Day Container, when Panned.
      *  - parameter sender: Info about the Pan
      */
-    func handlePan(sender: UIPanGestureRecognizer) {
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
         
         if sender.state == .began {
             panBeginLocation = sender.location(in: daysContainerView).x

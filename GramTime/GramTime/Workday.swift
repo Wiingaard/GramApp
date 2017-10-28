@@ -14,15 +14,15 @@ import RealmSwift
  */
 class Workday: Object {
     
-    dynamic var date = Date()
-    dynamic var weekday = 0             // Constant
-    dynamic var dailyFee = false        // Required
-    dynamic var hours = -1.0            // Required
-    dynamic var overtime = 0.0
-    dynamic var overtimeType = ""       // Enum
-    dynamic var waitingHours = -1.0     // Required
-    dynamic var waitingType = ""        // Enum
-    dynamic var typeOfWork = ""         // Enum
+    @objc dynamic var date = Date()
+    @objc dynamic var weekday = 0             // Constant
+    @objc dynamic var dailyFee = false        // Required
+    @objc dynamic var hours = -1.0            // Required
+    @objc dynamic var overtime = 0.0
+    @objc dynamic var overtimeType = ""       // Enum
+    @objc dynamic var waitingHours = -1.0     // Required
+    @objc dynamic var waitingType = ""        // Enum
+    @objc dynamic var typeOfWork = ""         // Enum
     
     // MARK: - Validation
     func validWeekday(number: Int? = nil) -> Bool {

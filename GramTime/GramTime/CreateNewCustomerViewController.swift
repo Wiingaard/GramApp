@@ -14,7 +14,7 @@ class CreateNewCustomerViewController: UIViewController {
     @IBOutlet weak var customerTextField: UITextField!
     
     @IBAction func sameButtonPressed(_ sender: UIButton) {
-        if let lastCustomerName = realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false).first?.customerName {
+        if let lastCustomerName = realm.objects(WeekReport.self).sorted(byKeyPath: "createdDate", ascending: false).first?.customerName {
             if !mutexLocked {
                 customerTextField.text = lastCustomerName
                 weekReport.customerName = lastCustomerName
@@ -68,7 +68,7 @@ class CreateNewCustomerViewController: UIViewController {
         mutexLocked = false
     }
     
-    func nextButtonPressed() {
+    @objc func nextButtonPressed() {
         
         if weekReport.validCustomerName(string: inputValue) {
             weekReport.customerName = inputValue
