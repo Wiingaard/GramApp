@@ -239,7 +239,7 @@ class WeekReport: Object {
         } else {
             checkString = pmFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validNAVFile(string: String? = nil) -> Bool {
@@ -249,7 +249,7 @@ class WeekReport: Object {
         } else {
             checkString = navFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validPDFFile(string: String? = nil) -> Bool {
@@ -259,7 +259,7 @@ class WeekReport: Object {
         } else {
             checkString = pdfFilePath
         }
-        return checkString.characters.isEmpty ? false : true
+        return checkString.isEmpty ? false : true
     }
     
     func validCustomerEmail(string: String? = nil) -> Bool {
@@ -309,11 +309,11 @@ class WeekReport: Object {
         let duration: Double!
         switch type {
         case .home:
-            guard let arrival = arrival as? Date else { return [] }
+            guard let arrival = arrival as Date? else { return [] }
             beginDate = arrival
             duration = travelHome
         case .out:
-            guard let departure = departure as? Date else { return [] }
+            guard let departure = departure as Date? else { return [] }
             beginDate = departure
             duration = travelOut
         }

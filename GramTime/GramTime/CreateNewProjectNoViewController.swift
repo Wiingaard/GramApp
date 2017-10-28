@@ -14,7 +14,7 @@ class CreateNewProjectNoViewController: UIViewController {
     @IBOutlet weak var projectNoTextField: UITextField!
 
     @IBAction func sameButtonAction(_ sender: UIButton) {
-        if let lastProjectNo = realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false).first?.projectNo {
+        if let lastProjectNo = realm.objects(WeekReport.self).sorted(byKeyPath: "createdDate", ascending: false).first?.projectNo {
             if !mutexLocked {
                 mutexLocked = true
                 projectNoTextField.text = String(lastProjectNo)

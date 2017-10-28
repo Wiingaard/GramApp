@@ -49,7 +49,8 @@ class DateInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datePicker.date = initialInputValue as! Date
+        guard let date = initialInputValue as Date? else { fatalError("Expecting initial date") }
+        datePicker.date = date
         
         subheader.text = subheaderText
         header.text = headerText

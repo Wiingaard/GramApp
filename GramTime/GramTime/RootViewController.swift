@@ -48,7 +48,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     var reportList: Results<WeekReport> {
         get {
 //            return realm.objects(WeekReport.self).sorted(byProperty: "createdDate", ascending: false)
-            let list = realm.objects(WeekReport.self).sorted(byProperty: "weekNumber", ascending: false)
+            let list = realm.objects(WeekReport.self).sorted(byKeyPath: "weekNumber", ascending: false)
             if let user = realm.objects(User.self).first {
                return list.filter("inspectorNo == %@", user.inspectorNumber)
             } else {
