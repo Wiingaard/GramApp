@@ -179,6 +179,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         try! realm.write {
             currentWorkday.dailyFee = boolCell.valueSwitch.isOn
         }
+        refreshStatusImages()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
