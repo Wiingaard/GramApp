@@ -201,21 +201,37 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         case 0:
             switch indexPath.row {
             case 0:
+                let workClearAction: ()->() = { [weak self] in
+                    try! self?.realm.write {
+                        self?.currentWorkday.typeOfWork = ""
+                    }
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                let initialValue = WorkType(rawValue: currentWorkday.typeOfWork)
                 let vc = EnumStringInputViewController
                     .instantiate(withDelegate: self,
                                  header: "Type of Work",
                                  subheader: subheaderText.uppercased(),
-                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.freezer ,
-                                 inputType: .enumWorkType)
+                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? .freezer,
+                                 initialValue: initialValue?.rawValue,
+                                 inputType: .enumWorkType,
+                                 clearAction: workClearAction)
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
+                let hoursClearAction: ()->() = { [weak self] in
+                    try! self?.realm.write {
+                        self?.currentWorkday.hours = -1
+                    }
+                    self?.navigationController?.popViewController(animated: true)
+                }
                 let vc = HalfHourInputViewController
                     .instantiate(withDelegate: self,
                                  header: "Normal Hours",
                                  subheader: subheaderText.uppercased(),
                                  inputType: .halfMax10,
                                  maxHours: 10,
-                                 initialValue: currentWorkday.hours)
+                                 initialValue: currentWorkday.hours,
+                                 clearAction: hoursClearAction)
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 fatalError("Default case isn't allowed")
