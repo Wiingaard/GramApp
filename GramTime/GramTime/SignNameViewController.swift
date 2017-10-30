@@ -23,7 +23,7 @@ class SignNameViewController: UIViewController {
                 })
             }
         } else {
-            let vc = ErrorViewController(message: "Couldn't find a this value in last report.\n\nPlease fill the text field to continue.", title: "No reports found") // popup fixed
+            let vc = ErrorViewController(message: "Couldn't find a customer name in the last report.\n\nPlease fill the text field to continue.", title: "No reports found") // popup fixed
             present(vc, animated: true, completion: nil)
         }
     }
@@ -74,7 +74,7 @@ class SignNameViewController: UIViewController {
         case .supervisor:
             signName = nil
         }
-        return signName
+        return report.validCustomerSignName(string: signName) ? signName : nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

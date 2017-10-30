@@ -32,7 +32,7 @@ class SignMailViewController: UIViewController {
                 })
             }
         } else {
-            let vc = ErrorViewController(message: "Couldn't find a this value in last report.\n\nPlease fill the text field to continue.", title: "No reports found") // popup fixed
+            let vc = ErrorViewController(message: "Couldn't find a customer E-mail in the last report.\n\nPlease fill the text field to continue.", title: "No reports found") // popup fixed
             present(vc, animated: true, completion: nil)
         }
     }
@@ -76,7 +76,7 @@ class SignMailViewController: UIViewController {
         case .supervisor:
             signMail = nil
         }
-        return signMail
+        return report.validCustomerSignName(string: signMail) ? signMail : nil
     }
     
     func continueToSignView(withMail mail: String) {
