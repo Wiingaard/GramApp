@@ -158,7 +158,7 @@ class SheetView: UIView {
         car.text = report.validCarType() ? report.carType : ""
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yy - hh:mm"
+        formatter.dateFormat = "dd/MM/yy - HH:mm"
         formatter.timeZone = time.danishTimezone
         if let departureDate = report.departure as Date? {
             departure.text = formatter.string(from: departureDate)

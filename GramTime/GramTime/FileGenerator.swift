@@ -44,11 +44,12 @@ class FileGenerator: NSObject {
         
         switch user.inspectorType() {
         case 1:
+            let totalDailyFees = report.dailyFeesOnWorkdays() + report.dailyFeesOnWeekend()
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
-                "\(report.dailyFeesOnWorkdays() + report.dailyFeesOnWeekend());;;" +
+                "\(totalDailyFees);;;" +
                 "w\(week) Montørtillæg\r\n"
-            if report.dailyFeesOnWorkdays() > 0 {
+            if totalDailyFees > 0 {
                 returnString += firstLine
             }
             
