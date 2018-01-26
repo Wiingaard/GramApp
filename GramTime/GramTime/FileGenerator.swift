@@ -46,26 +46,18 @@ class FileGenerator: NSObject {
         case 1:
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
-                "\(report.dailyFeesOnWorkdays());;;" +
-                "w\(week) Montørtillæg hverdag\r\n"
+                "\(report.dailyFeesOnWorkdays() + report.dailyFeesOnWeekend());;;" +
+                "w\(week) Montørtillæg\r\n"
             if report.dailyFeesOnWorkdays() > 0 {
                 returnString += firstLine
             }
             
             let secondLine = "\(user.inspectorNumber);" +
-                "1205;" +
-                "\(report.dailyFeesOnWeekend());;;" +
-                "w\(week) Montørtillæg weekend\r\n"
-            if report.dailyFeesOnWeekend() > 0 {
-                returnString += secondLine
-            }
-            
-            let thirdLine = "\(user.inspectorNumber);" +
                 "1300;" +
                 "\(report.dailyFeesOnWeekend());;;" +
                 "w\(week) Optjent afspadsering\r\n"
             if report.dailyFeesOnWeekend() > 0 {
-                returnString += thirdLine
+                returnString += secondLine
             }
             
         case 2:
