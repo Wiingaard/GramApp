@@ -175,10 +175,11 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         }
     }
     
-    func dailyFeeChanged() {
+    @objc func dailyFeeChanged() {
         try! realm.write {
             currentWorkday.dailyFee = boolCell.valueSwitch.isOn
         }
+        refreshStatusImages()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -201,21 +202,37 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         case 0:
             switch indexPath.row {
             case 0:
+                let workClearAction: ()->() = { [weak self] in
+                    try! self?.realm.write {
+                        self?.currentWorkday.typeOfWork = ""
+                    }
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                let initialValue = WorkType(rawValue: currentWorkday.typeOfWork)
                 let vc = EnumStringInputViewController
                     .instantiate(withDelegate: self,
                                  header: "Type of Work",
                                  subheader: subheaderText.uppercased(),
-                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? WorkType.freezer ,
-                                 inputType: .enumWorkType)
+                                 modelEnum: WorkType(rawValue: currentWorkday.typeOfWork) ?? .freezer,
+                                 initialValue: initialValue?.rawValue,
+                                 inputType: .enumWorkType,
+                                 clearAction: workClearAction)
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
+                let hoursClearAction: ()->() = { [weak self] in
+                    try! self?.realm.write {
+                        self?.currentWorkday.hours = -1
+                    }
+                    self?.navigationController?.popViewController(animated: true)
+                }
                 let vc = HalfHourInputViewController
                     .instantiate(withDelegate: self,
                                  header: "Normal Hours",
                                  subheader: subheaderText.uppercased(),
                                  inputType: .halfMax10,
                                  maxHours: 10,
-                                 initialValue: currentWorkday.hours)
+                                 initialValue: currentWorkday.hours,
+                                 clearAction: hoursClearAction)
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 fatalError("Default case isn't allowed")
@@ -237,7 +254,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let backgroundView = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
-        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightHeavy)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.heavy)
         label.text = section == 0 ? "Required" : "Only if necessary"
         
         backgroundView.addSubview(label)
@@ -364,7 +381,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
      *  Action method for the day views, when tapped
      *  - parameter sender: Has information about what view (what day) is pressed.
      */
-    func dayViewTapped(sender: UITapGestureRecognizer) {
+    @objc func dayViewTapped(sender: UITapGestureRecognizer) {
         moveArrow(to: DayType(rawValue: sender.view!.tag)!, animated: true)
     }
     
@@ -372,7 +389,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
      *  Action method for the Day Container, when Panned.
      *  - parameter sender: Info about the Pan
      */
-    func handlePan(sender: UIPanGestureRecognizer) {
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
         
         if sender.state == .began {
             panBeginLocation = sender.location(in: daysContainerView).x

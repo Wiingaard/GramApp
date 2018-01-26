@@ -12,30 +12,43 @@ class EnumStringInputViewController: UIViewController, UITableViewDelegate, UITa
 
     @IBOutlet weak var subheaderLabel: UILabel!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet var clearButton: UIButton!
     
     @IBAction func confirmAction(_ sender: Any) {
+        guard let selected = selected else {
+            _ = navigationController?.popViewController(animated: true)
+            return
+        }
         let selectedValue = modelEnum.all[selected]
         delegate?.inputControllerDidFinish(withValue: selectedValue as AnyObject, andInputType: inputType)
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func clearAction(_ sender: Any) {
+        clearAction?()
+    }
+    
     var modelEnum: AllEnum!
-    var selected = 0
+    var selected: Int?
     
     @IBOutlet weak var tableView: UITableView!
     
     // Instantiation
-    static func instantiate(withDelegate delegate: InputControllerDelegate, header: String, subheader: String, modelEnum: AllEnum, inputType: InputType) -> EnumStringInputViewController {
+    static func instantiate(withDelegate delegate: InputControllerDelegate, header: String, subheader: String, modelEnum: AllEnum, initialValue: String?, inputType: InputType, clearAction: (()->())?) -> EnumStringInputViewController {
         let enumStringInputViewController = EnumStringInputViewController(nibName: "EnumStringInputViewController", bundle: nil)
         enumStringInputViewController.delegate = delegate
         enumStringInputViewController.header = header
         enumStringInputViewController.subheader = subheader
         enumStringInputViewController.inputType = inputType
+        enumStringInputViewController.initialValue = initialValue
         enumStringInputViewController.modelEnum = modelEnum
+        enumStringInputViewController.clearAction = clearAction
         return enumStringInputViewController
     }
     var header: String!
     var subheader: String!
+    var clearAction: (()->())?
+    var initialValue: String?
     
     // Delegate
     weak var delegate: InputControllerDelegate?
@@ -54,8 +67,17 @@ class EnumStringInputViewController: UIViewController, UITableViewDelegate, UITa
         let nib = UINib(nibName: "CheckmarkTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CheckmarkTableViewCell")
         
-        if let workType = modelEnum as? WorkType {
-            selected = modelEnum.all.index(of: workType.rawValue) ?? 0
+        if let workType = initialValue {
+            if let initialValue = modelEnum.all.index(of: workType) {
+                selected = initialValue
+                clearButton.isHidden = false
+            } else {
+                selected = nil
+                clearButton.isHidden = true
+            }
+        } else {
+            selected = nil
+            clearButton.isHidden = true
         }
     }
     

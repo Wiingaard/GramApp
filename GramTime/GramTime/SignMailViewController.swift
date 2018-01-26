@@ -15,11 +15,27 @@ class SignMailViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     
     // Model:
+    var mutexLocked = false
     var reportID = ""       // should be overriden from segue
     let realm = try! Realm()
     var report: WeekReport!
     var signName = ""
     var signingFor: SignType!
+    
+    @IBAction func sameAsLastReportAction(_ sender: Any) {
+        if let lastSignMail = lastReportSignMail() {
+            if !mutexLocked {
+                mutexLocked = true
+                mailTextField.text = lastSignMail
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6 , execute: { [weak self] in
+                    self?.continueToSignView(withMail: lastSignMail)
+                })
+            }
+        } else {
+            let vc = ErrorViewController(message: "Couldn't find a customer E-mail in the last report.\n\nPlease fill the text field to continue.", title: "No reports found") // popup fixed
+            present(vc, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +51,39 @@ class SignMailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        mutexLocked = false
         mailTextField.becomeFirstResponder()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    func nextPressed() {
+    @objc func nextPressed() {
         guard let mail = mailTextField.text else { return }
-        if report.validCustomerSignName(string: mail) {
-            try! realm.write {
-                report.customerEmail = mail
-            }
-            performSegue(withIdentifier: "Show Sign", sender: nil)
+        if report.validCustomerSignName(string: mail) && mutexLocked == false {
+            continueToSignView(withMail: mail)
         }
+    }
+    
+    func lastReportSignMail() -> String? {
+        let reportIDPredicate = NSPredicate(format: "reportID != %@", reportID)
+        let lastReport = realm.objects(WeekReport.self)
+            .sorted(byKeyPath: "createdDate", ascending: false)
+            .filter(reportIDPredicate).first
+        
+        let signMail: String?
+        switch signingFor! {
+        case .customer:
+            signMail = lastReport?.customerEmail
+        case .supervisor:
+            signMail = nil
+        }
+        return report.validCustomerSignName(string: signMail) ? signMail : nil
+    }
+    
+    func continueToSignView(withMail mail: String) {
+        try! realm.write {
+            report.customerEmail = mail
+        }
+        performSegue(withIdentifier: "Show Sign", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

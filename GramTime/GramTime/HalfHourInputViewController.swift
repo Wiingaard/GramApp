@@ -18,10 +18,15 @@ class HalfHourInputViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     weak var delegate: InputControllerDelegate?
     var inputType: InputType!
+    var clearAction: (()->())?
     
     // Model:
     var maxHours = 0
     var initialHours = 0.0
+    
+    @IBAction func clearAction(_ sender: Any) {
+        self.clearAction?()
+    }
     
     @IBAction func doneAction(_ sender: UIButton) {
         let selectedValue = getSelectedHoursValue()
@@ -30,7 +35,7 @@ class HalfHourInputViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // Instantiate
-    static func instantiate(withDelegate delegate: InputControllerDelegate, header: String, subheader: String, inputType: InputType, maxHours: Int, initialValue: Double) -> HalfHourInputViewController {
+    static func instantiate(withDelegate delegate: InputControllerDelegate, header: String, subheader: String, inputType: InputType, maxHours: Int, initialValue: Double, clearAction: (()->())?) -> HalfHourInputViewController {
         let vc = HalfHourInputViewController(nibName: "HalfHourInputViewController", bundle: nil)
         vc.delegate = delegate
         vc.headerText = header
@@ -38,6 +43,7 @@ class HalfHourInputViewController: UIViewController, UIPickerViewDelegate, UIPic
         vc.inputType = inputType
         vc.maxHours = maxHours
         vc.initialHours = initialValue
+        vc.clearAction = clearAction
         return vc
     }
     

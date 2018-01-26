@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnumStringInputViewController" customModule="GramTime" customModuleProvider="target">
             <connections>
+                <outlet property="clearButton" destination="Kat-mg-toB" id="J1w-qP-Ho9"/>
                 <outlet property="headerLabel" destination="jTC-Pc-trH" id="agG-J4-nBB"/>
                 <outlet property="subheaderLabel" destination="McG-7O-1fF" id="DAZ-0E-wJc"/>
                 <outlet property="tableView" destination="QDF-E5-MOw" id="1Eh-kz-HMh"/>
@@ -22,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-Pc-trH">
-                    <rect key="frame" x="16" y="73" width="126" height="42"/>
+                    <rect key="frame" x="16" y="73" width="124.5" height="42"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +43,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worked on:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g4-vL-DoG">
-                    <rect key="frame" x="16" y="157.5" width="123" height="27"/>
+                    <rect key="frame" x="16" y="157.5" width="121" height="27"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -56,6 +58,13 @@
                     <state key="normal" title="Confirm"/>
                     <connections>
                         <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="ucg-pN-qbE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kat-mg-toB">
+                    <rect key="frame" x="325" y="156" width="34" height="30"/>
+                    <state key="normal" title="clear"/>
+                    <connections>
+                        <action selector="clearAction:" destination="-1" eventType="touchUpInside" id="5rD-lI-OA5"/>
                     </connections>
                 </button>
             </subviews>
@@ -75,7 +84,9 @@
                 <constraint firstAttribute="bottom" secondItem="QDF-E5-MOw" secondAttribute="bottom" constant="-1" id="cHE-1P-zWw"/>
                 <constraint firstItem="8g4-vL-DoG" firstAttribute="leading" secondItem="jTC-Pc-trH" secondAttribute="leading" id="cz1-FZ-SL4"/>
                 <constraint firstItem="d3k-Xj-PTe" firstAttribute="centerY" secondItem="jTC-Pc-trH" secondAttribute="centerY" id="lNq-ez-WoJ"/>
+                <constraint firstItem="Kat-mg-toB" firstAttribute="centerY" secondItem="8g4-vL-DoG" secondAttribute="centerY" id="nBA-8c-ee9"/>
                 <constraint firstAttribute="trailing" secondItem="d3k-Xj-PTe" secondAttribute="trailing" constant="16" id="nmX-9X-3c9"/>
+                <constraint firstItem="Kat-mg-toB" firstAttribute="trailing" secondItem="d3k-Xj-PTe" secondAttribute="trailing" id="o50-wg-faD"/>
                 <constraint firstItem="QDF-E5-MOw" firstAttribute="top" secondItem="8g4-vL-DoG" secondAttribute="bottom" constant="16" id="osg-dv-rtX"/>
                 <constraint firstItem="jTC-Pc-trH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="yr5-Ps-e9M"/>
             </constraints>

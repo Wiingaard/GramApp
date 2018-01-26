@@ -161,15 +161,15 @@ class WeeklyReportViewController: UIViewController {
     }
     
     // MARK: - Button Actions
-    func projectPressed() {
+    @objc func projectPressed() {
         performSegue(withIdentifier: "Show Project Information", sender: nil)
     }
     
-    func workingHoursPressed() {
+    @objc func workingHoursPressed() {
         performSegue(withIdentifier: "Show Working Hours", sender: nil)
     }
     
-    func signPressed() {
+    @objc func signPressed() {
         if let errorMessages = checkReport().errorMessages {
             let joinedMessages = errorMessages.joined(separator: "\n")
             let vc = ErrorViewController(message: "You need to fill out the following information:\n\n" + joinedMessages, title: "Can't sign & send", buttonText: "ACCEPT")

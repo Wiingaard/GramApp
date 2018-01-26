@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy2-0n-BAk">
-                    <rect key="frame" x="157.5" y="571" width="60" height="42"/>
+                    <rect key="frame" x="158.5" y="571" width="58" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <state key="normal" title="Done"/>
                     <connections>
@@ -48,19 +49,19 @@
                     </constraints>
                 </pickerView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RM-GF-k32">
-                    <rect key="frame" x="152" y="321.5" width="51" height="24"/>
+                    <rect key="frame" x="153" y="321.5" width="49.5" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8Q-cE-MLW">
-                    <rect key="frame" x="301" y="321.5" width="33" height="24"/>
+                    <rect key="frame" x="301.5" y="321.5" width="32" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-pA-cps">
-                    <rect key="frame" x="16" y="155.5" width="183" height="27"/>
+                    <rect key="frame" x="16" y="155.5" width="179.5" height="27"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -72,6 +73,13 @@
                         <constraint firstAttribute="height" constant="0.5" id="zLq-DX-IVv"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3N5-e5-9pW">
+                    <rect key="frame" x="325" y="79" width="34" height="30"/>
+                    <state key="normal" title="clear"/>
+                    <connections>
+                        <action selector="clearAction:" destination="-1" eventType="touchUpInside" id="6UP-Gb-KTK"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -81,7 +89,9 @@
                 <constraint firstAttribute="trailing" secondItem="JgW-pc-iUh" secondAttribute="trailing" id="AwK-76-rEV"/>
                 <constraint firstItem="w8Q-cE-MLW" firstAttribute="centerX" secondItem="Zs4-x6-bhe" secondAttribute="centerX" constant="130" id="IA2-k1-8DG"/>
                 <constraint firstItem="9RM-GF-k32" firstAttribute="centerX" secondItem="Zs4-x6-bhe" secondAttribute="centerX" constant="-10" id="J5c-Nc-9gB"/>
+                <constraint firstItem="3N5-e5-9pW" firstAttribute="centerY" secondItem="Uxg-RH-4au" secondAttribute="centerY" id="Jrh-yh-TTH"/>
                 <constraint firstItem="Zs4-x6-bhe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kgg-2X-8XJ"/>
+                <constraint firstAttribute="trailing" secondItem="3N5-e5-9pW" secondAttribute="trailing" constant="16" id="Lv3-3g-KME"/>
                 <constraint firstItem="9CZ-pA-cps" firstAttribute="top" secondItem="JgW-pc-iUh" secondAttribute="bottom" constant="32" id="OXB-ar-2eF"/>
                 <constraint firstAttribute="trailing" secondItem="bfi-1V-1CH" secondAttribute="trailing" constant="31" id="PWr-xh-mfZ"/>
                 <constraint firstAttribute="trailing" secondItem="Zs4-x6-bhe" secondAttribute="trailing" id="RAs-ZJ-DLh"/>

@@ -46,7 +46,7 @@ class MileageViewController: UIViewController {
         numberTextField.becomeFirstResponder()
     }
     
-    func confirmPressed() {
+    @objc func confirmPressed() {
         if report.validMileage(number: inputValue) {
             let input = inputValue
             performSegue(withIdentifier: "Show Mileage Type", sender: input)

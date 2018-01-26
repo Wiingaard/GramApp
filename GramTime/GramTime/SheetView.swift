@@ -118,7 +118,7 @@ class SheetView: UIView {
         }
         
         var departureSum = 0.0
-        if let departureDate = report.departure as? Date {
+        if let departureDate = report.departure as Date? {
             for workday in report.workdays {
                 let currentDate = workday.date
                 let result = time.calendar.compare(departureDate, to: currentDate, toGranularity: .day)
@@ -128,7 +128,7 @@ class SheetView: UIView {
             }
         }
         var arrivalSum = 0.0
-        if let arrivalDate = report.arrival as? Date {
+        if let arrivalDate = report.arrival as Date? {
             for workday in report.workdays {
                 let currentDate = workday.date
                 let result = time.calendar.compare(arrivalDate, to: currentDate, toGranularity: .day)
@@ -163,13 +163,13 @@ class SheetView: UIView {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM-yyyy"
         formatter.timeZone = time.danishTimezone
-        if let departureDate = report.departure as? Date {
+        if let departureDate = report.departure as Date? {
             departure.text = formatter.string(from: departureDate)
         } else {
             departure.text = ""
         }
         
-        if let arrivalDate = report.arrival as? Date {
+        if let arrivalDate = report.arrival as Date? {
             arrival.text = formatter.string(from: arrivalDate)
         } else {
             arrival.text = ""
