@@ -306,6 +306,16 @@ class WeekReport: Object {
         }
     }
     
+    func dailyFeesOnWeekend() -> Int {
+        return workdays.reduce(0) { result, workday in
+            if workday.weekday > 4 {
+                return workday.dailyFee ? result+1 : result
+            } else {
+                return result
+            }
+        }
+    }
+    
     func travelTimesfor(type: TravelType) -> [(date: NSDate, duration: Double)] {
         let beginDate: Date!
         let duration: Double!
@@ -341,16 +351,6 @@ class WeekReport: Object {
         }
         
         return returnValue
-    }
-    
-    func dailyFeesOnWeekend() -> Int {
-        return workdays.reduce(0) { result, workday in
-            if workday.weekday > 4 {
-                return workday.dailyFee ? result+1 : result
-            } else {
-                return result
-            }
-        }
     }
     
     func unitsFor2InspectorToPm() -> Double {

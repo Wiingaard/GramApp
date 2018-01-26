@@ -72,10 +72,7 @@ class SheetView: UIView {
                 }
             }
             if fee.tag == 7 {
-                fee.text = String(feeNormalSum)
-            }
-            if fee.tag == 8 {
-                fee.text = String(feeWeekendSum)
+                fee.text = String(feeNormalSum + feeWeekendSum)
             }
         }
         for normal in normals {
