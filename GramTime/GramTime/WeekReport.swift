@@ -353,6 +353,38 @@ class WeekReport: Object {
         return returnValue
     }
     
+    func travelingTime(inYear year: Int) -> Double {
+        var beginDate: Date
+        var endDate: Date
+        
+        if let setBeginning = self.departure as Date? {
+            beginDate = setBeginning
+        } else {
+            beginDate = mondayInWeek
+        }
+        
+        let nextMonday = time.getDate(withWeeks: 1, fromDate: mondayInWeek)
+        if let setEnd = self.arrival as Date? {
+            let duration = TimeInterval(travelHome * 60 * 60)
+            endDate = setEnd.addingTimeInterval(duration)
+        } else {
+            endDate = nextMonday
+        }
+        
+        let nextYear = time.firstOfJanuaryInYear(year+1)
+        if endDate.timeIntervalSince1970 > nextYear.timeIntervalSince1970 {
+            endDate = nextYear
+        }
+        
+        let thisYear = time.firstOfJanuaryInYear(year)
+        if beginDate.timeIntervalSince1970 < thisYear.timeIntervalSince1970 {
+            beginDate = thisYear
+        }
+        
+        let travelTime = endDate.timeIntervalSince(beginDate)
+        return Double(travelTime)
+    }
+    
     func unitsFor2InspectorToPm() -> Double {
         let hours = workdays.reduce(0.0) { result, workday in
             if workday.weekday < 5 {
