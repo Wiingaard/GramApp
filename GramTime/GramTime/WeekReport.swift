@@ -382,7 +382,7 @@ class WeekReport: Object {
         }
         
         let travelTime = endDate.timeIntervalSince(beginDate)
-        return Double(travelTime)
+        return max(travelTime, 0)
     }
     
     func unitsFor2InspectorToPm() -> Double {
