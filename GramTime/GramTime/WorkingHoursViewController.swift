@@ -140,7 +140,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
                 cell.nameLabel.text = "Overtime"
                 if currentWorkday.validOvertimeType() && currentWorkday.validOvertime() {
-                    if let type = OvertimeType(rawValue: currentWorkday.overtimeType) {
+                    if let type = OvertimeType(rawValue: currentWorkday.overtimeTypeString) {
                         let hours = doubleValueToMetricString(value: currentWorkday.overtime)
                         switch type {
                         case .normal:

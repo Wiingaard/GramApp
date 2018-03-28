@@ -97,8 +97,8 @@ class FileGenerator: NSObject {
         for workday in report.workdays {
             
             let hours: Double = workday.validHours() ? workday.hours : 0
-            let overtime: Double = workday.overtimeType == OvertimeType.normal.rawValue ? workday.overtime : 0
-            let overtimeSunday: Double = workday.overtimeType == OvertimeType.holiday.rawValue ? workday.overtime : 0
+            let overtime: Double = workday.overtimeTypeString == OvertimeType.normal.rawValue ? workday.overtime : 0
+            let overtimeSunday: Double = workday.overtimeTypeString == OvertimeType.holiday.rawValue ? workday.overtime : 0
             var travel: Double = 0
             
             let departureDates = report.travelTimesfor(type: .out)

@@ -17,12 +17,22 @@ class Workday: Object {
     @objc dynamic var date = Date()
     @objc dynamic var weekday = 0             // Constant
     @objc dynamic var dailyFee = false        // Required
+    @objc dynamic var holiday = false         //
     @objc dynamic var hours = -1.0            // Required
     @objc dynamic var overtime = 0.0
-    @objc dynamic var overtimeType = ""       // Enum
     @objc dynamic var waitingHours = -1.0     // Required
     @objc dynamic var waitingType = ""        // Enum
     @objc dynamic var typeOfWork = ""         // Enum
+    
+    var isSunday: Bool {
+        return weekday == DayType.sunday.rawValue
+    }
+    
+    var overtimeTypeString: String {
+        guard overtime > 0 else { return "" }
+        let isHoliday = isSunday || holiday
+        return isHoliday ? OvertimeType.holiday.rawValue : OvertimeType.normal.rawValue
+    }
     
     // MARK: - Validation
     func validWeekday(number: Int? = nil) -> Bool {
@@ -60,7 +70,7 @@ class Workday: Object {
         if type != nil {
             checkString = type
         } else {
-            checkString = overtimeType
+            checkString = overtimeTypeString
         }
         if OvertimeType(rawValue: checkString) != nil {
             return true

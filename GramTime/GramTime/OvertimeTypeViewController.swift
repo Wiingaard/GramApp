@@ -24,17 +24,17 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         func handleAction(type: OvertimeType) {
-            if workday.validOvertime(double: overtime) {
-                try! realm.write {
-                    workday.overtime = overtime
-                    workday.overtimeType = type.rawValue
-                }
-            } else {
-                try! realm.write {
-                    workday.overtime = 0
-                    workday.overtimeType = ""
-                }
-            }
+//            if workday.validOvertime(double: overtime) {
+//                try! realm.write {
+//                    workday.overtime = overtime
+//                    workday.overtimeType = type.rawValue
+//                }
+//            } else {
+//                try! realm.write {
+//                    workday.overtime = 0
+//                    workday.overtimeType = ""
+//                }
+//            }
             popBack()
         }
         switch selected {
@@ -75,7 +75,7 @@ class OvertimeTypeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        switch workday.overtimeType {
+        switch workday.overtimeTypeString {
         case OvertimeType.normal.rawValue:
             setCheckmark(at: 0)
             selected = 0

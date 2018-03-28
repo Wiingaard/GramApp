@@ -90,7 +90,7 @@ class SheetView: UIView {
         for overtime in overtimes {
             if overtime.tag == 7 {
                 let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
-                    if workday.overtimeType == OvertimeType.normal.rawValue {
+                    if workday.overtimeTypeString == OvertimeType.normal.rawValue {
                         if workday.validOvertime() {
                             return workday.overtime + result
                         }
@@ -103,7 +103,7 @@ class SheetView: UIView {
         for sunday in sundays {
             if sunday.tag == 7 {
                 let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
-                    if workday.overtimeType == OvertimeType.holiday.rawValue {
+                    if workday.overtimeTypeString == OvertimeType.holiday.rawValue {
                         if workday.validOvertime() {
                             return workday.overtime + result
                         }
@@ -214,7 +214,7 @@ class SheetView: UIView {
             }
             for overtime in overtimes {
                 if overtime.tag == index {
-                    if workday.overtimeType == OvertimeType.normal.rawValue {
+                    if workday.overtimeTypeString == OvertimeType.normal.rawValue {
                         overtime.text = workday.validOvertime() ? doubleValueToMetricString(value: workday.overtime) : ""
                     } else {
                         overtime.text = ""
@@ -223,7 +223,7 @@ class SheetView: UIView {
             }
             for sunday in sundays {
                 if sunday.tag == index {
-                    if workday.overtimeType == OvertimeType.holiday.rawValue {
+                    if workday.overtimeTypeString == OvertimeType.holiday.rawValue {
                         sunday.text = workday.validOvertime() ? doubleValueToMetricString(value: workday.overtime) : ""
                     } else {
                         sunday.text = ""
