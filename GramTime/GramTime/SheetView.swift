@@ -24,9 +24,9 @@ class SheetView: UIView {
     // Hours section
     @IBOutlet var dates: [UILabel]!
     @IBOutlet var fees: [UILabel]!
+    @IBOutlet var holidays: [UILabel]!
     @IBOutlet var normals: [UILabel]!
     @IBOutlet var overtimes: [UILabel]!
-    @IBOutlet var sundays: [UILabel]!
     @IBOutlet var outs: [UILabel]!
     @IBOutlet var homes: [UILabel]!
     @IBOutlet weak var totalTravel: UILabel!
@@ -75,14 +75,25 @@ class SheetView: UIView {
                 fee.text = String(feeNormalSum + feeWeekendSum)
             }
         }
+        for holiday in holidays {
+            if holiday.tag == 7 {
+                let result = report.workdays.reduce(0, { (result, workday) -> Int in
+                    if workday.holiday {
+                        return result + 1
+                    } else {
+                        return result
+                    }
+                })
+                holiday.text = String(result)
+            }
+        }
         for normal in normals {
             if normal.tag == 7 {
                 let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
                     if workday.validHours() {
-                        return workday.hours + result
-                    } else {
-                        return result
+                        return result + workday.hours
                     }
+                    return result
                 })
                 normal.text = doubleValueToMetricString(value: result)
             }
@@ -90,27 +101,12 @@ class SheetView: UIView {
         for overtime in overtimes {
             if overtime.tag == 7 {
                 let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
-                    if workday.overtimeTypeString == OvertimeType.normal.rawValue {
-                        if workday.validOvertime() {
-                            return workday.overtime + result
-                        }
+                    if workday.validOvertime() {
+                        return workday.overtime + result
                     }
                     return result
                 })
                 overtime.text = doubleValueToMetricString(value: result)
-            }
-        }
-        for sunday in sundays {
-            if sunday.tag == 7 {
-                let result = report.workdays.reduce(0.0, { (result, workday) -> Double in
-                    if workday.overtimeTypeString == OvertimeType.holiday.rawValue {
-                        if workday.validOvertime() {
-                            return workday.overtime + result
-                        }
-                    }
-                    return result
-                })
-                sunday.text = doubleValueToMetricString(value: result)
             }
         }
         
@@ -207,6 +203,11 @@ class SheetView: UIView {
                     fee.text = workday.dailyFee ? "1" : "0"
                 }
             }
+            for holiday in holidays {
+                if holiday.tag == index {
+                    holiday.text = workday.holiday ? "1" : ""
+                }
+            }
             for normal in normals {
                 if normal.tag == index {
                     normal.text = workday.validHours() ? doubleValueToMetricString(value: workday.hours) : ""
@@ -214,20 +215,7 @@ class SheetView: UIView {
             }
             for overtime in overtimes {
                 if overtime.tag == index {
-                    if workday.overtimeTypeString == OvertimeType.normal.rawValue {
-                        overtime.text = workday.validOvertime() ? doubleValueToMetricString(value: workday.overtime) : ""
-                    } else {
-                        overtime.text = ""
-                    }
-                }
-            }
-            for sunday in sundays {
-                if sunday.tag == index {
-                    if workday.overtimeTypeString == OvertimeType.holiday.rawValue {
-                        sunday.text = workday.validOvertime() ? doubleValueToMetricString(value: workday.overtime) : ""
-                    } else {
-                        sunday.text = ""
-                    }
+                    overtime.text = workday.validOvertime() ? doubleValueToMetricString(value: workday.overtime) : ""
                 }
             }
             for out in outs {
