@@ -17,7 +17,7 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func nextAction(_ sender: Any) {
         func setOvertime() {
             let hours = getSelectedHoursValue()
-            if workday.validOvertime(double: hours) {
+            if hours >= 0 {
                 try! realm.write {
                     workday.overtime = hours
                 }

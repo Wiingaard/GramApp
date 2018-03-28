@@ -210,7 +210,7 @@ class SheetView: UIView {
             }
             for normal in normals {
                 if normal.tag == index {
-                    normal.text = workday.validHours() ? doubleValueToMetricString(value: workday.hours) : ""
+                    normal.text = workday.hours > 0 ? doubleValueToMetricString(value: workday.hours) : ""
                 }
             }
             for overtime in overtimes {

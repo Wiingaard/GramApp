@@ -424,4 +424,34 @@ class WeekReport: Object {
         }
         return hours + travelSum
     }
+    
+    func sallery1300For1InspectorToPm() -> Int {
+        let travelDays = travelTimesfor(type: TravelType.out) + travelTimesfor(type: TravelType.home)
+        
+        return workdays.reduce(0) { (result, workday) -> Int in
+//            let day = DayType(rawValue: workday.weekday)!
+//            print("Reducing ", day)
+            let travelingThisDay = travelDays.reduce(false, { (result, travelInfo) -> Bool in
+                let travelOnSameDate = travelInfo.date.isInSameDay(as: workday.date)
+                return result || travelOnSameDate
+            })
+            let isSaturday = workday.isSaturday
+            let isSunday = workday.isSunday
+            let isHoliday = workday.holiday
+            
+            var countTravel = false
+            if travelingThisDay && (isSaturday || isSunday || isHoliday) {
+                 countTravel = true
+            }
+            
+            var countHours = false
+            let workingThisDay = (workday.hours > 0 || workday.overtime > 0)
+            if workingThisDay && (isSunday || isHoliday) {
+                countHours = true
+            }
+            let doesCount = countTravel || countHours
+//            print("Count hours: \(countHours), count travel: \(countTravel), does count: \(doesCount)\n")
+            return result + (doesCount ? 1 : 0)
+        }
+    }
 }

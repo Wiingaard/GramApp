@@ -17,6 +17,10 @@ extension NSDate {
         let seconds = floor(self.timeIntervalSince1970/(300))*300
         return NSDate(timeIntervalSince1970: seconds)
     }
+    
+    func isInSameDay(as date: Date) -> Bool {
+        return time.calendar.isDate(self as Date, inSameDayAs: date)
+    }
 }
 
 extension UIColor {

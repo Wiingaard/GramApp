@@ -55,7 +55,7 @@ class FileGenerator: NSObject {
             
             let secondLine = "\(user.inspectorNumber);" +
                 "1300;" +
-                "\(report.dailyFeesOnWeekend());;;" +
+                "\(report.sallery1300For1InspectorToPm());;;" +
                 "w\(week) Optjent afspadsering\r\n"
             if report.dailyFeesOnWeekend() > 0 {
                 returnString += secondLine

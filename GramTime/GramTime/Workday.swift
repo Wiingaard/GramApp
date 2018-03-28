@@ -24,6 +24,10 @@ class Workday: Object {
     @objc dynamic var waitingType = ""        // Enum
     @objc dynamic var typeOfWork = ""         // Enum
     
+    var isSaturday: Bool {
+        return weekday == DayType.saturday.rawValue
+    }
+    
     var isSunday: Bool {
         return weekday == DayType.sunday.rawValue
     }
