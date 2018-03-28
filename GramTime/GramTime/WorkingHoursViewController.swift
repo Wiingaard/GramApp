@@ -66,8 +66,6 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         tableView.register(nib, forCellReuseIdentifier: "InputFieldCell")
         let boolNib = UINib(nibName: "BoolTableViewCell", bundle: nil)
         tableView.register(boolNib, forCellReuseIdentifier: "BoolInputCell")
-        let modalNib = UINib(nibName: "ModalInputTableViewCell", bundle: nil)
-        tableView.register(modalNib, forCellReuseIdentifier: "ModalInputTableViewCell")
         let optionalNib = UINib(nibName: "OptionalInputTableViewCell", bundle: nil)
         tableView.register(optionalNib, forCellReuseIdentifier: "OptionalInputTableViewCell")
         tableView.separatorStyle = .none
@@ -103,7 +101,8 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     }
     
     // MARK: - Table View
-    var boolCell: BoolTableViewCell!
+    var dailyFeeCell: BoolTableViewCell!
+    var holidayCell: BoolTableViewCell!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -129,14 +128,22 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         case 1:     // OPTIONAL
             switch indexPath.row {
             case 0:
-                boolCell = tableView.dequeueReusableCell(withIdentifier: "BoolInputCell") as! BoolTableViewCell
-                boolCell.nameLabel.text = "Daily fee"
-                boolCell.valueSwitch.isOn = currentWorkday.dailyFee
-                boolCell.valueSwitch.addTarget(self, action: #selector(WorkingHoursViewController.dailyFeeChanged), for: UIControlEvents.valueChanged)
-                boolCell.selectionStyle = .none
-                return boolCell
-            case 1:
+                holidayCell = tableView.dequeueReusableCell(withIdentifier: "BoolInputCell") as! BoolTableViewCell
+                holidayCell.nameLabel.text = "Holiday"
+                holidayCell.valueSwitch.isOn = currentWorkday.holiday
+                holidayCell.valueSwitch.addTarget(self, action: #selector(WorkingHoursViewController.holidaySwitchChanged), for: UIControlEvents.valueChanged)
+                holidayCell.selectionStyle = .none
+                return holidayCell
                 
+            case 1:
+                dailyFeeCell = tableView.dequeueReusableCell(withIdentifier: "BoolInputCell") as! BoolTableViewCell
+                dailyFeeCell.nameLabel.text = "Daily fee"
+                dailyFeeCell.valueSwitch.isOn = currentWorkday.dailyFee
+                dailyFeeCell.valueSwitch.addTarget(self, action: #selector(WorkingHoursViewController.dailyFeeChanged), for: UIControlEvents.valueChanged)
+                dailyFeeCell.selectionStyle = .none
+                return dailyFeeCell
+            
+            case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
                 cell.nameLabel.text = "Overtime"
                 if currentWorkday.validOvertimeType() && currentWorkday.validOvertime() {
@@ -154,7 +161,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
                 }
                 return cell
                 
-            case 2:
+            case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OptionalInputTableViewCell") as! OptionalInputTableViewCell
                 cell.nameLabel.text = "Waiting Hours"
                 if currentWorkday.validWaitingType() && currentWorkday.validWaitingHours() {
@@ -177,9 +184,16 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
     
     @objc func dailyFeeChanged() {
         try! realm.write {
-            currentWorkday.dailyFee = boolCell.valueSwitch.isOn
+            currentWorkday.dailyFee = dailyFeeCell.valueSwitch.isOn
         }
         refreshStatusImages()
+    }
+    
+    @objc func holidaySwitchChanged() {
+        try! realm.write {
+            currentWorkday.holiday = holidayCell.valueSwitch.isOn
+        }
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -191,7 +205,7 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
         case 0:
             return 2
         default:
-            return 3
+            return 4
         }
     }
     
@@ -239,11 +253,11 @@ class WorkingHoursViewController: UIViewController, UIGestureRecognizerDelegate,
             }
         default:
             switch indexPath.row {
-            case 0:
+            case 0,1:
                 break
-            case 1:
-                performSegue(withIdentifier: "Show Overtime", sender: nil)
             case 2:
+                performSegue(withIdentifier: "Show Overtime", sender: nil)
+            case 3:
                 performSegue(withIdentifier: "Show Waiting", sender: nil)
             default:
                 fatalError("Default case isn't allowed")
