@@ -121,6 +121,21 @@ class Time: NSObject {
         return calendar.date(from: comp)
     }
     
+    func mondayInWeek(with date: Date) -> Date {
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)
+        guard let mondayBeginning = calendar.date(from: components)
+            else { fatalError("Expected to be able to make monday date") }
+        return mondayBeginning
+    }
+    
+    func firstOfJanuaryInYear(_ year: Int) -> Date {
+        var components = calendar.dateComponents([.year], from: Date())
+        components.year = year
+        guard let firstDateInYear = calendar.date(from: components)
+            else { fatalError("Expected to be able to make first date in year") }
+        return firstDateInYear
+    }
+    
     func getDate(withWeeks weeks: Int, fromDate date: Date) -> Date {
         return date.addingTimeInterval(TimeInterval(60*60*24*7 * weeks))
     }

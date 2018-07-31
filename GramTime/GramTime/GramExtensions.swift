@@ -17,6 +17,10 @@ extension NSDate {
         let seconds = floor(self.timeIntervalSince1970/(300))*300
         return NSDate(timeIntervalSince1970: seconds)
     }
+    
+    func isInSameDay(as date: Date) -> Bool {
+        return time.calendar.isDate(self as Date, inSameDayAs: date)
+    }
 }
 
 extension UIColor {
@@ -59,6 +63,12 @@ extension Double {
         } else {
             return Double(halfHours+1) / 2
         }
+    }
+    
+    /// Rounds the double to decimal places value
+    func rounded(to decimals:Int) -> Double {
+        let divisor = pow(10.0, Double(decimals))
+        return (self * divisor).rounded() / divisor
     }
 }
 

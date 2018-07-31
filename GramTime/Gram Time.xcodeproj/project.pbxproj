@@ -36,8 +36,6 @@
 		5B92178F1E256C7800C4A220 /* BoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */; };
 		5B9217901E256C7800C4A220 /* CheckmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */; };
 		5B9217911E256C7800C4A220 /* CheckmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */; };
-		5B9217921E256C7800C4A220 /* ModalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */; };
-		5B9217931E256C7800C4A220 /* ModalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */; };
 		5B9217941E256C7800C4A220 /* OptionalInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */; };
 		5B9217951E256C7800C4A220 /* OptionalInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */; };
 		5B9217A11E256C9800C4A220 /* NumberInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217971E256C9800C4A220 /* NumberInputViewController.swift */; };
@@ -60,7 +58,6 @@
 		5B9217C01E256D1200C4A220 /* WaitingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */; };
 		5B9217C11E256D1200C4A220 /* WaitingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */; };
 		5B9217C21E256D1200C4A220 /* OvertimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */; };
-		5B9217C31E256D1200C4A220 /* OvertimeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */; };
 		5B9217CA1E256D4600C4A220 /* FileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217C51E256D4600C4A220 /* FileGenerator.swift */; };
 		5B9217CB1E256D4600C4A220 /* Sheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9217C61E256D4600C4A220 /* Sheet.xib */; };
 		5B9217CC1E256D4600C4A220 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9217C71E256D4600C4A220 /* SheetView.swift */; };
@@ -110,8 +107,6 @@
 		5B9217831E256C7800C4A220 /* BoolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoolTableViewCell.xib; sourceTree = "<group>"; };
 		5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkTableViewCell.swift; sourceTree = "<group>"; };
 		5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckmarkTableViewCell.xib; sourceTree = "<group>"; };
-		5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInputTableViewCell.swift; sourceTree = "<group>"; };
-		5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalInputTableViewCell.xib; sourceTree = "<group>"; };
 		5B9217881E256C7800C4A220 /* OptionalInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalInputTableViewCell.swift; sourceTree = "<group>"; };
 		5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionalInputTableViewCell.xib; sourceTree = "<group>"; };
 		5B9217971E256C9800C4A220 /* NumberInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberInputViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +129,6 @@
 		5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingHoursViewController.swift; sourceTree = "<group>"; };
 		5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingTypeViewController.swift; sourceTree = "<group>"; };
 		5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeViewController.swift; sourceTree = "<group>"; };
-		5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvertimeTypeViewController.swift; sourceTree = "<group>"; };
 		5B9217C51E256D4600C4A220 /* FileGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGenerator.swift; sourceTree = "<group>"; };
 		5B9217C61E256D4600C4A220 /* Sheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sheet.xib; sourceTree = "<group>"; };
 		5B9217C71E256D4600C4A220 /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
@@ -246,8 +240,6 @@
 				5B9217891E256C7800C4A220 /* OptionalInputTableViewCell.xib */,
 				5B9217841E256C7800C4A220 /* CheckmarkTableViewCell.swift */,
 				5B9217851E256C7800C4A220 /* CheckmarkTableViewCell.xib */,
-				5B9217861E256C7800C4A220 /* ModalInputTableViewCell.swift */,
-				5B9217871E256C7800C4A220 /* ModalInputTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -298,7 +290,6 @@
 				5B9217BB1E256D1200C4A220 /* WaitingHoursViewController.swift */,
 				5B9217BC1E256D1200C4A220 /* WaitingTypeViewController.swift */,
 				5B9217BD1E256D1200C4A220 /* OvertimeViewController.swift */,
-				5B9217BE1E256D1200C4A220 /* OvertimeTypeViewController.swift */,
 			);
 			name = "Working Hours";
 			sourceTree = "<group>";
@@ -451,7 +442,6 @@
 				5B9217E41E256D8F00C4A220 /* ErrorViewController.xib in Resources */,
 				5B9217A21E256C9800C4A220 /* NumberInputViewController.xib in Resources */,
 				5B06CD431E2D8E27004E8510 /* OptionPopupViewController.xib in Resources */,
-				5B9217931E256C7800C4A220 /* ModalInputTableViewCell.xib in Resources */,
 				5B92178B1E256C7800C4A220 /* ReportWeekTableViewCell.xib in Resources */,
 				5B9217A61E256C9800C4A220 /* DateInputViewController.xib in Resources */,
 				5BB352B91E25601800799F23 /* Main.storyboard in Resources */,
@@ -546,7 +536,6 @@
 				5B9217BF1E256D1200C4A220 /* WorkingHoursViewController.swift in Sources */,
 				5B9217C01E256D1200C4A220 /* WaitingHoursViewController.swift in Sources */,
 				5B92178E1E256C7800C4A220 /* BoolTableViewCell.swift in Sources */,
-				5B9217C31E256D1200C4A220 /* OvertimeTypeViewController.swift in Sources */,
 				5B9217671E256BFF00C4A220 /* SignNameViewController.swift in Sources */,
 				5B9217A51E256C9800C4A220 /* DateInputViewController.swift in Sources */,
 				5B32ACFA1E90611C008BF1B2 /* SignMailViewController.swift in Sources */,
@@ -562,7 +551,6 @@
 				5B9217CC1E256D4600C4A220 /* SheetView.swift in Sources */,
 				5B9217CA1E256D4600C4A220 /* FileGenerator.swift in Sources */,
 				5B9217B51E256CE300C4A220 /* TravelDateViewController.swift in Sources */,
-				5B9217921E256C7800C4A220 /* ModalInputTableViewCell.swift in Sources */,
 				5B9217661E256BFF00C4A220 /* SignatureListViewController.swift in Sources */,
 				5B9217941E256C7800C4A220 /* OptionalInputTableViewCell.swift in Sources */,
 				5B92176E1E256C2100C4A220 /* OnboardingNameViewController.swift in Sources */,

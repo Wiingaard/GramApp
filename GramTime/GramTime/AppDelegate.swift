@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 3,
+            schemaVersion: 4,
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < 1 {
                     migration.enumerateObjects(ofType: WeekReport.className()) { oldObject, newObject in
@@ -33,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     migration.enumerateObjects(ofType: WeekReport.className()) { oldObject, newObject in
                         newObject!["pdfFileName"] = ""
                         newObject!["pmFileName"] = ""
+                    }
+                }
+                if oldSchemaVersion < 4 {
+                    // Added holiday, removed overtimeType from Workday
+                    migration.enumerateObjects(ofType: Workday.className()) { oldObject, newObject in
+                        newObject!["holiday"] = false
                     }
                 }
         })

@@ -44,28 +44,21 @@ class FileGenerator: NSObject {
         
         switch user.inspectorType() {
         case 1:
+            let totalDailyFees = report.dailyFeesOnWorkdays() + report.dailyFeesOnWeekend()
             let firstLine = "\(user.inspectorNumber);" +
                 "1200;" +
-                "\(report.dailyFeesOnWorkdays());;;" +
-                "w\(week) Montørtillæg hverdag\r\n"
-            if report.dailyFeesOnWorkdays() > 0 {
+                "\(totalDailyFees);;;" +
+                "w\(week) Montørtillæg\r\n"
+            if totalDailyFees > 0 {
                 returnString += firstLine
             }
             
             let secondLine = "\(user.inspectorNumber);" +
-                "1205;" +
-                "\(report.dailyFeesOnWeekend());;;" +
-                "w\(week) Montørtillæg weekend\r\n"
-            if report.dailyFeesOnWeekend() > 0 {
-                returnString += secondLine
-            }
-            
-            let thirdLine = "\(user.inspectorNumber);" +
                 "1300;" +
-                "\(report.dailyFeesOnWeekend());;;" +
+                "\(report.sallery1300For1InspectorToPm());;;" +
                 "w\(week) Optjent afspadsering\r\n"
             if report.dailyFeesOnWeekend() > 0 {
-                returnString += thirdLine
+                returnString += secondLine
             }
             
         case 2:
@@ -104,8 +97,8 @@ class FileGenerator: NSObject {
         for workday in report.workdays {
             
             let hours: Double = workday.validHours() ? workday.hours : 0
-            let overtime: Double = workday.overtimeType == OvertimeType.normal.rawValue ? workday.overtime : 0
-            let overtimeSunday: Double = workday.overtimeType == OvertimeType.holiday.rawValue ? workday.overtime : 0
+            let overtime: Double = workday.overtimeTypeString == OvertimeType.normal.rawValue ? workday.overtime : 0
+            let overtimeSunday: Double = workday.overtimeTypeString == OvertimeType.holiday.rawValue ? workday.overtime : 0
             var travel: Double = 0
             
             let departureDates = report.travelTimesfor(type: .out)

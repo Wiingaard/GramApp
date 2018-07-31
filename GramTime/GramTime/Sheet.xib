@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -254,7 +255,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="departure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-rm-nrW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="departure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-rm-nrW">
                     <rect key="frame" x="385" y="77" width="133" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="133" id="0lr-Pm-1Hs"/>
@@ -263,7 +264,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="arrival" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4do-aI-TUV">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="arrival" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4do-aI-TUV">
                     <rect key="frame" x="523" y="77" width="130" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="Bgu-h8-bPK"/>
@@ -356,18 +357,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krp-E8-WRJ">
-                    <rect key="frame" x="122" y="357" width="62" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57I-qY-BMR">
-                    <rect key="frame" x="122" y="381" width="62" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGs-gS-Hro">
                     <rect key="frame" x="190" y="176" width="96" height="21"/>
                     <constraints>
@@ -414,16 +403,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5q-dc-Egi">
-                    <rect key="frame" x="190" y="357" width="96" height="21"/>
+                    <rect key="frame" x="190" y="357" width="96" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-YY-tcE">
-                    <rect key="frame" x="190" y="381" width="463" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="463" id="ajS-jd-iGI"/>
-                    </constraints>
+                    <rect key="frame" x="291" y="381" width="363" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -638,6 +624,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" text="fee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMi-Ob-88m">
+                    <rect key="frame" x="122" y="357" width="62" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -646,11 +638,9 @@
                 <constraint firstItem="uQi-Oc-5pd" firstAttribute="centerY" secondItem="4vD-Sh-5HE" secondAttribute="centerY" id="0LT-tS-f97"/>
                 <constraint firstItem="QN6-ng-v9B" firstAttribute="centerY" secondItem="3ph-Qt-dQQ" secondAttribute="centerY" id="0UX-zu-FVE"/>
                 <constraint firstItem="cXJ-6u-X7y" firstAttribute="centerY" secondItem="6vt-Vl-cCH" secondAttribute="centerY" id="0Xb-WH-PtN"/>
-                <constraint firstItem="57I-qY-BMR" firstAttribute="leading" secondItem="krp-E8-WRJ" secondAttribute="leading" id="0fz-ej-j6y"/>
                 <constraint firstItem="Ezr-Cc-xvH" firstAttribute="leading" secondItem="6vt-Vl-cCH" secondAttribute="leading" id="1Hu-co-7Xf"/>
                 <constraint firstItem="tag-d2-dS7" firstAttribute="centerY" secondItem="38J-JX-XD7" secondAttribute="centerY" id="1NC-JW-beC"/>
                 <constraint firstItem="AxK-HT-jud" firstAttribute="leading" secondItem="4vD-Sh-5HE" secondAttribute="leading" id="1Za-hQ-qeK"/>
-                <constraint firstItem="Mgv-YY-tcE" firstAttribute="leading" secondItem="d5q-dc-Egi" secondAttribute="leading" id="1j0-Rm-rBH"/>
                 <constraint firstItem="SrS-vq-VWu" firstAttribute="width" secondItem="poZ-qL-S3s" secondAttribute="width" id="1nE-Ts-5aj"/>
                 <constraint firstItem="D3D-yv-CuL" firstAttribute="trailing" secondItem="hn7-bQ-kN5" secondAttribute="trailing" id="28y-Si-y2n"/>
                 <constraint firstItem="6vt-Vl-cCH" firstAttribute="leading" secondItem="Ww3-Xl-Bfx" secondAttribute="leading" id="2A5-4R-tRJ"/>
@@ -661,9 +651,9 @@
                 <constraint firstItem="GHz-Qv-V7h" firstAttribute="trailing" secondItem="IWe-TW-lUe" secondAttribute="trailing" id="2xe-9N-7zE"/>
                 <constraint firstItem="UC0-aX-021" firstAttribute="leading" secondItem="e15-DY-X7c" secondAttribute="leading" id="2yA-D0-G7x"/>
                 <constraint firstItem="5zD-wJ-w2W" firstAttribute="leading" secondItem="uTx-t1-T3k" secondAttribute="leading" id="3JC-wZ-5FA"/>
-                <constraint firstItem="krp-E8-WRJ" firstAttribute="top" secondItem="pMF-iS-CBx" secondAttribute="bottom" constant="8" id="3OJ-eY-gcl"/>
                 <constraint firstItem="39L-Nm-aI0" firstAttribute="trailing" secondItem="3yp-Je-oYZ" secondAttribute="trailing" id="3Ul-YY-vWD"/>
                 <constraint firstItem="mpC-0e-zsg" firstAttribute="trailing" secondItem="N8i-HF-0nZ" secondAttribute="trailing" id="3ax-8Y-VUw"/>
+                <constraint firstItem="yMi-Ob-88m" firstAttribute="trailing" secondItem="pMF-iS-CBx" secondAttribute="trailing" id="3f2-Pg-f1I"/>
                 <constraint firstItem="6V2-ZH-siA" firstAttribute="centerY" secondItem="FLX-oY-JU5" secondAttribute="centerY" id="3id-jT-949"/>
                 <constraint firstItem="ciQ-FX-R1y" firstAttribute="centerY" secondItem="UY0-z7-yaK" secondAttribute="centerY" id="3mk-eX-WLN"/>
                 <constraint firstItem="wz9-y1-c8w" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4b2-oc-VEQ"/>
@@ -683,13 +673,13 @@
                 <constraint firstItem="ex8-MS-sho" firstAttribute="leading" secondItem="Q4E-HW-cli" secondAttribute="leading" id="7w3-81-DCS"/>
                 <constraint firstItem="ifu-k9-3Xa" firstAttribute="centerY" secondItem="4q2-cM-Qac" secondAttribute="centerY" id="88S-OX-JUH"/>
                 <constraint firstItem="lwJ-a7-bfe" firstAttribute="trailing" secondItem="Umv-Tt-zHs" secondAttribute="trailing" id="8m4-nT-0NQ"/>
+                <constraint firstItem="d5q-dc-Egi" firstAttribute="top" secondItem="hQE-dJ-lgD" secondAttribute="bottom" constant="8" id="8pu-q3-41t"/>
                 <constraint firstItem="MLO-2A-2vV" firstAttribute="centerY" secondItem="hQE-dJ-lgD" secondAttribute="centerY" id="96v-mC-uHQ"/>
                 <constraint firstItem="pMF-iS-CBx" firstAttribute="leading" secondItem="H1q-7c-duB" secondAttribute="leading" id="9Sk-wZ-9hQ"/>
                 <constraint firstItem="MLO-2A-2vV" firstAttribute="leading" secondItem="vk0-qf-SJz" secondAttribute="leading" id="9Tq-xh-1Oo"/>
                 <constraint firstItem="ajB-Ae-dQL" firstAttribute="trailing" secondItem="FMt-o4-Sat" secondAttribute="trailing" id="9gw-0r-0x8"/>
                 <constraint firstItem="rbE-L0-X7x" firstAttribute="centerX" secondItem="RKl-wI-X3l" secondAttribute="centerX" id="A8F-vo-tUn"/>
                 <constraint firstItem="GBB-aN-CnP" firstAttribute="top" secondItem="xvT-Es-rab" secondAttribute="bottom" constant="3" id="AEP-qN-x5a"/>
-                <constraint firstItem="57I-qY-BMR" firstAttribute="top" secondItem="krp-E8-WRJ" secondAttribute="bottom" constant="3" id="AFB-V1-xAM"/>
                 <constraint firstItem="Enn-nC-d6K" firstAttribute="centerY" secondItem="QN6-ng-v9B" secondAttribute="centerY" id="APS-9e-2pm"/>
                 <constraint firstItem="hO5-Qn-K6k" firstAttribute="centerY" secondItem="Ezr-Cc-xvH" secondAttribute="centerY" id="Atb-od-8Yy"/>
                 <constraint firstItem="X4Z-ex-9BM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="B0P-bP-rj9"/>
@@ -704,8 +694,6 @@
                 <constraint firstItem="6BD-JE-tXB" firstAttribute="centerY" secondItem="hn7-bQ-kN5" secondAttribute="centerY" id="CrP-KE-ZhT"/>
                 <constraint firstItem="0CG-eS-nlY" firstAttribute="leading" secondItem="hO5-Qn-K6k" secondAttribute="leading" id="Cup-3x-bvg"/>
                 <constraint firstItem="Umv-Tt-zHs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="122" id="D1k-O5-gKL"/>
-                <constraint firstItem="krp-E8-WRJ" firstAttribute="leading" secondItem="pMF-iS-CBx" secondAttribute="leading" id="DAA-5a-qPc"/>
-                <constraint firstItem="57I-qY-BMR" firstAttribute="trailing" secondItem="krp-E8-WRJ" secondAttribute="trailing" id="DS7-Fd-zN4"/>
                 <constraint firstItem="g2p-NQ-cfH" firstAttribute="centerY" secondItem="4q2-cM-Qac" secondAttribute="bottom" constant="36" id="Dcg-uq-p73"/>
                 <constraint firstItem="6V2-ZH-siA" firstAttribute="centerX" secondItem="rbE-L0-X7x" secondAttribute="centerX" id="EIN-0q-bvL"/>
                 <constraint firstItem="SrS-vq-VWu" firstAttribute="centerX" secondItem="poZ-qL-S3s" secondAttribute="centerX" id="EvO-11-aem"/>
@@ -718,6 +706,7 @@
                 <constraint firstItem="iib-QO-BPz" firstAttribute="leading" secondItem="D3D-yv-CuL" secondAttribute="leading" id="Fox-94-f2L"/>
                 <constraint firstItem="RaB-Sb-wrS" firstAttribute="centerY" secondItem="Ww3-Xl-Bfx" secondAttribute="centerY" id="Fts-Mc-vGi"/>
                 <constraint firstItem="JvC-rC-htQ" firstAttribute="centerX" secondItem="aRq-nz-7NN" secondAttribute="centerX" id="GJR-FY-Or2"/>
+                <constraint firstItem="Mgv-YY-tcE" firstAttribute="leading" secondItem="UY0-z7-yaK" secondAttribute="leading" id="GYx-Zg-tfP"/>
                 <constraint firstItem="WUK-IV-S6B" firstAttribute="leading" secondItem="tag-d2-dS7" secondAttribute="leading" id="GeK-pt-Cfc"/>
                 <constraint firstItem="nDP-aM-dmc" firstAttribute="trailing" secondItem="X4Z-ex-9BM" secondAttribute="trailing" id="H7s-4I-ZAu"/>
                 <constraint firstItem="SrS-vq-VWu" firstAttribute="centerY" secondItem="Za5-14-v55" secondAttribute="centerY" id="HMb-Oo-DMC"/>
@@ -732,7 +721,6 @@
                 <constraint firstItem="0jq-CS-yfZ" firstAttribute="centerY" secondItem="fGs-gS-Hro" secondAttribute="centerY" id="IyM-Y1-cYT"/>
                 <constraint firstItem="6V2-ZH-siA" firstAttribute="width" secondItem="rbE-L0-X7x" secondAttribute="width" id="JMG-eR-yBy"/>
                 <constraint firstItem="cNK-VD-1Ia" firstAttribute="leading" secondItem="2xw-aG-rcc" secondAttribute="leading" id="JX9-qw-JBL"/>
-                <constraint firstItem="d5q-dc-Egi" firstAttribute="centerY" secondItem="krp-E8-WRJ" secondAttribute="centerY" id="Jen-DD-csP"/>
                 <constraint firstItem="J7G-fV-bGN" firstAttribute="top" secondItem="FLX-oY-JU5" secondAttribute="bottom" constant="28" id="JkK-rp-4Ya"/>
                 <constraint firstItem="vk0-qf-SJz" firstAttribute="centerY" secondItem="cNK-VD-1Ia" secondAttribute="centerY" id="Jl1-vn-Xh6"/>
                 <constraint firstItem="Za5-14-v55" firstAttribute="centerX" secondItem="ifu-k9-3Xa" secondAttribute="centerX" id="KMi-q1-33V"/>
@@ -740,12 +728,13 @@
                 <constraint firstItem="Ezr-Cc-xvH" firstAttribute="centerY" secondItem="IWe-TW-lUe" secondAttribute="centerY" id="KfE-yN-zeA"/>
                 <constraint firstItem="hO5-Qn-K6k" firstAttribute="trailing" secondItem="cXJ-6u-X7y" secondAttribute="trailing" id="KiR-uZ-f3g"/>
                 <constraint firstItem="d1j-Eq-cgL" firstAttribute="centerY" secondItem="nBc-X2-va3" secondAttribute="centerY" id="Kl8-OK-tA9"/>
+                <constraint firstItem="d5q-dc-Egi" firstAttribute="bottom" secondItem="Mgv-YY-tcE" secondAttribute="bottom" id="Koy-mW-j72"/>
                 <constraint firstItem="oey-Of-6fQ" firstAttribute="centerY" secondItem="Umv-Tt-zHs" secondAttribute="centerY" id="L7t-5x-fiT"/>
                 <constraint firstItem="ciQ-FX-R1y" firstAttribute="leading" secondItem="3ph-Qt-dQQ" secondAttribute="leading" id="LIN-ae-KMX"/>
                 <constraint firstItem="i6p-P0-wqM" firstAttribute="trailing" secondItem="mpC-0e-zsg" secondAttribute="trailing" id="LNV-Z4-pQ3"/>
+                <constraint firstItem="yMi-Ob-88m" firstAttribute="leading" secondItem="pMF-iS-CBx" secondAttribute="leading" id="LZO-h8-3CY"/>
                 <constraint firstItem="uTx-t1-T3k" firstAttribute="trailing" secondItem="GBB-aN-CnP" secondAttribute="trailing" id="LkA-6u-hyr"/>
                 <constraint firstItem="JvC-rC-htQ" firstAttribute="centerY" secondItem="rbE-L0-X7x" secondAttribute="centerY" id="Lq0-3Q-Glc"/>
-                <constraint firstItem="UY0-z7-yaK" firstAttribute="centerY" secondItem="d5q-dc-Egi" secondAttribute="centerY" id="M1A-od-eFz"/>
                 <constraint firstItem="6BD-JE-tXB" firstAttribute="trailing" secondItem="0jq-CS-yfZ" secondAttribute="trailing" id="M98-cf-Ney"/>
                 <constraint firstItem="ajB-Ae-dQL" firstAttribute="leading" secondItem="FMt-o4-Sat" secondAttribute="leading" id="ML3-y8-J9b"/>
                 <constraint firstItem="UY0-z7-yaK" firstAttribute="leading" secondItem="MLO-2A-2vV" secondAttribute="leading" id="NJk-ow-GDX"/>
@@ -772,6 +761,7 @@
                 <constraint firstItem="Enn-nC-d6K" firstAttribute="trailing" secondItem="iXc-H7-y3d" secondAttribute="trailing" id="TNe-sP-EaS"/>
                 <constraint firstItem="ehp-zX-vQL" firstAttribute="width" secondItem="JvC-rC-htQ" secondAttribute="width" id="TS9-Y7-cPy"/>
                 <constraint firstItem="wz9-y1-c8w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TZD-Wh-mJK"/>
+                <constraint firstItem="yMi-Ob-88m" firstAttribute="top" secondItem="d5q-dc-Egi" secondAttribute="top" id="Tcc-xB-wNh"/>
                 <constraint firstItem="0EO-Mk-lqs" firstAttribute="width" secondItem="6V2-ZH-siA" secondAttribute="width" id="ThE-MD-thB"/>
                 <constraint firstItem="hn7-bQ-kN5" firstAttribute="leading" secondItem="fGs-gS-Hro" secondAttribute="leading" id="Tvf-Bl-8az"/>
                 <constraint firstItem="J7G-fV-bGN" firstAttribute="trailing" secondItem="FLX-oY-JU5" secondAttribute="trailing" id="TzD-zq-Ccv"/>
@@ -799,9 +789,9 @@
                 <constraint firstItem="3ph-Qt-dQQ" firstAttribute="leading" secondItem="WUK-IV-S6B" secondAttribute="leading" id="ZQn-VS-1s2"/>
                 <constraint firstItem="7Cf-Op-GcQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="233" id="Zlp-OS-iQh"/>
                 <constraint firstItem="ehp-zX-vQL" firstAttribute="centerY" secondItem="6V2-ZH-siA" secondAttribute="centerY" id="Znd-3n-UAX"/>
-                <constraint firstItem="krp-E8-WRJ" firstAttribute="trailing" secondItem="pMF-iS-CBx" secondAttribute="trailing" id="a00-DI-WkV"/>
                 <constraint firstItem="6vt-Vl-cCH" firstAttribute="trailing" secondItem="Ww3-Xl-Bfx" secondAttribute="trailing" id="a29-G8-Wy1"/>
                 <constraint firstItem="a50-XK-WbJ" firstAttribute="trailing" secondItem="AxK-HT-jud" secondAttribute="trailing" id="aNO-cU-Efl"/>
+                <constraint firstItem="UY0-z7-yaK" firstAttribute="top" secondItem="MLO-2A-2vV" secondAttribute="bottom" constant="8" id="aYT-Wy-gYw"/>
                 <constraint firstItem="FMt-o4-Sat" firstAttribute="leading" secondItem="0CG-eS-nlY" secondAttribute="leading" id="ajg-10-hnV"/>
                 <constraint firstItem="a50-XK-WbJ" firstAttribute="leading" secondItem="AxK-HT-jud" secondAttribute="leading" id="akC-AU-V1G"/>
                 <constraint firstItem="RKl-wI-X3l" firstAttribute="width" secondItem="uQi-Oc-5pd" secondAttribute="width" id="b52-BO-f5I"/>
@@ -829,14 +819,15 @@
                 <constraint firstItem="D3D-yv-CuL" firstAttribute="centerY" secondItem="N8i-HF-0nZ" secondAttribute="centerY" id="fte-1b-WzG"/>
                 <constraint firstItem="uQi-Oc-5pd" firstAttribute="centerX" secondItem="Za5-14-v55" secondAttribute="centerX" id="gAb-TZ-pRy"/>
                 <constraint firstItem="FLX-oY-JU5" firstAttribute="top" secondItem="a50-XK-WbJ" secondAttribute="bottom" constant="29" id="ggs-Na-drS"/>
+                <constraint firstItem="Mgv-YY-tcE" firstAttribute="trailing" secondItem="3dN-2L-8bT" secondAttribute="trailing" id="h5s-zr-Ht2"/>
                 <constraint firstItem="NV9-Yr-Hdu" firstAttribute="leading" secondItem="Ezr-Cc-xvH" secondAttribute="leading" id="i3u-Jl-tP6"/>
                 <constraint firstItem="2Cy-dq-DgX" firstAttribute="trailing" secondItem="39L-Nm-aI0" secondAttribute="trailing" id="i89-1r-cN2"/>
                 <constraint firstItem="7p5-Zl-rAR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="77" id="j9b-2f-ZZm"/>
                 <constraint firstItem="Ww3-Xl-Bfx" firstAttribute="centerY" secondItem="0jq-CS-yfZ" secondAttribute="centerY" id="jLb-z2-Tqy"/>
+                <constraint firstItem="Mgv-YY-tcE" firstAttribute="top" secondItem="UY0-z7-yaK" secondAttribute="bottom" constant="3" id="jbr-hs-jSo"/>
                 <constraint firstItem="60B-1y-uVI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="jcQ-lb-zd6"/>
                 <constraint firstItem="hQE-dJ-lgD" firstAttribute="centerY" secondItem="pMF-iS-CBx" secondAttribute="centerY" id="jyB-D8-4Ji"/>
                 <constraint firstItem="JvC-rC-htQ" firstAttribute="width" secondItem="aRq-nz-7NN" secondAttribute="width" id="k5J-YF-TbF"/>
-                <constraint firstItem="Mgv-YY-tcE" firstAttribute="centerY" secondItem="57I-qY-BMR" secondAttribute="centerY" id="k6s-jy-XR5"/>
                 <constraint firstItem="uTx-t1-T3k" firstAttribute="leading" secondItem="GBB-aN-CnP" secondAttribute="leading" id="kM4-Td-PwP"/>
                 <constraint firstItem="3dN-2L-8bT" firstAttribute="trailing" secondItem="Enn-nC-d6K" secondAttribute="trailing" id="kVv-8H-oQi"/>
                 <constraint firstItem="hO5-Qn-K6k" firstAttribute="leading" secondItem="cXJ-6u-X7y" secondAttribute="leading" id="kad-oe-X0T"/>
@@ -882,6 +873,7 @@
                 <constraint firstItem="xvT-Es-rab" firstAttribute="trailing" secondItem="UC0-aX-021" secondAttribute="trailing" id="tfq-mI-DCc"/>
                 <constraint firstItem="a50-XK-WbJ" firstAttribute="top" secondItem="AxK-HT-jud" secondAttribute="bottom" constant="27.5" id="uSu-ve-NbN"/>
                 <constraint firstItem="e15-DY-X7c" firstAttribute="top" secondItem="W8F-Jo-qMm" secondAttribute="bottom" constant="4" id="ubz-eB-asr"/>
+                <constraint firstItem="yMi-Ob-88m" firstAttribute="bottom" secondItem="Mgv-YY-tcE" secondAttribute="bottom" id="ufu-kT-qQv"/>
                 <constraint firstItem="6vt-Vl-cCH" firstAttribute="centerY" secondItem="6BD-JE-tXB" secondAttribute="centerY" id="ugX-Fe-RoC"/>
                 <constraint firstItem="poZ-qL-S3s" firstAttribute="centerY" secondItem="ifu-k9-3Xa" secondAttribute="centerY" id="ulS-AG-rQy"/>
                 <constraint firstItem="QN6-ng-v9B" firstAttribute="trailing" secondItem="ajB-Ae-dQL" secondAttribute="trailing" id="uzV-NB-8sd"/>
@@ -940,32 +932,30 @@
                 <outletCollection property="fees" destination="i6p-P0-wqM" collectionClass="NSMutableArray" id="7ah-xW-Ykb"/>
                 <outletCollection property="fees" destination="H1q-7c-duB" collectionClass="NSMutableArray" id="DyB-hm-LSf"/>
                 <outletCollection property="fees" destination="pMF-iS-CBx" collectionClass="NSMutableArray" id="TYA-BJ-IiS"/>
-                <outletCollection property="fees" destination="krp-E8-WRJ" collectionClass="NSMutableArray" id="bXn-xk-zpH"/>
-                <outletCollection property="fees" destination="57I-qY-BMR" collectionClass="NSMutableArray" id="7k4-JA-0FM"/>
-                <outletCollection property="normals" destination="fGs-gS-Hro" collectionClass="NSMutableArray" id="aWy-KZ-ZFS"/>
-                <outletCollection property="normals" destination="hn7-bQ-kN5" collectionClass="NSMutableArray" id="WN0-Bu-nKG"/>
-                <outletCollection property="normals" destination="D3D-yv-CuL" collectionClass="NSMutableArray" id="BpC-pM-vDT"/>
-                <outletCollection property="normals" destination="iib-QO-BPz" collectionClass="NSMutableArray" id="yGf-EI-vGO"/>
-                <outletCollection property="normals" destination="2xw-aG-rcc" collectionClass="NSMutableArray" id="tLK-XQ-Gpf"/>
-                <outletCollection property="normals" destination="cNK-VD-1Ia" collectionClass="NSMutableArray" id="nGm-4l-Vgq"/>
-                <outletCollection property="normals" destination="hQE-dJ-lgD" collectionClass="NSMutableArray" id="K4x-a4-JvZ"/>
-                <outletCollection property="normals" destination="d5q-dc-Egi" collectionClass="NSMutableArray" id="Y6P-q5-aUz"/>
-                <outletCollection property="overtimes" destination="0jq-CS-yfZ" collectionClass="NSMutableArray" id="yLi-rS-iok"/>
-                <outletCollection property="overtimes" destination="6BD-JE-tXB" collectionClass="NSMutableArray" id="2Xi-1P-HIr"/>
-                <outletCollection property="overtimes" destination="IWe-TW-lUe" collectionClass="NSMutableArray" id="ueb-kk-pAf"/>
-                <outletCollection property="overtimes" destination="GHz-Qv-V7h" collectionClass="NSMutableArray" id="Rgx-kz-4ZX"/>
-                <outletCollection property="overtimes" destination="38J-JX-XD7" collectionClass="NSMutableArray" id="lsM-iB-ynr"/>
-                <outletCollection property="overtimes" destination="vk0-qf-SJz" collectionClass="NSMutableArray" id="L5g-SX-T2s"/>
-                <outletCollection property="overtimes" destination="MLO-2A-2vV" collectionClass="NSMutableArray" id="K9I-ob-wrM"/>
-                <outletCollection property="overtimes" destination="UY0-z7-yaK" collectionClass="NSMutableArray" id="cMD-aP-aqD"/>
-                <outletCollection property="sundays" destination="Ww3-Xl-Bfx" collectionClass="NSMutableArray" id="3Dn-lg-l6p"/>
-                <outletCollection property="sundays" destination="6vt-Vl-cCH" collectionClass="NSMutableArray" id="bdq-DL-fwc"/>
-                <outletCollection property="sundays" destination="Ezr-Cc-xvH" collectionClass="NSMutableArray" id="csd-nu-E4J"/>
-                <outletCollection property="sundays" destination="NV9-Yr-Hdu" collectionClass="NSMutableArray" id="SNg-Ge-bQb"/>
-                <outletCollection property="sundays" destination="tag-d2-dS7" collectionClass="NSMutableArray" id="5ng-XI-aFc"/>
-                <outletCollection property="sundays" destination="WUK-IV-S6B" collectionClass="NSMutableArray" id="nEw-uI-Qss"/>
-                <outletCollection property="sundays" destination="3ph-Qt-dQQ" collectionClass="NSMutableArray" id="KfB-je-RwP"/>
-                <outletCollection property="sundays" destination="ciQ-FX-R1y" collectionClass="NSMutableArray" id="3E2-Vz-n0u"/>
+                <outletCollection property="holidays" destination="fGs-gS-Hro" collectionClass="NSMutableArray" id="aWy-KZ-ZFS"/>
+                <outletCollection property="holidays" destination="hn7-bQ-kN5" collectionClass="NSMutableArray" id="WN0-Bu-nKG"/>
+                <outletCollection property="holidays" destination="D3D-yv-CuL" collectionClass="NSMutableArray" id="BpC-pM-vDT"/>
+                <outletCollection property="holidays" destination="iib-QO-BPz" collectionClass="NSMutableArray" id="yGf-EI-vGO"/>
+                <outletCollection property="holidays" destination="2xw-aG-rcc" collectionClass="NSMutableArray" id="tLK-XQ-Gpf"/>
+                <outletCollection property="holidays" destination="cNK-VD-1Ia" collectionClass="NSMutableArray" id="nGm-4l-Vgq"/>
+                <outletCollection property="holidays" destination="hQE-dJ-lgD" collectionClass="NSMutableArray" id="K4x-a4-JvZ"/>
+                <outletCollection property="holidays" destination="d5q-dc-Egi" collectionClass="NSMutableArray" id="Y6P-q5-aUz"/>
+                <outletCollection property="normals" destination="0jq-CS-yfZ" collectionClass="NSMutableArray" id="yLi-rS-iok"/>
+                <outletCollection property="normals" destination="6BD-JE-tXB" collectionClass="NSMutableArray" id="2Xi-1P-HIr"/>
+                <outletCollection property="normals" destination="IWe-TW-lUe" collectionClass="NSMutableArray" id="ueb-kk-pAf"/>
+                <outletCollection property="normals" destination="GHz-Qv-V7h" collectionClass="NSMutableArray" id="Rgx-kz-4ZX"/>
+                <outletCollection property="normals" destination="38J-JX-XD7" collectionClass="NSMutableArray" id="lsM-iB-ynr"/>
+                <outletCollection property="normals" destination="vk0-qf-SJz" collectionClass="NSMutableArray" id="L5g-SX-T2s"/>
+                <outletCollection property="normals" destination="MLO-2A-2vV" collectionClass="NSMutableArray" id="K9I-ob-wrM"/>
+                <outletCollection property="normals" destination="UY0-z7-yaK" collectionClass="NSMutableArray" id="cMD-aP-aqD"/>
+                <outletCollection property="overtimes" destination="Ww3-Xl-Bfx" collectionClass="NSMutableArray" id="3Dn-lg-l6p"/>
+                <outletCollection property="overtimes" destination="6vt-Vl-cCH" collectionClass="NSMutableArray" id="bdq-DL-fwc"/>
+                <outletCollection property="overtimes" destination="Ezr-Cc-xvH" collectionClass="NSMutableArray" id="csd-nu-E4J"/>
+                <outletCollection property="overtimes" destination="NV9-Yr-Hdu" collectionClass="NSMutableArray" id="SNg-Ge-bQb"/>
+                <outletCollection property="overtimes" destination="tag-d2-dS7" collectionClass="NSMutableArray" id="5ng-XI-aFc"/>
+                <outletCollection property="overtimes" destination="WUK-IV-S6B" collectionClass="NSMutableArray" id="nEw-uI-Qss"/>
+                <outletCollection property="overtimes" destination="3ph-Qt-dQQ" collectionClass="NSMutableArray" id="KfB-je-RwP"/>
+                <outletCollection property="overtimes" destination="ciQ-FX-R1y" collectionClass="NSMutableArray" id="3E2-Vz-n0u"/>
                 <outletCollection property="outs" destination="RaB-Sb-wrS" collectionClass="NSMutableArray" id="kP4-cw-TaA"/>
                 <outletCollection property="outs" destination="cXJ-6u-X7y" collectionClass="NSMutableArray" id="A0O-Td-Bg0"/>
                 <outletCollection property="outs" destination="hO5-Qn-K6k" collectionClass="NSMutableArray" id="mII-wT-bMr"/>
@@ -1001,6 +991,7 @@
                 <outletCollection property="waits" destination="JvC-rC-htQ" collectionClass="NSMutableArray" id="8tk-Tn-Klp"/>
                 <outletCollection property="waits" destination="ehp-zX-vQL" collectionClass="NSMutableArray" id="Swq-wz-rkI"/>
                 <outletCollection property="waits" destination="sc2-uV-tMy" collectionClass="NSMutableArray" id="096-i6-f0I"/>
+                <outletCollection property="fees" destination="yMi-Ob-88m" collectionClass="NSMutableArray" id="5Fz-Us-lqE"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="126"/>
         </view>

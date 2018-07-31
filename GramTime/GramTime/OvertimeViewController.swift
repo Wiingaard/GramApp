@@ -15,13 +15,18 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var hourPicker: UIPickerView!
     
     @IBAction func nextAction(_ sender: Any) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 , execute: { [weak self] in
-            let hours = self?.getSelectedHoursValue()
-            if hours != nil {
-                self?.overtime = hours!
-                self?.performSegue(withIdentifier: "Show Overtime Type", sender: nil)
+        func setOvertime() {
+            let hours = getSelectedHoursValue()
+            if hours >= 0 {
+                try! realm.write {
+                    workday.overtime = hours
+                }
             }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 , execute: { [weak self] in
+            guard let strongSelf = self else { return }
+            setOvertime()
+            strongSelf.navigationController?.popViewController(animated: true)
         })
     }
     
@@ -99,15 +104,4 @@ class OvertimeViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         hourPicker.selectRow(hours, inComponent: 0, animated: true)
         hourPicker.selectRow(half, inComponent: 1, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Overtime Type" {
-            let vc = segue.destination as! OvertimeTypeViewController
-            vc.report = report
-            vc.weekdayNo = weekdayNo
-            vc.overtime = overtime
-            vc.reportID = reportID
-        }
-    }
-    
 }

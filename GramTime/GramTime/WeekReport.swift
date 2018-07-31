@@ -306,6 +306,16 @@ class WeekReport: Object {
         }
     }
     
+    func dailyFeesOnWeekend() -> Int {
+        return workdays.reduce(0) { result, workday in
+            if workday.weekday > 4 {
+                return workday.dailyFee ? result+1 : result
+            } else {
+                return result
+            }
+        }
+    }
+    
     func travelTimesfor(type: TravelType) -> [(date: NSDate, duration: Double)] {
         let beginDate: Date!
         let duration: Double!
@@ -343,14 +353,36 @@ class WeekReport: Object {
         return returnValue
     }
     
-    func dailyFeesOnWeekend() -> Int {
-        return workdays.reduce(0) { result, workday in
-            if workday.weekday > 4 {
-                return workday.dailyFee ? result+1 : result
-            } else {
-                return result
-            }
+    func travelingTime(inYear year: Int) -> Double {
+        var beginDate: Date
+        var endDate: Date
+        
+        if let setBeginning = self.departure as Date? {
+            beginDate = setBeginning
+        } else {
+            beginDate = mondayInWeek
         }
+        
+        let nextMonday = time.getDate(withWeeks: 1, fromDate: mondayInWeek)
+        if let setEnd = self.arrival as Date? {
+            let duration = TimeInterval(travelHome * 60 * 60)
+            endDate = setEnd.addingTimeInterval(duration)
+        } else {
+            endDate = nextMonday
+        }
+        
+        let nextYear = time.firstOfJanuaryInYear(year+1)
+        if endDate.timeIntervalSince1970 > nextYear.timeIntervalSince1970 {
+            endDate = nextYear
+        }
+        
+        let thisYear = time.firstOfJanuaryInYear(year)
+        if beginDate.timeIntervalSince1970 < thisYear.timeIntervalSince1970 {
+            beginDate = thisYear
+        }
+        
+        let travelTime = endDate.timeIntervalSince(beginDate)
+        return max(travelTime, 0)
     }
     
     func unitsFor2InspectorToPm() -> Double {
@@ -391,5 +423,35 @@ class WeekReport: Object {
             }
         }
         return hours + travelSum
+    }
+    
+    func sallery1300For1InspectorToPm() -> Int {
+        let travelDays = travelTimesfor(type: TravelType.out) + travelTimesfor(type: TravelType.home)
+        
+        return workdays.reduce(0) { (result, workday) -> Int in
+//            let day = DayType(rawValue: workday.weekday)!
+//            print("Reducing ", day)
+            let travelingThisDay = travelDays.reduce(false, { (result, travelInfo) -> Bool in
+                let travelOnSameDate = travelInfo.date.isInSameDay(as: workday.date)
+                return result || travelOnSameDate
+            })
+            let isSaturday = workday.isSaturday
+            let isSunday = workday.isSunday
+            let isHoliday = workday.holiday
+            
+            var countTravel = false
+            if travelingThisDay && (isSaturday || isSunday || isHoliday) {
+                 countTravel = true
+            }
+            
+            var countHours = false
+            let workingThisDay = (workday.hours > 0 || workday.overtime > 0)
+            if workingThisDay && (isSunday || isHoliday) {
+                countHours = true
+            }
+            let doesCount = countTravel || countHours
+//            print("Count hours: \(countHours), count travel: \(countTravel), does count: \(doesCount)\n")
+            return result + (doesCount ? 1 : 0)
+        }
     }
 }
