@@ -128,5 +128,29 @@ class Workday: Object {
             return false
         }
     }
+    
+    func travelTime(between interval: (begin: Date, end: Date)) -> Double {
+        // only count travel time on workdays with daily fee
+        guard dailyFee else { return 0 }
+        
+        // Sanity check
+        guard interval.begin < interval.end else { return 0 }
+        
+        // Ensuring interval has time on this workday
+        let beginningOfThisWorkday = date.beginningOfDate()
+        let endOfThisWorkday = date.upcommingMidnight()
+        guard interval.begin < endOfThisWorkday else { return 0 }
+        guard interval.end > beginningOfThisWorkday else { return 0 }
+        
+        // Calculating time in four different cases
+        let beginningBeforeThisWorkday = interval.begin < beginningOfThisWorkday
+        let endingAfterThisWorkday = interval.end > endOfThisWorkday
+        switch (beginningBeforeThisWorkday, endingAfterThisWorkday) {
+        case (true, true): return endOfThisWorkday.timeIntervalSince(beginningOfThisWorkday)
+        case (true, false): return interval.end.timeIntervalSince(beginningOfThisWorkday)
+        case (false, true): return endOfThisWorkday.timeIntervalSince(interval.begin)
+        case (false, false): return interval.end.timeIntervalSince(interval.begin)
+        }
+    }
 }
 
