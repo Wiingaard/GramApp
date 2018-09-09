@@ -26,8 +26,6 @@ class CreateReportViewController: UIViewController {
         let newReport = WeekReport(withMonday: mondayInWeek, inspectorNumber: user.inspectorNumber, fullname: user.fullName)
         let createNewNumberVC = CreateNewProjectNoViewController.instantiateViewController(with: newReport)
         show(createNewNumberVC, sender: nil)
-//        print("### New week created! weeknumber: \(newReport.weekNumber)")
-//        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Model
