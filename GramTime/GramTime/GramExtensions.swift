@@ -78,8 +78,12 @@ extension Date {
         let components = calendar.dateComponents([.day, .month, .year], from: self)
         let roundedDate = calendar.date(from: components)
         let nextMidnight = calendar.date(byAdding: .day, value: 1, to: roundedDate!)!
-//        print("self: \(self), rounded: \(roundedDate!), next: \(nextMidnight)")
         return nextMidnight
+    }
+    
+    func beginningOfDate() -> Date {
+        let calendar = time.calendar
+        return calendar.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
     }
 }
 

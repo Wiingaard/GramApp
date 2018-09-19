@@ -142,6 +142,7 @@ class Time: NSObject {
     
     func latestMonday(since date: Date) -> Date {
         var comp = calendar.dateComponents([.weekday, .weekOfYear, .yearForWeekOfYear, .hour, .year, .month,], from: date)
+        comp.second = 0
         comp.minute = 0
         comp.hour = 0          // Set fixed hour to minimize risk of timezone errors
         comp.weekday = 2        // First weekday is sunday, so monday is 2

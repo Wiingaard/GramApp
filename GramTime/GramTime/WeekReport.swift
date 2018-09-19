@@ -381,8 +381,9 @@ class WeekReport: Object {
             beginDate = thisYear
         }
         
-        let travelTime = endDate.timeIntervalSince(beginDate)
-        return max(travelTime, 0)
+        return workdays.reduce(Double(0)) { (result, workday) -> Double in
+            return result + workday.travelTime(between: (begin: beginDate, end: endDate))
+        }
     }
     
     func unitsFor2InspectorToPm() -> Double {
